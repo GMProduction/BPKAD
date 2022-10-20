@@ -121,15 +121,203 @@
         src="{{ asset('assets/local/slide.png') }}" />
 
 
-    <div class="mt-[-70px] min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md">
-        <div class="grid grid-cols-4 gap-4">
-            <div class="flex">
-                <span class="material-symbols-outlined">
+    <div class="mt-[-70px] min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md flex items-center ">
+        <div class="grid grid-cols-4 gap-4 mt-[auto] mb-[auto] w-[100%]">
+            <div class="flex  justify-center  ">
+                <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     mail
                 </span>
-                <span>Email</span>
+                <div>
+                    <p class="text-primary font-bold italic">Email</p>
+                    <p>bpkad@surakarta.go.id</p>
+                </div>
+            </div>
+
+            <div class="flex  justify-center ">
+                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                    location_on
+                </span>
+                <div>
+                    <p class="text-primary font-bold italic">Alamat</p>
+                    <p>Jl. Jend Sudirman No. 2 ,
+                        Kompleks Balaikota Surakarta</p>
+                </div>
+            </div>
+
+            <div class="flex  justify-center ">
+                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                    call
+                </span>
+                <div>
+                    <p class="text-primary font-bold italic">Phone</p>
+                    <p>(0271) 642020</p>
+                </div>
+            </div>
+
+            <div class="flex  justify-center ">
+                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                    schedule
+                </span>
+                <div>
+                    <p class="text-primary font-bold italic">Jam Kerja</p>
+                    <p>Senin-Kamis 07.15-16.00 WIB</p>
+                    <p>Jumat 07.00-11.30 WIB</p>
+                </div>
             </div>
         </div>
+    </div>
+
+    <div class="container grid grid-cols-5 gap-4 mt-16">
+        <div class="col-span-2">
+            <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[40%] m-auto" />
+        </div>
+        <div class="col-span-3">
+            <p class="text-primary font-bold text-3xl italic mb-3">Apa sih BPKAD Surakarta?</p>
+            <p class="text-sm">Badan Pengelolaan Keuangan dan Aset Daerah Kota Surakarta merupakan unsur pelaksana
+                fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub Pengelolaan Keuangan dan Aset Daerah yang
+                menjadi kewenangan Pemerintahan Daerah yang dipimpin oleh Kepala Badan Pengelolaan Keuangan dan Aset
+                Daerah sesuai dengan Peraturan Walikota Surakarta Nomor 25.2 Tahun 2021 Tentang Kedudukan, Susunan
+                Organisasi, Tugas dan Fungsi serta Tata Kerja Badan Daerah</p>
+        </div>
+    </div>
+
+    <div class="bg-primary mt-10 w-[100%] py-10 px-10">
+        <p class="text-white font-bold text-3xl italic mb-3 text-center">Aplikasi Online</p>
+        <p class="text-white text-sm text-center mb-10">Aplikasi Online yang dapat membantumu</p>
+
+        <div class="grid grid-cols-2  container gap-16 m-auto">
+            <div
+                class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer">
+                <div>
+                    <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[80%] m-auto" />
+                </div>
+                <div class="col-span-2">
+                    <p class="text-white font-bold text-3xl italic mb-3">Aplikasi SIMDA-NG</p>
+                    <p class="text-sm text-white ">Badan Pengelolaan Keuangan dan Aset Daerah Kota Surakarta merupakan
+                        unsur pelaksana fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub Pengelolaan Keuangan
+                        dan Aset Daerah yang menjadi kewenangan Pemerintahan Daerah yang dipimpin oleh Kepala Badan
+                        Pengelolaan Keuangan dan Aset Daerah sesuai dengan Peraturan Walikota Surakarta Nomor 25.2 Tahun
+                        2021 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta Tata Kerja Badan Daerah</p>
+                </div>
+
+            </div>
+
+            <div
+                class="rounded-md w-[100%]  bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer">
+                <div>
+                    <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[80%] m-auto" />
+                </div>
+                <div class="col-span-2">
+                    <p class="text-white font-bold text-3xl italic mb-3">Aplikasi SIMDA-NG</p>
+                    <p class="text-sm text-white ">Badan Pengelolaan Keuangan dan Aset Daerah Kota Surakarta merupakan
+                        unsur pelaksana fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub Pengelolaan Keuangan
+                        dan Aset Daerah yang menjadi kewenangan Pemerintahan Daerah yang dipimpin oleh Kepala Badan
+                        Pengelolaan Keuangan dan Aset Daerah sesuai dengan Peraturan Walikota Surakarta Nomor 25.2 Tahun
+                        2021 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta Tata Kerja Badan Daerah</p>
+                </div>
+
+            </div>
+
+            <div
+                class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer">
+                <div>
+                    <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[80%] m-auto" />
+                </div>
+                <div class="col-span-2">
+                    <p class="text-white font-bold text-3xl italic mb-3">Aplikasi SIMDA-NG</p>
+                    <p class="text-sm text-white ">Badan Pengelolaan Keuangan dan Aset Daerah Kota Surakarta merupakan
+                        unsur pelaksana fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub Pengelolaan Keuangan
+                        dan Aset Daerah yang menjadi kewenangan Pemerintahan Daerah yang dipimpin oleh Kepala Badan
+                        Pengelolaan Keuangan dan Aset Daerah sesuai dengan Peraturan Walikota Surakarta Nomor 25.2 Tahun
+                        2021 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta Tata Kerja Badan Daerah</p>
+                </div>
+
+            </div>
+
+            <div
+                class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer">
+                <div>
+                    <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[80%] m-auto" />
+                </div>
+                <div class="col-span-2">
+                    <p class="text-white font-bold text-3xl italic mb-3">Aplikasi SIMDA-NG</p>
+                    <p class="text-sm text-white ">Badan Pengelolaan Keuangan dan Aset Daerah Kota Surakarta merupakan
+                        unsur pelaksana fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub Pengelolaan Keuangan
+                        dan Aset Daerah yang menjadi kewenangan Pemerintahan Daerah yang dipimpin oleh Kepala Badan
+                        Pengelolaan Keuangan dan Aset Daerah sesuai dengan Peraturan Walikota Surakarta Nomor 25.2 Tahun
+                        2021 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta Tata Kerja Badan Daerah</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class=" mt-16">
+
+        <p class="text-primary font-bold text-3xl italic mb-3 text-center">Informasi Berkala</p>
+        <p class="text-sm text-center w-[50%] mx-auto">Informasi yang wajib di perbaharui kemudian disediakan dan diumumkan kepada
+            publik secara berkala sekurang-kurangnya setiap 6 bulan sekali</p>
+
+            <div class="grid grid-cols-2 gap-4 m-10">
+                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                        info
+                    </span>
+                    <span class="font-bold">Informasi Tentang Profil Badan Public</span>
+                </div>
+
+                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                        mail
+                    </span>
+                    <span class="font-bold">Ringkasan Program dan Kegiatan yang sedang dijalankan</span>
+                </div>
+
+                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                        mail
+                    </span>
+                    <span class="font-bold">Ringkasan Laporan Keuangan</span>
+                </div>
+
+                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                        mail
+                    </span>
+                    <span class="font-bold">Informasi Pengadaan Barang dan Jasa </span>
+                </div>
+
+                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                        mail
+                    </span>
+                    <span class="font-bold">Informasi Tentang Peraturan Keputusan atau Kebijakan yang mengikat</span>
+                </div>
+
+                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                        mail
+                    </span>
+                    <span class="font-bold">Informasi tentang prosedur peringatan dini dan prosedur evakuasi keadaan darurat</span>
+                </div>
+
+                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                        mail
+                    </span>
+                    <span class="font-bold">Ringkasan Informasi Tentang Kinerja</span>
+                </div>
+
+                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                        mail
+                    </span>
+                    <span class="font-bold">Informasi Tentang Tata Cara Pengaduan Penyalahgunaan Wewenang atau Pelanggaran</span>
+                </div>
+
+
+            </div>
     </div>
 
     <div class="content-wrapper">
@@ -139,82 +327,6 @@
 
 
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-sm-12">
-                    <img class="logo" src="{{ asset('images/local/logo-perusahaan.png') }}" />
-                    <p class="keterangan">Jasa Internasional Forwarding, Kargo serta Logistik terpercaya di
-                        Indonesia. Melayani lebih dari ratusan pelanggan dengan berbagai macam tujuan populer
-                        internasional seperti China, Singapura, Malaysia, Eropa, Amerika dan Australia.</p>
-                    <p class="keterangan">Kami berkomitmen untuk memberikan layanan dengan harga terbaik dan
-                        transparan serta konsultasi pengirman kargo dan Project Handling.</p>
-                </div>
-                <div class="col-lg-2 col-sm-12">
-                    <p class="judul">Kontak Kami</p>
-                    <div class="d-flex mb-3">
-                        <i class="material-icons menu-icon me-3">home</i>
-                        <div>
-                            <p class="info">Jl. Gatot Subroto
-                                Kawasan Industri Candi
-                                Blok K No 7
-                                Kavling 1
-                                Purwoyoso
-                                Semarang
-                                50184</p>
-                        </div>
-
-
-                    </div>
-
-                    <div class="d-flex mb-3">
-                        <i class="material-icons menu-icon me-3">schedule</i>
-                        <div>
-                            <p class="info fw-bold">Buka Jam</p>
-                            <p class="info">09.00 - 17.00</p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex mb-3">
-                        <i class="material-icons menu-icon me-3">mail</i>
-                        <div>
-                            <p class="info">rsx.srg@gmail.com</p>
-
-                        </div>
-                    </div>
-
-                    <div class="d-flex mb-3">
-                        <i class="material-icons menu-icon me-3">call</i>
-                        <div>
-                            <p class="info">+62 823-3233-5533</p>
-                            <p class="info">+62 813-9129-1127</p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-sm-12">
-                    <p class="judul">Navigasi</p>
-                    <a class="navigasi">Layanan Kami</a>
-                    <a class="navigasi">Tentang Kami</a>
-                    <a class="navigasi">Hubungi Kami</a>
-                    <a class="navigasi">Karir</a>
-                    <a class="navigasi">Berita</a>
-                    <a class="navigasi">Pricing</a>
-                    <a class="navigasi">Cek Resi</a>
-                </div>
-                <div class="col-lg-2 col-sm-12">
-                    <p class="judul">Tetap Terkoneksi</p>
-                    <a href="https://www.facebook.com/pages/category/Product-Service/SUKMATRIP-794165044301310/">
-                        <i class="fa fa-facebook-square fa-lg facebookbutton"></i></a>
-                    <a href="https://www.instagram.com/sukmatrip_/"> <i
-                            class="fa fa-instagram  fa-lg instagrambutton"></i></a>
-                </div>
-            </div>
-
-
-
-        </div>
-    </footer>
 
     <div class="d-flex bottom-footer justify-content-center align-items-center">
         <p style="color: white;" class="mt-4 f08">2022 - All rights reserved
