@@ -29,10 +29,10 @@
 
 
 
-    <nav class="bg-transparent  sticky top-0 z-1 h-[89px]">
+    <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10">
         <div class="container flex flex-wrap justify-between items-center mx-auto sticky top-0">
             <a href="#" class="flex items-center">
-                <img src="{{ asset('/assets/local/logosurakarta.png') }}" class="mr-3 sm:w-[77px] h-10 sm:h-[89px] "
+                <img src="{{ asset('/assets/local/logosurakarta.png') }}" class="logo mr-3   sm:h-[89px] "
                     alt="Surakarta Logo">
                 {{-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">BPKAD</span> --}}
             </a>
@@ -52,17 +52,17 @@
                     class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
                         <a href="#"
-                            class="block font-semibold py-2 pr-10 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3  md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
+                            class="block font-semibold py-2 pr-10 pl-3 menu active text-white bg-blue-700 rounded md:bg-transparent md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 "
                             aria-current="page">Beranda</a>
                     </li>
 
                     <li>
                         <a href="#"
-                            class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Profil</a>
+                            class="menu block py-2 pr-4 pl-3  text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Profil</a>
                     </li>
                     <li>
                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                            class="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-700  md:text-zinc-200  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Bidang
+                            class="menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Bidang
                             <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -98,11 +98,11 @@
                     </li>
                     <li>
                         <a href="#"
-                            class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Artikel</a>
+                            class="menu block py-2 pr-4 pl-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Artikel</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">PPID</a>
+                            class="menu block py-2 pr-4 pl-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">PPID</a>
                     </li>
                 </ul>
             </div>
@@ -112,7 +112,7 @@
 
     <div class="mt-[-89px] h-[796px] w-[100%] bg-black/50 z-[-1]  relative">
         <div class="absolute bottom-[200px] z-1 opacity-100 w-[100%] text-center">
-            <a class="font-bold text-red-600 text-4xl">BKPAD </a> <a class="font-bold text-4xl text-white">KOTA
+            <a class="font-bold text-red-600 text-4xl">BPKAD </a> <a class="font-bold text-4xl text-white">KOTA
                 SURAKARTA</a> <br>
             <a class="font-bold text-white">Badan Pengelolaan Keuangan & Aset Daerah Kota Surakarta</a>
         </div>
@@ -167,7 +167,7 @@
         </div>
     </div>
 
-    <div class="container grid grid-cols-5 gap-4 mt-16">
+    <div class="container grid grid-cols-5 gap-4 mt-16 mb-6">
         <div class="col-span-2">
             <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[40%] m-auto" />
         </div>
@@ -181,7 +181,7 @@
         </div>
     </div>
 
-    <div class="bg-primary mt-10 w-[100%] py-10 px-10">
+    <div class="bg-primary mt-16 w-[100%] py-10 px-10">
         <p class="text-white font-bold text-3xl italic mb-3 text-center">Aplikasi Online</p>
         <p class="text-white text-sm text-center mb-10">Aplikasi Online yang dapat membantumu</p>
 
@@ -189,15 +189,11 @@
             <div
                 class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer">
                 <div>
-                    <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[80%] m-auto" />
+                    <img src="{{ asset('assets/local/simdang.png') }}" class="w-[80%] m-auto" />
                 </div>
                 <div class="col-span-2">
-                    <p class="text-white font-bold text-3xl italic mb-3">Aplikasi SIMDA-NG</p>
-                    <p class="text-sm text-white ">Badan Pengelolaan Keuangan dan Aset Daerah Kota Surakarta merupakan
-                        unsur pelaksana fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub Pengelolaan Keuangan
-                        dan Aset Daerah yang menjadi kewenangan Pemerintahan Daerah yang dipimpin oleh Kepala Badan
-                        Pengelolaan Keuangan dan Aset Daerah sesuai dengan Peraturan Walikota Surakarta Nomor 25.2 Tahun
-                        2021 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta Tata Kerja Badan Daerah</p>
+                    <p class="text-white font-bold text-2xl italic mb-3">APLIKASI FMIS</p>
+                    <p class="text-sm text-white/80 ">Financial Management Information System (FMIS) dikembangkan dari basis SIMDA untuk mempermudah manajemen keuangan daerah pada Pemerintah Kota Surakarta.</p>
                 </div>
 
             </div>
@@ -205,15 +201,13 @@
             <div
                 class="rounded-md w-[100%]  bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer">
                 <div>
-                    <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[80%] m-auto" />
+                    <img src="{{ asset('assets/local/hibah-online.png') }}" class="w-[80%] m-auto" />
                 </div>
                 <div class="col-span-2">
-                    <p class="text-white font-bold text-3xl italic mb-3">Aplikasi SIMDA-NG</p>
-                    <p class="text-sm text-white ">Badan Pengelolaan Keuangan dan Aset Daerah Kota Surakarta merupakan
-                        unsur pelaksana fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub Pengelolaan Keuangan
-                        dan Aset Daerah yang menjadi kewenangan Pemerintahan Daerah yang dipimpin oleh Kepala Badan
-                        Pengelolaan Keuangan dan Aset Daerah sesuai dengan Peraturan Walikota Surakarta Nomor 25.2 Tahun
-                        2021 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta Tata Kerja Badan Daerah</p>
+                    <p class="text-white font-bold text-2xl italic mb-3">Aplikasi HIBAH ONLINE</p>
+                    <p class="text-sm text-white/80 ">APLIKASI HIBAH BANSOS DAN BANKEU
+                        PEMERINTAH SURAKARTA, JAWA TENGAH
+                        Badan Pendapatan Pengelolaan Keuangan dan Aset Daerah</p>
                 </div>
 
             </div>
@@ -221,34 +215,29 @@
             <div
                 class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer">
                 <div>
-                    <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[80%] m-auto" />
+                    <img src="{{ asset('assets/local/sinta.png') }}" class="w-[80%] m-auto" />
                 </div>
                 <div class="col-span-2">
-                    <p class="text-white font-bold text-3xl italic mb-3">Aplikasi SIMDA-NG</p>
-                    <p class="text-sm text-white ">Badan Pengelolaan Keuangan dan Aset Daerah Kota Surakarta merupakan
-                        unsur pelaksana fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub Pengelolaan Keuangan
-                        dan Aset Daerah yang menjadi kewenangan Pemerintahan Daerah yang dipimpin oleh Kepala Badan
-                        Pengelolaan Keuangan dan Aset Daerah sesuai dengan Peraturan Walikota Surakarta Nomor 25.2 Tahun
-                        2021 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta Tata Kerja Badan Daerah</p>
+                    <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SINTA</p>
+                    <p class="text-sm text-white/80 ">Sistem Informasi Tanah Pemerintah Kota Surakarta</p>
                 </div>
 
             </div>
 
+            <a class="block " href="https://bppkad.surakarta.go.id/sikendis/" target="_blank">
             <div
                 class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer">
                 <div>
-                    <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[80%] m-auto" />
+                    <img src="{{ asset('assets/local/sikendis.png') }}" class="w-[80%] m-auto" />
                 </div>
                 <div class="col-span-2">
-                    <p class="text-white font-bold text-3xl italic mb-3">Aplikasi SIMDA-NG</p>
-                    <p class="text-sm text-white ">Badan Pengelolaan Keuangan dan Aset Daerah Kota Surakarta merupakan
-                        unsur pelaksana fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub Pengelolaan Keuangan
-                        dan Aset Daerah yang menjadi kewenangan Pemerintahan Daerah yang dipimpin oleh Kepala Badan
-                        Pengelolaan Keuangan dan Aset Daerah sesuai dengan Peraturan Walikota Surakarta Nomor 25.2 Tahun
-                        2021 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta Tata Kerja Badan Daerah</p>
+                    <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SINKENDIS</p>
+                    <p class="text-sm text-white/80 ">(Sistem Informasi Kendaraan Dinas)
+                        Pemerintah Kota Surakarta</p>
                 </div>
 
             </div>
+        </a>
         </div>
 
     </div>
@@ -272,7 +261,7 @@
             <div
                 class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    mail
+                    history_edu
                 </span>
                 <span class="font-bold">Ringkasan Program dan Kegiatan yang sedang dijalankan</span>
             </div>
@@ -280,7 +269,7 @@
             <div
                 class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    mail
+                    request_quote
                 </span>
                 <span class="font-bold">Ringkasan Laporan Keuangan</span>
             </div>
@@ -288,7 +277,7 @@
             <div
                 class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    mail
+                    inventory_2
                 </span>
                 <span class="font-bold">Informasi Pengadaan Barang dan Jasa </span>
             </div>
@@ -296,7 +285,7 @@
             <div
                 class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    mail
+                    local_police
                 </span>
                 <span class="font-bold">Informasi Tentang Peraturan Keputusan atau Kebijakan yang mengikat</span>
             </div>
@@ -304,7 +293,7 @@
             <div
                 class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    mail
+                    warning
                 </span>
                 <span class="font-bold">Informasi tentang prosedur peringatan dini dan prosedur evakuasi keadaan
                     darurat</span>
@@ -313,7 +302,7 @@
             <div
                 class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    mail
+                    work
                 </span>
                 <span class="font-bold">Ringkasan Informasi Tentang Kinerja</span>
             </div>
@@ -321,7 +310,7 @@
             <div
                 class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    mail
+                    dangerous
                 </span>
                 <span class="font-bold">Informasi Tentang Tata Cara Pengaduan Penyalahgunaan Wewenang atau
                     Pelanggaran</span>
@@ -397,71 +386,52 @@
         <p class="text-sm text-center w-[50%] mx-auto">Artikel terbaru dari kami</p>
 
 
-        <div class="grid grid-cols-3 gap-5 p-16">
+        <div class="grid grid-cols-4 gap-5 p-16">
             <div class="mb-10">
-                <div class="h-[400px] rounded-md relative overflow-hidden mb-5">
+                <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
                     <img class="w-full h-full object-cover rounded-md hover:scale-50"
                         src="https://cdn-2.tstatic.net/jateng/foto/bank/images/kericuhan-di-rutan-solo-kamis-1012019.jpg" />
 
                 </div>
-                <p class="italic font-bold text-xl">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
+                <p class="italic font-bold text-md text-center">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
                 </p>
             </div>
 
             <div class="mb-10">
-                <div class="h-[400px] rounded-md relative overflow-hidden mb-5">
+                <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
                     <img class="w-full h-full object-cover rounded-md hover:scale-50"
-                        src="https://cdn-2.tstatic.net/jateng/foto/bank/images/kericuhan-di-rutan-solo-kamis-1012019.jpg" />
+                        src="https://asset.kompas.com/crops/Wz555Tw9E7BzYVE3_UgSwYYk4KM=/0x0:780x520/750x500/data/photo/2019/09/16/5d7f65d83d0b9.jpg" />
 
                 </div>
-                <p class="italic font-bold text-xl">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
+                <p class="italic font-bold text-md text-center">Perbedaan Solo, Surakarta, Kartasura, dan Solo Baru, Ini Sejarahnya
                 </p>
             </div>
 
             <div class="mb-10">
-                <div class="h-[400px] rounded-md relative overflow-hidden mb-5">
+                <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
                     <img class="w-full h-full object-cover rounded-md hover:scale-50"
-                        src="https://cdn-2.tstatic.net/jateng/foto/bank/images/kericuhan-di-rutan-solo-kamis-1012019.jpg" />
+                        src="https://asset.kompas.com/crops/hI7t9Rp4KUaZO7eJ8xgckwN6KDQ=/0x0:1000x667/750x500/data/photo/2022/02/24/6217365e120c5.jpg" />
 
                 </div>
-                <p class="italic font-bold text-xl">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
+                <p class="italic font-bold text-md text-center">Tari Gambyong: Gerakan, Pola Lantai, Properti, Iringan, dan Maknanya
                 </p>
             </div>
 
             <div class="mb-10">
-                <div class="h-[400px] rounded-md relative overflow-hidden mb-5">
+                <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
                     <img class="w-full h-full object-cover rounded-md hover:scale-50"
-                        src="https://cdn-2.tstatic.net/jateng/foto/bank/images/kericuhan-di-rutan-solo-kamis-1012019.jpg" />
+                        src="https://asset.kompas.com/crops/3lNrjcur7miM2mLmWyfwUlC5Oq0=/0x0:0x0/750x500/data/photo/2021/10/11/6164296e46e4f.jpg" />
 
                 </div>
-                <p class="italic font-bold text-xl">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
+                <p class="italic font-bold text-md text-center">Mengenal Bedhaya Ketawang, Tarian Sakral dari Keraton Surakarta
                 </p>
             </div>
 
-            <div class="mb-10">
-                <div class="h-[400px] rounded-md relative overflow-hidden mb-5">
-                    <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
-                    <img class="w-full h-full object-cover rounded-md hover:scale-50"
-                        src="https://cdn-2.tstatic.net/jateng/foto/bank/images/kericuhan-di-rutan-solo-kamis-1012019.jpg" />
 
-                </div>
-                <p class="italic font-bold text-xl">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
-                </p>
-            </div>
-            <div class="mb-10">
-                <div class="h-[400px] rounded-md relative overflow-hidden mb-5">
-                    <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
-                    <img class="w-full h-full object-cover rounded-md hover:scale-50"
-                        src="https://cdn-2.tstatic.net/jateng/foto/bank/images/kericuhan-di-rutan-solo-kamis-1012019.jpg" />
-
-                </div>
-                <p class="italic font-bold text-xl">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
-                </p>
-            </div>
         </div>
     </div>
 
@@ -537,6 +507,7 @@
         @yield('content')
     </div>
     <script src="{{ asset('/js/flowbite.js') }}"></script>
+    <script src="{{ asset('/js/nav.js') }}"></script>
 
     @yield('morejs')
 </body>
