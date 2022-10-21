@@ -256,88 +256,286 @@
     <div class=" mt-16">
 
         <p class="text-primary font-bold text-3xl italic mb-3 text-center">Informasi Berkala</p>
-        <p class="text-sm text-center w-[50%] mx-auto">Informasi yang wajib di perbaharui kemudian disediakan dan diumumkan kepada
+        <p class="text-sm text-center w-[50%] mx-auto">Informasi yang wajib di perbaharui kemudian disediakan dan
+            diumumkan kepada
             publik secara berkala sekurang-kurangnya setiap 6 bulan sekali</p>
 
-            <div class="grid grid-cols-2 gap-4 m-10">
-                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                        info
-                    </span>
-                    <span class="font-bold">Informasi Tentang Profil Badan Public</span>
-                </div>
-
-                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                        mail
-                    </span>
-                    <span class="font-bold">Ringkasan Program dan Kegiatan yang sedang dijalankan</span>
-                </div>
-
-                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                        mail
-                    </span>
-                    <span class="font-bold">Ringkasan Laporan Keuangan</span>
-                </div>
-
-                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                        mail
-                    </span>
-                    <span class="font-bold">Informasi Pengadaan Barang dan Jasa </span>
-                </div>
-
-                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                        mail
-                    </span>
-                    <span class="font-bold">Informasi Tentang Peraturan Keputusan atau Kebijakan yang mengikat</span>
-                </div>
-
-                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                        mail
-                    </span>
-                    <span class="font-bold">Informasi tentang prosedur peringatan dini dan prosedur evakuasi keadaan darurat</span>
-                </div>
-
-                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                        mail
-                    </span>
-                    <span class="font-bold">Ringkasan Informasi Tentang Kinerja</span>
-                </div>
-
-                <div class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                    <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                        mail
-                    </span>
-                    <span class="font-bold">Informasi Tentang Tata Cara Pengaduan Penyalahgunaan Wewenang atau Pelanggaran</span>
-                </div>
-
-
+        <div class="grid grid-cols-2 gap-4 m-10">
+            <div
+                class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                    info
+                </span>
+                <span class="font-bold">Informasi Tentang Profil Badan Public</span>
             </div>
+
+            <div
+                class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                    mail
+                </span>
+                <span class="font-bold">Ringkasan Program dan Kegiatan yang sedang dijalankan</span>
+            </div>
+
+            <div
+                class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                    mail
+                </span>
+                <span class="font-bold">Ringkasan Laporan Keuangan</span>
+            </div>
+
+            <div
+                class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                    mail
+                </span>
+                <span class="font-bold">Informasi Pengadaan Barang dan Jasa </span>
+            </div>
+
+            <div
+                class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                    mail
+                </span>
+                <span class="font-bold">Informasi Tentang Peraturan Keputusan atau Kebijakan yang mengikat</span>
+            </div>
+
+            <div
+                class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                    mail
+                </span>
+                <span class="font-bold">Informasi tentang prosedur peringatan dini dan prosedur evakuasi keadaan
+                    darurat</span>
+            </div>
+
+            <div
+                class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                    mail
+                </span>
+                <span class="font-bold">Ringkasan Informasi Tentang Kinerja</span>
+            </div>
+
+            <div
+                class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                    mail
+                </span>
+                <span class="font-bold">Informasi Tentang Tata Cara Pengaduan Penyalahgunaan Wewenang atau
+                    Pelanggaran</span>
+            </div>
+
+
+        </div>
     </div>
 
+    <div class="grid grid-cols-2 h-[750px] relative overflow-hidden">
+        <div class="relative">
+            <div class="absolute bg-black/60 top-0 left-0 w-[100%] h-[100%]"></div>
+            <img src="{{ asset('assets/local/talk.jpg') }}" class="absolute z-[-1] object-cover h-full" />
+
+            <div class="absolute bottom-16 left-10 ">
+                <p class="italic font-bold text-4xl text-white mb-3">Kirim Aspirasi Anda</p>
+                <p class=" text-white">Yuk, Masukan aspirasimu untuk BPKAD yang lebih baik</p>
+            </div>
+        </div>
+        <div class="bg-primary p-16">
+            <form>
+                <div class="mb-6">
+                    <label for="aspirasi-nama"
+                        class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Nama</label>
+                    <input type="text" id="aspirasi-nama""
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                        placeholder="Masukan Nama Anda" required>
+                </div>
+
+                <div class="mb-6">
+                    <label for="aspirasi-alamat"
+                        class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Alamat</label>
+                    <input type="text" id="aspirasi-alamat""
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                        placeholder="Masukan Alamat Anda" required>
+                </div>
+
+                <div class="mb-6">
+                    <label for="aspirasi-nohp"
+                        class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Nomor Hp</label>
+                    <input type="text" id="aspirasi-nohp""
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                        placeholder="Masukan Nomor Hp Anda" required>
+                </div>
+
+                <div class="mb-6">
+                    <label for="aspirasi-text"
+                        class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Masukan Aspirasi</label>
+                    <textarea type="text" id="aspirasi-text" rows="4"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                        placeholder="Masukan Aspirasi anda" required></textarea>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block mb-2 text-sm font-medium text-white" for="user_avatar">Upload file</label>
+                    <input
+                        class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                    <div class="mt-1 text-sm text-white" id="user_avatar_help">Masukan Gambar / Foto jika diperlukan
+                    </div>
+                </div>
+
+                <button type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg w-full h-[75px] px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 font-bold text-2xl">Kirim</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class=" mt-16">
+
+        <p class="text-primary font-bold text-3xl italic mb-3 text-center">Artikel</p>
+        <p class="text-sm text-center w-[50%] mx-auto">Artikel terbaru dari kami</p>
+
+
+        <div class="grid grid-cols-3 gap-5 p-16">
+            <div class="mb-10">
+                <div class="h-[400px] rounded-md relative overflow-hidden mb-5">
+                    <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
+                    <img class="w-full h-full object-cover rounded-md hover:scale-50"
+                        src="https://cdn-2.tstatic.net/jateng/foto/bank/images/kericuhan-di-rutan-solo-kamis-1012019.jpg" />
+
+                </div>
+                <p class="italic font-bold text-xl">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
+                </p>
+            </div>
+
+            <div class="mb-10">
+                <div class="h-[400px] rounded-md relative overflow-hidden mb-5">
+                    <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
+                    <img class="w-full h-full object-cover rounded-md hover:scale-50"
+                        src="https://cdn-2.tstatic.net/jateng/foto/bank/images/kericuhan-di-rutan-solo-kamis-1012019.jpg" />
+
+                </div>
+                <p class="italic font-bold text-xl">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
+                </p>
+            </div>
+
+            <div class="mb-10">
+                <div class="h-[400px] rounded-md relative overflow-hidden mb-5">
+                    <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
+                    <img class="w-full h-full object-cover rounded-md hover:scale-50"
+                        src="https://cdn-2.tstatic.net/jateng/foto/bank/images/kericuhan-di-rutan-solo-kamis-1012019.jpg" />
+
+                </div>
+                <p class="italic font-bold text-xl">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
+                </p>
+            </div>
+
+            <div class="mb-10">
+                <div class="h-[400px] rounded-md relative overflow-hidden mb-5">
+                    <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
+                    <img class="w-full h-full object-cover rounded-md hover:scale-50"
+                        src="https://cdn-2.tstatic.net/jateng/foto/bank/images/kericuhan-di-rutan-solo-kamis-1012019.jpg" />
+
+                </div>
+                <p class="italic font-bold text-xl">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
+                </p>
+            </div>
+
+            <div class="mb-10">
+                <div class="h-[400px] rounded-md relative overflow-hidden mb-5">
+                    <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
+                    <img class="w-full h-full object-cover rounded-md hover:scale-50"
+                        src="https://cdn-2.tstatic.net/jateng/foto/bank/images/kericuhan-di-rutan-solo-kamis-1012019.jpg" />
+
+                </div>
+                <p class="italic font-bold text-xl">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
+                </p>
+            </div>
+            <div class="mb-10">
+                <div class="h-[400px] rounded-md relative overflow-hidden mb-5">
+                    <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
+                    <img class="w-full h-full object-cover rounded-md hover:scale-50"
+                        src="https://cdn-2.tstatic.net/jateng/foto/bank/images/kericuhan-di-rutan-solo-kamis-1012019.jpg" />
+
+                </div>
+                <p class="italic font-bold text-xl">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="">
+        <div class=" min-h-[500px] bg-primary p-16 ">
+            <div class="grid grid-cols-4 gap-10">
+                <div class="col-span-2">
+                    <p class="text-xl text-white font-bold mb-6">Sejarah Singkat</p>
+                    <p class="text-white/80 text-sm font-light ">Badan Pengelolaan Keuangan dan Aset Daerah Kota
+                        Surakarta merupakan unsur pelaksana fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub
+                        Pengelolaan Keuangan dan Aset Daerah yang menjadi kewenangan Pemerintahan Daerah yang dipimpin
+                        oleh Kepala Badan Pengelolaan Keuangan dan Aset Daerah sesuai dengan Peraturan Walikota
+                        Surakarta Nomor 25.2 Tahun 2021 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta
+                        Tata Kerja Badan Daerah</p>
+                </div>
+                <div>
+                    <p class="text-xl text-white font-bold mb-6">Contact</p>
+                    <p class="text-white text-sm font-bold italic">Email</p>
+                    <p class="text-white/80 text-sm font-light mb-3">bpkad@surakarta.go.id</p>
+
+                    <p class="text-white text-sm font-bold italic">Alamat</p>
+                    <p class="text-white/80 text-sm font-light mb-3">Jl. Jend Sudirman No. 2, Kompleks Balaikota
+                        Surakarta</p>
+
+                    <p class="text-white text-sm font-bold italic">Phone</p>
+                    <p class="text-white/80 text-sm font-light mb-3">(0271) 642 020</p>
+
+                    <p class="text-white text-sm font-bold italic">Jam Kerja</p>
+                    <p class="text-white/80 text-sm font-light">Senin - Kamis 07.15-16.00 WIB</p>
+                    <p class="text-white/80 text-sm font-light mb-3">Jumat 07.00-11.30 WIB</p>
+                </div>
+                <div>
+                    <p class="text-xl text-white font-bold mb-6">Social Media</p>
+                    <div class="flex">
+                        <button
+                            class="mr-3 bg-white p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+                            <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </button>
+
+                        <button
+                            class="mr-3 bg-white p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+                            <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                            </svg>
+                        </button>
+
+                        <button
+                            class="bg-white p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+                            <svg class="w-5 h-5 fill-current" role="img" viewBox="0 0 256 256"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path
+                                        d="M218.123122,218.127392 L180.191928,218.127392 L180.191928,158.724263 C180.191928,144.559023 179.939053,126.323993 160.463756,126.323993 C140.707926,126.323993 137.685284,141.757585 137.685284,157.692986 L137.685284,218.123441 L99.7540894,218.123441 L99.7540894,95.9665207 L136.168036,95.9665207 L136.168036,112.660562 L136.677736,112.660562 C144.102746,99.9650027 157.908637,92.3824528 172.605689,92.9280076 C211.050535,92.9280076 218.138927,118.216023 218.138927,151.114151 L218.123122,218.127392 Z M56.9550587,79.2685282 C44.7981969,79.2707099 34.9413443,69.4171797 34.9391618,57.260052 C34.93698,45.1029244 44.7902948,35.2458562 56.9471566,35.2436736 C69.1040185,35.2414916 78.9608713,45.0950217 78.963054,57.2521493 C78.9641017,63.090208 76.6459976,68.6895714 72.5186979,72.8184433 C68.3913982,76.9473153 62.7929898,79.26748 56.9550587,79.2685282 M75.9206558,218.127392 L37.94995,218.127392 L37.94995,95.9665207 L75.9206558,95.9665207 L75.9206558,218.127392 Z M237.033403,0.0182577091 L18.8895249,0.0182577091 C8.57959469,-0.0980923971 0.124827038,8.16056231 -0.001,18.4706066 L-0.001,237.524091 C0.120519052,247.839103 8.57460631,256.105934 18.8895249,255.9977 L237.033403,255.9977 C247.368728,256.125818 255.855922,247.859464 255.999,237.524091 L255.999,18.4548016 C255.851624,8.12438979 247.363742,-0.133792868 237.033403,0.000790807055">
+                                    </path>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="min-h-[75px] bg-primary flex items-center justify-center">
+            <p class="h-full text-center text-white">@BPKAD Surakarta 2022</p>
+        </div>
+    </footer>
     <div class="content-wrapper">
         @yield('content')
     </div>
-
-
-
-
-
-    <div class="d-flex bottom-footer justify-content-center align-items-center">
-        <p style="color: white;" class="mt-4 f08">2022 - All rights reserved
-            to
-            ©RadjasulaimanExpress
-        </p>
-    </div>
-
-
-
-
     <script src="{{ asset('/js/flowbite.js') }}"></script>
 
     @yield('morejs')
