@@ -29,15 +29,15 @@
 
 
 
-    <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10">
+    <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10 shadow-sm">
         <div class="container flex flex-wrap justify-between items-center mx-auto sticky top-0">
             <a href="#" class="flex items-center">
-                <img src="{{ asset('/assets/local/logosurakarta.png') }}" class="logo mr-3   sm:h-[89px] "
+                <img src="{{ asset('/assets/local/logosurakarta.png') }}" class="logo mr-3  h-16 m-3 sm:m-0 sm:h-[80px] "
                     alt="Surakarta Logo">
                 {{-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">BPKAD</span> --}}
             </a>
             <button data-collapse-toggle="mobile-menu" type="button"
-                class="inline-flex justify-center items-center ml-3 text-white rounded-lg md:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:text-gray-400 dark:hover:text-white dark:focus:ring-gray-500"
+                class="tombol-mobile inline-flex justify-center items-center m-5 text-white rounded-lg md:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:text-gray-400 dark:hover:text-white dark:focus:ring-gray-500"
                 aria-controls="mobile-menu-2" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -122,8 +122,8 @@
 
 
     <div class="mt-[-70px] min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md flex items-center ">
-        <div class="grid grid-cols-4 gap-4 mt-[auto] mb-[auto] w-[100%]">
-            <div class="flex  justify-center  ">
+        <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 mt-[auto] mb-[auto] w-[100%]">
+            <div class="flex  md:justify-center justify-start  sm:mx-0 mx-5 sm:my-0 my-1 sm:mt-0 mt-3">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     mail
                 </span>
@@ -133,7 +133,7 @@
                 </div>
             </div>
 
-            <div class="flex  justify-center ">
+            <div class="flex  md:justify-center justify-start sm:mx-0 mx-5 sm:my-0 my-1">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     location_on
                 </span>
@@ -144,7 +144,7 @@
                 </div>
             </div>
 
-            <div class="flex  justify-center ">
+            <div class="flex  jmd:justify-center justify-start sm:mx-0 mx-5 sm:my-0 my-1">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     call
                 </span>
@@ -154,8 +154,8 @@
                 </div>
             </div>
 
-            <div class="flex  justify-center ">
-                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+            <div class="flex  md:justify-center justify-start sm:mx-0 mx-5 sm:my-0 my-1 sm:mb-0 mb-3">
+                <span class="material-symbols-outlined font-bold  text-primary mr-2 ">
                     schedule
                 </span>
                 <div>
@@ -167,11 +167,11 @@
         </div>
     </div>
 
-    <div class="container grid grid-cols-5 gap-4 mt-16 mb-6">
+    <div class="container grid sm:grid-cols-5 grid-cols-1 gap-4 mt-16 mb-6">
         <div class="col-span-2">
             <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[40%] m-auto" />
         </div>
-        <div class="col-span-3">
+        <div class="col-span-3 sm:mx-0 mx-5">
             <p class="text-primary font-bold text-3xl italic mb-3">Apa sih BPKAD Surakarta?</p>
             <p class="text-sm">Badan Pengelolaan Keuangan dan Aset Daerah Kota Surakarta merupakan unsur pelaksana
                 fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub Pengelolaan Keuangan dan Aset Daerah yang
@@ -181,11 +181,11 @@
         </div>
     </div>
 
-    <div class="bg-primary mt-16 w-[100%] py-10 px-10">
+    <div class="bg-primary mt-16 w-[100%] py-10 sm:px-10 px-5">
         <p class="text-white font-bold text-3xl italic mb-3 text-center">Aplikasi Online</p>
-        <p class="text-white text-sm text-center mb-10">Aplikasi Online yang dapat membantumu</p>
+        <p class="text-white/80 text-sm text-center mb-10">Aplikasi Online yang dapat membantumu</p>
 
-        <div class="grid grid-cols-2  container gap-16 m-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2  container sm:gap-16 gap-5 m-auto">
             <div
                 class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer">
                 <div>
@@ -245,11 +245,11 @@
     <div class=" mt-16">
 
         <p class="text-primary font-bold text-3xl italic mb-3 text-center">Informasi Berkala</p>
-        <p class="text-sm text-center w-[50%] mx-auto">Informasi yang wajib di perbaharui kemudian disediakan dan
+        <p class="text-sm text-center md:w-[50%] sm:w-[75%] w-[95%] mx-auto">Informasi yang wajib di perbaharui kemudian disediakan dan
             diumumkan kepada
             publik secara berkala sekurang-kurangnya setiap 6 bulan sekali</p>
 
-        <div class="grid grid-cols-2 gap-4 m-10">
+        <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 sm:m-10 m-5">
             <div
                 class="h-[75px] hover:shadow-xl border hover:border-none transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
@@ -320,7 +320,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-2 h-[750px] relative overflow-hidden">
+    <div class="grid md:grid-cols-2 grid-cols-1 md:h-[750px] h-min-[750px] relative overflow-hidden">
         <div class="relative">
             <div class="absolute bg-black/60 top-0 left-0 w-[100%] h-[100%]"></div>
             <img src="{{ asset('assets/local/talk.jpg') }}" class="absolute z-[-1] object-cover h-full" />
@@ -330,12 +330,16 @@
                 <p class=" text-white">Yuk, Masukan aspirasimu untuk BPKAD yang lebih baik</p>
             </div>
         </div>
-        <div class="bg-primary p-16">
+        <div class="bg-primary sm:p-16 p-5 py-10 sm:py-16">
+            <div class="block md:hidden">
+                <p class="italic font-bold sm:text-4xl text-2xl text-white mb-3">Kirim Aspirasi Anda</p>
+                <p class=" text-white/80 sm:text-md text-sm mb-6">Yuk, Masukan aspirasimu untuk BPKAD yang lebih baik</p>
+            </div>
             <form>
                 <div class="mb-6">
                     <label for="aspirasi-nama"
                         class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Nama</label>
-                    <input type="text" id="aspirasi-nama""
+                    <input type="text" id="aspirasi-nama"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                         placeholder="Masukan Nama Anda" required>
                 </div>
@@ -343,7 +347,7 @@
                 <div class="mb-6">
                     <label for="aspirasi-alamat"
                         class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Alamat</label>
-                    <input type="text" id="aspirasi-alamat""
+                    <input type="text" id="aspirasi-alamat"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                         placeholder="Masukan Alamat Anda" required>
                 </div>
@@ -351,7 +355,7 @@
                 <div class="mb-6">
                     <label for="aspirasi-nohp"
                         class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Nomor Hp</label>
-                    <input type="text" id="aspirasi-nohp""
+                    <input type="text" id="aspirasi-nohp"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                         placeholder="Masukan Nomor Hp Anda" required>
                 </div>
@@ -386,7 +390,7 @@
         <p class="text-sm text-center w-[50%] mx-auto">Artikel terbaru dari kami</p>
 
 
-        <div class="grid grid-cols-4 gap-5 p-16">
+        <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-5 sm:p-16 p-5 ">
             <div class="mb-10">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
@@ -437,7 +441,7 @@
 
     <footer class="">
         <div class=" min-h-[500px] bg-primary p-16 ">
-            <div class="grid grid-cols-4 gap-10">
+            <div class="grid md:grid-cols-4 sd:grid-cols-3 grid-cols-2 gap-10">
                 <div class="col-span-2">
                     <p class="text-xl text-white font-bold mb-6">Sejarah Singkat</p>
                     <p class="text-white/80 text-sm font-light ">Badan Pengelolaan Keuangan dan Aset Daerah Kota
