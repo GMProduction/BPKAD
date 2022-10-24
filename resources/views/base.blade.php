@@ -32,8 +32,8 @@
     <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10 shadow-sm">
         <div class="container flex flex-wrap justify-between items-center mx-auto sticky top-0">
             <a href="#" class="flex items-center">
-                <img src="{{ asset('/assets/local/logosurakarta.png') }}" class="logo mr-3  h-16 m-3 sm:m-0 sm:h-[80px] "
-                    alt="Surakarta Logo">
+                <img src="{{ asset('/assets/local/logosurakarta.png') }}"
+                    class="logo mr-3  h-16 m-3 sm:m-0 sm:h-[80px] " alt="Surakarta Logo">
                 {{-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">BPKAD</span> --}}
             </a>
             <button data-collapse-toggle="mobile-menu" type="button"
@@ -185,7 +185,7 @@
         <p class="text-white font-bold text-3xl italic mb-3 text-center">Aplikasi Online</p>
         <p class="text-white/80 text-sm text-center mb-10">Aplikasi Online yang dapat membantumu</p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2  container sm:gap-16 gap-5 m-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2  container sm:gap-8 gap-5 m-auto">
             <div
                 class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer">
                 <div>
@@ -193,7 +193,8 @@
                 </div>
                 <div class="col-span-2">
                     <p class="text-white font-bold text-2xl italic mb-3">APLIKASI FMIS</p>
-                    <p class="text-sm text-white/80 ">Financial Management Information System (FMIS) dikembangkan dari basis SIMDA untuk mempermudah manajemen keuangan daerah pada Pemerintah Kota Surakarta.</p>
+                    <p class="text-sm text-white/80 ">Financial Management Information System (FMIS) dikembangkan dari
+                        basis SIMDA untuk mempermudah manajemen keuangan daerah pada Pemerintah Kota Surakarta.</p>
                 </div>
 
             </div>
@@ -225,19 +226,19 @@
             </div>
 
             <a class="block " href="https://bppkad.surakarta.go.id/sikendis/" target="_blank">
-            <div
-                class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer">
-                <div>
-                    <img src="{{ asset('assets/local/sikendis.png') }}" class="w-[80%] m-auto" />
-                </div>
-                <div class="col-span-2">
-                    <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SINKENDIS</p>
-                    <p class="text-sm text-white/80 ">(Sistem Informasi Kendaraan Dinas)
-                        Pemerintah Kota Surakarta</p>
-                </div>
+                <div
+                    class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer">
+                    <div>
+                        <img src="{{ asset('assets/local/sikendis.png') }}" class="w-[80%] m-auto" />
+                    </div>
+                    <div class="col-span-2">
+                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SINKENDIS</p>
+                        <p class="text-sm text-white/80 ">(Sistem Informasi Kendaraan Dinas)
+                            Pemerintah Kota Surakarta</p>
+                    </div>
 
-            </div>
-        </a>
+                </div>
+            </a>
         </div>
 
     </div>
@@ -245,7 +246,8 @@
     <div class=" mt-16">
 
         <p class="text-primary font-bold text-3xl italic mb-3 text-center">Informasi Berkala</p>
-        <p class="text-sm text-center md:w-[50%] sm:w-[75%] w-[95%] mx-auto">Informasi yang wajib di perbaharui kemudian disediakan dan
+        <p class="text-sm text-center md:w-[50%] sm:w-[75%] w-[95%] mx-auto">Informasi yang wajib di perbaharui
+            kemudian disediakan dan
             diumumkan kepada
             publik secara berkala sekurang-kurangnya setiap 6 bulan sekali</p>
 
@@ -333,7 +335,8 @@
         <div class="bg-primary sm:p-16 p-5 py-10 sm:py-16">
             <div class="block md:hidden">
                 <p class="italic font-bold sm:text-4xl text-2xl text-white mb-3">Kirim Aspirasi Anda</p>
-                <p class=" text-white/80 sm:text-md text-sm mb-6">Yuk, Masukan aspirasimu untuk BPKAD yang lebih baik</p>
+                <p class=" text-white/80 sm:text-md text-sm mb-6">Yuk, Masukan aspirasimu untuk BPKAD yang lebih baik
+                </p>
             </div>
             <form>
                 <div class="mb-6">
@@ -391,49 +394,53 @@
 
 
         <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-5 sm:p-16 p-5 ">
-            <div class="mb-10">
+            <a class="mb-10 block hover:shadow-xl transition duration-300 cursor-pointer">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
                     <img class="w-full h-full object-cover rounded-md hover:scale-50"
                         src="https://cdn-2.tstatic.net/jateng/foto/bank/images/kericuhan-di-rutan-solo-kamis-1012019.jpg" />
 
                 </div>
-                <p class="italic font-bold text-md text-center">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara berturut
+                <p class="italic font-bold text-md text-center px-3 pb-3">Pemerintah Kota Surakarta Meraih Opini WTP ke-12 Secara
+                    berturut
                 </p>
-            </div>
+            </a>
 
-            <div class="mb-10">
+            <a class="mb-10 block hover:shadow-xl transition duration-300 cursor-pointer">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
                     <img class="w-full h-full object-cover rounded-md hover:scale-50"
                         src="https://asset.kompas.com/crops/Wz555Tw9E7BzYVE3_UgSwYYk4KM=/0x0:780x520/750x500/data/photo/2019/09/16/5d7f65d83d0b9.jpg" />
 
                 </div>
-                <p class="italic font-bold text-md text-center">Perbedaan Solo, Surakarta, Kartasura, dan Solo Baru, Ini Sejarahnya
+                <p class="italic font-bold text-md text-center px-3 pb-3">Perbedaan Solo, Surakarta, Kartasura, dan Solo Baru,
+                    Ini Sejarahnya
                 </p>
-            </div>
+            </a>
 
-            <div class="mb-10">
+            <a class="mb-10 block hover:shadow-xl transition duration-300 cursor-pointer">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
                     <img class="w-full h-full object-cover rounded-md hover:scale-50"
                         src="https://asset.kompas.com/crops/hI7t9Rp4KUaZO7eJ8xgckwN6KDQ=/0x0:1000x667/750x500/data/photo/2022/02/24/6217365e120c5.jpg" />
 
                 </div>
-                <p class="italic font-bold text-md text-center">Tari Gambyong: Gerakan, Pola Lantai, Properti, Iringan, dan Maknanya
+                <p class="italic font-bold text-md text-center px-3 pb-3">Tari Gambyong: Gerakan, Pola Lantai, Properti, Iringan,
+                    dan Maknanya
                 </p>
-            </div>
+            </a>
 
-            <div class="mb-10">
+            <a class="mb-10 block hover:shadow-xl transition duration-300 cursor-pointer">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
                     <img class="w-full h-full object-cover rounded-md hover:scale-50"
                         src="https://asset.kompas.com/crops/3lNrjcur7miM2mLmWyfwUlC5Oq0=/0x0:0x0/750x500/data/photo/2021/10/11/6164296e46e4f.jpg" />
 
                 </div>
-                <p class="italic font-bold text-md text-center">Mengenal Bedhaya Ketawang, Tarian Sakral dari Keraton Surakarta
+                <p class="italic font-bold text-md text-center px-3 pb-3">Mengenal Bedhaya Ketawang, Tarian Sakral dari Keraton
+                    Surakarta
                 </p>
-            </div>
+            </a>
 
 
         </div>
@@ -469,27 +476,27 @@
                 </div>
                 <div>
                     <p class="text-xl text-white font-bold mb-6">Social Media</p>
-                    <div class="flex">
-                        <button
-                            class="mr-3 bg-white p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+                    <div class="flex flex-wrap">
+                        <a href="https://www.facebook.com/profile.php?id=100079921542712" target="_blank"
+                            class="mr-3 bg-white p-2 hover:bg-blue-600 font-semibold text-white inline-flex items-center space-x-2 rounded transition duration-300">
                             <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24">
                                 <path
                                     d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                             </svg>
-                        </button>
+                        </a>
 
-                        <button
-                            class="mr-3 bg-white p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+                        <a href="https://twitter.com/BpkadSolo" target="_blank"
+                            class="mr-3 bg-white hover:bg-teal-400 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded transition duration-300">
                             <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24">
                                 <path
                                     d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
                             </svg>
-                        </button>
+                        </a>
 
-                        <button
-                            class="bg-white p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+                        <a href="https://www.instagram.com/bpkad.surakarta/" target="_blank"
+                            class="mr-3 bg-white hover:bg-purple-500 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded transition duration-300">
                             <svg class="w-5 h-5 fill-current" role="img" viewBox="0 0 256 256"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g>
@@ -498,7 +505,16 @@
                                     </path>
                                 </g>
                             </svg>
-                        </button>
+                        </a>
+
+                        <a href="https://www.youtube.com/channel/UCDZHy-Oso1XyJe1JH2pwclA"
+                            class="bg-white hover:bg-red-600 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded transition duration-300">
+                            <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                                <path
+                                    d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+                            </svg>
+                        </a>
+
                     </div>
                 </div>
             </div>
