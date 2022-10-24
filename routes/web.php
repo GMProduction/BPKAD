@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('base');
+    return view('beranda');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
 });
