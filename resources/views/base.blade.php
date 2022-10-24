@@ -110,14 +110,14 @@
     </nav>
 
 
-    <div class="mt-[-89px] h-[796px] w-[100%] bg-black/50 z-[-1]  relative">
-        <div class="absolute bottom-[200px] z-1 opacity-100 w-[100%] text-center">
+    <div class="mt-[-89px] sm:h-[796px] h-[350px] w-[100%] bg-black/50 z-[-1]  relative">
+        <div class="absolute sm:bottom-[200px] bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
             <a class="font-bold text-red-600 text-4xl">BPKAD </a> <a class="font-bold text-4xl text-white">KOTA
                 SURAKARTA</a> <br>
             <a class="font-bold text-white">Badan Pengelolaan Keuangan & Aset Daerah Kota Surakarta</a>
         </div>
     </div>
-    <img class="absolute z-[-2] w-[100%] h-[796px] object-cover top-0 left-0"
+    <img class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] object-cover top-0 left-0"
         src="{{ asset('assets/local/slide.png') }}" />
 
 
