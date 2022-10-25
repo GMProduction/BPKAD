@@ -20,3 +20,39 @@ Route::get('/', function () {
 Route::get('/profile', function () {
     return view('profile');
 });
+
+Route::get('/sekretariat', function () {
+    return view('sekretariat');
+});
+
+Route::get('/anggaran', function () {
+    return view('anggaran');
+});
+
+Route::get('/perbendaharaan-dan-akuntansi', function () {
+    return view('perbendaharaan');
+});
+
+Route::get('/aset', function () {
+    return view('aset');
+});
+
+Route::get('/artikel', function () {
+    return view('artikel');
+});
+
+Route::get('/info-berkala', function () {
+    return view('info-berkala');
+});
+
+Route::get('/info-sertamerta', function () {
+    return view('info-sertamerta');
+});
+
+Route::get('/info-setiapsaat', function () {
+    return view('info-setiapsaat');
+});
+
+Route::get('/info-dikecualikan', function () {
+    return view('info-dikecualikan');
+});
