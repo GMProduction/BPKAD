@@ -25,7 +25,7 @@
 
         <p class="text-primary font-bold text-3xl italic  text-center mt-16 mb-10">Struktur Organisasi</p>
         <div class="w-full text-center">
-            <img src="{{ asset('assets/local/struktur.png') }}" class="  object-cover h-[600px] mx-auto " />
+            <img src="{{ asset('assets/local/struktur.png') }}" class="  object-cover md:h-[600px] w-[80%] mx-auto " />
         </div>
     </div>
 @endsection

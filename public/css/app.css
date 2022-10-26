@@ -1915,6 +1915,10 @@ input:checked + .toggle-bg {
     font-size: 2.25rem;
     line-height: 2.5rem;
   }
+
+  .sm\:font-bold {
+    font-weight: 700;
+  }
 }
 @media (min-width: 768px) {
 
@@ -1932,6 +1936,10 @@ input:checked + .toggle-bg {
 
   .md\:h-\[750px\] {
     height: 750px;
+  }
+
+  .md\:h-\[600px\] {
+    height: 600px;
   }
 
   .md\:w-\[50\%\] {
