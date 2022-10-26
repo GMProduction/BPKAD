@@ -998,6 +998,9 @@ input:checked + .toggle-bg {
 .bottom-0 {
   bottom: 0px;
 }
+.bottom-\[50px\] {
+  bottom: 50px;
+}
 .z-\[-1\] {
   z-index: -1;
 }
@@ -1845,6 +1848,14 @@ input:checked + .toggle-bg {
 
   .sm\:bottom-\[200px\] {
     bottom: 200px;
+  }
+
+  .sm\:bottom-\[50px\] {
+    bottom: 50px;
+  }
+
+  .sm\:bottom-\[100px\] {
+    bottom: 100px;
   }
 
   .sm\:m-0 {
