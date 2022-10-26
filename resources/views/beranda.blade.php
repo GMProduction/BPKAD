@@ -4,7 +4,7 @@
 
 <div class="mt-[-89px] sm:h-[796px] h-[350px] w-[100%] bg-black/50 z-[-1]  relative">
     <div class="absolute sm:bottom-[200px] bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
-        <a class="font-bold text-red-600 text-4xl">BPKAD </a> <a class="font-bold text-4xl text-white">KOTA
+        <a class="font-bold text-primary text-4xl">BPKAD </a> <a class="font-bold text-4xl text-white">KOTA
             SURAKARTA</a> <br>
         <a class="font-bold text-white">Badan Pengelolaan Keuangan & Aset Daerah Kota Surakarta</a>
     </div>
