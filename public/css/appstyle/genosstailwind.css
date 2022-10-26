@@ -9,3 +9,15 @@ body {
 body::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
+
+.item {
+  margin-bottom: 7px;
+  border-radius: 5px;
+  display: flex;
+  cursor: pointer;
+  padding: 7px;
+  min-height: 24px;
+}
+.item:hover {
+  background-color: rgba(0, 0, 0, 0.0352941176);
+}

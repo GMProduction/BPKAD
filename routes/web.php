@@ -56,3 +56,10 @@ Route::get('/info-setiapsaat', function () {
 Route::get('/info-dikecualikan', function () {
     return view('info-dikecualikan');
 });
+
+
+//ADMIN
+
+Route::get('/admin', function () {
+    return view('admin/base');
+});
