@@ -63,3 +63,7 @@ Route::get('/info-dikecualikan', function () {
 Route::get('/admin', function () {
     return view('admin/base');
 });
+
+Route::get('/admin/aspirasi', function () {
+    return view('admin/aspirasi');
+});

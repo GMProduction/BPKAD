@@ -249,10 +249,10 @@
 
             <div class="mb-6">
                 <label for="aspirasi-nohp"
-                    class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Nomor Hp</label>
+                    class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Email</label>
                 <input type="text" id="aspirasi-nohp"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                    placeholder="Masukan Nomor Hp Anda" required>
+                    placeholder="Masukan Email Anda" required>
             </div>
 
             <div class="mb-6">

@@ -31,10 +31,10 @@
         <div class="px-[24px] relative h-full flex items-center z-20 justify-between">
 
             <div class=" h-full flex items-center">
-                <span
+                <a onclick="openNav()"><span
                     class="material-symbols-outlined cursor-pointer rounded-full p-2 hover:bg-black/10 transition duration-300">
                     menu
-                </span>
+                </span></a>
 
                 <img src="{{ asset('/assets/local/logosurakarta.png') }}" class="logo   h-10   " alt="Surakarta Logo">
 
@@ -67,40 +67,55 @@
         </div>
     </nav>
 
-    <div class="bg-white shadow-sm w-[225px] h-full fixed top-0 left-0 ">
+    <div id="sidebar" class="bg-white shadow-sm h-full fixed top-0 left-0 sidebar">
         <div class="h-[70px]"></div>
         <div class="p-3 py-5">
-            <a class="item ">
-                <span class="material-symbols-outlined mr-2">
-                    dashboard
+            <a class="menu  nav-link">
+                <span class="material-symbols-outlined mr-2 menu-icon">
+                    text_to_speech
                     </span>
-                <p class="title-menu block">Dashboard</p>
+                <p class="title-menu block nav-link menu-text">Aspirasi </p>
             </a>
 
-            <a class="item ">
-                <span class="material-symbols-outlined mr-2">
-                    dashboard
+            <a class="menu nav-link">
+                <span class="material-symbols-outlined mr-2 menu-icon">
+                    settings
                     </span>
-                <p class="title-menu block">Dashboard</p>
+                <p class="title-menu block menu-text">Customize</p>
             </a>
 
-            <a class="item ">
-                <span class="material-symbols-outlined mr-2">
-                    dashboard
+            <a class="menu  nav-link">
+                <span class="material-symbols-outlined mr-2 menu-icon">
+                    info
                     </span>
-                <p class="title-menu block">Dashboard</p>
+                <p class="title-menu block menu-text">Information</p>
             </a>
 
-            <a class="item ">
-                <span class="material-symbols-outlined mr-2">
+            <a class="menu nav-link">
+                <span class="material-symbols-outlined mr-2 menu-icon">
                     dashboard
                     </span>
-                <p class="title-menu block">Dashboard</p>
+                <p class="title-menu block menu-text">Dashboard</p>
             </a>
         </div>
 
 
     </div>
+
+    {{-- CONTENT --}}
+    <div class="h-[70px]">
+
+    </div>
+
+    <div class="flex h-full">
+        <div class="side">
+
+        </div>
+        <div class="flex-1">
+            @yield('content')
+        </div>
+    </div>
+
 
     <script src="{{ asset('/js/flowbite.js') }}"></script>
     <script src="{{ asset('/js/nav.js') }}"></script>

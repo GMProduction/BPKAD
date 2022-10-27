@@ -10,14 +10,212 @@ body::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
 
-.item {
+.sidebar {
+  width: 255px;
+  position: relative;
+  overflow: hidden;
+}
+.sidebar .title-role {
+  all: unset;
+  font-weight: bold;
+  margin: 10px;
+}
+.sidebar .menu {
+  all: unset;
+  background-color: white;
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+  overflow: hidden;
+  height: 30px;
   margin-bottom: 7px;
   border-radius: 5px;
-  display: flex;
+  display: block;
   cursor: pointer;
   padding: 7px;
   min-height: 24px;
 }
-.item:hover {
+.sidebar .menu:hover {
   background-color: rgba(0, 0, 0, 0.0352941176);
+}
+.sidebar .menu .menu-icon {
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 100%;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 10px;
+  line-height: 30px;
+}
+.sidebar .menu .menu-text {
+  margin-top: auto;
+  margin-bottom: auto;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 30px;
+  transition: ease-in-out 1s;
+}
+.sidebar .menu.active {
+  transition: ease-in-out 0.2s;
+}
+.sidebar .menu:hover {
+  transition: ease-in-out 0.2s;
+}
+.sidebar .submenu {
+  padding-left: 0.5rem !important;
+}
+.sidebar .submenus {
+  height: 40px;
+  padding: 2px;
+  background-color: white;
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+  overflow: hidden;
+}
+.sidebar .submenus .menu-icon {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+  height: 100%;
+  line-height: 40px;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 10px;
+}
+.sidebar .submenus .menu-text {
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 100%;
+  line-height: 40px;
+  vertical-align: middle;
+  display: inline-block;
+  font-weight: 300;
+  transition: ease-in-out 0.5s;
+}
+.sidebar .submenus:hover {
+  transition: ease-in-out 0.2s;
+}
+.sidebar.ciut {
+  width: 60px;
+  transition: ease-in-out 0.5s;
+}
+.sidebar.ciut .menu-text {
+  transition: ease-in-out 0.5s;
+  width: 0;
+  display: none;
+}
+.sidebar.ciut .title-role {
+  display: none;
+}
+
+.side {
+  width: 255px;
+}
+.side.ciut {
+  width: 60px;
+  transition: ease-in-out 0.5s;
+}
+
+.panel {
+  padding: 16px;
+  background-color: white;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.0352941176);
+}
+.panel .title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.one-line {
+  text-overflow: ellipsis;
+  /* Needed to make it work */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/*Form fields*/
+.dataTables_wrapper select,
+.dataTables_wrapper .dataTables_filter input {
+  color: #4a5568;
+  /*text-gray-700*/
+  padding-left: 1rem;
+  /*pl-4*/
+  padding-right: 1rem;
+  /*pl-4*/
+  padding-top: 0.5rem;
+  /*pl-2*/
+  padding-bottom: 0.5rem;
+  /*pl-2*/
+  line-height: 1.25;
+  /*leading-tight*/
+  border-width: 2px;
+  /*border-2*/
+  border-radius: 0.25rem;
+  border-color: #edf2f7;
+  /*border-gray-200*/
+  background-color: #edf2f7;
+  /*bg-gray-200*/
+}
+
+/*Row Hover*/
+table.dataTable.hover tbody tr:hover,
+table.dataTable.display tbody tr:hover {
+  background-color: #ebf4ff;
+  /*bg-indigo-100*/
+}
+
+/*Pagination Buttons*/
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  font-weight: 700;
+  /*font-bold*/
+  border-radius: 0.25rem;
+  /*rounded*/
+  border: 1px solid transparent;
+  /*border border-transparent*/
+}
+
+/*Pagination Buttons - Current selected */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  color: #fff !important;
+  /*text-white*/
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  /*shadow*/
+  font-weight: 700;
+  /*font-bold*/
+  border-radius: 0.25rem;
+  /*rounded*/
+  background: #667eea !important;
+  /*bg-indigo-500*/
+  border: 1px solid transparent;
+  /*border border-transparent*/
+}
+
+/*Pagination Buttons - Hover */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  color: #fff !important;
+  /*text-white*/
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  /*shadow*/
+  font-weight: 700;
+  /*font-bold*/
+  border-radius: 0.25rem;
+  /*rounded*/
+  background: #667eea !important;
+  /*bg-indigo-500*/
+  border: 1px solid transparent;
+  /*border border-transparent*/
+}
+
+/*Add padding to bottom border */
+table.dataTable.no-footer {
+  border-bottom: 1px solid #e2e8f0;
+  /*border-b-1 border-gray-300*/
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+/*Change colour of responsive icon*/
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
+  background-color: #667eea !important;
+  /*bg-indigo-500*/
 }

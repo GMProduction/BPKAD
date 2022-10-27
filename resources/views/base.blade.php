@@ -27,8 +27,6 @@
 
 <body style="position: relative">
 
-
-
     <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10 shadow-sm">
         <div class="container flex flex-wrap justify-between items-center mx-auto sticky top-0">
             <a href="#" class="flex items-center">
