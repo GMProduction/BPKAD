@@ -57,6 +57,11 @@ Route::get('/info-dikecualikan', function () {
     return view('info-dikecualikan');
 });
 
+// LOGIN
+
+Route::get('/login', function () {
+    return view('auth.login');
+});
 
 //ADMIN
 
