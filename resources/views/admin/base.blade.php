@@ -70,7 +70,7 @@
     <div id="sidebar" class="bg-white shadow-sm h-full fixed top-0 left-0 sidebar">
         <div class="h-[70px]"></div>
         <div class="p-3 py-5">
-            <a class="menu  nav-link">
+            <a class="menu  nav-link" href="/admin/aspirasi">
                 <span class="material-symbols-outlined mr-2 menu-icon">
                     text_to_speech
                     </span>
@@ -118,7 +118,7 @@
 
 
     <script src="{{ asset('/js/flowbite.js') }}"></script>
-    <script src="{{ asset('/js/nav.js') }}"></script>
+    <script src="{{ asset('/js/admin/nav.js') }}"></script>
 
     @yield('morejs')
 </body>
