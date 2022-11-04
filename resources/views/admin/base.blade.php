@@ -51,12 +51,12 @@
 
                 <!-- Dropdown menu -->
                 <div id="dropdown"
-                    class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                    class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
+                    <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownDefault">
 
                         <li>
                             <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 text-red-600 ">Sign
+                                class="block py-2 px-4 hover:bg-gray-100  text-red-600 ">Sign
                                 out</a>
                         </li>
                     </ul>
@@ -77,14 +77,14 @@
                 <p class="title-menu block nav-link menu-text">Aspirasi </p>
             </a>
 
-            <a class="menu nav-link">
+            <a class="menu nav-link" href="customize">
                 <span class="material-symbols-outlined mr-2 menu-icon">
                     settings
                     </span>
                 <p class="title-menu block menu-text">Customize</p>
             </a>
 
-            <a class="menu  nav-link">
+            <a class="menu  nav-link" href="/admin/informasi">
                 <span class="material-symbols-outlined mr-2 menu-icon">
                     info
                     </span>
@@ -93,9 +93,9 @@
 
             <a class="menu nav-link">
                 <span class="material-symbols-outlined mr-2 menu-icon">
-                    dashboard
+                    feed
                     </span>
-                <p class="title-menu block menu-text">Dashboard</p>
+                <p class="title-menu block menu-text">Artikel</p>
             </a>
         </div>
 

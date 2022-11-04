@@ -26,16 +26,15 @@
 </head>
 
 <body style="position: relative">
-
     <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10 shadow-sm">
         <div class="container flex flex-wrap justify-between items-center mx-auto sticky top-0">
             <a href="#" class="flex items-center">
                 <img src="{{ asset('/assets/local/logosurakarta.png') }}"
                     class="logo mr-3  h-16 m-3 sm:m-0 sm:h-[80px] " alt="Surakarta Logo">
-                {{-- <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">BPKAD</span> --}}
+
             </a>
             <button data-collapse-toggle="mobile-menu" type="button"
-                class="tombol-mobile inline-flex justify-center items-center m-5 text-white rounded-lg md:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:text-gray-400 dark:hover:text-white dark:focus:ring-gray-500"
+                class="tombol-mobile inline-flex justify-center items-center m-5 text-white rounded-lg md:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300   "
                 aria-controls="mobile-menu-2" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -47,7 +46,7 @@
             </button>
             <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
                 <ul
-                    class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent   ">
                     <li>
                         <a href="/"
                             class="block font-semibold py-2 pr-10 pl-3 menu active text-white bg-blue-700 rounded md:bg-transparent md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 "
@@ -56,11 +55,11 @@
 
                     <li>
                         <a href="/profile"
-                            class="menu block py-2 pr-4 pl-3  text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Profil</a>
+                            class="menu block py-2 pr-4 pl-3  text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3    ">Profil</a>
                     </li>
                     <li>
                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                            class="menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Bidang
+                            class="menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">Bidang
                             <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -69,26 +68,26 @@
                             </svg></button>
                         <!-- Dropdown menu -->
                         <div id="dropdownNavbar"
-                            class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+                            class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow  "
                             data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
                             style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 110px);">
-                            <ul class="py-1 text-sm text-gray-700 dark:text-gray-400"
+                            <ul class="py-1 text-sm text-gray-700 "
                                 aria-labelledby="dropdownLargeButton">
                                 <li>
                                     <a href="/sekretariat"
-                                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sekretariat</a>
+                                        class="block py-2 px-4 hover:bg-gray-100  ">Sekretariat</a>
                                 </li>
                                 <li>
                                     <a href="/anggaran"
-                                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Anggaran</a>
+                                        class="block py-2 px-4 hover:bg-gray-100  ">Anggaran</a>
                                 </li>
                                 <li>
                                     <a href="/perbendaharaan-dan-akuntansi"
-                                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Perbendaharaan dan Akuntansi</a>
+                                        class="block py-2 px-4 hover:bg-gray-100  ">Perbendaharaan dan Akuntansi</a>
                                 </li>
                                 <li>
                                     <a href="/aset"
-                                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Aset</a>
+                                        class="block py-2 px-4 hover:bg-gray-100  ">Aset</a>
                                 </li>
                             </ul>
 
@@ -96,11 +95,11 @@
                     </li>
                     <li>
                         <a href="/artikel"
-                            class="menu block py-2 pr-4 pl-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Artikel</a>
+                            class="menu block py-2 pr-4 pl-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3   ">Artikel</a>
                     </li>
                     <li>
                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar2"
-                            class="menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">PPID
+                            class="menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">PPID
                             <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -109,26 +108,26 @@
                             </svg></button>
                         <!-- Dropdown menu -->
                         <div id="dropdownNavbar2"
-                            class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+                            class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow  "
                             data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
                             style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 110px);">
-                            <ul class="py-1 text-sm text-gray-700 dark:text-gray-400"
+                            <ul class="py-1 text-sm text-gray-700 "
                                 aria-labelledby="dropdownLargeButton">
                                 <li>
                                     <a href="/info-berkala"
-                                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Informasi Berkala</a>
+                                        class="block py-2 px-4 hover:bg-gray-100  ">Informasi Berkala</a>
                                 </li>
                                 <li>
                                     <a href="/info-sertamerta"
-                                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Informasi Serta Merta</a>
+                                        class="block py-2 px-4 hover:bg-gray-100  ">Informasi Serta Merta</a>
                                 </li>
                                 <li>
                                     <a href="/info-setiapsaat"
-                                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Informasi Setiap saat</a>
+                                        class="block py-2 px-4 hover:bg-gray-100  ">Informasi Setiap saat</a>
                                 </li>
                                 <li>
                                     <a href="/info-dikecualikan"
-                                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Informasi Dikecualikan</a>
+                                        class="block py-2 px-4 hover:bg-gray-100  ">Informasi Dikecualikan</a>
                                 </li>
                             </ul>
 

@@ -57,6 +57,10 @@ Route::get('/info-dikecualikan', function () {
     return view('info-dikecualikan');
 });
 
+Route::get('/informasi', function () {
+    return view('informasi');
+});
+
 // LOGIN
 
 Route::get('/login', function () {
@@ -70,5 +74,18 @@ Route::get('/admin', function () {
 });
 
 Route::get('/admin/aspirasi', function () {
-    return view('admin/aspirasi');
+    return view('admin/aspirasi/aspirasi');
 });
+
+Route::get('/admin/aspirasi/detail', function () {
+    return view('admin/aspirasi/aspirasi-detail');
+});
+
+Route::get('/admin/customize', function () {
+    return view('admin/customize');
+});
+
+Route::get('/admin/informasi', function () {
+    return view('admin/informasi');
+});
+

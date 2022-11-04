@@ -19,7 +19,7 @@
 
         <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 sm:m-10 m-5">
             <div
-                class="h-[75px] hover:shadow-xl border hover:border-none hover:bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                class="h-[75px] hover:shadow-xl border hover:border-none bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     info
                 </span>
@@ -27,7 +27,7 @@
             </div>
 
             <div
-                class="h-[75px] hover:shadow-xl border hover:border-none hover:bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                class="h-[75px] hover:shadow-xl border hover:border-none bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     history_edu
                 </span>
@@ -35,7 +35,7 @@
             </div>
 
             <div
-                class="h-[75px] hover:shadow-xl border hover:border-none hover:bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                class="h-[75px] hover:shadow-xl border hover:border-none bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     request_quote
                 </span>
@@ -43,7 +43,7 @@
             </div>
 
             <div
-                class="h-[75px] hover:shadow-xl border hover:border-none   hover:bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                class="h-[75px] hover:shadow-xl border hover:border-none   bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     inventory_2
                 </span>
@@ -51,7 +51,7 @@
             </div>
 
             <div
-                class="h-[75px] hover:shadow-xl border hover:border-none  hover:bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                class="h-[75px] hover:shadow-xl border hover:border-none  bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     local_police
                 </span>
@@ -59,7 +59,7 @@
             </div>
 
             <div
-                class="h-[75px] hover:shadow-xl border hover:border-none  hover:bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                class="h-[75px] hover:shadow-xl border hover:border-none  bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     warning
                 </span>
@@ -68,7 +68,7 @@
             </div>
 
             <div
-                class="h-[75px] hover:shadow-xl border hover:border-none hover:bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                class="h-[75px] hover:shadow-xl border hover:border-none bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     work
                 </span>
@@ -76,7 +76,7 @@
             </div>
 
             <div
-                class="h-[75px] hover:shadow-xl border hover:border-none  hover:bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+                class="h-[75px] hover:shadow-xl border hover:border-none  bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     dangerous
                 </span>

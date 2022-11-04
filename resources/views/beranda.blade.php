@@ -145,7 +145,7 @@
 
     <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 sm:m-10 m-5">
         <div
-            class="h-[75px] hover:shadow-xl border hover:border-none hover:bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+            class="h-[75px]  hover:shadow-xl border hover:border-none bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
             <span class="material-symbols-outlined font-bold  text-primary mr-2">
                 info
             </span>
@@ -153,7 +153,7 @@
         </div>
 
         <div
-            class="h-[75px] hover:shadow-xl border hover:border-none hover:bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+            class="h-[75px] hover:shadow-xl border hover:border-none bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
             <span class="material-symbols-outlined font-bold  text-primary mr-2">
                 history_edu
             </span>
@@ -161,7 +161,7 @@
         </div>
 
         <div
-            class="h-[75px] hover:shadow-xl border hover:border-none hover:bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+            class="h-[75px] hover:shadow-xl border hover:border-none bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
             <span class="material-symbols-outlined font-bold  text-primary mr-2">
                 request_quote
             </span>
@@ -169,7 +169,7 @@
         </div>
 
         <div
-            class="h-[75px] hover:shadow-xl border hover:border-none   hover:bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+            class="h-[75px] hover:shadow-xl border hover:border-none   bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
             <span class="material-symbols-outlined font-bold  text-primary mr-2">
                 inventory_2
             </span>
@@ -177,7 +177,7 @@
         </div>
 
         <div
-            class="h-[75px] hover:shadow-xl border hover:border-none  hover:bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+            class="h-[75px] hover:shadow-xl border hover:border-none  bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
             <span class="material-symbols-outlined font-bold  text-primary mr-2">
                 local_police
             </span>
@@ -185,7 +185,7 @@
         </div>
 
         <div
-            class="h-[75px] hover:shadow-xl border hover:border-none  hover:bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+            class="h-[75px] hover:shadow-xl border hover:border-none  bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
             <span class="material-symbols-outlined font-bold  text-primary mr-2">
                 warning
             </span>
@@ -194,7 +194,7 @@
         </div>
 
         <div
-            class="h-[75px] hover:shadow-xl border hover:border-none hover:bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+            class="h-[75px] hover:shadow-xl border hover:border-none bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
             <span class="material-symbols-outlined font-bold  text-primary mr-2">
                 work
             </span>
@@ -202,7 +202,7 @@
         </div>
 
         <div
-            class="h-[75px] hover:shadow-xl border hover:border-none  hover:bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
+            class="h-[75px] hover:shadow-xl border hover:border-none  bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
             <span class="material-symbols-outlined font-bold  text-primary mr-2">
                 dangerous
             </span>
@@ -233,7 +233,7 @@
         <form>
             <div class="mb-6">
                 <label for="aspirasi-nama"
-                    class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Nama</label>
+                    class="block mb-2 text-sm font-medium text-white ">Nama</label>
                 <input type="text" id="aspirasi-nama"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                     placeholder="Masukan Nama Anda" required>
@@ -241,7 +241,7 @@
 
             <div class="mb-6">
                 <label for="aspirasi-alamat"
-                    class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Alamat</label>
+                    class="block mb-2 text-sm font-medium text-white ">Alamat</label>
                 <input type="text" id="aspirasi-alamat"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                     placeholder="Masukan Alamat Anda" required>
@@ -249,7 +249,7 @@
 
             <div class="mb-6">
                 <label for="aspirasi-nohp"
-                    class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Email</label>
+                    class="block mb-2 text-sm font-medium text-white ">Email</label>
                 <input type="text" id="aspirasi-nohp"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                     placeholder="Masukan Email Anda" required>
@@ -257,7 +257,7 @@
 
             <div class="mb-6">
                 <label for="aspirasi-text"
-                    class="block mb-2 text-sm font-medium text-white dark:text-gray-300">Masukan Aspirasi</label>
+                    class="block mb-2 text-sm font-medium text-white ">Masukan Aspirasi</label>
                 <textarea type="text" id="aspirasi-text" rows="4"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                     placeholder="Masukan Aspirasi anda" required></textarea>
@@ -266,14 +266,14 @@
             <div class="mb-6">
                 <label class="block mb-2 text-sm font-medium text-white" for="user_avatar">Upload file</label>
                 <input
-                    class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                    class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
                     aria-describedby="user_avatar_help" id="user_avatar" type="file">
                 <div class="mt-1 text-sm text-white" id="user_avatar_help">Masukan Gambar / Foto jika diperlukan
                 </div>
             </div>
 
             <button type="submit"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg w-full h-[75px] px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 font-bold text-2xl">Kirim</button>
+                class="text-white bg-teal-500 hover:bg-teal-600 transition duration-300 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg w-full h-[75px] px-5 py-2.5 text-center  font-bold text-2xl">Kirim</button>
         </form>
     </div>
 </div>
