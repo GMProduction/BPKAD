@@ -150,7 +150,7 @@
                         Surakarta merupakan unsur pelaksana fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub
                         Pengelolaan Keuangan dan Aset Daerah yang menjadi kewenangan Pemerintahan Daerah yang dipimpin
                         oleh Kepala Badan Pengelolaan Keuangan dan Aset Daerah sesuai dengan Peraturan Walikota
-                        Surakarta Nomor 25.2 Tahun 2021 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta
+                        Surakarta Nomor 41 tahun 2021 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta
                         Tata Kerja Badan Daerah</p>
                 </div>
                 <div>

@@ -1,7 +1,7 @@
 @extends('base')
 
 @section('content')
-    <div class="mt-[-89px]  h-[350px] w-[100%] bg-black/50 z-[-1]  relative">
+    <div class="mt-[-89px]  h-[350px] w-[100%] bg-black/60 z-[-1]  relative">
         <div class="absolute  bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
             <a class="font-bold text-primary  text-4xl mb-3 inline-block mr-3">Aset </a> <a
                 class="font-bold text-4xl text-white inline-block ">BPKAD</a> <br>
@@ -10,7 +10,7 @@
                 Sekretaris</a>
         </div>
     </div>
-    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/slide.png') }}" />
+    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}" />
 
     <div class=" mt-16 mb-16">
 

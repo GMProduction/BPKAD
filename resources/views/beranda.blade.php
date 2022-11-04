@@ -10,7 +10,7 @@
     </div>
 </div>
 <img class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] object-cover top-0 left-0"
-    src="{{ asset('assets/local/slide.png') }}" />
+    src="{{ asset('assets/local/slide.jpg') }}" />
 
 
 <div class="mt-[-70px] min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md flex items-center ">
@@ -68,7 +68,7 @@
         <p class="text-sm">Badan Pengelolaan Keuangan dan Aset Daerah Kota Surakarta merupakan unsur pelaksana
             fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub Pengelolaan Keuangan dan Aset Daerah yang
             menjadi kewenangan Pemerintahan Daerah yang dipimpin oleh Kepala Badan Pengelolaan Keuangan dan Aset
-            Daerah sesuai dengan Peraturan Walikota Surakarta Nomor 25.2 Tahun 2021 Tentang Kedudukan, Susunan
+            Daerah sesuai dengan Peraturan Walikota Surakarta Nomor 41 tahun 2021 Tentang Kedudukan, Susunan
             Organisasi, Tugas dan Fungsi serta Tata Kerja Badan Daerah</p>
     </div>
 </div>

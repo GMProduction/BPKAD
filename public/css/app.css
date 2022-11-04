@@ -1488,6 +1488,12 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
+.bg-black\/80 {
+  background-color: rgb(0 0 0 / 0.8);
+}
+.bg-black\/70 {
+  background-color: rgb(0 0 0 / 0.7);
+}
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }

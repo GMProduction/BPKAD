@@ -7,7 +7,7 @@
             <a class="sm:font-bold text-white sm:text-md text-sm font-light">Artikel terbaru dari kami</a>
         </div>
     </div>
-    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/slide.png') }}" />
+    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}" />
 
     <div class=" mt-16">
 
