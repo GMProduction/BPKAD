@@ -81,8 +81,16 @@ Route::get('/admin/aspirasi/detail', function () {
     return view('admin/aspirasi/aspirasi-detail');
 });
 
-Route::get('/admin/customize', function () {
-    return view('admin/customize');
+Route::get('/admin/customize_beranda', function () {
+    return view('admin/customize/customize_beranda');
+});
+
+Route::get('/admin/customize_profil', function () {
+    return view('admin/customize/customize_profil');
+});
+
+Route::get('/admin/customize_bidang', function () {
+    return view('admin/customize/customize_bidang');
 });
 
 Route::get('/admin/informasi', function () {

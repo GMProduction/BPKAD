@@ -5,7 +5,6 @@ window.onscroll = function (ev) {
   var logo = document.querySelector(".logo");
   var tombol = document.querySelector(".tombol-mobile");
 
-  console.log(window.scrollY);
   if (window.scrollY > 100) {
     // you're at the bottom of the page
     logo.classList.remove("sm:h-[89px]");
