@@ -90,9 +90,10 @@
         <div class="slider-aplikasi">
             <a class="block " href="https://surakartakota.fmis.id//" target="_blank">
                 <div
-                    class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer h-[250px]">
+                    class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
                     <div>
-                        <img src="{{ asset('assets/local/simdang.png') }}" class="w-[80%] m-auto" />
+                        <img src="{{ asset('assets/local/simdang.png') }}"
+                            class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                     </div>
                     <div class="col-span-2">
                         <p class="text-white font-bold text-2xl italic mb-3">APLIKASI FMIS</p>
@@ -104,9 +105,10 @@
             </a>
             <a class="block " href="https://hibah.surakarta.go.id/" target="_blank">
                 <div
-                    class="rounded-md w-[100%]  bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer h-[250px]">
+                    class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
                     <div>
-                        <img src="{{ asset('assets/local/hibah-online.png') }}" class="w-[80%] m-auto" />
+                        <img src="{{ asset('assets/local/hibah-online.png') }}"
+                            class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                     </div>
                     <div class="col-span-2">
                         <p class="text-white font-bold text-2xl italic mb-3">Aplikasi HIBAH ONLINE</p>
@@ -119,9 +121,9 @@
             </a>
             <a class="block " href="https://bppkad.surakarta.go.id/sinta/" target="_blank">
                 <div
-                    class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer h-[250px]">
+                    class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
                     <div>
-                        <img src="{{ asset('assets/local/sinta.png') }}" class="w-[80%] m-auto" />
+                        <img src="{{ asset('assets/local/sinta.png') }}" class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                     </div>
                     <div class="col-span-2">
                         <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SINTA</p>
@@ -132,9 +134,10 @@
             </a>
             <a class="block " href="https://bppkad.surakarta.go.id/sikendis/" target="_blank">
                 <div
-                    class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer h-[250px]">
+                    class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
                     <div>
-                        <img src="{{ asset('assets/local/sikendis.png') }}" class="w-[80%] m-auto" />
+                        <img src="{{ asset('assets/local/sikendis.png') }}"
+                            class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                     </div>
                     <div class="col-span-2">
                         <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SINKENDIS</p>
@@ -145,34 +148,22 @@
                 </div>
             </a>
 
-            <a class="block " href="https://surakartakota.fmis.id//" target="_blank">
+            <a class="block " href="https://bppkad.surakarta.go.id/sikendis/" target="_blank">
                 <div
-                    class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer h-[250px]">
+                    class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
                     <div>
-                        <img src="{{ asset('assets/local/simdang.png') }}" class="w-[80%] m-auto" />
+                        <img src="{{ asset('assets/local/siperon.png') }}"
+                            class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                     </div>
                     <div class="col-span-2">
-                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI FMIS</p>
-                        <p class="text-sm text-white/80 ">Financial Management Information System (FMIS) dikembangkan dari
-                            basis SIMDA untuk mempermudah manajemen keuangan daerah pada Pemerintah Kota Surakarta.</p>
+                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI <i class="mdi mdi-skip-previous-outline:"></i></p>
+                        <p class="text-sm text-white/80 ">Aplikasi pencatatan belanja barang kantor / pembekalan kantor.</p>
                     </div>
 
                 </div>
             </a>
 
-            <a class="block " href="https://surakartakota.fmis.id//" target="_blank">
-                <div
-                    class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-3 p-5 transition duration-150 cursor-pointer h-[250px]">
-                    <div>
-                        <img src="{{ asset('assets/local/siperon.png') }}" class="w-[80%] m-auto" />
-                    </div>
-                    <div class="col-span-2">
-                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SIPERON</p>
-                        <p class="text-sm text-white/80 ">Aplikasi pencatatan pembelian barang / perbekalan kantor berbasis aplikasi.</p>
-                    </div>
 
-                </div>
-            </a>
 
         </div>
 
@@ -405,7 +396,7 @@
                     breakpoint: 760,
                     settings: {
                         centerMode: true,
-                        centerPadding: '40px',
+                        centerPadding: '20px',
                         slidesToShow: 1
                     }
                 }

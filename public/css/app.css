@@ -1290,6 +1290,9 @@ input:checked + .toggle-bg {
 .w-8 {
   width: 2rem;
 }
+.w-\[50px\] {
+  width: 50px;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -2117,6 +2120,10 @@ input:checked + .toggle-bg {
     height: 1.5rem;
   }
 
+  .sm\:h-\[250px\] {
+    height: 250px;
+  }
+
   .sm\:w-\[75\%\] {
     width: 75%;
   }
@@ -2131,6 +2138,10 @@ input:checked + .toggle-bg {
 
   .sm\:w-6 {
     width: 1.5rem;
+  }
+
+  .sm\:w-\[80\%\] {
+    width: 80%;
   }
 
   .sm\:max-w-md {
@@ -2151,6 +2162,10 @@ input:checked + .toggle-bg {
 
   .sm\:grid-cols-8 {
     grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .sm\:gap-8 {
