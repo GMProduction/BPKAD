@@ -132,6 +132,19 @@ body::-webkit-scrollbar {
   white-space: nowrap;
 }
 
+.tabs-btn {
+  display: inline-block;
+  color: #444;
+}
+.tabs-btn:hover {
+  color: #222;
+  border-color: #666;
+}
+.tabs-btn.active {
+  color: blue;
+  border-bottom: 2px solid blue;
+}
+
 /* the slides */
 .slick-slide {
   margin: 0 10px;

@@ -188,6 +188,23 @@ body::-webkit-scrollbar {
   white-space: nowrap;
 }
 
+.tabs-btn{
+    display: inline-block;
+    color: #444;
+
+    &:hover{
+        color: #222;
+        border-color: #666;
+    }
+
+    &.active{
+        color: blue;
+        border-bottom: 2px solid blue;
+    }
+}
+
+
+
 //SLICKS
 /* the slides */
 .slick-slide {

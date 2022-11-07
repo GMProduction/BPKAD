@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     @yield('head')
@@ -153,6 +152,7 @@
     </script>
     <script src="{{ asset('/js/flowbite.js') }}"></script>
     <script src="{{ asset('/js/admin/nav.js') }}"></script>
+    {{-- <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script> --}}
 
     @yield('morejs')
 </body>

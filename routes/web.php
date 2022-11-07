@@ -94,6 +94,14 @@ Route::get('/admin/customize_bidang', function () {
 });
 
 Route::get('/admin/informasi', function () {
-    return view('admin/informasi');
+    return view('admin/informasi/informasi');
+});
+
+Route::get('/admin/informasi/detail', function () {
+    return view('admin/informasi/informasi-detail');
+});
+
+Route::get('/admin/informasi/detailbyyear', function () {
+    return view('admin/informasi/informasi-detail-byyear');
 });
 
