@@ -360,8 +360,6 @@
             </a>
 
 
-
-
             <a class="mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
