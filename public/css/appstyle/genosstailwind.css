@@ -132,6 +132,17 @@ body::-webkit-scrollbar {
   white-space: nowrap;
 }
 
+.button-link {
+  background-color: transparent;
+  transition: all;
+  transition-duration: 300ms;
+  border-radius: 5px;
+  padding: 5px;
+}
+.button-link:hover {
+  background-color: rgba(17, 17, 17, 0.0666666667);
+}
+
 .tabs-btn {
   display: inline-block;
   color: #444;

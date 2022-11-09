@@ -188,6 +188,18 @@ body::-webkit-scrollbar {
   white-space: nowrap;
 }
 
+.button-link{
+    background-color: transparent;
+    transition: all;
+    transition-duration: 300ms;
+    border-radius: 5px;
+    padding: 5px;
+
+    &:hover{
+        background-color: #1111;
+    }
+}
+
 .tabs-btn{
     display: inline-block;
     color: #444;

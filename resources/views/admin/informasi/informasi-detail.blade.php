@@ -93,7 +93,7 @@
 
                             <td class="py-4 px-6 text-right">
                                 <a href="#" data-modal-toggle="modalEdit"
-                                    class="font-medium text-blue-600  hover:underline">Ubah</a>
+                                    class="font-medium text-blue-600  button-link">Ubah</a>
                             </td>
                         </tr>
                     </tbody>

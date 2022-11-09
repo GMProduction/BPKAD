@@ -71,7 +71,15 @@
             <div id="myTabContent">
                 <div class=" p-4 rounded-lg  " id="berkala" role="tabpanel" aria-labelledby="berkala-tab">
                     <div>
-
+                        <div class="bg-green-100 p-2 mb-3 flex items-center rounded-md">
+                            <span class="material-symbols-outlined text-green-700 mr-2">
+                                info
+                            </span>
+                            <span class="text-sm text-green-700">Informasi yang wajib diperbaharui kemudian
+                                disediakan dan diumumkan kepada publik secara berkala sekurang-kurangnya setiap 6 bulan
+                                sekali.
+                            </span>
+                        </div>
                         <div class="overflow-x-auto relative shadow-sm ">
                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <thead
@@ -89,6 +97,7 @@
                                         </th>
                                     </tr>
                                 </thead>
+
                                 <tbody>
                                     <tr
                                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -102,7 +111,7 @@
 
                                         <td class="py-4 px-6 text-right">
                                             <a href="/admin/informasi/detail"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
+                                                class="font-medium text-blue-600   button-link">Lihat Detail</a>
                                         </td>
                                     </tr>
                                     <tr
@@ -117,7 +126,7 @@
 
                                         <td class="py-4 px-6 text-right">
                                             <a href="/admin/informasi/detailbyyear"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
+                                                class="font-medium text-blue-600  button-link">Lihat Detail</a>
                                         </td>
                                     </tr>
                                     <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -130,8 +139,8 @@
                                         </th>
 
                                         <td class="py-4 px-6 text-right">
-                                            <a href="/admin/informasi/detail"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
+                                            <a href="/admin/informasi/detailbyyear"
+                                                class="font-medium text-blue-600  button-link">Lihat Detail</a>
                                         </td>
                                     </tr>
                                     <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -144,8 +153,9 @@
                                         </th>
 
                                         <td class="py-4 px-6 text-right">
-                                            <a href="#"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
+                                            <a href="/admin/informasi/detailbyyear"
+                                                class="font-medium text-blue-600  button-link">Lihat
+                                                Detail</a>
                                         </td>
                                     </tr>
                                     <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -158,8 +168,9 @@
                                         </th>
 
                                         <td class="py-4 px-6 text-right">
-                                            <a href="#"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
+                                            <a href="#" class="font-medium text-blue-600  button-link"
+                                                id="infoperaturan" data-dropdown-toggle="dropdownperaturan">Lihat
+                                                Detail</a>
                                         </td>
                                     </tr>
                                     <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -172,8 +183,9 @@
                                         </th>
 
                                         <td class="py-4 px-6 text-right">
-                                            <a href="#"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
+                                            <a href="/admin/informasi/detailbyyear"
+                                                class="font-medium text-blue-600  button-link">Lihat
+                                                Detail</a>
                                         </td>
                                     </tr>
                                     <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -186,11 +198,11 @@
                                         </th>
 
                                         <td class="py-4 px-6 text-right">
-                                            <a href="#"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
+                                            <a href="/admin/informasi/detailbyyear"
+                                                class="font-medium text-blue-600  button-link">Lihat
+                                                Detail</a>
                                         </td>
                                     </tr>
-
                                     <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
                                         <th class="text-center">
                                             8
@@ -201,20 +213,19 @@
                                         </th>
 
                                         <td class="py-4 px-6 text-right">
-                                            <a href="#"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
+                                            <a href="/admin/informasi/detailbyyear"
+                                                class="font-medium text-blue-600  button-link">Lihat
+                                                Detail</a>
                                         </td>
                                     </tr>
-
-
-
-
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
+
+
+
                 <div class=" p-4 rounded-lg hidden" id="sertamerta" role="tabpanel" aria-labelledby="sertamerta-tab">
                     <div>
                         <div class="mb-6">
@@ -310,6 +321,28 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div id="dropdownperaturan"
+            class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="infoperaturan">
+                <li>
+                    <a href="/admin/informasi/detailbyyear"
+                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
+                        Daerah</a>
+                </li>
+                <li>
+                    <a href="/admin/informasi/detailbyyear"
+                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
+                        Walikota</a>
+                </li>
+                <li>
+                    <a href="/admin/informasi/detailbyyear"
+                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
+                        Lainya</a>
+                </li>
+
+            </ul>
         </div>
     @endsection
 

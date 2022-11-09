@@ -91,7 +91,7 @@
 
                             <td class="py-4 px-6 text-right">
                                 <a href="#" data-modal-toggle="modalEdit"
-                                    class="font-medium text-blue-600  hover:underline">Ubah</a>
+                                    class="font-medium text-blue-600  button-link">Ubah</a>
                             </td>
                         </tr>
                     </tbody>
@@ -150,6 +150,7 @@
                                         </span>
                                     </button>
 
+
                                     <div id="tooltip-default" role="tooltip"
                                         class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip ">
                                         Tombol Tambah kategori (untuk tambah data yang belum terdaftar pada pilihan kategori
@@ -158,9 +159,26 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
+                        <div class="mb-3">
+                            <label for="countries"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
 
-
+                            <select id="tahun"
+                                class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                        rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                <option selected>Pilih Tahun</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                            </select>
                         </div>
 
                         <p class="text-sm pb-1">Konten / Isi</p>
@@ -207,9 +225,8 @@
                         <h3 class="text-xl font-semibold text-gray-900 ">
                             Tambah Kategori
                         </h3>
-                        <button type="button"  data-modal-toggle="modalTambah" onclick="modal.hide();"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
-                            >
+                        <button type="button" data-modal-toggle="modalTambah" onclick="modal.hide();"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -223,7 +240,8 @@
                     <div class="p-6 ">
 
                         <div class="mb-3">
-                            <label for="namakategori-add" class="block mb-2 text-sm font-medium text-gray-700 ">Nama Kategori</label>
+                            <label for="namakategori-add" class="block mb-2 text-sm font-medium text-gray-700 ">Nama
+                                Kategori</label>
                             <input type="text" id="namakategori-add"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                                 placeholder="Masukan Email Anda" required>
