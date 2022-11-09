@@ -29,6 +29,12 @@
 
 <section class="">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        @if (\Illuminate\Support\Facades\Session::has('failed'))
+            <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+                 role="alert">
+                <span class="font-medium">Login Gagal!</span> {{\Illuminate\Support\Facades\Session::get('failed')}}
+            </div>
+        @endif
 
         <div
             class="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0  ">
