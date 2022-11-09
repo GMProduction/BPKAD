@@ -29,7 +29,7 @@ body::-webkit-scrollbar {
   height: 30px;
   margin-bottom: 7px;
   border-radius: 5px;
-  display: block;
+  display: flex;
   cursor: pointer;
   padding: 7px;
   min-height: 24px;
@@ -117,7 +117,7 @@ body::-webkit-scrollbar {
 
 .panel {
   padding: 16px;
-  background-color: white;
+  background-color: #f9fafb;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.0352941176);
 }
 .panel .title {
@@ -130,6 +130,40 @@ body::-webkit-scrollbar {
   /* Needed to make it work */
   overflow: hidden;
   white-space: nowrap;
+}
+
+.button-link {
+  background-color: transparent;
+  transition: all;
+  transition-duration: 300ms;
+  border-radius: 5px;
+  padding: 5px;
+}
+.button-link:hover {
+  background-color: rgba(17, 17, 17, 0.0666666667);
+}
+
+.tabs-btn {
+  display: inline-block;
+  color: #444;
+}
+.tabs-btn:hover {
+  color: #222;
+  border-color: #666;
+}
+.tabs-btn.active {
+  color: blue;
+  border-bottom: 2px solid blue;
+}
+
+/* the slides */
+.slick-slide {
+  margin: 0 10px;
+}
+
+/* the parent */
+.slick-list {
+  margin: 0 -10px;
 }
 
 /*Form fields*/

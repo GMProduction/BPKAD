@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    @yield('head')
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,9 +32,9 @@
 
             <div class=" h-full flex items-center">
                 <a onclick="openNav()"><span
-                    class="material-symbols-outlined cursor-pointer rounded-full p-2 hover:bg-black/10 transition duration-300">
-                    menu
-                </span></a>
+                        class="material-symbols-outlined cursor-pointer rounded-full p-2 hover:bg-black/10 transition duration-300">
+                        menu
+                    </span></a>
 
                 <img src="{{ asset('/assets/local/logosurakarta.png') }}" class="logo   h-10   " alt="Surakarta Logo">
 
@@ -50,13 +50,11 @@
 
 
                 <!-- Dropdown menu -->
-                <div id="dropdown"
-                    class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
+                <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
                     <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownDefault">
 
                         <li>
-                            <a href="#"
-                                class="block py-2 px-4 hover:bg-gray-100  text-red-600 ">Sign
+                            <a href="#" class="block py-2 px-4 hover:bg-gray-100  text-red-600 ">Sign
                                 out</a>
                         </li>
                     </ul>
@@ -70,31 +68,60 @@
     <div id="sidebar" class="bg-white shadow-sm h-full fixed top-0 left-0 sidebar">
         <div class="h-[70px]"></div>
         <div class="p-3 py-5">
-            <a class="menu  nav-link" href="/admin/aspirasi">
-                <span class="material-symbols-outlined mr-2 menu-icon">
-                    text_to_speech
-                    </span>
-                <p class="title-menu block nav-link menu-text">Aspirasi </p>
-            </a>
 
             <a class="menu nav-link" href="customize">
                 <span class="material-symbols-outlined mr-2 menu-icon">
-                    settings
-                    </span>
-                <p class="title-menu block menu-text">Customize</p>
+                    dashboard
+                </span>
+                <p class="title-menu block menu-text">Dashboard</p>
             </a>
+
+            <a class="menu  nav-link" href="/admin/aspirasi">
+                <span class="material-symbols-outlined mr-2 menu-icon">
+                    text_to_speech
+                </span>
+                <p class="title-menu block nav-link menu-text">Aspirasi </p>
+            </a>
+
+
+
+            <a class="menu nav-link" onclick="dropdown()">
+                <span class="material-symbols-outlined mr-2 menu-icon">
+                    settings
+                </span>
+                <div class="flex justify-between w-full">
+                    <p class="title-menu block menu-text">Customize</p>
+                    <span id="arrow" class="material-symbols-outlined mr-2 menu-icon">
+                        expand_more
+
+                    </span>
+                </div>
+
+            </a>
+            <div id="submenu">
+                <a class="menu " href="/admin/customize_beranda">
+                    Beranda
+                </a>
+                <a class="menu " href="/admin/customize_profil">
+                    Profil
+                </a>
+                <a class="menu" href="/admin/customize_bidang">
+                    Bidang
+                </a>
+            </div>
+
 
             <a class="menu  nav-link" href="/admin/informasi">
                 <span class="material-symbols-outlined mr-2 menu-icon">
                     info
-                    </span>
+                </span>
                 <p class="title-menu block menu-text">Information</p>
             </a>
 
             <a class="menu nav-link">
                 <span class="material-symbols-outlined mr-2 menu-icon">
                     feed
-                    </span>
+                </span>
                 <p class="title-menu block menu-text">Artikel</p>
             </a>
         </div>
@@ -116,9 +143,16 @@
         </div>
     </div>
 
-
+    <script type="text/javascript">
+        function dropdown() {
+            document.querySelector("#submenu").classList.toggle("hidden");
+            document.querySelector("#arrow").classList.toggle("rotate-0");
+        }
+        dropdown();
+    </script>
     <script src="{{ asset('/js/flowbite.js') }}"></script>
     <script src="{{ asset('/js/admin/nav.js') }}"></script>
+    {{-- <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script> --}}
 
     @yield('morejs')
 </body>
