@@ -252,7 +252,7 @@
     <div class="grid md:grid-cols-2 grid-cols-1 md:h-[750px] h-min-[750px] relative overflow-hidden">
         <div class="relative">
             <div class="absolute bg-black/60 top-0 left-0 w-[100%] h-[100%]"></div>
-            <img src="{{ asset('assets/local/talk.jpeg') }}" class="absolute z-[-1] object-cover h-full" />
+            <img src="{{ asset('assets/local/talk.jpg') }}" class="absolute z-[-1] object-cover h-full" />
 
             <div class="absolute bottom-16 left-10 ">
                 <p class="italic font-bold text-4xl text-white mb-3">Kirim Aspirasi Anda</p>
