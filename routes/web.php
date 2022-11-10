@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::match(['get', 'post'], '/auth', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
+Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+    Route::group(['prefix' => 'aspirasi'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\AspirationController::class, 'index']);
+    });
+});
+
 Route::get('/', function () {
     return view('beranda');
 });
@@ -63,23 +74,23 @@ Route::get('/informasi', function () {
 
 // LOGIN
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
+//Route::get('/login', function () {
+//    return view('auth.login');
+//});
 
 //ADMIN
 
-Route::get('/admin', function () {
-    return view('admin/base');
-});
+//Route::get('/admin', function () {
+//    return view('admin/base');
+//});
 
-Route::get('/admin/aspirasi', function () {
-    return view('admin/aspirasi/aspirasi');
-});
-
-Route::get('/admin/aspirasi/detail', function () {
-    return view('admin/aspirasi/aspirasi-detail');
-});
+//Route::get('/admin/aspirasi', function () {
+//    return view('admin/aspirasi/aspirasi');
+//});
+//
+//Route::get('/admin/aspirasi/detail', function () {
+//    return view('admin/aspirasi/aspirasi-detail');
+//});
 
 Route::get('/admin/customize_beranda', function () {
     return view('admin/customize/customize_beranda');

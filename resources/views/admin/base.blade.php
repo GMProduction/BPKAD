@@ -54,7 +54,7 @@
                     <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownDefault">
 
                         <li>
-                            <a href="#" class="block py-2 px-4 hover:bg-gray-100  text-red-600 ">Sign
+                            <a href="{{ route('logout') }}" class="block py-2 px-4 hover:bg-gray-100  text-red-600 ">Sign
                                 out</a>
                         </li>
                     </ul>
