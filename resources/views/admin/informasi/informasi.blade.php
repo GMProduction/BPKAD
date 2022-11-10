@@ -44,9 +44,9 @@
                 <ul class="flex flex-wrap -mb-px" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
                     <li class="mr-2" role="presentation">
                         <button
-                            class="tabs-btn  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 active"
+                            class="tabs-btn  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 "
                             id="berkala-tab" data-tabs-target="#berkala" type="button" role="tab"
-                            aria-controls="berkala" aria-selected="true">Informasi Berkala</button>
+                            aria-controls="berkala" aria-selected="false">Informasi Berkala</button>
                     </li>
                     <li class="mr-2" role="presentation">
                         <button
@@ -68,10 +68,11 @@
                     </li>
                 </ul>
             </div>
+
             <div id="myTabContent">
                 <div class=" p-4 rounded-lg  " id="berkala" role="tabpanel" aria-labelledby="berkala-tab">
                     <div>
-                        <div class="bg-green-100 p-2 mb-3 flex items-center rounded-md">
+                        <div class="bg-green-100 p-2 mb-5 flex items-center rounded-md">
                             <span class="material-symbols-outlined text-green-700 mr-2">
                                 info
                             </span>
@@ -111,7 +112,7 @@
 
                                         <td class="py-4 px-6 text-right">
                                             <a href="/admin/informasi/detail"
-                                                class="font-medium text-blue-600   button-link">Lihat Detail</a>
+                                                class="font-medium text-blue-600   button-link bg-blue-100">Lihat Detail</a>
                                         </td>
                                     </tr>
                                     <tr
@@ -126,7 +127,7 @@
 
                                         <td class="py-4 px-6 text-right">
                                             <a href="/admin/informasi/detailbyyear"
-                                                class="font-medium text-blue-600  button-link">Lihat Detail</a>
+                                                class="font-medium text-blue-600  button-link bg-blue-100">Lihat Detail</a>
                                         </td>
                                     </tr>
                                     <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -140,7 +141,7 @@
 
                                         <td class="py-4 px-6 text-right">
                                             <a href="/admin/informasi/detailbyyear"
-                                                class="font-medium text-blue-600  button-link">Lihat Detail</a>
+                                                class="font-medium text-blue-600  button-link bg-blue-100">Lihat Detail</a>
                                         </td>
                                     </tr>
                                     <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -154,7 +155,7 @@
 
                                         <td class="py-4 px-6 text-right">
                                             <a href="/admin/informasi/detailbyyear"
-                                                class="font-medium text-blue-600  button-link">Lihat
+                                                class="font-medium text-blue-600  button-link bg-blue-100">Lihat
                                                 Detail</a>
                                         </td>
                                     </tr>
@@ -168,7 +169,7 @@
                                         </th>
 
                                         <td class="py-4 px-6 text-right">
-                                            <a href="#" class="font-medium text-blue-600  button-link"
+                                            <a href="#" class="font-medium text-blue-600  button-link bg-blue-100"
                                                 id="infoperaturan" data-dropdown-toggle="dropdownperaturan">Lihat
                                                 Detail</a>
                                         </td>
@@ -184,7 +185,7 @@
 
                                         <td class="py-4 px-6 text-right">
                                             <a href="/admin/informasi/detailbyyear"
-                                                class="font-medium text-blue-600  button-link">Lihat
+                                                class="font-medium text-blue-600  button-link bg-blue-100">Lihat
                                                 Detail</a>
                                         </td>
                                     </tr>
@@ -199,7 +200,7 @@
 
                                         <td class="py-4 px-6 text-right">
                                             <a href="/admin/informasi/detailbyyear"
-                                                class="font-medium text-blue-600  button-link">Lihat
+                                                class="font-medium text-blue-600  button-link bg-blue-100">Lihat
                                                 Detail</a>
                                         </td>
                                     </tr>
@@ -214,7 +215,7 @@
 
                                         <td class="py-4 px-6 text-right">
                                             <a href="/admin/informasi/detailbyyear"
-                                                class="font-medium text-blue-600  button-link">Lihat
+                                                class="font-medium text-blue-600  button-link bg-blue-100">Lihat
                                                 Detail</a>
                                         </td>
                                     </tr>
@@ -224,100 +225,190 @@
                     </div>
                 </div>
 
-
-
                 <div class=" p-4 rounded-lg hidden" id="sertamerta" role="tabpanel" aria-labelledby="sertamerta-tab">
                     <div>
-                        <div class="mb-6">
-                            <label for="anggaran-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
-                                Anggaran</label>
-                            <textarea type="text" id="anggaran-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas "></textarea>
+                        <div class="bg-green-100 p-2 mb-5 flex items-center rounded-md ">
+                            <span class="material-symbols-outlined text-green-700 mr-2 ">
+                                info
+                            </span>
+                            <span class="text-sm text-green-700 ">Informasi yang berkaitan dengan hajat hidup orang banyak
+                                dan ketertiban umum serta wajib diumumkan secara serta merta tanpa penundaan.
+                            </span>
                         </div>
 
-                        <div class="mb-6">
-                            <label for="anggaran-sub"
-                                class="block mb-2 text-sm font-medium text-gray-600 ">Subbagian</label>
-                            <textarea type="text" id="anggaran-sub" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Subbagian"></textarea>
-                        </div>
+                        <div class="flex justify-between mb-3">
+                            <div>
+                                <p class=" font-semibold mb-2">Informasi Serta Merta</p>
 
-                        <div class="mb-6">
-                            <label for="anggaran-sub-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
-                                Subbagian</label>
-                            <textarea type="text" id="anggaran-sub-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas Subbagian"></textarea>
+                            </div>
+                            <button type="button" data-modal-toggle="modalTambah"
+                                class="max-h-[47px] ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
+                                <span class="material-symbols-outlined text-white mr-3">
+                                    add
+                                </span>Tambah Informasi Serta Merta
+                            </button>
                         </div>
+                        <div class="overflow-x-auto relative shadow-sm ">
+                            <table class="w-full text-sm text-left text-gray-500  ">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                                    <tr>
+                                        <th scope="col" class="py-3 px-6">
+                                            #
+                                        </th>
+                                        <th scope="col" class="py-3 px-6">
+                                            Nama Informasi
+                                        </th>
 
-                        <button type="button" onclick="location.href='/admin/aspirasi/detail'"
-                            class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2   focus:outline-none ">
-                            <span class="material-symbols-outlined text-white mr-3">
-                                done
-                            </span>Ubah
-                        </button>
+                                        <th scope="col" class="py-3 px-6">
+                                            <span class="sr-only">Ubah</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b ">
+                                        <th class="text-center">
+                                            1
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            Informasi Tentang Profil Badan PUblic
+                                        </th>
+
+                                        <td class="py-4 px-6 text-right">
+                                            <a href="#" data-modal-toggle="modalEdit"
+                                                class="font-medium text-blue-600  button-link bg-blue-100 mr-1">Ubah</a>
+
+                                            <a href="#" data-modal-toggle="modalHapus"
+                                                class="font-medium text-red-600  button-link bg-red-100">Hapus</a>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+
                 <div class=" p-4 rounded-lg hidden" id="setiapsaat" role="tabpanel" aria-labelledby="setiapsaat-tab">
                     <div>
-                        <div class="mb-6">
-                            <label for="perbendaharaan-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
-                                Perbendaharaan dan Akuntansi</label>
-                            <textarea type="text" id="perbendaharaan-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas "></textarea>
+                        <div class="bg-green-100 p-2 mb-5 flex items-center rounded-md ">
+                            <span class="material-symbols-outlined text-green-700 mr-2 ">
+                                info
+                            </span>
+                            <span class="text-sm text-green-700 ">Informasi Setiap Saat adalah informasi yang harus disediakan oleh Badan Publik dan siap tersedia untuk dapat langsung diberikan kepada Pemohon Informasi Publik ketika terdapat permohonan terhadap Informasi Publik tersebut.
+                            </span>
                         </div>
 
-                        <div class="mb-6">
-                            <label for="perbendaharaan-sub"
-                                class="block mb-2 text-sm font-medium text-gray-600 ">Subbagian</label>
-                            <textarea type="text" id="perbendaharaan-sub" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Subbagian"></textarea>
-                        </div>
+                        <div class="flex justify-between mb-3">
+                            <div>
+                                <p class=" font-semibold mb-2">Informasi Setiap Saat</p>
 
-                        <div class="mb-6">
-                            <label for="perbendaharaan-sub-tugas"
-                                class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
-                                Subbagian</label>
-                            <textarea type="text" id="perbendaharaan-sub-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas Subbagian"></textarea>
+                            </div>
+                            <button type="button" data-modal-toggle="modalTambah"
+                                class="max-h-[47px] ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
+                                <span class="material-symbols-outlined text-white mr-3">
+                                    add
+                                </span>Tambah Informasi Setiap Saat
+                            </button>
                         </div>
+                        <div class="overflow-x-auto relative shadow-sm ">
+                            <table class="w-full text-sm text-left text-gray-500  ">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                                    <tr>
+                                        <th scope="col" class="py-3 px-6">
+                                            #
+                                        </th>
+                                        <th scope="col" class="py-3 px-6">
+                                            Nama Informasi
+                                        </th>
 
-                        <button type="button" onclick="location.href='/admin/aspirasi/detail'"
-                            class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2   focus:outline-none ">
-                            <span class="material-symbols-outlined text-white mr-3">
-                                done
-                            </span>Ubah
-                        </button>
+                                        <th scope="col" class="py-3 px-6">
+                                            <span class="sr-only">Ubah</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b ">
+                                        <th class="text-center">
+                                            1
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            Informasi Tentang Profil Badan PUblic
+                                        </th>
+
+                                        <td class="py-4 px-6 text-right">
+                                            <a href="#" data-modal-toggle="modalEdit"
+                                                class="font-medium text-blue-600  button-link bg-blue-100 mr-1">Ubah</a>
+
+                                            <a href="#" data-modal-toggle="modalHapus"
+                                                class="font-medium text-red-600  button-link bg-red-100">Hapus</a>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <div class=" p-4 rounded-lg  hidden" id="dikecualikan" role="tabpanel"
                     aria-labelledby="dikecualikan-tab">
                     <div>
-                        <div class="mb-6">
-                            <label for="aset-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
-                                Aset</label>
-                            <textarea type="text" id="aset-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas "></textarea>
+                        <div class="bg-green-100 p-2 mb-5 flex items-center rounded-md ">
+                            <span class="material-symbols-outlined text-green-700 mr-2 ">
+                                info
+                            </span>
+                            <span class="text-sm text-green-700 ">Informasi yang tidak dapat diakses Pemohon Informasi Publik sesuai Undang-Undang Nomor 14 Tahun 2008 Tentang Keterbukaan Informasi Publik.
+                            </span>
                         </div>
 
-                        <div class="mb-6">
-                            <label for="aset-sub" class="block mb-2 text-sm font-medium text-gray-600 ">Subbagian</label>
-                            <textarea type="text" id="aset-sub" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Subbagian"></textarea>
-                        </div>
+                        <div class="flex justify-between mb-3">
+                            <div>
+                                <p class=" font-semibold mb-2">Informasi Dikecualikan</p>
 
-                        <div class="mb-6">
-                            <label for="aset-sub-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
-                                Subbagian</label>
-                            <textarea type="text" id="aset-sub-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas Subbagian"></textarea>
+                            </div>
+                            <button type="button" data-modal-toggle="modalTambah"
+                                class="max-h-[47px] ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
+                                <span class="material-symbols-outlined text-white mr-3">
+                                    add
+                                </span>Tambah Informasi Dikecualikan
+                            </button>
                         </div>
+                        <div class="overflow-x-auto relative shadow-sm ">
+                            <table class="w-full text-sm text-left text-gray-500  ">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                                    <tr>
+                                        <th scope="col" class="py-3 px-6">
+                                            #
+                                        </th>
+                                        <th scope="col" class="py-3 px-6">
+                                            Nama Informasi
+                                        </th>
 
-                        <button type="button" onclick="location.href='/admin/aspirasi/detail'"
-                            class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2   focus:outline-none ">
-                            <span class="material-symbols-outlined text-white mr-3">
-                                done
-                            </span>Ubah
-                        </button>
+                                        <th scope="col" class="py-3 px-6">
+                                            <span class="sr-only">Ubah</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b ">
+                                        <th class="text-center">
+                                            1
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            Informasi Tentang Profil Badan PUblic
+                                        </th>
+
+                                        <td class="py-4 px-6 text-right">
+                                            <a href="#" data-modal-toggle="modalEdit"
+                                                class="font-medium text-blue-600  button-link bg-blue-100 mr-1">Ubah</a>
+
+                                            <a href="#" data-modal-toggle="modalHapus"
+                                                class="font-medium text-red-600  button-link bg-red-100">Hapus</a>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -343,6 +434,177 @@
                 </li>
 
             </ul>
+        </div>
+
+        <!-- Modal Tambah -->
+        <div id="modalTambah" tabindex="-1" aria-hidden="true"
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+            <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow ">
+                    <!-- Modal header -->
+                    <div class="flex justify-between items-start p-4 rounded-t border-b ">
+                        <h3 class="text-xl font-semibold text-gray-900 ">
+                            Tambah Informasi
+                        </h3>
+                        <button type="button"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
+                            data-modal-toggle="modalTambah">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="p-6 ">
+                        <div class="mb-3">
+                            <label for="nama-info" class="block mb-2 text-sm font-medium text-gray-700 ">Nama
+                                Informasi</label>
+                            <input type="text" id="nama-info"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                placeholder="Masukan Nama Informasi" required>
+                        </div>
+
+                        <p class="text-sm pb-1">Konten / Isi</p>
+                        <div class="border p-3 border-gray-200 rounded-lg">
+                            <div class="mb-3">
+                                <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                <input type="text" id="link-info"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                    placeholder="Masukan Email Anda" required>
+                            </div>
+
+                            <p class="text-center text-sm">atau</p>
+                            <div class="mb-3">
+                                <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
+                                    file</label>
+                                <input
+                                    class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
+                                    aria-describedby="upload-file_help" id="upload-file" type="file">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
+                        <button type="button" data-modal-toggle="modalTambah"
+                            class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                            <span class="material-symbols-outlined text-white mr-3">
+                                save
+                            </span>Simpan Informasi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Edit -->
+        <div id="modalEdit" tabindex="-1" aria-hidden="true"
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+            <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow ">
+                    <!-- Modal header -->
+                    <div class="flex justify-between items-start p-4 rounded-t border-b ">
+                        <h3 class="text-xl font-semibold text-gray-900 ">
+                            Edit Informasi
+                        </h3>
+                        <button type="button"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
+                            data-modal-toggle="modalEdit">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="p-6 ">
+                        <div class="mb-3">
+                            <label for="e-nama-info" class="block mb-2 text-sm font-medium text-gray-700 ">Nama
+                                Informasi</label>
+                            <input type="text" id="e-nama-info"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                placeholder="Masukan Nama Informasi" required>
+                        </div>
+
+                        <p class="text-sm pb-1">Konten / Isi</p>
+                        <div class="border p-3 border-gray-200 rounded-lg">
+                            <div class="mb-3">
+                                <label for="e-link-info"
+                                    class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                <input type="text" id="e-link-info"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                    placeholder="Masukan Email Anda" required>
+                            </div>
+
+                            <p class="text-center text-sm">atau</p>
+                            <div class="mb-3">
+                                <label class="block mb-2 text-sm font-medium text-gray-700 " for="e-upload-file">Upload
+                                    file</label>
+                                <input
+                                    class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
+                                    aria-describedby="user_avatar_help" id="e-upload-file" type="file">
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
+                        <button type="button" data-modal-toggle="modalEdit"
+                            class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                            <span class="material-symbols-outlined text-white mr-3">
+                                save
+                            </span>Simpan Informasi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {{-- MODAL DELETE --}}
+        <div id="modalHapus" tabindex="-1"
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full">
+            <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <button type="button"
+                        class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                        data-modal-toggle="modalHapus">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                    <div class="p-6 text-center">
+                        <svg aria-hidden="true" class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Kamu yakin ingin menghapus
+                            data ini ?</h3>
+                        <button data-modal-toggle="modalHapus" type="button"
+                            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                            Ya, Saya Yakin
+                        </button>
+                        <button data-modal-toggle="modalHapus" type="button"
+                            class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Tidak,
+                            Batalkan</button>
+                    </div>
+                </div>
+            </div>
         </div>
     @endsection
 

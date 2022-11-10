@@ -118,7 +118,7 @@
                 <p class="title-menu block menu-text">Information</p>
             </a>
 
-            <a class="menu nav-link">
+            <a class="menu nav-link" href="/admin/artikel">
                 <span class="material-symbols-outlined mr-2 menu-icon">
                     feed
                 </span>

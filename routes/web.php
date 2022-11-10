@@ -105,3 +105,10 @@ Route::get('/admin/informasi/detailbyyear', function () {
     return view('admin/informasi/informasi-detail-byyear');
 });
 
+Route::get('/admin/artikel', function () {
+    return view('admin/artikel/artikel');
+});
+
+Route::get('/admin/artikel-form', function () {
+    return view('admin/artikel/artikel-form');
+});
