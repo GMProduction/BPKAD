@@ -54,7 +54,8 @@
                     <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownDefault">
 
                         <li>
-                            <a href="{{ route('logout') }}" class="block py-2 px-4 hover:bg-gray-100  text-red-600 ">Sign
+                            <a href="{{ route('logout') }}"
+                                class="block py-2 px-4 hover:bg-gray-100  text-red-600 ">Sign
                                 out</a>
                         </li>
                     </ul>
@@ -69,7 +70,7 @@
         <div class="h-[70px]"></div>
         <div class="p-3 py-5">
 
-            <a class="menu nav-link" href="customize">
+            <a class="menu nav-link" href="/admin/dashboard">
                 <span class="material-symbols-outlined mr-2 menu-icon">
                     dashboard
                 </span>
@@ -98,15 +99,26 @@
                 </div>
 
             </a>
-            <div id="submenu">
-                <a class="menu " href="/admin/customize_beranda">
-                    Beranda
+            <div id="submenu" class="transition">
+                <a class="menu  nav-link " href="/admin/customize_beranda">
+                    <span class="material-symbols-outlined mr-2 menu-icon">
+                        fiber_manual_record
+                    </span>
+                    <p class="title-menu block nav-link menu-text text-sm">Aspirasi </p>
                 </a>
-                <a class="menu " href="/admin/customize_profil">
-                    Profil
+                <a class="menu nav-link" href="/admin/customize_profil">
+
+                    <span class="material-symbols-outlined mr-2 menu-icon">
+                        fiber_manual_record
+                    </span>
+                    <p class="title-menu block nav-link menu-text ext-sm">Profil </p>
                 </a>
                 <a class="menu" href="/admin/customize_bidang">
-                    Bidang
+
+                    <span class="material-symbols-outlined mr-2 menu-icon">
+                        fiber_manual_record
+                    </span>
+                    <p class="title-menu block nav-link menu-text ext-sm">Bidang </p>
                 </a>
             </div>
 

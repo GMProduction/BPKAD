@@ -1,6 +1,12 @@
 @extends('admin.base')
 
 @section('head')
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 
 @endsection
 
@@ -46,43 +52,45 @@
 
 
             <div class="mb-6">
-                <label for="sejarah-text" class="block mb-2 text-sm font-medium text-gray-600 ">Visi</label>
-                <textarea type="text" id="sejarah-text" rows="4"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="sejarah"></textarea>
+                <label for="visi-text" class="block mb-2 text-sm font-medium text-gray-600 ">Visi</label>
+                <div id="visi-text"></div>
+
             </div>
 
             <div class="mb-6">
-                <label for="sejarah-text" class="block mb-2 text-sm font-medium text-gray-600 ">Visi</label>
-                <textarea type="text" id="sejarah-text" rows="4"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="sejarah"></textarea>
+                <label for="misi-text" class="block mb-2 text-sm font-medium text-gray-600 ">Misi</label>
+                <div id="misi-text"></div>
             </div>
 
-            <label for="sejarah-text" class="block mb-2 text-sm font-medium text-gray-600 ">Gambar Struktur
-                Organisasi</label>
-            <div class="border p-3 rounded-lg mb-6 ">
-                <div class="flex justify-center items-center w-full">
-                    <label for="dropzone-file"
-                        class="flex flex-col justify-center items-center w-full h-64 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer   hover:bg-gray-100 0  ">
-                        <div class="flex flex-col justify-center items-center pt-5 pb-6">
-                            <svg aria-hidden="true" class="mb-3 w-10 h-10 text-gray-400" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
-                                </path>
-                            </svg>
-                            <p class="mb-2 text-sm text-gray-500 "><span class="font-semibold">Click
-                                    to
-                                    upload</span> or drag and drop</p>
-                            <p class="text-xs text-gray-500 ">SVG, PNG, JPG or GIF (MAX. 800x400px)
-                            </p>
+            <div x-data="showImage()" class="w-full">
+                <div class="mb-6">
+                    <div >
+                        <label class="inline-block mb-2 text-gray-500">Struktur Organisasi</label>
+                        <div class="flex items-center justify-center w-full">
+                            <label
+                                class="flex flex-col w-full border-4 border-dashed hover:bg-gray-100 hover:border-gray-300">
+                                <div class="relative flex flex-col items-center justify-center pt-7">
+                                    <img id="preview" class="absolute inset-0 h-[141px] object-fit">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-12 h-12 text-gray-400 group-hover:text-gray-600" viewBox="0 0 20 20"
+                                        fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <p class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
+                                        Select a photo</p>
+                                </div>
+                                <input type="file" class="opacity-0" accept="image/*" @change="showPreview(event)" />
+                            </label>
                         </div>
-                        <input id="dropzone-file" type="file" class="hidden" />
-                    </label>
+                    </div>
+
                 </div>
             </div>
 
             <button type="button" onclick="location.href='/admin/aspirasi/detail'"
-                class="flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2   focus:outline-none ">
+                class="flex items-center ml-auto text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2   focus:outline-none ">
                 <span class="material-symbols-outlined text-white mr-3">
                     domain_verification
 
@@ -90,14 +98,52 @@
             </button>
 
         </div>
-    @endsection
+    </div>
+@endsection
 
-    @section('morejs')
+@section('morejs')
+    <script>
+        $('#visi-text').summernote({
+            placeholder: 'Visi BPKAD',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
 
+        $('#misi-text').summernote({
+            placeholder: 'Misi BPKAD',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
 
-    @endsection
-
-
-    </body>
-
-    </html>
+        function showImage() {
+            return {
+                showPreview(event) {
+                    if (event.target.files.length > 0) {
+                        var src = URL.createObjectURL(event.target.files[0]);
+                        var preview = document.getElementById("preview");
+                        preview.src = src;
+                        preview.style.display = "block";
+                    }
+                }
+            }
+        }
+    </script>
+@endsection

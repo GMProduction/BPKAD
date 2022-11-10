@@ -123,3 +123,7 @@ Route::get('/admin/artikel', function () {
 Route::get('/admin/artikel-form', function () {
     return view('admin/artikel/artikel-form');
 });
+
+Route::get('/admin/dashboard', function () {
+    return view('admin/dashboard');
+});

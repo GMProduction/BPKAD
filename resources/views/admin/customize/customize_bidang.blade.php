@@ -46,9 +46,9 @@
                 <ul class="flex flex-wrap -mb-px" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
                     <li class="mr-2" role="presentation">
                         <button
-                            class="tabs-btn  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 active"
+                            class="tabs-btn  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 "
                             id="sekretariat-tab" data-tabs-target="#sekretariat" type="button" role="tab"
-                            aria-controls="sekretariat" aria-selected="true">Sekretariat</button>
+                            aria-controls="sekretariat" aria-selected="false">Sekretariat</button>
                     </li>
                     <li class="mr-2" role="presentation">
                         <button
