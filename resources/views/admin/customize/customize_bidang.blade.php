@@ -1,6 +1,11 @@
 @extends('admin.base')
-
-
+@section('head')
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+@endsection
 
 @section('css')
 @endsection
@@ -65,8 +70,8 @@
                     <li role="presentation">
                         <button
                             class="tabs-btn inline-block  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 "
-                            id="aset-tab" data-tabs-target="#aset" type="button" role="tab"
-                            aria-controls="aset" aria-selected="false">Aset</button>
+                            id="aset-tab" data-tabs-target="#aset" type="button" role="tab" aria-controls="aset"
+                            aria-selected="false">Aset</button>
                     </li>
                 </ul>
             </div>
@@ -76,22 +81,19 @@
                         <div class="mb-6">
                             <label for="sekretariat-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
                                 Sekretariat</label>
-                            <textarea type="text" id="sekretariat-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas "></textarea>
+                            <div class="summernote" id="sekretariat-tugas"></div>
                         </div>
 
                         <div class="mb-6">
                             <label for="sekretariat-sub"
                                 class="block mb-2 text-sm font-medium text-gray-600 ">Subbagian</label>
-                            <textarea type="text" id="sekretariat-sub" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Subbagian"></textarea>
+                            <div class="summernote" id="sekretariat-sub"></div>
                         </div>
 
                         <div class="mb-6">
                             <label for="sekretariat-sub-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
                                 Subbagian</label>
-                            <textarea type="text" id="sekretariat-sub-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas Subbagian"></textarea>
+                            <div class="summernote" id="sekretariat-sub-tugas"></div>
                         </div>
 
                         <button type="button" onclick="location.href='/admin/aspirasi/detail'"
@@ -102,28 +104,24 @@
                         </button>
                     </div>
                 </div>
-                <div class=" p-4 rounded-lg hidden" id="anggaran" role="tabpanel"
-                    aria-labelledby="anggaran-tab">
+                <div class=" p-4 rounded-lg hidden" id="anggaran" role="tabpanel" aria-labelledby="anggaran-tab">
                     <div>
                         <div class="mb-6">
                             <label for="anggaran-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
                                 Anggaran</label>
-                            <textarea type="text" id="anggaran-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas "></textarea>
+                            <div class="summernote" id="anggaran-tugas"></div>
                         </div>
 
                         <div class="mb-6">
                             <label for="anggaran-sub"
                                 class="block mb-2 text-sm font-medium text-gray-600 ">Subbagian</label>
-                            <textarea type="text" id="anggaran-sub" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Subbagian"></textarea>
+                            <div class="summernote" id="anggaran-sub"></div>
                         </div>
 
                         <div class="mb-6">
                             <label for="anggaran-sub-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
                                 Subbagian</label>
-                            <textarea type="text" id="anggaran-sub-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas Subbagian"></textarea>
+                            <div class="summernote" id="anggaran-sub-tugas"></div>
                         </div>
 
                         <button type="button" onclick="location.href='/admin/aspirasi/detail'"
@@ -140,22 +138,20 @@
                         <div class="mb-6">
                             <label for="perbendaharaan-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
                                 Perbendaharaan dan Akuntansi</label>
-                            <textarea type="text" id="perbendaharaan-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas "></textarea>
+                            <div class="summernote" id="perbendaharaan-tugas"></div>
                         </div>
 
                         <div class="mb-6">
                             <label for="perbendaharaan-sub"
                                 class="block mb-2 text-sm font-medium text-gray-600 ">Subbagian</label>
-                            <textarea type="text" id="perbendaharaan-sub" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Subbagian"></textarea>
+                            <div class="summernote" id="perbendaharaan-sub"></div>
                         </div>
 
                         <div class="mb-6">
-                            <label for="perbendaharaan-sub-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
+                            <label for="perbendaharaan-sub-tugas"
+                                class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
                                 Subbagian</label>
-                            <textarea type="text" id="perbendaharaan-sub-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas Subbagian"></textarea>
+                            <div class="summernote" id="perbendaharaan-sub-tugas"></div>
                         </div>
 
                         <button type="button" onclick="location.href='/admin/aspirasi/detail'"
@@ -171,22 +167,18 @@
                         <div class="mb-6">
                             <label for="aset-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
                                 Aset</label>
-                            <textarea type="text" id="aset-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas "></textarea>
+                            <div class="summernote" id="aset-tugas"></div>
                         </div>
 
                         <div class="mb-6">
-                            <label for="aset-sub"
-                                class="block mb-2 text-sm font-medium text-gray-600 ">Subbagian</label>
-                            <textarea type="text" id="aset-sub" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Subbagian"></textarea>
+                            <label for="aset-sub" class="block mb-2 text-sm font-medium text-gray-600 ">Subbagian</label>
+                            <div class="summernote" id="aset-sub"></div>
                         </div>
 
                         <div class="mb-6">
                             <label for="aset-sub-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
                                 Subbagian</label>
-                            <textarea type="text" id="aset-sub-tugas" rows="4"
-                                class=" border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Tugas Subbagian"></textarea>
+                            <div class="summernote" id="aset-sub-tugas"></div>
                         </div>
 
                         <button type="button" onclick="location.href='/admin/aspirasi/detail'"
@@ -204,6 +196,22 @@
 @endsection
 
 @section('morejs')
+    <script>
+        $('.summernote').summernote({
+            placeholder: '',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
 @endsection
 
 
