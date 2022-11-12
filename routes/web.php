@@ -20,7 +20,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
     Route::group(['prefix' => 'aspirasi'], function () {
-        Route::get('/', [\App\Http\Controllers\Admin\AspirationController::class, 'index']);
+        Route::get('/', [\App\Http\Controllers\Admin\AspirationController::class, 'index'])->name('aspiration');
+    });
+
+    Route::group(['prefix' => 'kustomisasi-beranda'], function () {
+        Route::match(['post', 'get'], '/', [\App\Http\Controllers\Admin\CustomizeController::class, 'home'])->name('customize.home');
     });
 });
 
@@ -92,9 +96,9 @@ Route::get('/informasi', function () {
 //    return view('admin/aspirasi/aspirasi-detail');
 //});
 
-Route::get('/admin/customize_beranda', function () {
-    return view('admin/customize/customize_beranda');
-});
+//Route::get('/admin/customize_beranda', function () {
+//    return view('admin/customize/customize_beranda');
+//});
 
 Route::get('/admin/customize_profil', function () {
     return view('admin/customize/customize_profil');
