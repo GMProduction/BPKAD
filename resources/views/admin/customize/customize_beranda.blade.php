@@ -48,7 +48,8 @@
             </div>
         @endif
         @if (\Illuminate\Support\Facades\Session::has('success'))
-            <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+            <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
+                 role="alert">
                 <span class="font-medium">Berhasil!</span> {{ \Illuminate\Support\Facades\Session::get('success') }}
             </div>
         @endif
@@ -66,7 +67,8 @@
                                 <label
                                     class="flex flex-col w-full border-4 border-dashed hover:bg-gray-100 hover:border-gray-300">
                                     <div class="relative flex flex-col items-center justify-center pt-7">
-                                        <img id="preview" class="absolute inset-0 h-[141px] object-fit">
+                                        <img id="preview" class="absolute inset-0 h-[141px] object-fit"
+                                             src="{{ $data !== null ? asset($data->image) : '' }}">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                              class="w-12 h-12 text-gray-400 group-hover:text-gray-600"
                                              viewBox="0 0 20 20"
@@ -92,7 +94,7 @@
                         BPKAD</label>
                     <textarea type="text" id="sejarah-text" rows="4"
                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                              placeholder="sejarah" name="history"></textarea>
+                              placeholder="sejarah" name="history">{{ $data !== null ? $data->history : '' }}</textarea>
                 </div>
 
                 <button type="submit"

@@ -103,9 +103,9 @@
                     <span class="material-symbols-outlined mr-2 menu-icon">
                         fiber_manual_record
                     </span>
-                    <p class="title-menu block nav-link menu-text text-sm">Beranda </p>
-                </a>
-                <a class="menu nav-link" href="/admin/customize_profil">
+                <p class="title-menu block nav-link menu-text text-sm">Beranda </p>
+            </a>
+            <a class="menu nav-link" href="{{ route('customize.profile') }}">
 
                     <span class="material-symbols-outlined mr-2 menu-icon">
                         fiber_manual_record
