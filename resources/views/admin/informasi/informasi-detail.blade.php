@@ -1,21 +1,17 @@
 @extends('admin.base')
+
 @section('css')
-    <!--Regular Datatables CSS-->
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!--Responsive Extension Datatables CSS-->
-    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
 @endsection
 
 @section('content')
-    <div class="panel h-full">
+    <div class="panel h-screen">
 
         <nav class="flex mb-6" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
                     <a href="/admin"
                         class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                             </path>
@@ -81,13 +77,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr
-                            class="bg-white border-b ">
+                        <tr class="bg-white border-b ">
                             <th class="text-center">
                                 1
                             </th>
-                            <th scope="row"
-                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
                                 Informasi Tentang Profil Badan PUblic
                             </th>
 
@@ -127,6 +121,7 @@
                             <span class="sr-only">Close modal</span>
                         </button>
                     </div>
+
                     <!-- Modal body -->
                     <div class="p-6 ">
                         <div class="mb-3">
@@ -138,16 +133,42 @@
                         </div>
 
                         <p class="text-sm pb-1">Konten / Isi</p>
+
+
                         <div class="border p-3 border-gray-200 rounded-lg">
-                            <div class="mb-3">
+                            <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
+                                <li>
+                                    <input type="radio" id="tr-link" name="tr-konten" value="tr-link"
+                                        class="hidden peer" required checked onclick="switchtambahKonten()">
+                                    <label for="tr-link"
+                                        class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                        <div class="block">
+                                            <div class="w-full text-lg font-semibold text-center">Link</div>
+                                            <div class="w-full text-center">Konten Menggunakan Link</div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="tr-file" name="tr-konten" value="tr-file"
+                                        class="hidden peer" onclick="switchtambahKonten()">
+                                    <label for="tr-file"
+                                        class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                        <div class="block">
+                                            <div class="w-full text-lg font-semibold text-center">File</div>
+                                            <div class="w-full text-center">Konten dengan file</div>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+
+                            <div class="mb-3 " id="div-tambahlink">
                                 <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
                                 <input type="text" id="link-info"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                                     placeholder="Masukan Email Anda" required>
                             </div>
 
-                            <p class="text-center text-sm">atau</p>
-                            <div class="mb-3">
+                            <div class="mb-3  hidden" id="div-tambahfile">
                                 <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
                                     file</label>
                                 <input
@@ -158,8 +179,7 @@
                         </div>
                     </div>
                     <!-- Modal footer -->
-                    <div
-                        class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
+                    <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
                         <button type="button" data-modal-toggle="modalTambah"
                             class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
@@ -206,27 +226,50 @@
 
                         <p class="text-sm pb-1">Konten / Isi</p>
                         <div class="border p-3 border-gray-200 rounded-lg">
-                            <div class="mb-3">
-                                <label for="e-link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
-                                <input type="text" id="e-link-info"
+                            <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
+                                <li>
+                                    <input type="radio" id="er-link" name="er-konten" value="er-link"
+                                        class="hidden peer" required checked onclick="switcheditKonten()">
+                                    <label for="er-link"
+                                        class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                        <div class="block">
+                                            <div class="w-full text-lg font-semibold text-center">Link</div>
+                                            <div class="w-full text-center">Konten Menggunakan Link</div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="er-file" name="er-konten" value="er-file"
+                                        class="hidden peer" onclick="switcheditKonten()">
+                                    <label for="er-file"
+                                        class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                        <div class="block">
+                                            <div class="w-full text-lg font-semibold text-center">File</div>
+                                            <div class="w-full text-center">Konten dengan file</div>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+
+                            <div class="mb-3 " id="div-editlink">
+                                <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                <input type="text" id="link-info"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                                     placeholder="Masukan Email Anda" required>
                             </div>
 
-                            <p class="text-center text-sm">atau</p>
-                            <div class="mb-3">
-                                <label class="block mb-2 text-sm font-medium text-gray-700 " for="e-upload-file">Upload
+                            <div class="mb-3  hidden" id="div-editfile">
+                                <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
                                     file</label>
                                 <input
                                     class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
-                                    aria-describedby="user_avatar_help" id="e-upload-file" type="file">
+                                    aria-describedby="upload-file_help" id="upload-file" type="file">
 
                             </div>
                         </div>
                     </div>
                     <!-- Modal footer -->
-                    <div
-                        class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
+                    <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
                         <button type="button" data-modal-toggle="modalEdit"
                             class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
@@ -237,29 +280,30 @@
                 </div>
             </div>
         </div>
-    @endsection
 
-    @section('morejs')
-        <!-- jQuery -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    </div>
+@endsection
 
-        <!--Datatables -->
-        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+@section('morejs')
+    <script>
+        function switchtambahKonten() {
+            if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
+                document.querySelector('#div-tambahfile').classList.add("hidden");
+                document.querySelector('#div-tambahlink').classList.remove("hidden");
+            } else {
+                document.querySelector('#div-tambahfile').classList.remove("hidden");
+                document.querySelector('#div-tambahlink').classList.add("hidden");
+            }
+        }
 
-        <script>
-            $(document).ready(function() {
-
-                var table = $('#example').DataTable({
-                        responsive: true
-                    })
-                    .columns.adjust()
-                    .responsive.recalc();
-            });
-        </script>
-    @endsection
-
-
-    </body>
-
-    </html>
+        function switcheditKonten() {
+            if (document.querySelector('input[name="er-konten"]:checked').value == "er-link") {
+                document.querySelector('#div-editfile').classList.add("hidden");
+                document.querySelector('#div-editlink').classList.remove("hidden");
+            } else {
+                document.querySelector('#div-editfile').classList.remove("hidden");
+                document.querySelector('#div-editlink').classList.add("hidden");
+            }
+        }
+    </script>
+@endsection

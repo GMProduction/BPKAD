@@ -156,6 +156,30 @@ body::-webkit-scrollbar {
   border-bottom: 2px solid blue;
 }
 
+.dashboard .card {
+  padding: 10px;
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px rgba(17, 17, 17, 0.1333333333);
+  width: 100%;
+  height: 100px;
+}
+.dashboard .card .value {
+  color: rgb(18, 115, 241);
+}
+.dashboard .card .button-link {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+.dashboard .card .button-link:hover {
+  background-color: rgb(200, 241, 252);
+  color: blue;
+}
+
 /* the slides */
 .slick-slide {
   margin: 0 10px;

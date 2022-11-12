@@ -1,5 +1,3 @@
-
-
 window.onscroll = function (ev) {
   var genosnav = document.querySelector(".genosnav");
   var logo = document.querySelector(".logo");
@@ -79,4 +77,3 @@ window.onscroll = function (ev) {
 //       }); // addEventListener
 //   }) // forEach
 // });
-

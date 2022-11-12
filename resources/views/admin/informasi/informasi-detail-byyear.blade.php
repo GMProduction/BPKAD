@@ -1,9 +1,6 @@
 @extends('admin.base')
 @section('css')
-    <!--Regular Datatables CSS-->
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!--Responsive Extension Datatables CSS-->
-    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+
 @endsection
 
 @section('content')
@@ -183,15 +180,39 @@
 
                         <p class="text-sm pb-1">Konten / Isi</p>
                         <div class="border p-3 border-gray-200 rounded-lg">
-                            <div class="mb-3">
+                            <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
+                                <li>
+                                    <input type="radio" id="tr-link" name="tr-konten" value="tr-link"
+                                        class="hidden peer" required checked onclick="switchtambahKonten()">
+                                    <label for="tr-link"
+                                        class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                        <div class="block">
+                                            <div class="w-full text-lg font-semibold text-center">Link</div>
+                                            <div class="w-full text-center">Konten Menggunakan Link</div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="tr-file" name="tr-konten" value="tr-file"
+                                        class="hidden peer" onclick="switchtambahKonten()">
+                                    <label for="tr-file"
+                                        class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                        <div class="block">
+                                            <div class="w-full text-lg font-semibold text-center">File</div>
+                                            <div class="w-full text-center">Konten dengan file</div>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+
+                            <div class="mb-3 " id="div-tambahlink">
                                 <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
                                 <input type="text" id="link-info"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                                     placeholder="Masukan Email Anda" required>
                             </div>
 
-                            <p class="text-center text-sm">atau</p>
-                            <div class="mb-3">
+                            <div class="mb-3  hidden" id="div-tambahfile">
                                 <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
                                     file</label>
                                 <input
@@ -297,21 +318,44 @@
 
                         <p class="text-sm pb-1">Konten / Isi</p>
                         <div class="border p-3 border-gray-200 rounded-lg">
-                            <div class="mb-3">
-                                <label for="e-link-info"
-                                    class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
-                                <input type="text" id="e-link-info"
+                            <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
+                                <li>
+                                    <input type="radio" id="er-link" name="er-konten" value="er-link"
+                                        class="hidden peer" required checked onclick="switcheditKonten()">
+                                    <label for="er-link"
+                                        class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                        <div class="block">
+                                            <div class="w-full text-lg font-semibold text-center">Link</div>
+                                            <div class="w-full text-center">Konten Menggunakan Link</div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="er-file" name="er-konten" value="er-file"
+                                        class="hidden peer" onclick="switcheditKonten()">
+                                    <label for="er-file"
+                                        class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                        <div class="block">
+                                            <div class="w-full text-lg font-semibold text-center">File</div>
+                                            <div class="w-full text-center">Konten dengan file</div>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+
+                            <div class="mb-3 " id="div-editlink">
+                                <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                <input type="text" id="link-info"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                                     placeholder="Masukan Email Anda" required>
                             </div>
 
-                            <p class="text-center text-sm">atau</p>
-                            <div class="mb-3">
-                                <label class="block mb-2 text-sm font-medium text-gray-700 " for="e-upload-file">Upload
+                            <div class="mb-3  hidden" id="div-editfile">
+                                <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
                                     file</label>
                                 <input
                                     class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
-                                    aria-describedby="user_avatar_help" id="e-upload-file" type="file">
+                                    aria-describedby="upload-file_help" id="upload-file" type="file">
 
                             </div>
                         </div>
@@ -332,31 +376,26 @@
 
     @section('morejs')
         <!-- jQuery -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script>
-            // set the modal menu element
-            const modalKategori = document.getElementById('modalTambahKategori');
-
-            // options with default values
-            const options = {
-                placement: 'bottom-right',
-                backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
-                onHide: () => {
-                    console.log('modal is hidden');
-                },
-                onShow: () => {
-                    console.log('modal is shown');
-                },
-                onToggle: () => {
-                    console.log('modal has been toggled');
+            function switchtambahKonten() {
+                if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
+                    document.querySelector('#div-tambahfile').classList.add("hidden");
+                    document.querySelector('#div-tambahlink').classList.remove("hidden");
+                } else {
+                    document.querySelector('#div-tambahfile').classList.remove("hidden");
+                    document.querySelector('#div-tambahlink').classList.add("hidden");
                 }
-            };
+            }
 
-            /*
-             * targetEl: required
-             * options: optional
-             */
-            const modal = new Modal(modalKategori, options);
+            function switcheditKonten() {
+                if (document.querySelector('input[name="er-konten"]:checked').value == "er-link") {
+                    document.querySelector('#div-editfile').classList.add("hidden");
+                    document.querySelector('#div-editlink').classList.remove("hidden");
+                } else {
+                    document.querySelector('#div-editfile').classList.remove("hidden");
+                    document.querySelector('#div-editlink').classList.add("hidden");
+                }
+            }
         </script>
     @endsection
 

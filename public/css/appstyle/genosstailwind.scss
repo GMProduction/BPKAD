@@ -188,36 +188,62 @@ body::-webkit-scrollbar {
   white-space: nowrap;
 }
 
-.button-link{
-    background-color: transparent;
-    transition: all;
-    transition-duration: 300ms;
-    border-radius: 5px;
-    padding: 5px;
+.button-link {
+  background-color: transparent;
+  transition: all;
+  transition-duration: 300ms;
+  border-radius: 5px;
+  padding: 5px;
 
-
-    &:hover{
-        background-color: #1111;
-    }
+  &:hover {
+    background-color: #1111;
+  }
 }
 
-.tabs-btn{
-    display: inline-block;
-    color: #444;
+.tabs-btn {
+  display: inline-block;
+  color: #444;
 
-    &:hover{
-        color: #222;
-        border-color: #666;
+  &:hover {
+    color: #222;
+    border-color: #666;
+  }
+
+  &.active {
+    color: blue;
+    border-bottom: 2px solid blue;
+  }
+}
+
+.dashboard {
+  .card {
+    padding: 10px;
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #1112;
+
+    width: 100%;
+    height: 100px;
+
+    .value {
+      color: rgb(18, 115, 241);
     }
 
-    &.active{
+    .button-link {
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      padding: 5px;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: rgb(200, 241, 252);
         color: blue;
-        border-bottom: 2px solid blue;
+      }
     }
+  }
 }
-
-
-
 //SLICKS
 /* the slides */
 .slick-slide {
