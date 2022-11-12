@@ -26,6 +26,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'kustomisasi-beranda'], function () {
         Route::match(['post', 'get'], '/', [\App\Http\Controllers\Admin\CustomizeController::class, 'home'])->name('customize.home');
     });
+
+    Route::group(['prefix' => 'kustomisasi-profil'], function (){
+        Route::match(['post', 'get'], '/', [\App\Http\Controllers\Admin\CustomizeController::class, 'profile'])->name('customize.profile');
+    });
 });
 
 Route::get('/', function () {
@@ -100,13 +104,13 @@ Route::get('/informasi', function () {
 //    return view('admin/customize/customize_beranda');
 //});
 
-Route::get('/admin/customize_profil', function () {
-    return view('admin/customize/customize_profil');
-});
-
-Route::get('/admin/customize_bidang', function () {
-    return view('admin/customize/customize_bidang');
-});
+//Route::get('/admin/customize_profil', function () {
+//    return view('admin/customize/customize_profil');
+//});
+//
+//Route::get('/admin/customize_bidang', function () {
+//    return view('admin/customize/customize_bidang');
+//});
 
 Route::get('/admin/informasi', function () {
     return view('admin/informasi/informasi');
