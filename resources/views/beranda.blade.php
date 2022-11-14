@@ -3,18 +3,32 @@
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick.css') }} " />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick-theme.css') }} " />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/appstyle/hero-slider.css') }} " />
+    <script type="text/javascript" href="{{ asset('js/hero-slider.js') }} "></script>
+
+    <style>
+        #slider {
+            opacity: 1;
+            transition: opacity 1s;
+        }
+
+        #slider.fadeOut {
+            opacity: 0;
+        }
+    </style>
 @endsection
 
 @section('content')
-    <div class="mt-[-89px] sm:h-[796px] h-[350px] w-[100%] bg-black/50 z-[-1]  relative">
+    {{-- <div class="mt-[-89px] sm:h-[796px] h-[350px] w-[100%] bg-black/30 z-[-1]  relative">
         <div class="absolute sm:bottom-[200px] bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
             <a class="font-bold text-primary text-4xl">BPKAD </a> <a class="font-bold text-4xl text-white">KOTA
                 SURAKARTA</a> <br>
             <a class="font-bold text-white">Badan Pengelolaan Keuangan & Aset Daerah Kota Surakarta</a>
         </div>
     </div>
-    <img class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] object-cover top-0 left-0"
-        src="{{ asset('assets/local/slide.jpg') }}" />
+
+    <img id="slider" src="{{ asset('assets/local/slide.jpg') }}"
+        class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] object-cover top-0 left-0" />
 
 
     <div class="mt-[-70px] min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md flex items-center ">
@@ -61,15 +75,17 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="container grid sm:grid-cols-8 grid-cols-1 gap-4 mt-16 mb-6">
-        {{-- <div class="col-span-2">
-        <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[40%] m-auto" />
     </div> --}}
 
+
+    {{-- <div class="container grid sm:grid-cols-8 grid-cols-1 gap-4 mt-16 mb-6">
+
+        <div class="col-span-2">
+        <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[40%] m-auto" />
+    </div>
+
         <div class="col-span-1">
-            {{-- <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[40%] m-auto" /> --}}
+            <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[40%] m-auto" />
         </div>
 
         <div class="col-span-5 sm:mx-0 mx-5">
@@ -86,7 +102,6 @@
         <p class="text-white font-bold text-3xl italic mb-3 text-center">Aplikasi Online</p>
         <p class="text-white/80 text-sm text-center mb-10">Aplikasi Online yang dapat membantumu</p>
 
-        {{-- <div class="grid grid-cols-1 sm:grid-cols-2   container sm:gap-8 gap-5 m-auto"> --}}
         <div class="slider-aplikasi">
             <a class="block " href="https://surakartakota.fmis.id//" target="_blank">
                 <div
@@ -374,7 +389,69 @@
             </a>
 
         </div>
-    </div>
+    </div> --}}
+
+    <header>
+        <div class="inner">
+            <div class="logo"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/wwf-logo.png"></div>
+            <div class="burger"></div>
+            <nav>
+                <a class="active" href="#">Species</a>
+                <a href="#">About Us</a>
+                <a href="#">Our Work</a>
+                <a href="#">Get Involved</a>
+            </nav>
+            <a href="#" class="donate-link">Donate</a>
+        </div>
+    </header>
+
+    <main>
+        <div id="slider">
+
+            <div class="slider-inner">
+                <div id="slider-content">
+                    <div class="meta">Species</div>
+                    <h2 id="slide-title">Amur <br>Leopard</h2>
+                    <span data-slide-title="0">Amur <br>Leopard</span>
+                    <span data-slide-title="1">Asiatic <br>Lion</span>
+                    <span data-slide-title="2">Siberian <br>Tiger</span>
+                    <span data-slide-title="3">Brown <br>Bear</span>
+                    <div class="meta">Status</div>
+                    <div id="slide-status">Critically Endangered</div>
+                    <span data-slide-status="0">Critically Endangered</span>
+                    <span data-slide-status="1">Endangered</span>
+                    <span data-slide-status="2">Endangered</span>
+                    <span data-slide-status="3">Least Concern</span>
+                </div>
+            </div>
+
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/leopard2.jpg" />
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/lion2.jpg" />
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/tiger2.jpg" />
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/bear2.jpg" />
+
+            <div id="pagination">
+                <button class="active" data-slide="0"></button>
+                <button data-slide="1"></button>
+                <button data-slide="2"></button>
+                <button data-slide="3"></button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40525870-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-40525870-5');
+    </script>
 @endsection
 
 @section('morejs')
@@ -406,5 +483,27 @@
                 }
             ]
         });
+
+        // var imgArray = [
+        //         '{{ asset('assets/local/slide.jpg') }}',
+        //         '{{ asset('assets/local/aspirasi.jpg') }}',
+        //         '{{ asset('assets/local/profile.png') }}',
+        //     ],
+        //     curIndex = 0;
+        // imgDuration = 5000;
+
+        // function slideShow() {
+        //     document.getElementById('slider').classList.add("fadeOut");
+        //     setTimeout(function() {
+        //         document.getElementById('slider').src = imgArray[curIndex];
+        //         document.getElementById('slider').classList.remove("fadeOut");
+        //     }, 200);
+        //     curIndex++;
+        //     if (curIndex == imgArray.length) {
+        //         curIndex = 0;
+        //     }
+        //     setTimeout(slideShow, imgDuration);
+        // }
+        // slideShow();
     </script>
 @endsection

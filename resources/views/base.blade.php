@@ -8,9 +8,9 @@
     <title>BPKAD || Badan Pengelolaan Keuangan dan Aset Daerah Surakarta </title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="{{ asset('css/appstyle/genosstailwind.css') }}" type="text/css">
@@ -26,7 +26,7 @@
 </head>
 
 <body style="position: relative">
-    <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10 shadow-sm">
+    {{-- <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10 shadow-sm">
         <div class="container flex flex-wrap justify-between items-center mx-auto sticky top-0">
             <a href="#" class="flex items-center">
                 <img src="{{ asset('/assets/local/logosurakarta.png') }}"
@@ -136,12 +136,12 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> --}}
 
 
     @yield('content')
 
-    <footer class="">
+    {{-- <footer class="">
         <div class=" min-h-[500px] bg-primary sm:p-16 p-10 ">
             <div class="grid md:grid-cols-4 sd:grid-cols-3 grid-cols-2 gap-10">
                 <div class="col-span-2">
@@ -217,8 +217,11 @@
         <div class="min-h-[75px] bg-primary flex items-center justify-center">
             <p class="h-full text-center text-white">@BPKAD Surakarta 2022</p>
         </div>
-    </footer>
+    </footer> --}}
 
+    <script>
+        "use strict"
+    </script>
     <script src="{{ asset('/js/flowbite.js') }}"></script>
     <script src="{{ asset('/js/nav.js') }}"></script>
 
