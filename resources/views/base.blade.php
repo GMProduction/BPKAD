@@ -10,7 +10,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="{{ asset('css/appstyle/genosstailwind.css') }}" type="text/css">
@@ -26,7 +28,7 @@
 </head>
 
 <body style="position: relative">
-    {{-- <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10 shadow-sm">
+    <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10 shadow-sm">
         <div class="container flex flex-wrap justify-between items-center mx-auto sticky top-0">
             <a href="#" class="flex items-center">
                 <img src="{{ asset('/assets/local/logosurakarta.png') }}"
@@ -54,8 +56,32 @@
                     </li>
 
                     <li>
-                        <a href="/profile"
-                            class="menu block py-2 pr-4 pl-3  text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3    ">Profil</a>
+
+                        <button id="dropdownProfilLink" data-dropdown-toggle="dropdownProfil"
+                            class="menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">Profil
+                            <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown profil -->
+                        <div id="dropdownProfil"
+                            class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow  "
+                            data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
+                            style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 110px);">
+                            <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownLargeButton">
+                                <li>
+                                    <a href="/sekretariat" class="block py-2 px-4 hover:bg-gray-100  ">Misi & Misi</a>
+                                </li>
+                                <li>
+                                    <a href="/anggaran" class="block py-2 px-4 hover:bg-gray-100  ">Struktur Organisasi</a>
+                                </li>
+
+                            </ul>
+
                     </li>
                     <li>
                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
@@ -66,28 +92,27 @@
                                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                     clip-rule="evenodd"></path>
                             </svg></button>
-                        <!-- Dropdown menu -->
+
+
+
+                        <!-- Dropdown bidang -->
                         <div id="dropdownNavbar"
                             class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow  "
                             data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
                             style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 110px);">
-                            <ul class="py-1 text-sm text-gray-700 "
-                                aria-labelledby="dropdownLargeButton">
+                            <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownLargeButton">
                                 <li>
-                                    <a href="/sekretariat"
-                                        class="block py-2 px-4 hover:bg-gray-100  ">Sekretariat</a>
+                                    <a href="/sekretariat" class="block py-2 px-4 hover:bg-gray-100  ">Sekretariat</a>
                                 </li>
                                 <li>
-                                    <a href="/anggaran"
-                                        class="block py-2 px-4 hover:bg-gray-100  ">Anggaran</a>
+                                    <a href="/anggaran" class="block py-2 px-4 hover:bg-gray-100  ">Anggaran</a>
                                 </li>
                                 <li>
                                     <a href="/perbendaharaan-dan-akuntansi"
                                         class="block py-2 px-4 hover:bg-gray-100  ">Perbendaharaan dan Akuntansi</a>
                                 </li>
                                 <li>
-                                    <a href="/aset"
-                                        class="block py-2 px-4 hover:bg-gray-100  ">Aset</a>
+                                    <a href="/aset" class="block py-2 px-4 hover:bg-gray-100  ">Aset</a>
                                 </li>
                             </ul>
 
@@ -111,23 +136,24 @@
                             class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow  "
                             data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
                             style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 110px);">
-                            <ul class="py-1 text-sm text-gray-700 "
-                                aria-labelledby="dropdownLargeButton">
+                            <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownLargeButton">
                                 <li>
-                                    <a href="/info-berkala"
-                                        class="block py-2 px-4 hover:bg-gray-100  ">Informasi Berkala</a>
+                                    <a href="/info-berkala" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                        Berkala</a>
                                 </li>
                                 <li>
-                                    <a href="/info-sertamerta"
-                                        class="block py-2 px-4 hover:bg-gray-100  ">Informasi Serta Merta</a>
+                                    <a href="/info-sertamerta" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                        Serta
+                                        Merta</a>
                                 </li>
                                 <li>
-                                    <a href="/info-setiapsaat"
-                                        class="block py-2 px-4 hover:bg-gray-100  ">Informasi Setiap saat</a>
+                                    <a href="/info-setiapsaat" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                        Setiap
+                                        saat</a>
                                 </li>
                                 <li>
-                                    <a href="/info-dikecualikan"
-                                        class="block py-2 px-4 hover:bg-gray-100  ">Informasi Dikecualikan</a>
+                                    <a href="/info-dikecualikan" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                        Dikecualikan</a>
                                 </li>
                             </ul>
 
@@ -136,12 +162,12 @@
                 </ul>
             </div>
         </div>
-    </nav> --}}
+    </nav>
 
 
     @yield('content')
 
-    {{-- <footer class="">
+    <footer class="">
         <div class=" min-h-[500px] bg-primary sm:p-16 p-10 ">
             <div class="grid md:grid-cols-4 sd:grid-cols-3 grid-cols-2 gap-10">
                 <div class="col-span-2">
@@ -163,7 +189,7 @@
                         Surakarta</p>
 
                     <p class="text-white text-sm font-bold italic">Phone</p>
-                    <p class="text-white/80 text-sm font-light mb-3">(0271) 642 020</p>
+                    <p class="text-white/80 text-sm font-light mb-3">(0271) 648089</p>
 
                     <p class="text-white text-sm font-bold italic">Jam Kerja</p>
                     <p class="text-white/80 text-sm font-light">Senin - Kamis 07.15-16.00 WIB</p>
@@ -217,7 +243,7 @@
         <div class="min-h-[75px] bg-primary flex items-center justify-center">
             <p class="h-full text-center text-white">@BPKAD Surakarta 2022</p>
         </div>
-    </footer> --}}
+    </footer>
 
     <script>
         "use strict"

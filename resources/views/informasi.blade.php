@@ -10,7 +10,7 @@
 @section('content')
 
 
-    <div class="mt-[-89px]  h-[350px] w-[100%] bg-black/60 z-[-1]  relative">
+    <div class="mt-[-89px]  h-[350px] w-[100%] bg-black/40 z-[-1]  relative">
         <div class="absolute  bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
             <a class="font-bold text-primary  text-4xl mb-3 inline-block mr-3">INFORMASI </a> <a
                 class="font-bold text-4xl text-white inline-block ">BPKAD</a> <br>

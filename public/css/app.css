@@ -1556,6 +1556,9 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(35 86 159 / var(--tw-bg-opacity));
 }
+.bg-black\/30 {
+  background-color: rgb(0 0 0 / 0.3);
+}
 .bg-white\/25 {
   background-color: rgb(255 255 255 / 0.25);
 }
@@ -1601,8 +1604,11 @@ input:checked + .toggle-bg {
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
 }
-.bg-black\/30 {
-  background-color: rgb(0 0 0 / 0.3);
+.bg-black\/40 {
+  background-color: rgb(0 0 0 / 0.4);
+}
+.bg-black\/0 {
+  background-color: rgb(0 0 0 / 0);
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
@@ -2245,10 +2251,6 @@ input:checked + .toggle-bg {
 
   .sm\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .sm\:gap-8 {
-    gap: 2rem;
   }
 
   .sm\:p-16 {

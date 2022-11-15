@@ -1,7 +1,7 @@
 @extends('base')
 
 @section('content')
-    <div class="mt-[-89px]  h-[350px] w-[100%] bg-black/60 z-[-1]  relative">
+    <div class="mt-[-89px]  h-[350px] w-[100%] bg-black/40 z-[-1]  relative">
         <div class="absolute  bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
             <a class="font-bold text-primary  text-4xl">PROFIL </a> <a class="font-bold text-4xl text-white">BPKAD</a> <br>
             <a class="font-bold text-white">Profil bpkad surakarta</a>

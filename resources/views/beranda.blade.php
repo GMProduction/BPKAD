@@ -3,8 +3,6 @@
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick.css') }} " />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick-theme.css') }} " />
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/appstyle/hero-slider.css') }} " />
-    <script type="text/javascript" href="{{ asset('js/hero-slider.js') }} "></script>
 
     <style>
         #slider {
@@ -19,7 +17,7 @@
 @endsection
 
 @section('content')
-    {{-- <div class="mt-[-89px] sm:h-[796px] h-[350px] w-[100%] bg-black/30 z-[-1]  relative">
+    <div class="mt-[-89px] sm:h-[796px] h-[350px] w-[100%] bg-black/30 z-[-1]  relative">
         <div class="absolute sm:bottom-[200px] bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
             <a class="font-bold text-primary text-4xl">BPKAD </a> <a class="font-bold text-4xl text-white">KOTA
                 SURAKARTA</a> <br>
@@ -60,7 +58,7 @@
                 </span>
                 <div>
                     <p class="text-primary font-bold italic">Phone</p>
-                    <p>(0271) 642020</p>
+                    <p>(0271) 648089</p>
                 </div>
             </div>
 
@@ -75,21 +73,19 @@
                 </div>
             </div>
         </div>
-    </div> --}}
-
-
-    {{-- <div class="container grid sm:grid-cols-8 grid-cols-1 gap-4 mt-16 mb-6">
-
-        <div class="col-span-2">
-        <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[40%] m-auto" />
     </div>
 
+
+    <div class="container grid sm:grid-cols-8 grid-cols-1 gap-4 mt-16 mb-6">
+
         <div class="col-span-1">
-            <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[40%] m-auto" />
+            {{-- <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[40%] m-auto" /> --}}
         </div>
 
+
+
         <div class="col-span-5 sm:mx-0 mx-5">
-            <p class="text-primary font-bold text-3xl italic mb-3">Apa sih BPKAD Surakarta?</p>
+            <p class="text-primary font-bold text-3xl italic mb-3">Tentang BPKAD Surakarta?</p>
             <p class="text-sm">Badan Pengelolaan Keuangan dan Aset Daerah Kota Surakarta merupakan unsur pelaksana
                 fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub Pengelolaan Keuangan dan Aset Daerah yang
                 menjadi kewenangan Pemerintahan Daerah yang dipimpin oleh Kepala Badan Pengelolaan Keuangan dan Aset
@@ -155,7 +151,7 @@
                             class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                     </div>
                     <div class="col-span-2">
-                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SINKENDIS</p>
+                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SIKENDIS</p>
                         <p class="text-sm text-white/80 ">(Sistem Informasi Kendaraan Dinas)
                             Pemerintah Kota Surakarta</p>
                     </div>
@@ -173,7 +169,7 @@
                     <div class="col-span-2">
                         <p class="text-white font-bold text-2xl italic mb-3">APLIKASI <i
                                 class="mdi mdi-skip-previous-outline:"></i></p>
-                        <p class="text-sm text-white/80 ">Aplikasi pencatatan belanja barang kantor / pembekalan kantor.</p>
+                        <p class="text-sm text-white/80 ">Sistem informasi persediaan online.</p>
                     </div>
 
                 </div>
@@ -266,7 +262,7 @@
 
     <div class="grid md:grid-cols-2 grid-cols-1 md:h-[750px] h-min-[750px] relative overflow-hidden">
         <div class="relative">
-            <div class="absolute bg-black/60 top-0 left-0 w-[100%] h-[100%]"></div>
+            <div class="absolute bg-black/40 top-0 left-0 w-[100%] h-[100%]"></div>
             <img src="{{ asset('assets/local/aspirasi.jpg') }}" class="absolute z-[-1] object-cover h-full" />
 
             <div class="absolute bottom-16 left-10 ">
@@ -335,7 +331,7 @@
             <a href="https://twitter.com/RADARSOLO_/status/1589464155827757056?t=KidA4z7az-0QBY80B5SZaQ&s=08"
                 target="_blank" class="mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
-                    <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
+                    <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
                     <img class="w-full h-full object-cover rounded-md hover:scale-50"
                         src="https://pbs.twimg.com/media/Fg7jMG9UoAEQMrL?format=jpg&name=medium" />
 
@@ -351,7 +347,7 @@
                 href="https://www.solopos.com/1-500-orang-bersih-bersih-kawasan-sriwedari-solo-alat-berat-ikut-dikerahkan-1464928"
                 target="_blank">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
-                    <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
+                    <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
                     <img class="w-full h-full object-cover rounded-md hover:scale-50"
                         src="https://images.solopos.com/2022/11/bersih-bersih-sriwdari.jpg" />
 
@@ -364,7 +360,7 @@
                 href="https://solo.suaramerdeka.com/solo-raya/pr-055482435/kawasan-sriwedari-solo-dibersihkan-gerbang-sisi-utara-kembali-dibuka"
                 target="_blank">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
-                    <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
+                    <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
                     <img class="w-full h-full object-cover rounded-md hover:scale-50"
                         src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/11/06/39043295.jpg" />
 
@@ -377,7 +373,7 @@
 
             <a class="mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
-                    <div class="absolute top-0 left-0 h-full w-full bg-black/50"></div>
+                    <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
                     <img class="w-full h-full object-cover rounded-md hover:scale-50"
                         src="https://asset.kompas.com/crops/hI7t9Rp4KUaZO7eJ8xgckwN6KDQ=/0x0:1000x667/750x500/data/photo/2022/02/24/6217365e120c5.jpg" />
 
@@ -389,69 +385,11 @@
             </a>
 
         </div>
-    </div> --}}
+    </div>
 
-    <header>
-        <div class="inner">
-            <div class="logo"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/wwf-logo.png"></div>
-            <div class="burger"></div>
-            <nav>
-                <a class="active" href="#">Species</a>
-                <a href="#">About Us</a>
-                <a href="#">Our Work</a>
-                <a href="#">Get Involved</a>
-            </nav>
-            <a href="#" class="donate-link">Donate</a>
-        </div>
-    </header>
 
-    <main>
-        <div id="slider">
 
-            <div class="slider-inner">
-                <div id="slider-content">
-                    <div class="meta">Species</div>
-                    <h2 id="slide-title">Amur <br>Leopard</h2>
-                    <span data-slide-title="0">Amur <br>Leopard</span>
-                    <span data-slide-title="1">Asiatic <br>Lion</span>
-                    <span data-slide-title="2">Siberian <br>Tiger</span>
-                    <span data-slide-title="3">Brown <br>Bear</span>
-                    <div class="meta">Status</div>
-                    <div id="slide-status">Critically Endangered</div>
-                    <span data-slide-status="0">Critically Endangered</span>
-                    <span data-slide-status="1">Endangered</span>
-                    <span data-slide-status="2">Endangered</span>
-                    <span data-slide-status="3">Least Concern</span>
-                </div>
-            </div>
 
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/leopard2.jpg" />
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/lion2.jpg" />
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/tiger2.jpg" />
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123024/bear2.jpg" />
-
-            <div id="pagination">
-                <button class="active" data-slide="0"></button>
-                <button data-slide="1"></button>
-                <button data-slide="2"></button>
-                <button data-slide="3"></button>
-            </div>
-
-        </div>
-    </main>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-40525870-5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-40525870-5');
-    </script>
 @endsection
 
 @section('morejs')
@@ -484,26 +422,26 @@
             ]
         });
 
-        // var imgArray = [
-        //         '{{ asset('assets/local/slide.jpg') }}',
-        //         '{{ asset('assets/local/aspirasi.jpg') }}',
-        //         '{{ asset('assets/local/profile.png') }}',
-        //     ],
-        //     curIndex = 0;
-        // imgDuration = 5000;
+        var imgArray = [
+                '{{ asset('assets/local/slide.jpg') }}',
+                '{{ asset('assets/local/aspirasi.jpg') }}',
+                '{{ asset('assets/local/profile.png') }}',
+            ],
+            curIndex = 0;
+        imgDuration = 5000;
 
-        // function slideShow() {
-        //     document.getElementById('slider').classList.add("fadeOut");
-        //     setTimeout(function() {
-        //         document.getElementById('slider').src = imgArray[curIndex];
-        //         document.getElementById('slider').classList.remove("fadeOut");
-        //     }, 200);
-        //     curIndex++;
-        //     if (curIndex == imgArray.length) {
-        //         curIndex = 0;
-        //     }
-        //     setTimeout(slideShow, imgDuration);
-        // }
-        // slideShow();
+        function slideShow() {
+            document.getElementById('slider').classList.add("fadeOut");
+            setTimeout(function() {
+                document.getElementById('slider').src = imgArray[curIndex];
+                document.getElementById('slider').classList.remove("fadeOut");
+            }, 200);
+            curIndex++;
+            if (curIndex == imgArray.length) {
+                curIndex = 0;
+            }
+            setTimeout(slideShow, imgDuration);
+        }
+        slideShow();
     </script>
 @endsection
