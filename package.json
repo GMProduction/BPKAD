@@ -7,9 +7,13 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "build": "babel src -d lib"
     },
     "devDependencies": {
+        "@babel/cli": "^7.19.3",
+        "@babel/core": "^7.20.2",
+        "@babel/preset-env": "^7.20.2",
         "autoprefixer": "^10.4.12",
         "axios": "^0.21.4",
         "flowbite": "^1.5.3",
