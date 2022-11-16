@@ -86,13 +86,13 @@
 
                         <div class="mb-6">
                             <label for="sekretariat-sub"
-                                class="block mb-2 text-sm font-medium text-gray-600 ">Subbagian</label>
+                                class="block mb-2 text-sm font-medium text-gray-600 ">Sub Bidang</label>
                             <div class="summernote" id="sekretariat-sub"></div>
                         </div>
 
                         <div class="mb-6">
                             <label for="sekretariat-sub-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
-                                Subbagian</label>
+                                Sub Bidang</label>
                             <div class="summernote" id="sekretariat-sub-tugas"></div>
                         </div>
 
@@ -114,13 +114,13 @@
 
                         <div class="mb-6">
                             <label for="anggaran-sub"
-                                class="block mb-2 text-sm font-medium text-gray-600 ">Subbagian</label>
+                                class="block mb-2 text-sm font-medium text-gray-600 ">Sub Bidang</label>
                             <div class="summernote" id="anggaran-sub"></div>
                         </div>
 
                         <div class="mb-6">
                             <label for="anggaran-sub-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
-                                Subbagian</label>
+                                Sub Bidang</label>
                             <div class="summernote" id="anggaran-sub-tugas"></div>
                         </div>
 
@@ -143,14 +143,14 @@
 
                         <div class="mb-6">
                             <label for="perbendaharaan-sub"
-                                class="block mb-2 text-sm font-medium text-gray-600 ">Subbagian</label>
+                                class="block mb-2 text-sm font-medium text-gray-600 ">Sub Bidang</label>
                             <div class="summernote" id="perbendaharaan-sub"></div>
                         </div>
 
                         <div class="mb-6">
                             <label for="perbendaharaan-sub-tugas"
                                 class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
-                                Subbagian</label>
+                                Sub Bidang</label>
                             <div class="summernote" id="perbendaharaan-sub-tugas"></div>
                         </div>
 
@@ -171,13 +171,13 @@
                         </div>
 
                         <div class="mb-6">
-                            <label for="aset-sub" class="block mb-2 text-sm font-medium text-gray-600 ">Subbagian</label>
+                            <label for="aset-sub" class="block mb-2 text-sm font-medium text-gray-600 ">Sub Bidang</label>
                             <div class="summernote" id="aset-sub"></div>
                         </div>
 
                         <div class="mb-6">
                             <label for="aset-sub-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
-                                Subbagian</label>
+                                Sub Bidang</label>
                             <div class="summernote" id="aset-sub-tugas"></div>
                         </div>
 

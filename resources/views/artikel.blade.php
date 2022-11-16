@@ -3,7 +3,7 @@
 @section('content')
     <div class="mt-[-89px]  h-[350px] w-[100%] bg-black/0 z-[-1]  relative">
         <div class="absolute  bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
-            <a class="font-bold text-primary  text-4xl">Artikel </a> <a class="font-bold text-4xl text-white">BPKAD</a> <br>
+            <a class="font-bold text-white  text-4xl">Artikel </a> <a class="font-bold text-4xl text-white">BPKAD</a> <br>
             <a class="sm:font-bold text-white sm:text-md text-sm font-light">Artikel terbaru dari kami</a>
         </div>
     </div>

@@ -36,8 +36,12 @@ Route::get('/', function () {
     return view('beranda');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
+Route::get('/visimisi', function () {
+    return view('visimisi');
+});
+
+Route::get('/struktur', function () {
+    return view('struktur');
 });
 
 Route::get('/sekretariat', function () {

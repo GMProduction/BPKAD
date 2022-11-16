@@ -74,10 +74,11 @@
                             style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 110px);">
                             <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownLargeButton">
                                 <li>
-                                    <a href="/sekretariat" class="block py-2 px-4 hover:bg-gray-100  ">Misi & Misi</a>
+                                    <a href="/visimisi" class="block py-2 px-4 hover:bg-gray-100  ">Misi & Misi</a>
                                 </li>
                                 <li>
-                                    <a href="/anggaran" class="block py-2 px-4 hover:bg-gray-100  ">Struktur Organisasi</a>
+                                    <a href="/struktur" class="block py-2 px-4 hover:bg-gray-100  ">Struktur
+                                        Organisasi</a>
                                 </li>
 
                             </ul>
@@ -159,6 +160,11 @@
 
                         </div>
                     </li>
+                    <li>
+                        <a href="/"
+                            class="block font-semibold py-2 pr-10 pl-3 menu active text-white bg-blue-700 rounded md:bg-transparent md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 "
+                            aria-current="page">Produk Hukum</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -172,12 +178,17 @@
             <div class="grid md:grid-cols-4 sd:grid-cols-3 grid-cols-2 gap-10">
                 <div class="col-span-2">
                     <p class="text-xl text-white font-bold mb-6">Sejarah Singkat</p>
-                    <p class="text-white/80 text-sm font-light ">Badan Pengelolaan Keuangan dan Aset Daerah Kota
+                    <p class="text-white/80 text-sm font-light mb-6">Badan Pengelolaan Keuangan dan Aset Daerah Kota
                         Surakarta merupakan unsur pelaksana fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub
                         Pengelolaan Keuangan dan Aset Daerah yang menjadi kewenangan Pemerintahan Daerah yang dipimpin
                         oleh Kepala Badan Pengelolaan Keuangan dan Aset Daerah sesuai dengan Peraturan Walikota
                         Surakarta Nomor 41 tahun 2021 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta
                         Tata Kerja Badan Daerah</p>
+
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d554.9244983269504!2d110.82837191069203!3d-7.569286049513782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sid!4v1668585608489!5m2!1sen!2sid"
+                        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div>
                     <p class="text-xl text-white font-bold mb-6">Contact</p>

@@ -190,6 +190,27 @@ body::-webkit-scrollbar {
   margin: 0 -10px;
 }
 
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: inherit !important;
+}
+
+.slick-slide {
+  margin-bottom: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.dark .slick-prev:before {
+  color: #222;
+}
+.dark .slick-next:before {
+  color: #222;
+}
+
 /*Form fields*/
 .dataTables_wrapper select,
 .dataTables_wrapper .dataTables_filter input {

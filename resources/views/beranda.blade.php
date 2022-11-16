@@ -183,81 +183,21 @@
 
     <div class=" mt-16 mb-16">
 
-        <p class="text-primary font-bold text-3xl italic mb-3 text-center">Informasi Berkala</p>
-        <p class="text-sm text-center md:w-[50%] sm:w-[75%] w-[95%] mx-auto">Informasi yang wajib di perbaharui
-            kemudian disediakan dan
-            diumumkan kepada
-            publik secara berkala sekurang-kurangnya setiap 6 bulan sekali</p>
+        <p class="text-primary font-bold text-3xl italic mb-3 text-center">Video Terbaru</p>
+        <p class="text-sm text-center md:w-[50%] sm:w-[75%] w-[95%] mx-auto">Video dari BPKAD untuk masyarakat</p>
 
-        <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 sm:m-10 m-5">
-            <div
-                class="h-[75px]  hover:shadow-xl border hover:border-none bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    info
-                </span>
-                <span class="font-bold">Informasi Tentang Profil Badan Public</span>
-            </div>
+        <div class="video-slide dark sm:m-10 m-5 ">
+            <iframe  style="height: 480px !important" src="https://www.youtube.com/embed/DwFg8kWMTVE"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
 
-            <div
-                class="h-[75px] hover:shadow-xl border hover:border-none bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    history_edu
-                </span>
-                <span class="font-bold">Ringkasan Program dan Kegiatan yang sedang dijalankan</span>
-            </div>
-
-            <div
-                class="h-[75px] hover:shadow-xl border hover:border-none bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    request_quote
-                </span>
-                <span class="font-bold">Ringkasan Laporan Keuangan</span>
-            </div>
-
-            <div
-                class="h-[75px] hover:shadow-xl border hover:border-none   bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    inventory_2
-                </span>
-                <span class="font-bold">Informasi Pengadaan Barang dan Jasa </span>
-            </div>
-
-            <div
-                class="h-[75px] hover:shadow-xl border hover:border-none  bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    local_police
-                </span>
-                <span class="font-bold">Informasi Tentang Peraturan Keputusan atau Kebijakan yang mengikat</span>
-            </div>
-
-            <div
-                class="h-[75px] hover:shadow-xl border hover:border-none  bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    warning
-                </span>
-                <span class="font-bold">Informasi tentang prosedur peringatan dini dan prosedur evakuasi keadaan
-                    darurat</span>
-            </div>
-
-            <div
-                class="h-[75px] hover:shadow-xl border hover:border-none bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    work
-                </span>
-                <span class="font-bold">Ringkasan Informasi Tentang Kinerja</span>
-            </div>
-
-            <div
-                class="h-[75px] hover:shadow-xl border hover:border-none  bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer">
-                <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                    dangerous
-                </span>
-                <span class="font-bold">Informasi Tentang Tata Cara Pengaduan Penyalahgunaan Wewenang atau
-                    Pelanggaran</span>
-            </div>
-
-
+            <iframe style="height: 480px !important" src="https://www.youtube.com/embed/doGpA_fipuM"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
+
     </div>
 
     <div class="grid md:grid-cols-2 grid-cols-1 md:h-[750px] h-min-[750px] relative overflow-hidden">
@@ -299,7 +239,8 @@
                 </div>
 
                 <div class="mb-6">
-                    <label for="aspirasi-text" class="block mb-2 text-sm font-medium text-white ">Masukan Aspirasi</label>
+                    <label for="aspirasi-text" class="block mb-2 text-sm font-medium text-white ">Masukan
+                        Aspirasi</label>
                     <textarea type="text" id="aspirasi-text" rows="4"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                         placeholder="Masukan Aspirasi anda" required></textarea>
@@ -338,7 +279,8 @@
                 </div>
                 <p class="italic font-bold text-md text-center px-3 pb-3">Wali Kota Surakarta
                     @gibran_tweet
-                    sempat mengatakan, penataan Taman Balekambang sempat mengalami keterlambatan selama beberapa saat karena
+                    sempat mengatakan, penataan Taman Balekambang sempat mengalami keterlambatan selama beberapa saat
+                    karena
                     persoalan teknis.
                 </p>
             </a>
@@ -352,7 +294,8 @@
                         src="https://images.solopos.com/2022/11/bersih-bersih-sriwdari.jpg" />
 
                 </div>
-                <p class="italic font-bold text-md text-center px-3 pb-3">1.500 Orang Bersih-Bersih Kawasan Sriwedari Solo,
+                <p class="italic font-bold text-md text-center px-3 pb-3">1.500 Orang Bersih-Bersih Kawasan Sriwedari
+                    Solo,
                     Alat Berat Ikut Dikerahkan</p>
 
             </a>
@@ -386,10 +329,6 @@
 
         </div>
     </div>
-
-
-
-
 @endsection
 
 @section('morejs')
@@ -416,6 +355,28 @@
                     settings: {
                         centerMode: true,
                         centerPadding: '20px',
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+
+        $('.video-slide').slick({
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1,
+            focusOnSelect: 1,
+            responsive: [{
+                    breakpoint: 1200,
+                    settings: {
+                        centerMode: false,
+                        slidesToShow: 1
+                    }
+                },
+                {
+                    breakpoint: 760,
+                    settings: {
+                        centerMode: false,
                         slidesToShow: 1
                     }
                 }

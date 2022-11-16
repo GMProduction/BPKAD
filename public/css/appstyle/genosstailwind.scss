@@ -255,6 +255,29 @@ body::-webkit-scrollbar {
   margin: 0 -10px;
 }
 
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: inherit !important;
+}
+
+.slick-slide {
+  margin-bottom: 0;
+  object-fit: cover;
+}
+
+.dark {
+  .slick-prev:before {
+    color: #222;
+  }
+  .slick-next:before {
+    color: #222;
+  }
+
+
+}
 // DATA TABLES
 
 /*Form fields*/
