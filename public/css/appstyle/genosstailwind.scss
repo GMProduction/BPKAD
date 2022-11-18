@@ -10,8 +10,8 @@ body::-webkit-scrollbar {
 }
 
 .nav-button {
-    background-color: #ddd3;
-    padding: 10px 5px;
+  background-color: #ddd3;
+  padding: 10px 5px;
 }
 
 .sidebar {
@@ -280,8 +280,18 @@ body::-webkit-scrollbar {
   .slick-next:before {
     color: #222;
   }
+}
 
+.artikel-slide {
+  .slick-prev {
+    left: 25px;
+    z-index: 10;
+  }
 
+  .slick-next {
+    right: 25px;
+    z-index: 10;
+  }
 }
 // DATA TABLES
 

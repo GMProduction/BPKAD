@@ -216,6 +216,15 @@ body::-webkit-scrollbar {
   color: #222;
 }
 
+.artikel-slide .slick-prev {
+  left: 25px;
+  z-index: 10;
+}
+.artikel-slide .slick-next {
+  right: 25px;
+  z-index: 10;
+}
+
 /*Form fields*/
 .dataTables_wrapper select,
 .dataTables_wrapper .dataTables_filter input {
