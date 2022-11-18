@@ -10,6 +10,11 @@ body::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
 
+.nav-button {
+  background-color: rgba(221, 221, 221, 0.2);
+  padding: 10px 5px;
+}
+
 .sidebar {
   width: 255px;
   position: relative;

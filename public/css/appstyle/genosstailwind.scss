@@ -9,6 +9,11 @@ body::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
 
+.nav-button {
+    background-color: #ddd3;
+    padding: 10px 5px;
+}
+
 .sidebar {
   width: 255px;
   // border-right: solid 1px $font-grey7;

@@ -14,7 +14,8 @@
 
     <div class=" mt-16 mb-16">
 
-        <div class="bg-white p-10 md:w-[60%] sm:w-[75%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
+        <div
+            class="bg-white p-10 md:w-[60%] sm:w-[75%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3 ">Tugas Sekretariat</p>
             <p class="text-sm   mx-auto">Sekretaris mempunyai tugas melaksanakan pengelolaan perencanaan,
                 penganggaran, manajemen resiko, monitoring, evaluasi dan pelaporan, kepegawaian, pengelolaan keuangan dan
@@ -22,7 +23,8 @@
             </p>
         </div>
 
-        <div class="bg-white p-10 md:w-[60%] sm:w-[75%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
+        <div
+            class="bg-white p-10 md:w-[60%] sm:w-[75%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3  ">Sub Bidang </p>
             <p class="text-sm  md:w-[50%] sm:w-[75%] w-[95%]  mb-3">1. Sub Bidang Perencanaan dan
                 Penganggaran</p>
@@ -37,6 +39,12 @@
                 pengelolaan administrasi keuangan pada badan</p>
         </div>
 
+        <div
+            class="bg-white p-10 md:w-[60%] sm:w-[75%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
+            <p class="text-primary font-bold text-3xl italic mb-3  ">Gallery </p>
+            <div class="slick-gallery">
 
+            </div>
+        </div>
     </div>
 @endsection

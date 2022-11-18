@@ -19,9 +19,11 @@
 @section('content')
     <div class="mt-[-89px] sm:h-[796px] h-[350px] w-[100%] bg-black/30 z-[-1]  relative">
         <div class="absolute sm:bottom-[200px] bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
-            <a class="font-bold text-primary text-4xl">BPKAD </a> <a class="font-bold text-4xl text-white">KOTA
+            <a class="font-bold text-white text-4xl" data-aos="fade-left">BPKAD </a> <a class="font-bold text-4xl text-white"
+                data-aos="fade-left">KOTA
                 SURAKARTA</a> <br>
-            <a class="font-bold text-white">Badan Pengelolaan Keuangan & Aset Daerah Kota Surakarta</a>
+            <a class="font-bold text-white " data-aos="fade-right">Badan Pengelolaan Keuangan & Aset Daerah Kota
+                Surakarta</a>
         </div>
     </div>
 
@@ -29,7 +31,7 @@
         class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] object-cover top-0 left-0" />
 
 
-    <div class="mt-[-70px] min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md flex items-center ">
+    <div class="mt-[-70px] min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md flex items-center " data-aos="fade-up">
         <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 mt-[auto] mb-[auto] w-[100%]">
             <div class="flex  md:justify-center justify-start  sm:mx-0 mx-5 sm:my-0 my-1 sm:mt-0 mt-3">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
@@ -187,7 +189,7 @@
         <p class="text-sm text-center md:w-[50%] sm:w-[75%] w-[95%] mx-auto">Video dari BPKAD untuk masyarakat</p>
 
         <div class="video-slide dark sm:m-10 m-5 ">
-            <iframe  style="height: 480px !important" src="https://www.youtube.com/embed/DwFg8kWMTVE"
+            <iframe style="height: 480px !important" src="https://www.youtube.com/embed/DwFg8kWMTVE"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>

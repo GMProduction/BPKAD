@@ -16,6 +16,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="{{ asset('css/appstyle/genosstailwind.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/import/aos-master/dist/aos.css') }}" type="text/css">
 
     {{-- <link rel="stylesheet"
 
@@ -30,7 +31,7 @@
 <body style="position: relative">
     <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10 shadow-sm">
         <div class="container flex flex-wrap justify-between items-center mx-auto sticky top-0">
-            <a href="#" class="flex items-center">
+            <a href="/" class="flex items-center">
                 <img src="{{ asset('/assets/local/logosurakarta.png') }}"
                     class="logo mr-3  h-16 m-3 sm:m-0 sm:h-[80px] " alt="Surakarta Logo">
 
@@ -46,19 +47,19 @@
                         clip-rule="evenodd"></path>
                 </svg>
             </button>
+
             <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
                 <ul
-                    class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent   ">
+                    class="md:bg-transparent flex flex-col p-4 mt-4 bg-gray-50  rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0    ">
                     <li>
                         <a href="/"
-                            class="block font-semibold py-2 pr-10 pl-3 menu active text-white bg-blue-700 rounded md:bg-transparent md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 "
+                            class="nav-button  block font-semibold py-2 pr-10 pl-3 menu active text-white  rounded  md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 hover:bg-gray-400 transition duration-300"
                             aria-current="page">Beranda</a>
                     </li>
 
                     <li>
-
                         <button id="dropdownProfilLink" data-dropdown-toggle="dropdownProfil"
-                            class="menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">Profil
+                            class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-400 transition duration-300 md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">Profil
                             <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -86,7 +87,7 @@
                     </li>
                     <li>
                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                            class="menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">Bidang
+                            class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto  hover:bg-gray-400 transition duration-300   ">Bidang
                             <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -121,11 +122,11 @@
                     </li>
                     <li>
                         <a href="/artikel"
-                            class="menu block py-2 pr-4 pl-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3   ">Artikel</a>
+                            class="nav-button  menu block py-2 pr-4 pl-3 text-gray-200 rounded  md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3  hover:bg-gray-400 transition duration-300  ">Artikel</a>
                     </li>
                     <li>
                         <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar2"
-                            class="menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">PPID
+                            class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-400 transition duration-300  md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">PPID
                             <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -162,7 +163,7 @@
                     </li>
                     <li>
                         <a href="/"
-                            class="block font-semibold py-2 pr-10 pl-3 menu active text-white bg-blue-700 rounded md:bg-transparent md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 "
+                            class="nav-button  block font-semibold py-2 pr-10 pl-3 menu active text-white rounded  md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 hover:bg-gray-400 transition duration-300"
                             aria-current="page">Produk Hukum</a>
                     </li>
                 </ul>
@@ -186,7 +187,7 @@
                         Tata Kerja Badan Daerah</p>
 
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d554.9244983269504!2d110.82837191069203!3d-7.569286049513782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sid!4v1668585608489!5m2!1sen!2sid"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398.3223047030822!2d110.82788629803538!3d-7.56922993376408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x62b5fc04bb57f608!2sBidang%20Akuntansi%20BPPKAD%20Kota%20Surakarta!5e0!3m2!1sen!2sid!4v1668665961788!5m2!1sen!2sid"
                         width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -261,8 +262,13 @@
     </script>
     <script src="{{ asset('/js/flowbite.js') }}"></script>
     <script src="{{ asset('/js/nav.js') }}"></script>
+    <script src="{{ asset('assets/import/aos-master/dist/aos.js') }}"></script>
 
     @yield('morejs')
+
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
