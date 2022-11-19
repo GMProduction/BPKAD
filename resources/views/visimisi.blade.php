@@ -11,13 +11,13 @@
 
     <div class=" mt-16 mb-16">
 
-        <div class="bg-white p-10 md:w-[60%] sm:w-[75%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
+        <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3 ">Visi</p>
             <p class="text-sm   mx-auto">TERWUJUDNYA PENGELOLAAN KEUANGAN DAN ASET
                 DAERAH
                 YANG AKUNTABEL DAN TRANSPARAN</p>
         </div>
-        <div class="bg-white p-10 md:w-[60%] sm:w-[75%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
+        <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3  ">Misi</p>
             <p class="text-sm   mx-auto mb-3">1. MENINGKATKAN KELANCARAN DAN
                 KETERTIBAN

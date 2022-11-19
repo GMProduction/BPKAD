@@ -12,7 +12,7 @@
     <div class=" mt-16 mb-16">
 
         <p class="text-primary font-bold text-3xl italic mb-3 text-center">Informasi Berkala</p>
-        <p class="text-sm text-center md:w-[50%] sm:w-[75%] w-[95%] mx-auto">Informasi yang wajib di perbaharui
+        <p class="text-sm text-center md:w-[50%] sm:w-[80%] w-[95%] mx-auto">Informasi yang wajib di perbaharui
             kemudian disediakan dan
             diumumkan kepada
             publik secara berkala sekurang-kurangnya setiap 6 bulan sekali</p>

@@ -32,13 +32,13 @@
     <div class=" mt-16 mb-16">
 
         <div
-            class="bg-white p-10 md:w-[60%] sm:w-[75%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
+            class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3 ">Tugas Bidang Aset</p>
             <p class="text-sm   mx-auto">Bidang aset mempunyai tugas melaksanakan
                 kebijakan daerah terkait pelaksanaan dan penilaian barang millik daerah</p>
         </div>
         <div
-            class="bg-white p-10 md:w-[60%] sm:w-[75%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
+            class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3  ">Sub Bidang </p>
             <p class="text-sm   mx-auto mb-3">1. Subbidang Penatalaksanaan Barang
                 Milik Daerah</p>
@@ -57,20 +57,35 @@
                 Barang Milik Daerah mempunyai tugas pelaksanaan, monitoring dan evaluasi terkait penilaian barang milik
                 daerah</p>
         </div>
-        <div
-            class="bg-white p-10 md:w-[60%] sm:w-[75%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
-            <p class="text-primary font-bold text-3xl italic mb-6  ">Gallery </p>
-            <div class="slider-for mb-3">
-                @for ($i = 1; $i < 23; $i++)
-                    <img src="{{ asset('assets/local/aset/1 (' . $i . ').jpg') }}" />
-                @endfor
-            </div>
-            <div class="slider-nav">
-                @for ($i = 1; $i < 23; $i++)
-                    <img src="{{ asset('assets/local/aset/1 (' . $i . ').jpg') }}" />
-                @endfor
+        <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 relative max-h-max">
+            <div class="sm:w-[100%] w-[100%]  mx-auto">
+                <p class="text-primary font-bold text-3xl italic mb-6  ">Gallery </p>
+                <div class="slider-for dark mb-3">
+                    @for ($i = 1; $i < 23; $i++)
+                        <img src="{{ asset('assets/local/aset/1 (' . $i . ').jpg') }}" class="max-h-[500px] cursor-pointer"
+                            onclick="showModal('{{ asset('assets/local/aset/1 (' . $i . ').jpg') }}')" />
+                    @endfor
+                </div>
+                <div class="slider-nav">
+                    @for ($i = 1; $i < 23; $i++)
+                        <img src="{{ asset('assets/local/aset/1 (' . $i . ').jpg') }}" class="max-h-[150px]" />
+                    @endfor
 
+                </div>
             </div>
+        </div>
+
+        <!-- The Modal -->
+        <div id="modal"
+            class="hidden fixed top-0 left-0 z-80 w-screen h-screen bg-black/70 flex justify-center items-center z-50"
+            onclick="closeModal()">
+
+            <!-- The close button -->
+            <a class="fixed z-90 top-6 right-8 text-white text-5xl font-bold" href="javascript:void(0)"
+                onclick="closeModal()">&times;</a>
+
+            <!-- A big image will be displayed here -->
+            <img id="modal-img" class="max-w-[90%] max-h-[90%]  object-cover" />
         </div>
     </div>
 @endsection
@@ -85,18 +100,46 @@
         $('.slider-for').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
-            arrows: false,
+            arrows: true,
             fade: true,
             asNavFor: '.slider-nav',
             lazyLoad: 'ondemand',
         });
         $('.slider-nav').slick({
-            slidesToShow: 3,
+            slidesToShow: 5,
             slidesToScroll: 1,
             asNavFor: '.slider-for',
             centerMode: true,
             focusOnSelect: true,
+            arrows: true,
             lazyLoad: 'ondemand',
+            responsive: [{
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                },
+            ]
         });
     </script>
+
+    <script>
+        // Get the modal by id
+        var modal = document.getElementById("modal");
+
+        // Get the modal image tag
+        var modalImg = document.getElementById("modal-img");
+
+        // this function is called when a small image is clicked
+        function showModal(src) {
+            modal.classList.remove('hidden');
+            modalImg.src = src;
+        }
+
+        // this function is called when the close button is clicked
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+    </script>
 @endsection
+

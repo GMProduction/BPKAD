@@ -188,7 +188,7 @@
     <div class=" mt-16 mb-16">
 
         <p class="text-primary font-bold text-3xl italic mb-3 text-center" data-aos="fade-up">Video Terbaru</p>
-        <p class="text-sm text-center md:w-[50%] sm:w-[75%] w-[95%] mx-auto" data-aos="fade-up">Video dari BPKAD untuk
+        <p class="text-sm text-center md:w-[50%] sm:w-[80%] w-[95%] mx-auto" data-aos="fade-up">Video dari BPKAD untuk
             masyarakat</p>
 
         <div class="video-slide dark sm:m-10 m-5 " data-aos="fade-up">

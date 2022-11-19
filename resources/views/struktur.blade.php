@@ -12,7 +12,7 @@
     <div class=" mt-16 mb-16">
 
 
-        <div class="bg-white p-10 md:w-[60%] sm:w-[75%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
+        <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic  text-center mb-10">Struktur Organisasi</p>
             <div class="w-full text-center">
                 <a href="{{ asset('assets/local/struktur.jpg') }}" target="_blank">
