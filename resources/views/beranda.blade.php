@@ -275,7 +275,7 @@
         <p class="text-sm text-center w-[50%] mx-auto" data-aos="fade-up">Artikel terbaru dari kami</p>
 
         <div class="flex justify-end items-center mr-16 mb-4">
-            <a href="#"
+            <a href="/artikel"
                 class="flex justify-end items-center px-3 py-2 bg-primarylight text-sm font-bold shadow-md text-white hover:shadow-2xl transition duration-300 hover:scale-105">Lihat
                 Semua Artikel <span class="material-symbols-outlined">
                     arrow_right_alt
@@ -457,7 +457,7 @@
             setTimeout(function() {
                 document.getElementById('slider').src = imgArray[curIndex];
                 document.getElementById('slider').classList.remove("fadeOut");
-            }, 200);
+            }, 400);
             curIndex++;
             if (curIndex == imgArray.length) {
                 curIndex = 0;

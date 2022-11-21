@@ -6,6 +6,8 @@
     </script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 @endsection
 
 @section('css')
@@ -65,37 +67,80 @@
                         placeholder="Nama Pemberi Aspirasi" required>
                 </div>
 
+                <div x-data="showImage()" class="w-full">
+                    <div class="mb-6">
+                        <div>
+                            <label class="inline-block mb-2 text-gray-500">Cover Artikel</label>
+                            <div class="flex items-center justify-center w-full">
+                                <label
+                                    class="flex flex-col w-full border-4 border-dashed hover:bg-gray-100 hover:border-gray-300">
+                                    <div class="relative flex flex-col items-center justify-center pt-7">
+                                        <img id="preview" class="absolute inset-0 h-[141px] mx-auto object-fit" src="">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="w-12 h-12 text-gray-400 group-hover:text-gray-600" viewBox="0 0 20 20"
+                                            fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                        <p class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
+                                            pilih foto</p>
+                                    </div>
+                                    <input type="file" class="opacity-0" accept="image/*" @change="showPreview(event)"
+                                        name="image" />
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
                 <label for="e-link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Konten</label>
+
                 <div class="border p-3 border-gray-200 rounded-lg">
-                    <div class="mb-3">
-                        <label for="e-link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
-                        <input type="text" id="e-link-info"
+                    <ul class="grid gap-6 w-full xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 mb-5">
+                        <li>
+                            <input type="radio" id="tr-link" name="tr-konten" value="tr-link" class="hidden peer"
+                                required checked onclick="switchtambahKonten()">
+                            <label for="tr-link"
+                                class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold text-center">Link</div>
+                                    <div class="w-full text-center">Konten Menggunakan Link</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <input type="radio" id="tr-file" name="tr-konten" value="tr-file" class="hidden peer"
+                                onclick="switchtambahKonten()">
+                            <label for="tr-file"
+                                class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div class="block">
+                                    <div class="w-full text-lg font-semibold text-center">Ketik Artikel</div>
+                                    <div class="w-full text-center">Membuat artikel sendiri</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+
+                    <div class="mb-3 " id="div-tambahlink">
+                        <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                        <input type="text" id="link-info"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                            placeholder="Masukan Link" required>
+                            placeholder="Masukan Email Anda" required>
                     </div>
 
-                    <p class="text-center text-sm">atau</p>
 
-                    <div class="mb-6">
-                        <label for="aset-sub-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Isi
+                    <div class="mb-3  hidden" id="div-tambahfile">
+                        <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Ketik
                             Artikel</label>
                         <div class="summernote" id="isiartikel"> </div>
 
-                        <div class="flex p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
-                            role="alert">
-                            <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor"
-                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="sr-only">Info</span>
-                            <div>
-                                Kosongkan bagian ini jika menggunakan link sebagai konten
-                            </div>
-                        </div>
                     </div>
                 </div>
+
+
 
                 <div class="mb-6 flex justify-end items-end">
 
@@ -132,5 +177,32 @@
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
         });
+    </script>
+
+    <script>
+        function switchtambahKonten() {
+            if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
+                document.querySelector('#div-tambahfile').classList.add("hidden");
+                document.querySelector('#div-tambahlink').classList.remove("hidden");
+            } else {
+                document.querySelector('#div-tambahfile').classList.remove("hidden");
+                document.querySelector('#div-tambahlink').classList.add("hidden");
+            }
+        }
+    </script>
+
+    <script>
+        function showImage() {
+            return {
+                showPreview(event) {
+                    if (event.target.files.length > 0) {
+                        var src = URL.createObjectURL(event.target.files[0]);
+                        var preview = document.getElementById("preview");
+                        preview.src = src;
+                        preview.style.display = "block";
+                    }
+                }
+            }
+        }
     </script>
 @endsection

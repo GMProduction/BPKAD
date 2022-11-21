@@ -983,6 +983,12 @@ input:checked + .toggle-bg {
 .left-0 {
   left: 0px;
 }
+.top-6 {
+  top: 1.5rem;
+}
+.right-8 {
+  right: 2rem;
+}
 .bottom-16 {
   bottom: 4rem;
 }
@@ -1010,26 +1016,20 @@ input:checked + .toggle-bg {
 .bottom-0 {
   bottom: 0px;
 }
-.top-6 {
-  top: 1.5rem;
-}
-.right-8 {
-  right: 2rem;
-}
 .z-\[-1\] {
   z-index: -1;
 }
 .z-\[-2\] {
   z-index: -2;
 }
+.z-50 {
+  z-index: 50;
+}
 .z-10 {
   z-index: 10;
 }
 .z-20 {
   z-index: 20;
-}
-.z-50 {
-  z-index: 50;
 }
 .z-40 {
   z-index: 40;
@@ -1179,6 +1179,9 @@ input:checked + .toggle-bg {
 .h-\[350px\] {
   height: 350px;
 }
+.h-screen {
+  height: 100vh;
+}
 .h-full {
   height: 100%;
 }
@@ -1218,9 +1221,6 @@ input:checked + .toggle-bg {
 .h-\[50px\] {
   height: 50px;
 }
-.h-screen {
-  height: 100vh;
-}
 .h-\[141px\] {
   height: 141px;
 }
@@ -1236,30 +1236,24 @@ input:checked + .toggle-bg {
 .h-9 {
   height: 2.25rem;
 }
-.h-\[500px\] {
-  height: 500px;
-}
-.max-h-\[47px\] {
-  max-height: 47px;
-}
-.max-h-\[600px\] {
-  max-height: 600px;
-}
-.max-h-\[90\%\] {
-  max-height: 90%;
-}
-.max-h-\[500px\] {
-  max-height: 500px;
+.h-\[400px\] {
+  height: 400px;
 }
 .max-h-max {
   max-height: -moz-max-content;
   max-height: max-content;
 }
-.max-h-\[100px\] {
-  max-height: 100px;
+.max-h-\[500px\] {
+  max-height: 500px;
 }
 .max-h-\[150px\] {
   max-height: 150px;
+}
+.max-h-\[90\%\] {
+  max-height: 90%;
+}
+.max-h-\[47px\] {
+  max-height: 47px;
 }
 .min-h-\[500px\] {
   min-height: 500px;
@@ -1281,6 +1275,9 @@ input:checked + .toggle-bg {
 }
 .w-\[95\%\] {
   width: 95%;
+}
+.w-screen {
+  width: 100vw;
 }
 .w-full {
   width: 100%;
@@ -1330,20 +1327,14 @@ input:checked + .toggle-bg {
 .w-1\/2 {
   width: 50%;
 }
-.w-screen {
-  width: 100vw;
+.max-w-\[90\%\] {
+  max-width: 90%;
 }
 .max-w-2xl {
   max-width: 42rem;
 }
 .max-w-md {
   max-width: 28rem;
-}
-.max-w-\[800px\] {
-  max-width: 800px;
-}
-.max-w-\[90\%\] {
-  max-width: 90%;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1481,9 +1472,6 @@ input:checked + .toggle-bg {
   --tw-divide-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-divide-opacity));
 }
-.overflow-auto {
-  overflow: auto;
-}
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1590,6 +1578,9 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.bg-black\/70 {
+  background-color: rgb(0 0 0 / 0.7);
+}
 .bg-black\/0 {
   background-color: rgb(0 0 0 / 0);
 }
@@ -1658,9 +1649,6 @@ input:checked + .toggle-bg {
 }
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
-}
-.bg-black\/70 {
-  background-color: rgb(0 0 0 / 0.7);
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
@@ -1805,6 +1793,10 @@ input:checked + .toggle-bg {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1820,10 +1812,6 @@ input:checked + .toggle-bg {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }
 .font-bold {
   font-weight: 700;
@@ -2310,28 +2298,16 @@ input:checked + .toggle-bg {
     height: 250px;
   }
 
-  .sm\:w-\[75\%\] {
-    width: 75%;
-  }
-
   .sm\:w-\[80\%\] {
     width: 80%;
   }
 
-  .sm\:w-\[50\%\] {
-    width: 50%;
-  }
-
-  .sm\:w-\[60\%\] {
-    width: 60%;
-  }
-
-  .sm\:w-\[70\%\] {
-    width: 70%;
-  }
-
   .sm\:w-\[100\%\] {
     width: 100%;
+  }
+
+  .sm\:w-\[50\%\] {
+    width: 50%;
   }
 
   .sm\:max-w-md {
@@ -2428,10 +2404,6 @@ input:checked + .toggle-bg {
     height: auto;
   }
 
-  .md\:w-\[60\%\] {
-    width: 60%;
-  }
-
   .md\:w-auto {
     width: auto;
   }
@@ -2450,6 +2422,10 @@ input:checked + .toggle-bg {
 
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .md\:flex-row {
@@ -2515,6 +2491,14 @@ input:checked + .toggle-bg {
 }
 @media (min-width: 1024px) {
 
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .lg\:py-0 {
     padding-top: 0px;
     padding-bottom: 0px;
@@ -2524,6 +2508,10 @@ input:checked + .toggle-bg {
 
   .xl\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .xl\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .xl\:p-0 {

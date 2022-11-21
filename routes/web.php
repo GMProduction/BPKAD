@@ -27,7 +27,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::match(['post', 'get'], '/', [\App\Http\Controllers\Admin\CustomizeController::class, 'home'])->name('customize.home');
     });
 
-    Route::group(['prefix' => 'kustomisasi-profil'], function (){
+    Route::group(['prefix' => 'kustomisasi-profil'], function () {
         Route::match(['post', 'get'], '/', [\App\Http\Controllers\Admin\CustomizeController::class, 'profile'])->name('customize.profile');
     });
 });
@@ -62,6 +62,10 @@ Route::get('/aset', function () {
 
 Route::get('/artikel', function () {
     return view('artikel');
+});
+
+Route::get('/artikel-detail', function () {
+    return view('artikel-detail');
 });
 
 Route::get('/info-berkala', function () {

@@ -38,9 +38,9 @@
                     <div class=" sm:h-[500px] h-[350px] w-[100%] bg-gradient-to-t from-black/70   relative">
                         <div class="absolute   z-1 opacity-100 w-[100%] p-5 flex flex-col-reverse h-full">
 
-                            <a class=" text-white text-sm mt-3" data-aos="fade-right">18 Nov 2022</a>
+                            <a class=" text-white text-sm mt-3" >18 Nov 2022</a>
 
-                            <a class="font-bold text-white text-lg" data-aos="fade-right">Badan Pengelolaan Keuangan & Aset
+                            <a class="font-bold text-white text-lg" >Badan Pengelolaan Keuangan & Aset
                                 Daerah Kota
                                 Surakarta</a>
 
@@ -56,9 +56,9 @@
                     <div class=" sm:h-[500px] h-[350px] w-[100%] bg-gradient-to-t from-black/70   relative">
                         <div class="absolute   z-1 opacity-100 w-[100%] p-5 flex flex-col-reverse h-full">
 
-                            <a class=" text-white text-sm mt-3" data-aos="fade-right">17 Nov 2022</a>
+                            <a class=" text-white text-sm mt-3" >17 Nov 2022</a>
 
-                            <a class="font-bold text-white text-lg" data-aos="fade-right">Wali Kota Surakarta
+                            <a class="font-bold text-white text-lg" >Wali Kota Surakarta
                                 @gibran_tweet
                                 sempat mengatakan, penataan Taman Balekambang sempat mengalami keterlambatan selama beberapa saat
                                 karena
