@@ -30,6 +30,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'kustomisasi-profil'], function () {
         Route::match(['post', 'get'], '/', [\App\Http\Controllers\Admin\CustomizeController::class, 'profile'])->name('customize.profile');
     });
+
+    Route::group(['prefix' => 'informasi'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\InformationController::class, 'index'])->name('admin.information.index');
+        Route::match(['post', 'get'],'/{slug}/informasi-berkala', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information'])->name('admin.information.periodic');
+    });
 });
 
 Route::get('/', function () {
@@ -120,17 +125,17 @@ Route::get('/informasi', function () {
 //    return view('admin/customize/customize_bidang');
 //});
 
-Route::get('/admin/informasi', function () {
-    return view('admin/informasi/informasi');
-});
+//Route::get('/admin/informasi', function () {
+//    return view('admin/informasi/informasi');
+//});
 
-Route::get('/admin/informasi/detail', function () {
-    return view('admin/informasi/informasi-detail');
-});
-
-Route::get('/admin/informasi/detailbyyear', function () {
-    return view('admin/informasi/informasi-detail-byyear');
-});
+//Route::get('/admin/informasi/detail', function () {
+//    return view('admin/informasi/informasi-detail');
+//});
+//
+//Route::get('/admin/informasi/detailbyyear', function () {
+//    return view('admin/informasi/informasi-detail-byyear');
+//});
 
 Route::get('/admin/artikel', function () {
     return view('admin/artikel/artikel');
