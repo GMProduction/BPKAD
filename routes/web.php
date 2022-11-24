@@ -34,6 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'informasi'], function () {
         Route::get('/', [\App\Http\Controllers\Admin\InformationController::class, 'index'])->name('admin.information.index');
         Route::match(['post', 'get'],'/{slug}/informasi-berkala', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information'])->name('admin.information.periodic');
+        Route::post('/{slug}/informasi-berkala/patch', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information_patch'])->name('admin.information.periodic.patch');
     });
 });
 
