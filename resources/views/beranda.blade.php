@@ -126,9 +126,9 @@
                             class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                     </div>
                     <div class="col-span-2">
-                        <p class="text-white font-bold text-2xl italic mb-3">Aplikasi HIBAH ONLINE</p>
-                        <p class="text-sm text-white/80 ">APLIKASI HIBAH BANSOS DAN BANKEU
-                            PEMERINTAH SURAKARTA, JAWA TENGAH
+                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI HIBAH ONLINE</p>
+                        <p class="text-sm text-white/80 ">Aplikasi Hibah Bansos dan Bankeu
+                            Pemerintah Surakarta, Jawa Tengah
                             Badan Pendapatan Pengelolaan Keuangan dan Aset Daerah</p>
                     </div>
 
@@ -156,7 +156,7 @@
                     </div>
                     <div class="col-span-2">
                         <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SIKENDIS</p>
-                        <p class="text-sm text-white/80 ">(Sistem Informasi Kendaraan Dinas)
+                        <p class="text-sm text-white/80 ">Sistem Informasi Kendaraan Dinas
                             Pemerintah Kota Surakarta</p>
                     </div>
 
@@ -171,9 +171,9 @@
                             class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                     </div>
                     <div class="col-span-2">
-                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI <i
+                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SIPERON<i
                                 class="mdi mdi-skip-previous-outline:"></i></p>
-                        <p class="text-sm text-white/80 ">Sistem informasi persediaan online.</p>
+                        <p class="text-sm text-white/80 ">Sistem Informasi Persediaan Online.</p>
                     </div>
 
                 </div>
