@@ -53,7 +53,7 @@
         <div class="panel bg-white border">
             <div class="flex justify-between mb-3">
                 <p class=" font-semibold">{{ $title }}</p>
-                <button type="button" data-modal-toggle="modalTambah"
+                <button type="button" onclick="openModalTambah()"
                     class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                     <span class="material-symbols-outlined text-white mr-3">
                         add
@@ -157,7 +157,7 @@
                                         @endforeach
                                     </select>
 
-                                    <button type="button" onclick="openModalKategori()"
+                                    <button type="button"  onclick="openModalKategori()"
                                         data-tooltip-target="tooltip-default"
                                         class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5  transition duration-300  focus:outline-none ">
                                         <span class="material-symbols-outlined text-white">
@@ -381,7 +381,7 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                        <button type="button" data-modal-toggle="modalEdit"
+                        <button type="button" onclick="closeModalEdit()"
                             class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
                                 save
