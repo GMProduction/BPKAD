@@ -140,7 +140,7 @@
                             style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 110px);">
                             <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownLargeButton">
                                 <li>
-                                    <a href="/info-berkala" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                    <a href="/informasi-berkala" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                         Berkala</a>
                                 </li>
                                 <li>

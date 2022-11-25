@@ -210,7 +210,7 @@
                                            class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
                                     <input type="text" id="link-info" name="link"
                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                           placeholder="Masukan Email Anda" required>
+                                           placeholder="Masukan Link" required>
                                 </div>
 
                                 <div class="mb-3  hidden" id="div-tambahfile">
@@ -227,7 +227,7 @@
                         </div>
                         <!-- Modal footer -->
                         <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                            <button type="submit" data-modal-toggle="modalTambah" id="btn-submit"
+                            <button type="submit" id="btn-submit"
                                     class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
                                 save
@@ -393,7 +393,18 @@
             generateDataTable();
             $('#btn-submit').on('click', function (e) {
                 e.preventDefault();
-                $('#form-save').submit();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    icon: 'info',
+                    text: 'Yakin ingin menambah data informasi?',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    focusConfirm: false,
+                }).then(function (result) {
+                    if (result) {
+                        $('#form-save').submit();
+                    }
+                });
             });
 
             $('#btn-patch').on('click', function (e) {

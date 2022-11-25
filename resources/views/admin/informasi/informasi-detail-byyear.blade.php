@@ -5,13 +5,39 @@
 @endsection
 
 @section('content')
+    @if(\Illuminate\Support\Facades\Session::has('success'))
+        <script>
+            Swal.fire({
+                icon: "success",
+                text: "{{ \Illuminate\Support\Facades\Session::get('success') }}"
+            })
+        </script>
+    @endif
+    @if(\Illuminate\Support\Facades\Session::has('failed'))
+        <script>
+            Swal.fire({
+                icon: "error",
+                text: "{{ \Illuminate\Support\Facades\Session::get('failed') }}"
+            })
+        </script>
+    @endif
+
+    @if($errors->any())
+        <script>
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('link') }}"
+            })
+        </script>
+    @endif
     <div class="panel h-full">
         <nav class="flex mb-6" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
                     <a href="/admin"
-                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                       class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                             </path>
@@ -22,13 +48,13 @@
                 <li>
                     <div class="flex items-center">
                         <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
+                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
+                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"></path>
                         </svg>
                         <a href="/admin/informasi"
-                            class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Informasi</a>
+                           class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Informasi</a>
                     </div>
 
 
@@ -37,13 +63,13 @@
                 <li>
                     <div class="flex items-center">
                         <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
+                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
+                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"></path>
                         </svg>
                         <a href="#"
-                            class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Informasi
+                           class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Informasi
                             Detail</a>
                     </div>
                 </li>
@@ -52,9 +78,9 @@
 
         <div class="panel bg-white border">
             <div class="flex justify-between mb-3">
-                <p class=" font-semibold">{{ $title }}</p>
+                <p class=" font-semibold">{{ $category->name }}</p>
                 <button type="button" onclick="openModalTambah()"
-                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                        class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                     <span class="material-symbols-outlined text-white mr-3">
                         add
                     </span>Tambah Informasi
@@ -63,53 +89,52 @@
             <div class="overflow-x-auto relative shadow-sm ">
                 <table class="w-full text-sm text-left text-gray-500 " id="table-data">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
-                        <tr>
-                            <th scope="col" class="py-3 px-6">
-                                #
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Nama Informasi
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Tahun
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Lampiran
-                            </th>
+                    <tr>
+                        <th scope="col" class="py-3 px-6">
+                            #
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Nama Informasi
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Tahun
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Lampiran
+                        </th>
 
-                            <th scope="col" class="py-3 px-6">
-                                <span class="sr-only">Ubah</span>
-                            </th>
-                        </tr>
+                        <th scope="col" class="py-3 px-6">
+                            <span class="sr-only">Ubah</span>
+                        </th>
+                    </tr>
                     </thead>
                     <tbody>
-                        @forelse($data as $v)
-                            <tr class="bg-white border-b ">
-                                <th class="text-center">
-                                    {{ $loop->index + 1 }}
-                                </th>
-                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                    {{ $v->program_activity->document }}
-                                </th>
-                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                    {{ $v->year }}
-                                </th>
-                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                    {{ $v->target }}
-                                </th>
+                    @foreach($data as $v)
+                        <tr class="bg-white border-b ">
+                            <th class="text-center">
+                                {{ $loop->index + 1 }}
+                            </th>
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                {{ $v->information_category->name }}
+                            </th>
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                {{ $v->year }}
+                            </th>
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                @if($v->type === 1)
+                                    <a href="{{ $v->target }}" target="_blank">Download</a>
+                                @else
+                                    <a href="{{ $v->target }}" target="_blank">Link</a>
+                                @endif
 
-                                <td class="py-4 px-6 text-right">
-                                    <a href="#" data-modal-toggle="modalEdit"
-                                        class="font-medium text-blue-600  button-link">Ubah</a>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="3">
-                                    <p>Data Belum Tersedia</p>
-                                </td>
-                            </tr>
-                        @endforelse
+                            </th>
+
+                            <th class="py-4 px-6 text-right">
+                                <a href="#" data-modal-toggle="modalEdit"
+                                   class="font-medium text-blue-600  button-link">Ubah</a>
+                            </th>
+                        </tr>
+                    @endforeach
 
                     </tbody>
                 </table>
@@ -119,7 +144,7 @@
 
         <!-- Modal Tambah -->
         <div id="modalTambah" tabindex="-1" aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
             <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow ">
@@ -129,134 +154,136 @@
                             Tambah Informasi
                         </h3>
                         <button type="button" onclick="closeModalTambah()"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
+                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
+                                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                      clip-rule="evenodd"></path>
                             </svg>
                             <span class="sr-only">Close modal</span>
                         </button>
                     </div>
+                    <form method="post" enctype="multipart/form-data" id="form-submit-information">
+                    @csrf
                     <!-- Modal body -->
-                    <div class="p-6 ">
-
-                        <div class="mb-3">
-                            <div>
-                                <label for="countries"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Kategori
-                                    Informasi</label>
-                                <div class="flex">
-                                    <select id="countries"
-                                        class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                        <div class="p-6 ">
+                            <div class="mb-3">
+                                <div>
+                                    <label for="information_categories"
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Kategori
+                                        Informasi</label>
+                                    <div class="flex">
+                                        <select id="information_categories" name="category"
+                                                class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
                                         rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                        <option selected>Pilih Kategori Informasi</option>
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->document }}</option>
-                                        @endforeach
-                                    </select>
+                                            <option selected>Pilih Kategori Informasi</option>
+                                            @foreach ($information_categories as $information_category)
+                                                <option
+                                                    value="{{ $information_category->id }}">{{ $information_category->name }}</option>
+                                            @endforeach
+                                        </select>
 
-                                    <button type="button"  onclick="openModalKategori()"
-                                        data-tooltip-target="tooltip-default"
-                                        class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5  transition duration-300  focus:outline-none ">
+                                        <button type="button" onclick="openModalKategori()"
+                                                data-tooltip-target="tooltip-default"
+                                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5  transition duration-300  focus:outline-none ">
                                         <span class="material-symbols-outlined text-white">
                                             add
                                         </span>
-                                    </button>
+                                        </button>
 
 
-                                    <div id="tooltip-default" role="tooltip"
-                                        class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip ">
-                                        Tombol Tambah kategori (untuk tambah data yang belum terdaftar pada pilihan
-                                        kategori
-                                        di samping)
-                                        <div class="tooltip-arrow" data-popper-arrow></div>
+                                        <div id="tooltip-default" role="tooltip"
+                                             class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip ">
+                                            Tombol Tambah kategori (untuk tambah data yang belum terdaftar pada pilihan
+                                            kategori
+                                            di samping)
+                                            <div class="tooltip-arrow" data-popper-arrow></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3">
-                            <label for="countries"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
-
-                            <select id="tahun"
-                                class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                            <div class="mb-3">
+                                <label for="year"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
+                                <select id="year" name="year"
+                                        class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
                                         rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                <option selected>Pilih Tahun</option>
-                                <option value="2018">2018</option>
-                                <option value="2019">2019</option>
-                                <option value="2020">2020</option>
-                                <option value="2021">2021</option>
-                                <option value="2022">2022</option>
-                                <option value="2023">2023</option>
-                                <option value="2024">2024</option>
-                                <option value="2025">2025</option>
-                                <option value="2026">2026</option>
-                            </select>
-                        </div>
-
-                        <p class="text-sm pb-1">Konten / Isi</p>
-                        <div class="border p-3 border-gray-200 rounded-lg">
-                            <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
-                                <li>
-                                    <input type="radio" id="tr-link" name="tr-konten" value="tr-link"
-                                        class="hidden peer" required checked onclick="switchtambahKonten()">
-                                    <label for="tr-link"
-                                        class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                        <div class="block">
-                                            <div class="w-full text-lg font-semibold text-center">Link</div>
-                                            <div class="w-full text-center">Konten Menggunakan Link</div>
-                                        </div>
-                                    </label>
-                                </li>
-                                <li>
-                                    <input type="radio" id="tr-file" name="tr-konten" value="tr-file"
-                                        class="hidden peer" onclick="switchtambahKonten()">
-                                    <label for="tr-file"
-                                        class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                        <div class="block">
-                                            <div class="w-full text-lg font-semibold text-center">File</div>
-                                            <div class="w-full text-center">Konten dengan file</div>
-                                        </div>
-                                    </label>
-                                </li>
-                            </ul>
-
-                            <div class="mb-3 " id="div-tambahlink">
-                                <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
-                                <input type="text" id="link-info"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                    placeholder="Masukan Email Anda" required>
+                                    <option selected>Pilih Tahun</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
+                                </select>
                             </div>
 
-                            <div class="mb-3  hidden" id="div-tambahfile">
-                                <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
-                                    file</label>
-                                <input
-                                    class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
-                                    aria-describedby="upload-file_help" id="upload-file" type="file">
+                            <p class="text-sm pb-1">Konten / Isi</p>
+                            <div class="border p-3 border-gray-200 rounded-lg">
+                                <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
+                                    <li>
+                                        <input type="radio" id="tr-link" name="tr-konten" value="tr-link"
+                                               class="hidden peer" required checked onclick="switchtambahKonten()">
+                                        <label for="tr-link"
+                                               class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <div class="block">
+                                                <div class="w-full text-lg font-semibold text-center">Link</div>
+                                                <div class="w-full text-center">Konten Menggunakan Link</div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="tr-file" name="tr-konten" value="tr-file"
+                                               class="hidden peer" onclick="switchtambahKonten()">
+                                        <label for="tr-file"
+                                               class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <div class="block">
+                                                <div class="w-full text-lg font-semibold text-center">File</div>
+                                                <div class="w-full text-center">Konten dengan file</div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                </ul>
 
+                                <div class="mb-3 " id="div-tambahlink">
+                                    <label for="link-info"
+                                           class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                    <input type="text" id="link-info" name="link"
+                                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                           placeholder="Masukan Link" required>
+                                </div>
+
+                                <div class="mb-3  hidden" id="div-tambahfile">
+                                    <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
+                                        file</label>
+                                    <input
+                                        class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
+                                        aria-describedby="upload-file_help" id="upload-file" type="file" name="file">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                        <button type="button"
-                            class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                        <!-- Modal footer -->
+                        <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
+                            <button type="submit" id="btn-submit-information"
+                                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
                                 save
                             </span>Simpan Informasi
-                        </button>
-                    </div>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
 
         <!-- Modal Tambah Kategori-->
         <div id="modalTambahKategori" tabindex="-2" aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
             <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow ">
@@ -266,32 +293,32 @@
                             Tambah Kategori
                         </h3>
                         <button type="button" onclick="closeModalKategori()"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
+                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
+                                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                      clip-rule="evenodd"></path>
                             </svg>
                             <span class="sr-only">Close modal</span>
                         </button>
                     </div>
                     <!-- Modal body -->
                     <div class="p-6 ">
-
                         <div class="mb-3">
-                            <label for="namakategori-add" class="block mb-2 text-sm font-medium text-gray-700 ">Nama
+                            <label for="information_category_name"
+                                   class="block mb-2 text-sm font-medium text-gray-700 ">Nama
                                 Kategori</label>
-                            <input type="text" id="namakategori-add"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                placeholder="Masukan Email Anda" required>
+                            <input type="text" id="information_category_name"
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                   placeholder="Nama Kategori" required name="information_category_name">
                         </div>
 
                     </div>
                     <!-- Modal footer -->
                     <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                        <button type="button" onclick="closeModalKategori()"
-                            class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                        <button id="btn-add-category" type="button"
+                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
                                 save
                             </span>Simpan Kategori
@@ -304,7 +331,7 @@
 
         <!-- Modal Edit -->
         <div id="modalEdit" tabindex="-1" aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
             <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow ">
@@ -314,13 +341,13 @@
                             Edit Informasi
                         </h3>
                         <button type="button"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
-                            onclick="closeModalEdit()">
+                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
+                                onclick="closeModalEdit()">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
+                                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                      clip-rule="evenodd"></path>
                             </svg>
                             <span class="sr-only">Close modal</span>
                         </button>
@@ -331,8 +358,8 @@
                             <label for="e-nama-info" class="block mb-2 text-sm font-medium text-gray-700 ">Nama
                                 Informasi</label>
                             <input type="text" id="e-nama-info"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                placeholder="Masukan Nama Informasi" required>
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                   placeholder="Masukan Nama Informasi" required>
                         </div>
 
                         <p class="text-sm pb-1">Konten / Isi</p>
@@ -340,9 +367,9 @@
                             <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
                                 <li>
                                     <input type="radio" id="er-link" name="er-konten" value="er-link"
-                                        class="hidden peer" required checked onclick="switcheditKonten()">
+                                           class="hidden peer" required checked onclick="switcheditKonten()">
                                     <label for="er-link"
-                                        class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                           class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                         <div class="block">
                                             <div class="w-full text-lg font-semibold text-center">Link</div>
                                             <div class="w-full text-center">Konten Menggunakan Link</div>
@@ -351,9 +378,9 @@
                                 </li>
                                 <li>
                                     <input type="radio" id="er-file" name="er-konten" value="er-file"
-                                        class="hidden peer" onclick="switcheditKonten()">
+                                           class="hidden peer" onclick="switcheditKonten()">
                                     <label for="er-file"
-                                        class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                           class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                         <div class="block">
                                             <div class="w-full text-lg font-semibold text-center">File</div>
                                             <div class="w-full text-center">Konten dengan file</div>
@@ -363,10 +390,11 @@
                             </ul>
 
                             <div class="mb-3 " id="div-editlink">
-                                <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                <label for="link-info"
+                                       class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
                                 <input type="text" id="link-info"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                    placeholder="Masukan Email Anda" required>
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                       placeholder="Masukan Email Anda" required>
                             </div>
 
                             <div class="mb-3  hidden" id="div-editfile">
@@ -382,7 +410,7 @@
                     <!-- Modal footer -->
                     <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
                         <button type="button" onclick="closeModalEdit()"
-                            class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
                                 save
                             </span>Simpan Informasi
@@ -444,12 +472,10 @@
         }
 
         function generateDataTable() {
-            // table = $('#table-data').DataTable();
+            table = $('#table-data').DataTable();
+
         }
 
-        $(document).ready(function() {
-            generateDataTable();
-        });
 
         function openModalEdit() {
             modaledit.show();
@@ -476,5 +502,90 @@
             modalkategori.hide();
             modaltambah.show();
         }
+
+
+        $(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        });
+
+        async function addInformationCategory() {
+            try {
+                let url = '{{ route('admin.information.category.add', ['id' => $category->id]) }}';
+                let information_category_name = $('#information_category_name').val();
+                let response = await $.post(url, {
+                    information_category_name
+                });
+                let payload = response['payload'];
+                generateCategoryOption(payload);
+                clearAddInformationCategory();
+                Swal.fire({
+                    title: 'Berhasil',
+                    icon: 'success',
+                    text: 'Berhasil menambahkan data kategori informasi...',
+                }).then(function (result) {
+                    if (result) {
+                        closeModalKategori();
+                    }
+                });
+            } catch (e) {
+                let error_message = JSON.parse(e.responseText);
+                Swal.fire({
+                    icon: "error",
+                    text: error_message.message,
+                });
+            }
+        }
+
+        function generateCategoryOption(data) {
+            let el = $("#information_categories");
+            el.empty();
+            el.append('<option value="" selected>Pilih Kategori Informasi</option>')
+            $.each(data, function (k, v) {
+                el.append('<option value="' + v['id'] + '">' + v['name'] + '</option>')
+            })
+        }
+
+        function clearAddInformationCategory() {
+            $('#information_category_name').val('');
+        }
+
+        $(document).ready(function () {
+            generateDataTable();
+            $('#btn-add-category').on('click', function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    icon: 'info',
+                    text: 'Yakin ingin menambah data kategori?',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    focusConfirm: false,
+                }).then(function (result) {
+                    if (result) {
+                        addInformationCategory();
+                    }
+                });
+            });
+
+            $('#btn-submit-information').on('click', function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    icon: 'info',
+                    text: 'Yakin ingin menambah data informasi?',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    focusConfirm: false,
+                }).then(function (result) {
+                    if (result) {
+                        $('#form-submit-information').submit();
+                    }
+                });
+            })
+        });
     </script>
 @endsection

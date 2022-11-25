@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class FinancialReportDetails extends Migration
+class CreateInformationDetails extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class FinancialReportDetails extends Migration
      */
     public function up()
     {
-        Schema::create('financial_report_details', function (Blueprint $table) {
+        Schema::create('information_details', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('financial_report_id')->unsigned();
+            $table->bigInteger('information_category_id')->unsigned();
             $table->year('year');
-            $table->smallInteger('type')->default(0)->comment('0: link, 1: file download');
+            $table->smallInteger('type')->comment('0: link, 1: download');
             $table->text('target');
+            $table->foreign('information_category_id')->references('id')->on('information_categories');
             $table->timestamps();
-            $table->foreign('financial_report_id')->references('id')->on('financial_reports');
         });
     }
 
@@ -31,6 +31,6 @@ class FinancialReportDetails extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('financial_report_details');
+        Schema::dropIfExists('information_details');
     }
 }

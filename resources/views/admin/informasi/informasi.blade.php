@@ -104,125 +104,23 @@
                                 </thead>
 
                                 <tbody>
-                                <tr
-                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th class="text-center">
-                                        1
-                                    </th>
-                                    <th scope="row"
-                                        class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Informasi Tentang Profil Badan Publik
-                                    </th>
+                                @forelse($data as $v)
+                                    <tr
+                                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                        <th class="text-center">{{ $loop->index + 1 }}</th>
+                                        <th scope="row"
+                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $v->name }}
+                                        </th>
 
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="{{ route('admin.information.periodic', ['slug' => 'informasi-tentang-profil-badan-publik']) }}"
-                                           class="font-medium text-blue-600   button-link bg-blue-100">Lihat Detail</a>
-                                    </td>
-                                </tr>
-                                <tr
-                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th class="text-center">
-                                        2
-                                    </th>
-                                    <th scope="row"
-                                        class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Ringkasan Program dan Kegiatan yang sedang dijalankan
-                                    </th>
-
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="{{ route('admin.information.periodic', ['slug' => 'ringkasan-program-dan-kegiatan-yang-sedang-dijalankan']) }}"
-                                           class="font-medium text-blue-600  button-link bg-blue-100">Lihat Detail</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th class="text-center">
-                                        3
-                                    </th>
-                                    <th scope="row"
-                                        class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Ringkasan Laporan Keuangan
-                                    </th>
-
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="/admin/informasi/detailbyyear"
-                                           class="font-medium text-blue-600  button-link bg-blue-100">Lihat Detail</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th class="text-center">
-                                        4
-                                    </th>
-                                    <th scope="row"
-                                        class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Informasi Pengadaan Barang dan Jasa
-                                    </th>
-
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="/admin/informasi/detailbyyear"
-                                           class="font-medium text-blue-600  button-link bg-blue-100">Lihat
-                                            Detail</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th class="text-center">
-                                        5
-                                    </th>
-                                    <th scope="row"
-                                        class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Informasi Tentang Peraturan Keputusan atau Kebijakan yang mengikat
-                                    </th>
-
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="#" class="font-medium text-blue-600  button-link bg-blue-100"
-                                           id="infoperaturan" data-dropdown-toggle="dropdownperaturan">Lihat
-                                            Detail</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th class="text-center">
-                                        6
-                                    </th>
-                                    <th scope="row"
-                                        class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Informasi tentang prosedur peringatan dini dan prosedur evakuasi keadaan darurat
-                                    </th>
-
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="/admin/informasi/detailbyyear"
-                                           class="font-medium text-blue-600  button-link bg-blue-100">Lihat
-                                            Detail</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th class="text-center">
-                                        7
-                                    </th>
-                                    <th scope="row"
-                                        class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Ringkasan Informasi Tentang Kinerja
-                                    </th>
-
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="/admin/informasi/detailbyyear"
-                                           class="font-medium text-blue-600  button-link bg-blue-100">Lihat
-                                            Detail</a>
-                                    </td>
-                                </tr>
-                                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th class="text-center">
-                                        8
-                                    </th>
-                                    <th scope="row"
-                                        class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Informasi Tentang Tata Cara Pengaduan Penyalahgunaan Wewenang atau Pelanggaran
-                                    </th>
-
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="/admin/informasi/detailbyyear"
-                                           class="font-medium text-blue-600  button-link bg-blue-100">Lihat
-                                            Detail</a>
-                                    </td>
-                                </tr>
+                                        <td class="py-4 px-6 text-right">
+                                            <a href="{{ route('admin.information.periodic', ['slug' => $v->slug]) }}"
+                                               class="font-medium text-blue-600   button-link bg-blue-100">Lihat
+                                                Detail</a>
+                                        </td>
+                                    </tr>
+                                @empty
+                                @endforelse
                                 </tbody>
                             </table>
                         </div>

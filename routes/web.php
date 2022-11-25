@@ -35,6 +35,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('/', [\App\Http\Controllers\Admin\InformationController::class, 'index'])->name('admin.information.index');
         Route::match(['post', 'get'],'/{slug}/informasi-berkala', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information'])->name('admin.information.periodic');
         Route::post('/{slug}/informasi-berkala/patch', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information_patch'])->name('admin.information.periodic.patch');
+        Route::post('/{id}/informasi-berkala/category', [\App\Http\Controllers\Admin\InformationController::class, 'add_information_category'])->name('admin.information.category.add');
     });
 });
 
@@ -74,8 +75,9 @@ Route::get('/artikel-detail', function () {
     return view('artikel-detail');
 });
 
-Route::get('/info-berkala', function () {
-    return view('info-berkala');
+Route::group(['prefix' => 'informasi-berkala'], function (){
+    Route::get('/', [\App\Http\Controllers\InformationController::class, 'periodic_information'])->name('information.periodic');
+    Route::get('/{slug}', [\App\Http\Controllers\InformationController::class, 'periodic_information_by_slug'])->name('information.periodic.by.slug');
 });
 
 Route::get('/info-sertamerta', function () {
@@ -90,9 +92,9 @@ Route::get('/info-dikecualikan', function () {
     return view('info-dikecualikan');
 });
 
-Route::get('/informasi', function () {
-    return view('informasi');
-});
+//Route::get('/informasi', function () {
+//    return view('informasi');
+//});
 
 // LOGIN
 

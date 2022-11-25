@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFinancialReports extends Migration
+class CreateInformationCategories extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFinancialReports extends Migration
      */
     public function up()
     {
-        Schema::create('financial_reports', function (Blueprint $table) {
+        Schema::create('information_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateFinancialReports extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('financial_reports');
+        Schema::dropIfExists('information_categories');
     }
 }
