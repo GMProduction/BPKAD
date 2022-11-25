@@ -64,6 +64,12 @@ return [
             'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
         ],
+        'articleImage' => [
+            'driver' => 'local',
+            'root' => public_path() . '/assets/article',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
     ],
 
     /*

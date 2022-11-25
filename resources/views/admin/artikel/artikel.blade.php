@@ -41,7 +41,7 @@
         <div class="panel bg-white border">
             <div class="flex justify-between mb-3 items-end">
                 <p class=" font-semibold">Artikel</p>
-                <button type="button" onclick="location.href='/admin/artikel-form'"
+                <button type="button" onclick="location.href='{{route('admin.article.form')}}'"
                     class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                     <span class="material-symbols-outlined text-white mr-3">
                         add

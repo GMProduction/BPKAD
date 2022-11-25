@@ -13,21 +13,11 @@
 
         <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3 ">Visi</p>
-            <p class="text-sm   mx-auto">TERWUJUDNYA PENGELOLAAN KEUANGAN DAN ASET
-                DAERAH
-                YANG AKUNTABEL DAN TRANSPARAN</p>
+            <p class="text-sm   mx-auto">{!! $data ? $data->vision : '' !!}</p>
         </div>
         <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3  ">Misi</p>
-            <p class="text-sm   mx-auto mb-3">1. MENINGKATKAN KELANCARAN DAN
-                KETERTIBAN
-                PENGELOLAAN KEUANGAN DAN ASET DAERAH SESUAI DENGAN PERATURAN YANG BERLAKU</p>
-            <p class="text-sm   mx-auto mb-3">2. MEWUJUDKAN PENGELOLAAN KEUANGAN
-                DAERAH
-                YANG EFEKTIF, EFISIEN, SERTA AKUNTABLE DENGAN MEMPERHATIKAN ASAS KEPATUTAN DAN KEADILAN</p>
-            <p class="text-sm   mx-auto mb-3">3. MENINGKATKAN PEMBERDAYAAN ASET
-                DAERAH
-                SECARA EFEKTIF DAN EFISIEN</p>
+            <p class="text-sm   mx-auto mb-3">{!! $data ? $data->mission : '' !!}</p>
         </div>
 
     </div>

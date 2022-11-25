@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LandingPage\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,19 +36,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('/', [\App\Http\Controllers\Admin\InformationController::class, 'index'])->name('admin.information.index');
         Route::match(['post', 'get'],'/{slug}/informasi-berkala', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information'])->name('admin.information.periodic');
     });
+
+    Route::group(['prefix' => 'artikel'], function (){
+        Route::get('', [\App\Http\Controllers\Admin\ArticleController::class,'index'])->name('admin.article');
+        Route::match(['POST','GET'],'artikel-form', [\App\Http\Controllers\Admin\ArticleController::class,'detail'])->name('admin.article.form');
+    });
+
 });
 
-Route::get('/', function () {
-    return view('beranda');
-});
-
-Route::get('/visimisi', function () {
-    return view('visimisi');
-});
-
-Route::get('/struktur', function () {
-    return view('struktur');
-});
+Route::get('/', [HomeController::class, 'index'])->name('beranda');
+Route::post('/post-aspiration', [HomeController::class, 'post_aspiration'])->name('post_aspiration');
+Route::get('/home-setting-json', [HomeController::class, 'ShortHistory'])->name('home.setting.json');
+Route::get('/visimisi', [\App\Http\Controllers\LandingPage\ProfileController::class, 'vision'])->name('visimisi');
+Route::get('/struktur', [\App\Http\Controllers\LandingPage\ProfileController::class, 'structure'])->name('structure');
+Route::get('/profile-json', [\App\Http\Controllers\LandingPage\ProfileController::class, 'json_data'])->name('profile.json');
 
 Route::get('/sekretariat', function () {
     return view('sekretariat');
@@ -137,13 +139,7 @@ Route::get('/informasi', function () {
 //    return view('admin/informasi/informasi-detail-byyear');
 //});
 
-Route::get('/admin/artikel', function () {
-    return view('admin/artikel/artikel');
-});
 
-Route::get('/admin/artikel-form', function () {
-    return view('admin/artikel/artikel-form');
-});
 
 Route::get('/admin/dashboard', function () {
     return view('admin/dashboard');

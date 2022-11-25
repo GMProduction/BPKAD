@@ -59,10 +59,11 @@
         <div class="panel bg-white">
             <p class="title mb-10">Artikel BPKAD</p>
 
-            <form>
+            <form id="form" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="mb-6 ">
                     <label for="aspirasi-nama" class="block mb-2 text-sm font-medium text-gray-600 ">Judul</label>
-                    <input type="text" id="aspirasi-nama"
+                    <input type="text" id="aspirasi-nama" name="title"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                         placeholder="Nama Pemberi Aspirasi" required>
                 </div>
@@ -87,7 +88,7 @@
                                             pilih foto</p>
                                     </div>
                                     <input type="file" class="opacity-0" accept="image/*" @change="showPreview(event)"
-                                        name="image" />
+                                        name="cover" />
                                 </label>
                             </div>
                         </div>
@@ -99,6 +100,12 @@
                 <label for="e-link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Konten</label>
 
                 <div class="border p-3 border-gray-200 rounded-lg">
+                    <div class="flex items-start mb-6">
+                        <div class="flex items-center h-5">
+                            <input id="terms" type="checkbox" name="is_highline" value="1" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" >
+                        </div>
+                        <label for="terms" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tampilkan Sebagai Highline</label>
+                    </div>
                     <ul class="grid gap-6 w-full xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 mb-5">
                         <li>
                             <input type="radio" id="tr-link" name="tr-konten" value="tr-link" class="hidden peer"
@@ -123,20 +130,24 @@
                             </label>
                         </li>
                     </ul>
-
+                    <input type="hidden" id="type_article" name="type_article"  value="1">
                     <div class="mb-3 " id="div-tambahlink">
                         <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
-                        <input type="text" id="link-info"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                            placeholder="Masukan Email Anda" required>
+                        <input type="text" id="link-info" name="link"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " required
+                            placeholder="Masukan Email Anda">
                     </div>
 
 
                     <div class="mb-3  hidden" id="div-tambahfile">
                         <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Ketik
                             Artikel</label>
-                        <div class="summernote" id="isiartikel"> </div>
-
+                        <textarea class="summernote" id="isiartikel" name="description"> </textarea>
+                        @if($errors->has('description'))
+                            <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
+                           {{ $errors->first('description') }}
+                        </span>
+                        @endif
                     </div>
                 </div>
 
@@ -145,7 +156,7 @@
                 <div class="mb-6 flex justify-end items-end">
 
                     <div>
-                        <button type="button" onclick="location.href='/admin/aspirasi/detail'"
+                        <button type="submit"
                             class="flex mt-6 items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2   focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
                                 cast
@@ -184,9 +195,15 @@
             if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
                 document.querySelector('#div-tambahfile').classList.add("hidden");
                 document.querySelector('#div-tambahlink').classList.remove("hidden");
+                document.querySelector('#link-info').setAttribute('required','');
+                document.querySelector('#isiartikel').removeAttribute('required');
+                document.getElementById('type_article').value = '1';
             } else {
                 document.querySelector('#div-tambahfile').classList.remove("hidden");
                 document.querySelector('#div-tambahlink').classList.add("hidden");
+                document.querySelector('#link-info').removeAttribute('required');
+                document.querySelector('#isiartikel').setAttribute('required','');
+                document.getElementById('type_article').value = '2';
             }
         }
     </script>
@@ -203,6 +220,10 @@
                     }
                 }
             }
+        }
+
+        function SaveData() {
+            return false;
         }
     </script>
 @endsection
