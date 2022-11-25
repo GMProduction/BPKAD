@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProgramActivities extends Migration
+class CreateFinancialReports extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProgramActivities extends Migration
      */
     public function up()
     {
-        Schema::create('program_activities', function (Blueprint $table) {
+        Schema::create('financial_reports', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateProgramActivities extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('program_activities');
+        Schema::dropIfExists('financial_reports');
     }
 }
