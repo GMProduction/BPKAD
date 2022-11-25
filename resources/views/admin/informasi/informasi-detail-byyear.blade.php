@@ -128,7 +128,7 @@
                         <h3 class="text-xl font-semibold text-gray-900 ">
                             Tambah Informasi
                         </h3>
-                        <button type="button" data-modal-toggle="modalTambah"
+                        <button type="button" onclick="closeModalTambah()"
                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -157,7 +157,7 @@
                                         @endforeach
                                     </select>
 
-                                    <button type="button" data-modal-toggle="modalTambah" onclick="openModalKategori()"
+                                    <button type="button" onclick="openModalKategori()"
                                         data-tooltip-target="tooltip-default"
                                         class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5  transition duration-300  focus:outline-none ">
                                         <span class="material-symbols-outlined text-white">
@@ -444,7 +444,7 @@
         }
 
         function generateDataTable() {
-            table = $('#table-data').DataTable();
+            // table = $('#table-data').DataTable();
         }
 
         $(document).ready(function() {
