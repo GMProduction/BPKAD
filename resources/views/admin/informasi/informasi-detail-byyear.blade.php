@@ -1,18 +1,15 @@
 @extends('admin.base')
 @section('css')
-
 @endsection
 
 @section('content')
     <div class="panel h-full">
-
         <nav class="flex mb-6" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
                     <a href="/admin"
                         class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                             </path>
@@ -98,6 +95,7 @@
 
 
 
+        <a onclick="openModalEdit()">open modal edit</a>
 
         <!-- Modal Tambah -->
         <div id="modalTambah" tabindex="-1" aria-hidden="true"
@@ -296,7 +294,7 @@
                         </h3>
                         <button type="button"
                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
-                            data-modal-toggle="modalEdit">
+                            onclick="closeModalEdit()">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -372,34 +370,58 @@
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
 
-    @section('morejs')
-        <!-- jQuery -->
-        <script>
-            function switchtambahKonten() {
-                if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
-                    document.querySelector('#div-tambahfile').classList.add("hidden");
-                    document.querySelector('#div-tambahlink').classList.remove("hidden");
-                } else {
-                    document.querySelector('#div-tambahfile').classList.remove("hidden");
-                    document.querySelector('#div-tambahlink').classList.add("hidden");
-                }
+@section('morejs')
+    <!-- jQuery -->
+    <script>
+        const targetEl = document.getElementById('modalEdit');
+        // options with default values
+        const options = {
+            placement: 'bottom-right',
+            backdrop: 'dynamic',
+            backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
+            onHide: () => {
+                console.log('modal is hidden');
+            },
+            onShow: () => {
+                console.log('modal is shown');
+            },
+            onToggle: () => {
+                console.log('modal has been toggled');
             }
+        };
 
-            function switcheditKonten() {
-                if (document.querySelector('input[name="er-konten"]:checked').value == "er-link") {
-                    document.querySelector('#div-editfile').classList.add("hidden");
-                    document.querySelector('#div-editlink').classList.remove("hidden");
-                } else {
-                    document.querySelector('#div-editfile').classList.remove("hidden");
-                    document.querySelector('#div-editlink').classList.add("hidden");
-                }
+        const modal = new Modal(targetEl, options);
+
+        function switchtambahKonten() {
+            if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
+                document.querySelector('#div-tambahfile').classList.add("hidden");
+                document.querySelector('#div-tambahlink').classList.remove("hidden");
+            } else {
+                document.querySelector('#div-tambahfile').classList.remove("hidden");
+                document.querySelector('#div-tambahlink').classList.add("hidden");
             }
-        </script>
-    @endsection
+        }
 
+        function switcheditKonten() {
+            if (document.querySelector('input[name="er-konten"]:checked').value == "er-link") {
+                document.querySelector('#div-editfile').classList.add("hidden");
+                document.querySelector('#div-editlink').classList.remove("hidden");
+            } else {
+                document.querySelector('#div-editfile').classList.remove("hidden");
+                document.querySelector('#div-editlink').classList.add("hidden");
+            }
+        }
 
-    </body>
+        function openModalEdit() {
+            modal.show();
+        }
 
-    </html>
+        function closeModalEdit() {
+            modal.hide();
+        }
+
+    </script>
+@endsection
