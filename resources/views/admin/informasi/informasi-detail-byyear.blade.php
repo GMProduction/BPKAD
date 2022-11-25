@@ -6,7 +6,6 @@
 
 @section('content')
     <div class="panel h-full">
-
         <nav class="flex mb-6" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
@@ -317,8 +316,8 @@
                             Edit Informasi
                         </h3>
                         <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
-                                data-modal-toggle="modalEdit">
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
+                            onclick="closeModalEdit()">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -404,6 +403,24 @@
     <!-- jQuery -->
     <script>
         let table;
+        const targetEl = document.getElementById('modalEdit');
+        // options with default values
+        const options = {
+            placement: 'bottom-right',
+            backdrop: 'dynamic',
+            backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
+            onHide: () => {
+                console.log('modal is hidden');
+            },
+            onShow: () => {
+                console.log('modal is shown');
+            },
+            onToggle: () => {
+                console.log('modal has been toggled');
+            }
+        };
+
+        const modal = new Modal(targetEl, options);
 
         function switchtambahKonten() {
             if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
@@ -432,5 +449,14 @@
         $(document).ready(function () {
             generateDataTable();
         });
+
+        function openModalEdit() {
+            modal.show();
+        }
+
+        function closeModalEdit() {
+            modal.hide();
+        }
+
     </script>
 @endsection
