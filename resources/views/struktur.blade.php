@@ -7,7 +7,7 @@
             <a class="font-bold text-white">Profil bpkad surakarta</a>
         </div>
     </div>
-    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}" />
+    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}"/>
 
     <div class=" mt-16 mb-16">
 
@@ -15,10 +15,28 @@
         <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic  text-center mb-10">Struktur Organisasi</p>
             <div class="w-full text-center">
-                <a href="{{ asset('assets/local/struktur.jpg') }}" target="_blank">
-                <img src="{{ asset('assets/local/struktur.jpg') }}" class="  object-cover w-[80%] mx-auto " />
-            </a>
+                <a id="aImage"  target="_blank">
+                    <img id="srcImg"  class="  object-cover w-[80%] mx-auto "/>
+                </a>
             </div>
         </div>
     </div>
+@endsection
+
+@section('morejs')
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            short_image()
+        });
+        function short_image() {
+            fetch('{{route('profile.json')}}')
+                .then((response) => response.json())
+                .then((data) => {
+                    let href = '{{asset('dataimage')}}';
+                    href = href.replace('/dataimage',data?.structure)
+                    document.getElementById('aImage').setAttribute('href', href)
+                    document.getElementById('srcImg').setAttribute('src', href)
+                })
+        }
+    </script>
 @endsection

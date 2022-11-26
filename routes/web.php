@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LandingPage\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,19 +38,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::post('/{slug}/informasi-berkala/patch', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information_patch'])->name('admin.information.periodic.patch');
         Route::post('/{id}/informasi-berkala/category', [\App\Http\Controllers\Admin\InformationController::class, 'add_information_category'])->name('admin.information.category.add');
     });
+
+    Route::group(['prefix' => 'artikel'], function (){
+        Route::get('datatable', [\App\Http\Controllers\Admin\ArticleController::class,'datatable'])->name('admin.article.datatable');
+        Route::get('', [\App\Http\Controllers\Admin\ArticleController::class,'index'])->name('admin.article');
+        Route::match(['POST','GET'],'artikel-form', [\App\Http\Controllers\Admin\ArticleController::class,'detail'])->name('admin.article.form');
+    });
+
 });
 
-Route::get('/', function () {
-    return view('beranda');
-});
-
-Route::get('/visimisi', function () {
-    return view('visimisi');
-});
-
-Route::get('/struktur', function () {
-    return view('struktur');
-});
+Route::get('/', [HomeController::class, 'index'])->name('beranda');
+Route::post('/post-aspiration', [HomeController::class, 'post_aspiration'])->name('post_aspiration');
+Route::get('/home-setting-json', [HomeController::class, 'ShortHistory'])->name('home.setting.json');
+Route::get('/visimisi', [\App\Http\Controllers\LandingPage\ProfileController::class, 'vision'])->name('visimisi');
+Route::get('/struktur', [\App\Http\Controllers\LandingPage\ProfileController::class, 'structure'])->name('structure');
+Route::get('/profile-json', [\App\Http\Controllers\LandingPage\ProfileController::class, 'json_data'])->name('profile.json');
 
 Route::get('/sekretariat', function () {
     return view('sekretariat');
@@ -67,13 +70,14 @@ Route::get('/aset', function () {
     return view('aset');
 });
 
-Route::get('/artikel', function () {
-    return view('artikel');
+Route::prefix('artikel')->group(function (){
+    Route::get('/',[\App\Http\Controllers\LandingPage\ArticleController::class,'index']);
+    Route::get('json-data/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class,'article'])->name('article.json');
+    Route::get('count/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class,'count_article'])->name('article.count');
+    Route::get('/detail/{slug}', [\App\Http\Controllers\LandingPage\ArticleController::class,'detail'])->name('article.detail');
 });
 
-Route::get('/artikel-detail', function () {
-    return view('artikel-detail');
-});
+
 
 Route::group(['prefix' => 'informasi-berkala'], function (){
     Route::get('/', [\App\Http\Controllers\InformationController::class, 'periodic_information'])->name('information.periodic');
@@ -140,13 +144,7 @@ Route::get('/info-dikecualikan', function () {
 //    return view('admin/informasi/informasi-detail-byyear');
 //});
 
-Route::get('/admin/artikel', function () {
-    return view('admin/artikel/artikel');
-});
 
-Route::get('/admin/artikel-form', function () {
-    return view('admin/artikel/artikel-form');
-});
 
 Route::get('/admin/dashboard', function () {
     return view('admin/dashboard');

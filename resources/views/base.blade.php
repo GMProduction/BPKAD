@@ -179,16 +179,11 @@
             <div class="grid md:grid-cols-4 sd:grid-cols-3 grid-cols-2 gap-10">
                 <div class="col-span-2">
                     <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">Sejarah Singkat</p>
-                    <p class="text-white/80 text-sm font-light mb-6" data-aos="fade-up">Badan Pengelolaan Keuangan dan Aset Daerah Kota
-                        Surakarta merupakan unsur pelaksana fungsi penunjang urusan Pemerintahan Bidang Keuangan, Sub
-                        Pengelolaan Keuangan dan Aset Daerah yang menjadi kewenangan Pemerintahan Daerah yang dipimpin
-                        oleh Kepala Badan Pengelolaan Keuangan dan Aset Daerah sesuai dengan Peraturan Walikota
-                        Surakarta Nomor 41 tahun 2021 Tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta
-                        Tata Kerja Badan Daerah</p>
+                    <p class="text-white/80 text-sm font-light mb-6 text-justify" data-aos="fade-up" id="short_his"></p>
 
-                    <iframe data-aos="fade-up"
+                    <iframe data-aos="fade-up" class="md:w-[500px] md:h-[300px]"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398.3223047030822!2d110.82788629803538!3d-7.56922993376408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x62b5fc04bb57f608!2sBidang%20Akuntansi%20BPPKAD%20Kota%20Surakarta!5e0!3m2!1sen!2sid!4v1668665961788!5m2!1sen!2sid"
-                        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                         style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div>
@@ -257,8 +252,19 @@
         </div>
     </footer>
 
+
     <script>
         "use strict"
+        document.addEventListener("DOMContentLoaded", () => {
+            short_history()
+        });
+        function short_history() {
+            fetch('{{route('home.setting.json')}}')
+            .then((response) => response.json())
+            .then((data) => {
+                document.getElementById('short_his').innerHTML = data?.history
+            })
+        }
     </script>
     <script src="{{ asset('/js/flowbite.js') }}"></script>
     <script src="{{ asset('/js/nav.js') }}"></script>
