@@ -95,7 +95,7 @@
 
         <div class="col-span-5 sm:mx-0 mx-5">
             <p class="text-primary font-bold text-3xl italic mb-3 " data-aos="fade-up">Tentang BPKAD Surakarta?</p>
-            <p class="text-sm" data-aos="fade-up">{!! $history->history !!}</p>
+            <p class="text-sm" data-aos="fade-up">{!! $history ? $history->history : '' !!}</p>
         </div>
     </div>
 
