@@ -128,10 +128,11 @@
                 success: function (data, textStatus, xhr) {
                     $('#newArticle .loadDta').remove();
                     isData = false;
+                    if (skip == 0) {
+                        newArticle.empty();
+                    }
                     if (data.length > 0) {
-                        if (skip == 0) {
-                            newArticle.empty();
-                        }
+
                         isData = true;
 
                         $.each(data, function (k, v) {
