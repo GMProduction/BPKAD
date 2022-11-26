@@ -35,9 +35,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'informasi'], function () {
         Route::get('/', [\App\Http\Controllers\Admin\InformationController::class, 'index'])->name('admin.information.index');
         Route::match(['post', 'get'],'/{slug}/informasi-berkala', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information'])->name('admin.information.periodic');
+        Route::post('/{slug}/informasi-berkala/patch', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information_patch'])->name('admin.information.periodic.patch');
     });
 
     Route::group(['prefix' => 'artikel'], function (){
+        Route::get('datatable', [\App\Http\Controllers\Admin\ArticleController::class,'datatable'])->name('admin.article.datatable');
         Route::get('', [\App\Http\Controllers\Admin\ArticleController::class,'index'])->name('admin.article');
         Route::match(['POST','GET'],'artikel-form', [\App\Http\Controllers\Admin\ArticleController::class,'detail'])->name('admin.article.form');
     });
@@ -67,13 +69,14 @@ Route::get('/aset', function () {
     return view('aset');
 });
 
-Route::get('/artikel', function () {
-    return view('artikel');
+Route::prefix('artikel')->group(function (){
+    Route::get('/',[\App\Http\Controllers\LandingPage\ArticleController::class,'index']);
+    Route::get('json-data/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class,'article'])->name('article.json');
+    Route::get('count/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class,'count_article'])->name('article.count');
+    Route::get('/detail/{slug}', [\App\Http\Controllers\LandingPage\ArticleController::class,'detail'])->name('article.detail');
 });
 
-Route::get('/artikel-detail', function () {
-    return view('artikel-detail');
-});
+
 
 Route::get('/info-berkala', function () {
     return view('info-berkala');

@@ -10,6 +10,7 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@tailwindcss/line-clamp": "^0.4.2",
         "autoprefixer": "^10.4.12",
         "axios": "^0.21.4",
         "flowbite": "^1.5.3",

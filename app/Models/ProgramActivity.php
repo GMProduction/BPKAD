@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class ProgramActivity extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'cover',
-        'is_highline',
-        'type_article',
-        'description',
-        'slug'
+        'document'
     ];
+
+    public function details()
+    {
+        return $this->hasMany(ProgramActivityDetail::class, 'program_activity_id');
+    }
 }

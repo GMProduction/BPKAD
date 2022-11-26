@@ -37,7 +37,7 @@
                                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                        <a href="/admin/aspirasi"
+                        <a href="/admin/artikel"
                             class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Artikel</a>
                     </div>
                 </li>
@@ -57,6 +57,19 @@
         </nav>
 
         <div class="panel bg-white">
+            @if (\Illuminate\Support\Facades\Session::has('failed'))
+                <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+                     role="alert">
+                    <span class="font-medium">Gagal!</span>
+                    {{ \Illuminate\Support\Facades\Session::get('failed') }}
+                </div>
+            @endif
+            @if (\Illuminate\Support\Facades\Session::has('success'))
+                <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
+                     role="alert">
+                    <span class="font-medium">Berhasil!</span> {{ \Illuminate\Support\Facades\Session::get('success') }}
+                </div>
+            @endif
             <p class="title mb-10">Artikel BPKAD</p>
 
             <form id="form" method="POST" enctype="multipart/form-data">
@@ -64,7 +77,7 @@
                 <div class="mb-6 ">
                     <label for="aspirasi-nama" class="block mb-2 text-sm font-medium text-gray-600 ">Judul</label>
                     <input type="text" id="aspirasi-nama" name="title"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " value="{{$data ? $data->title : ''}}"
                         placeholder="Nama Pemberi Aspirasi" required>
                 </div>
 
@@ -76,7 +89,7 @@
                                 <label
                                     class="flex flex-col w-full border-4 border-dashed hover:bg-gray-100 hover:border-gray-300">
                                     <div class="relative flex flex-col items-center justify-center pt-7">
-                                        <img id="preview" class="absolute inset-0 h-[141px] mx-auto object-fit" src="">
+                                        <img id="preview" class="absolute inset-0 h-[141px] mx-auto object-fit" src="{{$data ? $data->cover ? asset($data->cover) : '' : ''}}">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             class="w-12 h-12 text-gray-400 group-hover:text-gray-600" viewBox="0 0 20 20"
                                             fill="currentColor">
@@ -102,13 +115,13 @@
                 <div class="border p-3 border-gray-200 rounded-lg">
                     <div class="flex items-start mb-6">
                         <div class="flex items-center h-5">
-                            <input id="terms" type="checkbox" name="is_highline" value="1" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" >
+                            <input id="is_highline" type="checkbox" name="is_highline" value="1" {{$data ? $data->is_highline ? 'checked' : '' : ''}} class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" >
                         </div>
-                        <label for="terms" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tampilkan Sebagai Highline</label>
+                        <label for="is_highline" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tampilkan Sebagai Highline</label>
                     </div>
                     <ul class="grid gap-6 w-full xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 mb-5">
                         <li>
-                            <input type="radio" id="tr-link" name="tr-konten" value="tr-link" class="hidden peer"
+                            <input type="radio" id="tr-link" name="tr-konten"  {{$data ? $data->type_article == 1 ? 'checked' : '' : ''}} value="tr-link" class="hidden peer"
                                 required checked onclick="switchtambahKonten()">
                             <label for="tr-link"
                                 class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
@@ -119,7 +132,7 @@
                             </label>
                         </li>
                         <li>
-                            <input type="radio" id="tr-file" name="tr-konten" value="tr-file" class="hidden peer"
+                            <input type="radio" id="tr-file" name="tr-konten"  {{$data ? $data->type_article == 2 ? 'checked' : '' : ''}} value="tr-file" class="hidden peer"
                                 onclick="switchtambahKonten()">
                             <label for="tr-file"
                                 class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
@@ -134,7 +147,7 @@
                     <div class="mb-3 " id="div-tambahlink">
                         <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
                         <input type="text" id="link-info" name="link"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " required
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " required value="{{$data ? $data->type_article == 1 ? $data->description : '' : ''}}"
                             placeholder="Masukan Email Anda">
                     </div>
 
@@ -142,12 +155,9 @@
                     <div class="mb-3  hidden" id="div-tambahfile">
                         <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Ketik
                             Artikel</label>
-                        <textarea class="summernote" id="isiartikel" name="description"> </textarea>
-                        @if($errors->has('description'))
-                            <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                           {{ $errors->first('description') }}
-                        </span>
-                        @endif
+                        <textarea class="summernote" id="isiartikel" name="description">{{$data ? $data->type_article == 2 ? $data->description : '' : ''}} </textarea>
+                        <span id="errorArticle" class="hidden flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">Silahkan megisi artikel
+                                                        </span>
                     </div>
                 </div>
 
@@ -188,27 +198,25 @@
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
         });
-    </script>
 
-    <script>
+        $(document).ready(function () {
+            switchtambahKonten();
+        })
+
         function switchtambahKonten() {
             if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
                 document.querySelector('#div-tambahfile').classList.add("hidden");
                 document.querySelector('#div-tambahlink').classList.remove("hidden");
                 document.querySelector('#link-info').setAttribute('required','');
-                document.querySelector('#isiartikel').removeAttribute('required');
                 document.getElementById('type_article').value = '1';
             } else {
                 document.querySelector('#div-tambahfile').classList.remove("hidden");
                 document.querySelector('#div-tambahlink').classList.add("hidden");
                 document.querySelector('#link-info').removeAttribute('required');
-                document.querySelector('#isiartikel').setAttribute('required','');
                 document.getElementById('type_article').value = '2';
             }
         }
-    </script>
 
-    <script>
         function showImage() {
             return {
                 showPreview(event) {
@@ -222,8 +230,12 @@
             }
         }
 
-        function SaveData() {
-            return false;
+        function SaveDataForm() {
+            let text = $('#isiartikel').summernote('code');
+            let type = document.getElementById('type_article').value
+
+            console.log('asdasd',text)
+
         }
     </script>
 @endsection

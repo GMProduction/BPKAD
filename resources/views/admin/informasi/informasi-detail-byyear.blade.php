@@ -1,18 +1,17 @@
 @extends('admin.base')
 @section('css')
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 
 @section('content')
     <div class="panel h-full">
-
         <nav class="flex mb-6" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
                     <a href="/admin"
                         class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                             </path>
@@ -53,8 +52,8 @@
 
         <div class="panel bg-white border">
             <div class="flex justify-between mb-3">
-                <p class=" font-semibold">Judul Informasi</p>
-                <button type="button" data-modal-toggle="modalTambah"
+                <p class=" font-semibold">{{ $title }}</p>
+                <button type="button" onclick="openModalTambah()"
                     class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                     <span class="material-symbols-outlined text-white mr-3">
                         add
@@ -62,7 +61,7 @@
                 </button>
             </div>
             <div class="overflow-x-auto relative shadow-sm ">
-                <table class="w-full text-sm text-left text-gray-500  ">
+                <table class="w-full text-sm text-left text-gray-500 " id="table-data">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                         <tr>
                             <th scope="col" class="py-3 px-6">
@@ -71,6 +70,12 @@
                             <th scope="col" class="py-3 px-6">
                                 Nama Informasi
                             </th>
+                            <th scope="col" class="py-3 px-6">
+                                Tahun
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                Lampiran
+                            </th>
 
                             <th scope="col" class="py-3 px-6">
                                 <span class="sr-only">Ubah</span>
@@ -78,25 +83,38 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b ">
-                            <th class="text-center">
-                                1
-                            </th>
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                Informasi Tentang Profil Badan PUblic
-                            </th>
+                        @forelse($data as $v)
+                            <tr class="bg-white border-b ">
+                                <th class="text-center">
+                                    {{ $loop->index + 1 }}
+                                </th>
+                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                    {{ $v->program_activity->document }}
+                                </th>
+                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                    {{ $v->year }}
+                                </th>
+                                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                    {{ $v->target }}
+                                </th>
 
-                            <td class="py-4 px-6 text-right">
-                                <a href="#" data-modal-toggle="modalEdit"
-                                    class="font-medium text-blue-600  button-link">Ubah</a>
-                            </td>
-                        </tr>
+                                <td class="py-4 px-6 text-right">
+                                    <a href="#" data-modal-toggle="modalEdit"
+                                        class="font-medium text-blue-600  button-link">Ubah</a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="3">
+                                    <p>Data Belum Tersedia</p>
+                                </td>
+                            </tr>
+                        @endforelse
+
                     </tbody>
                 </table>
             </div>
         </div>
-
-
 
 
         <!-- Modal Tambah -->
@@ -110,7 +128,7 @@
                         <h3 class="text-xl font-semibold text-gray-900 ">
                             Tambah Informasi
                         </h3>
-                        <button type="button" data-modal-toggle="modalTambah"
+                        <button type="button" onclick="closeModalTambah()"
                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -134,12 +152,12 @@
                                         class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
                                         rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                         <option selected>Pilih Kategori Informasi</option>
-                                        <option value="1">Laporan Realisasi Keuangan</option>
-                                        <option value="2">Ringkasan RKA</option>
-                                        <option value="3">Ringkasan DPA</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->document }}</option>
+                                        @endforeach
                                     </select>
 
-                                    <button type="button" data-modal-toggle="modalTambah" onclick="modal.show();"
+                                    <button type="button"  onclick="openModalKategori()"
                                         data-tooltip-target="tooltip-default"
                                         class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5  transition duration-300  focus:outline-none ">
                                         <span class="material-symbols-outlined text-white">
@@ -150,7 +168,8 @@
 
                                     <div id="tooltip-default" role="tooltip"
                                         class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip ">
-                                        Tombol Tambah kategori (untuk tambah data yang belum terdaftar pada pilihan kategori
+                                        Tombol Tambah kategori (untuk tambah data yang belum terdaftar pada pilihan
+                                        kategori
                                         di samping)
                                         <div class="tooltip-arrow" data-popper-arrow></div>
                                     </div>
@@ -224,7 +243,7 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                        <button type="button" data-modal-toggle="modalTambah"
+                        <button type="button"
                             class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
                                 save
@@ -246,7 +265,7 @@
                         <h3 class="text-xl font-semibold text-gray-900 ">
                             Tambah Kategori
                         </h3>
-                        <button type="button" data-modal-toggle="modalTambah" onclick="modal.hide();"
+                        <button type="button" onclick="closeModalKategori()"
                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -271,7 +290,7 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                        <button type="button" data-modal-toggle="modalTambah" onclick="modal.hide();"
+                        <button type="button" onclick="closeModalKategori()"
                             class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
                                 save
@@ -296,7 +315,7 @@
                         </h3>
                         <button type="button"
                             class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
-                            data-modal-toggle="modalEdit">
+                            onclick="closeModalEdit()">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -362,7 +381,7 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                        <button type="button" data-modal-toggle="modalEdit"
+                        <button type="button" onclick="closeModalEdit()"
                             class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
                                 save
@@ -372,34 +391,90 @@
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
 
-    @section('morejs')
-        <!-- jQuery -->
-        <script>
-            function switchtambahKonten() {
-                if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
-                    document.querySelector('#div-tambahfile').classList.add("hidden");
-                    document.querySelector('#div-tambahlink').classList.remove("hidden");
-                } else {
-                    document.querySelector('#div-tambahfile').classList.remove("hidden");
-                    document.querySelector('#div-tambahlink').classList.add("hidden");
-                }
+@section('morejs')
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <!-- jQuery -->
+    <script>
+        let table;
+        const editm = document.getElementById('modalEdit');
+        const tambahm = document.getElementById('modalTambah');
+        const kategorim = document.getElementById('modalTambahKategori');
+        // options with default values
+        const options = {
+            placement: 'bottom-right',
+            backdrop: 'dynamic',
+            backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
+            onHide: () => {
+                console.log('modal is hidden');
+            },
+            onShow: () => {
+                console.log('modal is shown');
+            },
+            onToggle: () => {
+                console.log('modal has been toggled');
             }
+        };
 
-            function switcheditKonten() {
-                if (document.querySelector('input[name="er-konten"]:checked').value == "er-link") {
-                    document.querySelector('#div-editfile').classList.add("hidden");
-                    document.querySelector('#div-editlink').classList.remove("hidden");
-                } else {
-                    document.querySelector('#div-editfile').classList.remove("hidden");
-                    document.querySelector('#div-editlink').classList.add("hidden");
-                }
+        const modaledit = new Modal(editm, options);
+        const modaltambah = new Modal(tambahm, options);
+        const modalkategori = new Modal(kategorim, options);
+
+        function switchtambahKonten() {
+            if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
+                document.querySelector('#div-tambahfile').classList.add("hidden");
+                document.querySelector('#div-tambahlink').classList.remove("hidden");
+            } else {
+                document.querySelector('#div-tambahfile').classList.remove("hidden");
+                document.querySelector('#div-tambahlink').classList.add("hidden");
             }
-        </script>
-    @endsection
+        }
 
+        function switcheditKonten() {
+            if (document.querySelector('input[name="er-konten"]:checked').value == "er-link") {
+                document.querySelector('#div-editfile').classList.add("hidden");
+                document.querySelector('#div-editlink').classList.remove("hidden");
+            } else {
+                document.querySelector('#div-editfile').classList.remove("hidden");
+                document.querySelector('#div-editlink').classList.add("hidden");
+            }
+        }
 
-    </body>
+        function generateDataTable() {
+            // table = $('#table-data').DataTable();
+        }
 
-    </html>
+        $(document).ready(function() {
+            generateDataTable();
+        });
+
+        function openModalEdit() {
+            modaledit.show();
+        }
+
+        function closeModalEdit() {
+            modaledit.hide();
+        }
+
+        function openModalTambah() {
+            modaltambah.show();
+        }
+
+        function closeModalTambah() {
+            modaltambah.hide();
+        }
+
+        function openModalKategori() {
+            modaltambah.hide();
+            modalkategori.show();
+        }
+
+        function closeModalKategori() {
+            modalkategori.hide();
+            modaltambah.show();
+        }
+    </script>
+@endsection

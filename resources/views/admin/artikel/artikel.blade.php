@@ -49,7 +49,7 @@
                 </button>
             </div>
             <div class="overflow-x-auto relative shadow-sm ">
-                <table class="w-full text-sm text-left text-gray-500  ">
+                <table id="table" class="w-full text-sm text-left text-gray-500  ">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                         <tr>
                             <th scope="col" class="py-3 px-6">
@@ -67,28 +67,28 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="bg-white border-b ">
-                            <th class="text-center">
-                                1
-                            </th>
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 ">
-                                1.500 Orang Bersih-Bersih Kawasan Sriwedari Solo, Alat Berat Ikut Dikerahkan
-                                1.500 Orang Bersih-Bersih Kawasan Sriwedari Solo, Alat Berat Ikut Dikerahkan
-                                1.500 Orang Bersih-Bersih Kawasan Sriwedari Solo, Alat Berat Ikut Dikerahkan
-                            </th>
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                10 November 2022
-                            </th>
-                            <td class="py-4 px-6 text-right whitespace-nowrap">
-                                <a href="#" data-modal-toggle="modalEdit" onclick="location.href='/admin/artikel-form'"
-                                    class="font-medium text-blue-600  button-link bg-blue-100">Ubah</a>
+{{--                    <tbody>--}}
+{{--                        <tr class="bg-white border-b ">--}}
+{{--                            <th class="text-center">--}}
+{{--                                1--}}
+{{--                            </th>--}}
+{{--                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 ">--}}
+{{--                                1.500 Orang Bersih-Bersih Kawasan Sriwedari Solo, Alat Berat Ikut Dikerahkan--}}
+{{--                                1.500 Orang Bersih-Bersih Kawasan Sriwedari Solo, Alat Berat Ikut Dikerahkan--}}
+{{--                                1.500 Orang Bersih-Bersih Kawasan Sriwedari Solo, Alat Berat Ikut Dikerahkan--}}
+{{--                            </th>--}}
+{{--                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">--}}
+{{--                                10 November 2022--}}
+{{--                            </th>--}}
+{{--                            <td class="py-4 px-6 text-right whitespace-nowrap">--}}
+{{--                                <a href="#" data-modal-toggle="modalEdit" onclick=""--}}
+{{--                                    class="font-medium text-blue-600  button-link bg-blue-100">Ubah</a>--}}
 
-                                    <a href="#" data-modal-toggle="modalEdit"
-                                    class="font-medium text-red-700  button-link bg-red-100">Hapus</a>
-                            </td>
-                        </tr>
-                    </tbody>
+{{--                                    <a href="#" data-modal-toggle="modalEdit"--}}
+{{--                                    class="font-medium text-red-700  button-link bg-red-100">Hapus</a>--}}
+{{--                            </td>--}}
+{{--                        </tr>--}}
+{{--                    </tbody>--}}
                 </table>
             </div>
         </div>
@@ -108,14 +108,65 @@
         <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
         <script>
-            $(document).ready(function() {
+            let dataUrl = '{{ route('admin.article.datatable') }}';
+            $(document).ready(function () {
 
-                var table = $('#example').DataTable({
-                        responsive: true
-                    })
-                    .columns.adjust()
-                    .responsive.recalc();
+
+                    // .columns.adjust()
+                    // .responsive.recalc();
+                datatable()
             });
+
+            function datatable(){
+               $('#table').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    responsive: true,
+                    rowReorder: {
+                        selector: 'td:nth-child(2)'
+                    },
+                    ajax: dataUrl,
+                    fnRowCallback: function (
+                        nRow,
+                        aData,
+                        iDisplayIndex,
+                        iDisplayIndexFull
+                    ) {
+                        // debugger;
+                        var numStart = this.fnPagingInfo().iStart;
+                        var index = numStart + iDisplayIndexFull + 1;
+                        // var index = iDisplayIndexFull + 1;
+                        $("td:first", nRow).html(index);
+                        return nRow;
+                    },
+                    columns: [
+                        {
+                            className: "",
+                            orderable: false,
+                            defaultContent: "",
+                            searchable: false
+                        },
+                        {data: 'title', name: 'title'},
+                        {data: 'tanggal', name: 'tanggal'},
+                        {data: 'action', name: 'action', orderable: false, searchable: false},
+                    ]
+                })
+            }
+
+
+            jQuery.fn.dataTableExt.oApi.fnPagingInfo = function (oSettings) {
+                return {
+                    "iStart": oSettings._iDisplayStart,
+                    "iEnd": oSettings.fnDisplayEnd(),
+                    "iLength": oSettings._iDisplayLength,
+                    "iTotal": oSettings.fnRecordsTotal(),
+                    "iFilteredTotal": oSettings.fnRecordsDisplay(),
+                    "iPage": oSettings._iDisplayLength === -1 ?
+                        0 : Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+                    "iTotalPages": oSettings._iDisplayLength === -1 ?
+                        0 : Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
+                };
+            };
         </script>
     @endsection
 

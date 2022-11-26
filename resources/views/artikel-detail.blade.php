@@ -15,18 +15,22 @@
         </div>
     </div>
     <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0"
-        src="{{ asset('assets/local/gedung.jpg') }}" />
+         src="{{ asset('assets/local/gedung.jpg') }}"/>
 
     <div class=" mt-16 mb-16">
         <div class="bg-white p-10  w-[95%] mx-auto shadow-md mb-6">
-            <p class="text-primary font-bold text-3xl italic  text-center">Judul Artikel</p>
-            <p class="text-primary font-bold  italic mb-6 text-center">18 November 2022</p>
-            <a href="https://pbs.twimg.com/media/Fg7jMG9UoAEQMrL?format=jpg&name=medium" target="_blank">
-                <img src="https://pbs.twimg.com/media/Fg7jMG9UoAEQMrL?format=jpg&name=medium"
-                    class="w-full h-[400px] object-cover" />
-            </a>
-            <div class="mt-6">
-                <p>Isi Artikel</p>
+            <p class="text-primary font-bold text-3xl italic  text-center">{{$article ? $article->title : '' }}</p>
+            <p class="text-primary font-bold  italic mb-6 text-center">{{$article ? date_format($article->created_at, 'd F Y') : ''}}</p>
+
+            <div class="mt-6 ">
+                <p class="text-justify">
+                    @if($article && $article->cover)
+                            <a href="{{asset($article->cover)}}" class="md:m-7 mb-3 md:w-[500px] " target="_blank" style="float: left">
+                            <img class="w-full h-auto object-cover rounded-md "
+                                 src="{{asset($article->cover ?? '/assets/local/logosurakarta.png')}}" onerror="this.onerror=null;this.src='{{asset('/assets/local/logosurakarta.png')}}'"/>
+                        </a>
+                    @endif
+                    {!! $article ? $article->description : '' !!}</p>
             </div>
         </div>
     </div>
@@ -41,11 +45,11 @@
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             var table = $('#example').DataTable({
-                    responsive: true
-                })
+                responsive: true
+            })
                 .columns.adjust()
                 .responsive.recalc();
         });

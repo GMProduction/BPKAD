@@ -130,7 +130,7 @@
                                     </th>
 
                                     <td class="py-4 px-6 text-right">
-                                        <a href="/admin/informasi/detailbyyear"
+                                        <a href="{{ route('admin.information.periodic', ['slug' => 'ringkasan-program-dan-kegiatan-yang-sedang-dijalankan']) }}"
                                            class="font-medium text-blue-600  button-link bg-blue-100">Lihat Detail</a>
                                     </td>
                                 </tr>
@@ -613,29 +613,26 @@
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
 
-    @section('morejs')
-        <!-- jQuery -->
-            <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+@section('morejs')
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-            <!--Datatables -->
-            <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-            <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <!--Datatables -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
-            <script>
-                $(document).ready(function () {
+    <script>
+        $(document).ready(function () {
 
-                    var table = $('#example').DataTable({
-                        responsive: true
-                    })
-                        .columns.adjust()
-                        .responsive.recalc();
-                });
-            </script>
-            @endsection
+            var table = $('#example').DataTable({
+                responsive: true
+            })
+                .columns.adjust()
+                .responsive.recalc();
+        });
+    </script>
+@endsection
 
-
-            </body>
-
-            </html>
