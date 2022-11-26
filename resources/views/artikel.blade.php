@@ -84,7 +84,7 @@
 
 
     <script>
-        let skip = 0;
+        let skip = 0, isData = true;
 
         function slick() {
             $('.artikel-slide').slick({
@@ -127,11 +127,13 @@
                 },
                 success: function (data, textStatus, xhr) {
                     $('#newArticle .loadDta').remove();
+                    isData = false;
                     if (data.length > 0) {
                         if (skip == 0) {
                             newArticle.empty();
-                        }else{
                         }
+                        isData = true;
+
                         $.each(data, function (k, v) {
                             let url = v.type_article == 1 ? v.description : '/artikel/detail/' + v.slug;
                             let img = '';
@@ -159,7 +161,7 @@
                     }
                 },
                 beforeSend:function(){
-                    if (skip > 0){
+                    if (isData && skip > 0){
                         for (let i = 1; i <=8; i++){
                             newArticle.append('<a role="status" class="loadDta max-w-sm rounded border border-gray-200 shadow animate-pulse dark:border-gray-700  text-center">\n' +
                                 '                    <div class="flex justify-center items-center mb-4 h-48 bg-gray-300 rounded dark:bg-gray-700">\n' +
