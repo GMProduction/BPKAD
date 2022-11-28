@@ -27,6 +27,7 @@ return [
     | Supported Drivers: "local", "ftp", "sftp", "s3"
     |
     */
+    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
 
     'disks' => [
 
@@ -90,8 +91,7 @@ return [
     */
 
     'links' => [
-        // public_path('storage') => storage_path('app/public'),
-        app()->basePath('public_html/storage') => storage_path('app/public'),
+        public_path('storage') => storage_path('app/public'),
     ],
 
 ];
