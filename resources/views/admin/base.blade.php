@@ -112,7 +112,7 @@
                     </span>
                     <p class="title-menu block nav-link menu-text ext-sm">Profil </p>
                 </a>
-                <a class="menu" href="/admin/customize_bidang">
+                <a class="menu" href="{{ route('customize.bidang') }}">
 
                     <span class="material-symbols-outlined mr-2 menu-icon">
                         fiber_manual_record
