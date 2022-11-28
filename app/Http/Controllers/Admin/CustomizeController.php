@@ -22,21 +22,22 @@ class CustomizeController extends CustomController
         if ($this->request->method() === 'POST') {
             DB::beginTransaction();
             try {
-                $uuid_name = $this->generateImageName('image');
                 $data_request = [
                     'history' => $this->postField('history')
                 ];
-                if ($uuid_name !== '') {
-                    $image_name = '/assets/home/' . $uuid_name;
-                    $data_request['image'] = $image_name;
-                    $this->uploadImage('image', $uuid_name, 'homeImage');
-                }
+
+
                 if ($data) {
                     $data->update($data_request);
                 } else {
+                    // dd($data_request);
                     HomeSetting::create($data_request);
                 }
+
+
                 DB::commit();
+
+
                 return redirect()->back()->with('success', 'berhasil merubah data...');
             } catch (\Exception $e) {
                 return redirect()->back()->with('failed', 'gagal merubah data...');
