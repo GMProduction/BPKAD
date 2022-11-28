@@ -144,13 +144,75 @@ class InformationController extends CustomController
             return redirect()->back()->with('failed', 'Terjadi kesalahan server...');
         }
     }
-    public function periodic_information_patch($id)
+
+    public function public_information_patch()
     {
-//        try {
-//
-//        } catch (\Exception $e) {
-//            return redirect()->back()->with('failed', 'Terjadi kesalahan server...');
-//        }
+        try {
+            $data = PublicAgencyInformation::findOrFail($this->postField('id'));
+            $data_request = [
+                'information' => $this->postField('information-edit'),
+            ];
+            if ($this->postField('er-konten') === 'er-link') {
+                $validator = Validator::make($this->request->all(), [
+                    'e-link-edit' => 'required|url'
+                ], [
+                    'e-link-edit.url' => 'kolom link harus berupa url website sertakan http:// atau https://'
+                ]);
+                if ($validator->fails()) {
+                    return redirect()->back()->withErrors($validator->errors());
+                }
+                $data_request['type'] = 0;
+                $data_request['target'] = $this->postField('e-link-edit');
+            } else {
+                $data_request['type'] = 1;
+                $uuid_name = $this->generateImageName('file-edit');
+                if ($uuid_name !== '') {
+                    $file_name = '/assets/information/' . $uuid_name;
+                    $data_request['target'] = $file_name;
+                    $this->uploadImage('file-edit', $uuid_name, 'publicInformation');
+                }
+            }
+            $data->update($data_request);
+            return redirect()->back()->with('success', 'Berhasil merubah data...');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('failed', 'Terjadi kesalahan server...');
+        }
+    }
+
+    public function information_patch()
+    {
+        try {
+            $data = InformationDetail::findOrFail($this->postField('id'));
+            $data_request = [
+                'information_category_id' => $this->postField('category_edit'),
+                'year' => $this->postField('year_edit'),
+            ];
+            if ($this->postField('er-konten') === 'er-link') {
+                $validator = Validator::make($this->request->all(), [
+                    'e-link-edit' => 'required|url'
+                ], [
+                    'e-link-edit.url' => 'kolom link harus berupa url website sertakan http:// atau https://'
+                ]);
+                if ($validator->fails()) {
+                    return redirect()->back()->withErrors($validator->errors());
+                }
+                $data_request['type'] = 0;
+                $data_request['target'] = $this->postField('e-link-edit');
+            } else {
+                $data_request['type'] = 1;
+                $uuid_name = $this->generateImageName('file-edit');
+                if ($uuid_name !== '') {
+                    $file_name = '/assets/information/' . $uuid_name;
+                    $data_request['target'] = $file_name;
+                    $this->uploadImage('file-edit', $uuid_name, 'publicInformation');
+                }
+            }
+            $data->update($data_request);
+            return redirect()->back()->with('success', 'Berhasil merubah data...');
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+            return redirect()->back()->with('failed', 'Terjadi kesalahan server...');
+        }
     }
 
 }
