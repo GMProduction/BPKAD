@@ -41,7 +41,7 @@
                         <td class="text-sm">{{ $v->information }}</td>
                         <td class="text-center">
                             <a href="{{ $v->target }}" target="_blank"
-                               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2   focus:outline-none ">
+                               class="text-white text-sm bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg  px-2 py-1 mr-2 mb-2   focus:outline-none ">
                                 {!! $v->type === 0 ? 'Link' : 'Download' !!}
                             </a>
                         </td>
