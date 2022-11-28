@@ -60,21 +60,11 @@ Route::get('/visimisi', [\App\Http\Controllers\LandingPage\ProfileController::cl
 Route::get('/struktur', [\App\Http\Controllers\LandingPage\ProfileController::class, 'structure'])->name('structure');
 Route::get('/profile-json', [\App\Http\Controllers\LandingPage\ProfileController::class, 'json_data'])->name('profile.json');
 
-Route::get('/sekretariat', function () {
-    return view('sekretariat');
-});
 
-Route::get('/anggaran', function () {
-    return view('anggaran');
-});
-
-Route::get('/perbendaharaan-dan-akuntansi', function () {
-    return view('perbendaharaan');
-});
-
-Route::get('/aset', function () {
-    return view('aset');
-});
+Route::get('/sekretariat', [\App\Http\Controllers\SectorController::class, 'secretarial'])->name('secretarial');
+Route::get('/anggaran', [\App\Http\Controllers\SectorController::class, 'budget'])->name('budget');
+Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\SectorController::class, 'financial'])->name('financial');
+Route::get('/aset', [\App\Http\Controllers\SectorController::class, 'asset'])->name('asset');
 
 Route::prefix('artikel')->group(function () {
     Route::get('/', [\App\Http\Controllers\LandingPage\ArticleController::class, 'index']);
@@ -82,7 +72,6 @@ Route::prefix('artikel')->group(function () {
     Route::get('count/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'count_article'])->name('article.count');
     Route::get('/detail/{slug}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'detail'])->name('article.detail');
 });
-
 
 
 Route::group(['prefix' => 'informasi-berkala'], function () {
@@ -149,7 +138,6 @@ Route::get('/info-dikecualikan', function () {
 //Route::get('/admin/informasi/detailbyyear', function () {
 //    return view('admin/informasi/informasi-detail-byyear');
 //});
-
 
 
 Route::get('/admin/dashboard', function () {
