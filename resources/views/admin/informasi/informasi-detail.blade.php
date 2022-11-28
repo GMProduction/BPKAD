@@ -263,7 +263,7 @@
                         </button>
                     </div>
                     <form method="post" enctype="multipart/form-data"
-                          action="{{ route('admin.information.periodic.patch', ['slug' => $slug]) }}" id="form-patch">
+                          action="{{ route('admin.information.public.patch') }}" id="form-patch">
                         @csrf
                         <input type="hidden" name="id" id="id-edit" value="">
                         <!-- Modal body -->
@@ -273,7 +273,7 @@
                                     Informasi</label>
                                 <input type="text" id="e-nama-info"
                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                       placeholder="Masukan Nama Informasi" required name="information">
+                                       placeholder="Masukan Nama Informasi" required name="information-edit">
                             </div>
 
                             <p class="text-sm pb-1">Konten / Isi</p>
@@ -306,9 +306,9 @@
                                 <div class="mb-3 " id="div-editlink">
                                     <label for="link-info"
                                            class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
-                                    <input type="text" id="link-info"
+                                    <input type="text" id="e-link-info"
                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                           placeholder="Masukan Email Anda" required name="link">
+                                           placeholder="Masukan Link" required name="e-link-edit">
                                 </div>
 
                                 <div class="mb-3  hidden" id="div-editfile">
@@ -316,14 +316,15 @@
                                         file</label>
                                     <input
                                         class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
-                                        aria-describedby="upload-file_help" id="upload-file" type="file" name="file">
+                                        aria-describedby="upload-file_help" id="upload-file" type="file"
+                                        name="file-edit">
 
                                 </div>
                             </div>
                         </div>
                         <!-- Modal footer -->
                         <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                            <button type="submit" data-modal-toggle="modalEdit" id="btn-patch"
+                            <button type="submit" id="btn-patch"
                                     class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
                                 save
@@ -373,12 +374,7 @@
             placement: 'bottom-right',
             backdrop: 'dynamic',
             onShow: () => {
-                console.log('metu')
-                $('#id-edit').val(id);
-                // $('#nama-info').val(information);
-                // if (type === '0') {
-                //     $('#e-link-info').val(link);
-                // }
+
             },
             onHide: () => {
 
@@ -409,7 +405,18 @@
 
             $('#btn-patch').on('click', function (e) {
                 e.preventDefault();
-                $('#form-patch').submit();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    icon: 'info',
+                    text: 'Yakin ingin merubah data informasi?',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    focusConfirm: false,
+                }).then(function (result) {
+                    if (result) {
+                        $('#form-patch').submit();
+                    }
+                });
             });
 
             $('.btn-edit').on('click', function (e) {
@@ -418,7 +425,18 @@
                 let information = this.dataset.information;
                 let type = this.dataset.type;
                 let link = this.dataset.link;
-                console.log(id, information, type, link);
+                $('#id-edit').val(id);
+                $('#e-nama-info').val(information);
+                if (type === '0') {
+                    $('#e-link-info').val(link);
+                    $('#er-file').attr('checked', false);
+                    $('#er-link').attr('checked', true);
+                    switcheditKonten();
+                } else {
+                    $('#er-link').attr('checked', false);
+                    $('#er-file').attr('checked', true);
+                    switcheditKonten();
+                }
                 modal.show();
             });
 

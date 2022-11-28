@@ -130,8 +130,11 @@
                             </th>
 
                             <th class="py-4 px-6 text-right">
-                                <a href="#" data-modal-toggle="modalEdit"
-                                   class="font-medium text-blue-600  button-link">Ubah</a>
+                                <a href="#" data-id="{{ $v->id }}"
+                                   data-type="{{ $v->type }}" data-link="{{ $v->target }}"
+                                   data-category="{{ $v->information_category_id }}"
+                                   data-year="{{ $v->year }}"
+                                   class="font-medium text-blue-600 button-link btn-edit">Ubah</a>
                             </th>
                         </tr>
                     @endforeach
@@ -353,69 +356,104 @@
                         </button>
                     </div>
                     <!-- Modal body -->
-                    <div class="p-6 ">
-                        <div class="mb-3">
-                            <label for="e-nama-info" class="block mb-2 text-sm font-medium text-gray-700 ">Nama
-                                Informasi</label>
-                            <input type="text" id="e-nama-info"
-                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                   placeholder="Masukan Nama Informasi" required>
-                        </div>
-
-                        <p class="text-sm pb-1">Konten / Isi</p>
-                        <div class="border p-3 border-gray-200 rounded-lg">
-                            <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
-                                <li>
-                                    <input type="radio" id="er-link" name="er-konten" value="er-link"
-                                           class="hidden peer" required checked onclick="switcheditKonten()">
-                                    <label for="er-link"
-                                           class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                        <div class="block">
-                                            <div class="w-full text-lg font-semibold text-center">Link</div>
-                                            <div class="w-full text-center">Konten Menggunakan Link</div>
-                                        </div>
-                                    </label>
-                                </li>
-                                <li>
-                                    <input type="radio" id="er-file" name="er-konten" value="er-file"
-                                           class="hidden peer" onclick="switcheditKonten()">
-                                    <label for="er-file"
-                                           class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                        <div class="block">
-                                            <div class="w-full text-lg font-semibold text-center">File</div>
-                                            <div class="w-full text-center">Konten dengan file</div>
-                                        </div>
-                                    </label>
-                                </li>
-                            </ul>
-
-                            <div class="mb-3 " id="div-editlink">
-                                <label for="link-info"
-                                       class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
-                                <input type="text" id="link-info"
-                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                       placeholder="Masukan Email Anda" required>
+                    <form method="post" enctype="multipart/form-data"
+                          action="{{ route('admin.information.patch') }}" id="form-patch">
+                        @csrf
+                        <input type="hidden" name="id" id="id-edit" value="">
+                        <div class="p-6 ">
+                            <div class="mb-3">
+                                <div>
+                                    <label for="information_categories_edit"
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Kategori
+                                        Informasi</label>
+                                    <div class="flex">
+                                        <select id="information_categories_edit" name="category_edit"
+                                                class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                        rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                            <option selected>Pilih Kategori Informasi</option>
+                                            @foreach ($information_categories as $information_category)
+                                                <option
+                                                    value="{{ $information_category->id }}">{{ $information_category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="mb-3  hidden" id="div-editfile">
-                                <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
-                                    file</label>
-                                <input
-                                    class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
-                                    aria-describedby="upload-file_help" id="upload-file" type="file">
+                            <div class="mb-3">
+                                <label for="year_edit"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
+                                <select id="year_edit" name="year_edit"
+                                        class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                        rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                    <option selected>Pilih Tahun</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
+                                </select>
+                            </div>
 
+                            <p class="text-sm pb-1">Konten / Isi</p>
+                            <div class="border p-3 border-gray-200 rounded-lg">
+                                <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
+                                    <li>
+                                        <input type="radio" id="er-link" name="er-konten" value="er-link"
+                                               class="hidden peer" required checked onclick="switcheditKonten()">
+                                        <label for="er-link"
+                                               class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <div class="block">
+                                                <div class="w-full text-lg font-semibold text-center">Link</div>
+                                                <div class="w-full text-center">Konten Menggunakan Link</div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="er-file" name="er-konten" value="er-file"
+                                               class="hidden peer" onclick="switcheditKonten()">
+                                        <label for="er-file"
+                                               class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <div class="block">
+                                                <div class="w-full text-lg font-semibold text-center">File</div>
+                                                <div class="w-full text-center">Konten dengan file</div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                </ul>
+
+                                <div class="mb-3 " id="div-editlink">
+                                    <label for="e-link-info"
+                                           class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                    <input type="text" id="e-link-info"
+                                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                           placeholder="Masukan Link" required name="e-link-edit">
+                                </div>
+
+                                <div class="mb-3  hidden" id="div-editfile">
+                                    <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
+                                        file</label>
+                                    <input
+                                        class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
+                                        aria-describedby="upload-file_help" id="upload-file" type="file" name="file-edit">
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                        <button type="button" onclick="closeModalEdit()"
-                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                        <!-- Modal footer -->
+                        <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
+                            <button type="button" id="btn-patch"
+                                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
                                 save
                             </span>Simpan Informasi
-                        </button>
-                    </div>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -585,7 +623,46 @@
                         $('#form-submit-information').submit();
                     }
                 });
-            })
+            });
+
+            $('#btn-patch').on('click', function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    icon: 'info',
+                    text: 'Yakin ingin merubah data informasi?',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    focusConfirm: false,
+                }).then(function (result) {
+                    if (result) {
+                        $('#form-patch').submit();
+                    }
+                });
+            });
+
+            $('.btn-edit').on('click', function (e) {
+                e.preventDefault();
+                let id = this.dataset.id;
+                let category = this.dataset.category;
+                let year = this.dataset.year;
+                let type = this.dataset.type;
+                let link = this.dataset.link;
+                $('#id-edit').val(id);
+                $('#information_categories_edit').val(category);
+                $('#year_edit').val(year);
+                if (type === '0') {
+                    $('#e-link-info').val(link);
+                    $('#er-file').attr('checked', false);
+                    $('#er-link').attr('checked', true);
+                    switcheditKonten();
+                } else {
+                    $('#er-link').attr('checked', false);
+                    $('#er-file').attr('checked', true);
+                    switcheditKonten();
+                }
+                modaledit.show();
+            });
         });
     </script>
 @endsection
