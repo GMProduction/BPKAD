@@ -32,19 +32,23 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::match(['post', 'get'], '/', [\App\Http\Controllers\Admin\CustomizeController::class, 'profile'])->name('customize.profile');
     });
 
+    Route::group(['prefix' => 'kustomisasi-bidang'], function () {
+        Route::match(['post', 'get'], '/', [\App\Http\Controllers\Admin\CustomizeController::class, 'bidang'])->name('customize.bidang');
+    });
+
+
     Route::group(['prefix' => 'informasi'], function () {
         Route::get('/', [\App\Http\Controllers\Admin\InformationController::class, 'index'])->name('admin.information.index');
-        Route::match(['post', 'get'],'/{slug}/informasi-berkala', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information'])->name('admin.information.periodic');
+        Route::match(['post', 'get'], '/{slug}/informasi-berkala', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information'])->name('admin.information.periodic');
         Route::post('/{slug}/informasi-berkala/patch', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information_patch'])->name('admin.information.periodic.patch');
         Route::post('/{id}/informasi-berkala/category', [\App\Http\Controllers\Admin\InformationController::class, 'add_information_category'])->name('admin.information.category.add');
     });
 
-    Route::group(['prefix' => 'artikel'], function (){
-        Route::get('datatable', [\App\Http\Controllers\Admin\ArticleController::class,'datatable'])->name('admin.article.datatable');
-        Route::get('', [\App\Http\Controllers\Admin\ArticleController::class,'index'])->name('admin.article');
-        Route::match(['POST','GET'],'artikel-form', [\App\Http\Controllers\Admin\ArticleController::class,'detail'])->name('admin.article.form');
+    Route::group(['prefix' => 'artikel'], function () {
+        Route::get('datatable', [\App\Http\Controllers\Admin\ArticleController::class, 'datatable'])->name('admin.article.datatable');
+        Route::get('', [\App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('admin.article');
+        Route::match(['POST', 'GET'], 'artikel-form', [\App\Http\Controllers\Admin\ArticleController::class, 'detail'])->name('admin.article.form');
     });
-
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('beranda');
@@ -70,16 +74,16 @@ Route::get('/aset', function () {
     return view('aset');
 });
 
-Route::prefix('artikel')->group(function (){
-    Route::get('/',[\App\Http\Controllers\LandingPage\ArticleController::class,'index']);
-    Route::get('json-data/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class,'article'])->name('article.json');
-    Route::get('count/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class,'count_article'])->name('article.count');
-    Route::get('/detail/{slug}', [\App\Http\Controllers\LandingPage\ArticleController::class,'detail'])->name('article.detail');
+Route::prefix('artikel')->group(function () {
+    Route::get('/', [\App\Http\Controllers\LandingPage\ArticleController::class, 'index']);
+    Route::get('json-data/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'article'])->name('article.json');
+    Route::get('count/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'count_article'])->name('article.count');
+    Route::get('/detail/{slug}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'detail'])->name('article.detail');
 });
 
 
 
-Route::group(['prefix' => 'informasi-berkala'], function (){
+Route::group(['prefix' => 'informasi-berkala'], function () {
     Route::get('/', [\App\Http\Controllers\InformationController::class, 'periodic_information'])->name('information.periodic');
     Route::get('/{slug}', [\App\Http\Controllers\InformationController::class, 'periodic_information_by_slug'])->name('information.periodic.by.slug');
 });
