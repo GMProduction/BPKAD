@@ -26,79 +26,54 @@
                     data-slug="{{ $v->slug }}">
 
                     <span class="material-symbols-outlined font-bold  text-primary mr-2">
-                        @f($v->slug = 'informasi-tentang-profil-badan-publik')
-                            request_quote
-                        @elseif($v->slug = 'informasi-tentang-profil-badan-publik')
+                        @if ($v->name == 'Ringkasan Program dan Kegiatan yang sedang dijalankan')
                             history_edu
+                        @elseif ($v->name == 'Ringkasan Laporan Keuangan')
+                            request_quote
+                        @elseif ($v->name == 'Ringkasan Laporan Keuangan')
+                            request_quote
+                        @elseif ($v->name == 'Informasi Pengadaan Barang dan Jasa')
+                            inventory_2
+                        @elseif ($v->name == 'Informasi tentang Peraturan, Keputusan, atau Kebijakan yang Mengikat')
+                            local_police
+                        @elseif ($v->name == 'Ringkasan Informasi tentang Kinerja')
+                            work
+                        @elseif ($v->name == 'Informasi Tentang Tata Cara Pengaduan Penyalahgunaan Wewenang atau Pelanggaran')
+                            dangerous
+                        @elseif ($v->name == 'Informasi tentang Prosedur Peringatan Dini dan Prosedur Evakuasi Keadaan Darurat')
+                            warning
                         @else
                             info
-                @endif
-                </span>
+                        @endif
 
 
-                <span class="font-bold">{{ $v->slug }}</span>
-            </div>
-        @endforeach
-        {{--            <div --}}
-        {{--                class="h-[75px] hover:shadow-xl border hover:border-none bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer"> --}}
-        {{--                <span class="material-symbols-outlined font-bold  text-primary mr-2"> --}}
-        {{--                    history_edu --}}
-        {{--                </span> --}}
-        {{--                <span class="font-bold">Ringkasan Program dan Kegiatan yang sedang dijalankan</span> --}}
-        {{--            </div> --}}
-
-        {{--            <div --}}
-        {{--                class="h-[75px] hover:shadow-xl border hover:border-none bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer"> --}}
-        {{--                <span class="material-symbols-outlined font-bold  text-primary mr-2"> --}}
-        {{--                    request_quote --}}
-        {{--                </span> --}}
-        {{--                <span class="font-bold">Ringkasan Laporan Keuangan</span> --}}
-        {{--            </div> --}}
-
-        {{--            <div --}}
-        {{--                class="h-[75px] hover:shadow-xl border hover:border-none   bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer"> --}}
-        {{--                <span class="material-symbols-outlined font-bold  text-primary mr-2"> --}}
-        {{--                    inventory_2 --}}
-        {{--                </span> --}}
-        {{--                <span class="font-bold">Informasi Pengadaan Barang dan Jasa </span> --}}
-        {{--            </div> --}}
-
-        {{--            <div --}}
-        {{--                class="h-[75px] hover:shadow-xl border hover:border-none  bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer"> --}}
-        {{--                <span class="material-symbols-outlined font-bold  text-primary mr-2"> --}}
-        {{--                    local_police --}}
-        {{--                </span> --}}
-        {{--                <span class="font-bold">Informasi Tentang Peraturan Keputusan atau Kebijakan yang mengikat</span> --}}
-        {{--            </div> --}}
-
-        {{--            <div --}}
-        {{--                class="h-[75px] hover:shadow-xl border hover:border-none  bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer"> --}}
-        {{--                <span class="material-symbols-outlined font-bold  text-primary mr-2"> --}}
-        {{--                    warning --}}
-        {{--                </span> --}}
-        {{--                <span class="font-bold">Informasi tentang prosedur peringatan dini dan prosedur evakuasi keadaan --}}
-        {{--                    darurat</span> --}}
-        {{--            </div> --}}
-
-        {{--            <div --}}
-        {{--                class="h-[75px] hover:shadow-xl border hover:border-none bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer"> --}}
-        {{--                <span class="material-symbols-outlined font-bold  text-primary mr-2"> --}}
-        {{--                    work --}}
-        {{--                </span> --}}
-        {{--                <span class="font-bold">Ringkasan Informasi Tentang Kinerja</span> --}}
-        {{--            </div> --}}
-
-        {{--            <div --}}
-        {{--                class="h-[75px] hover:shadow-xl border hover:border-none  bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer"> --}}
-        {{--                <span class="material-symbols-outlined font-bold  text-primary mr-2"> --}}
-        {{--                    dangerous --}}
-        {{--                </span> --}}
-        {{--                <span class="font-bold">Informasi Tentang Tata Cara Pengaduan Penyalahgunaan Wewenang atau --}}
-        {{--                    Pelanggaran</span> --}}
-        {{--            </div> --}}
+                    </span>
 
 
-    </div>
+                    <span class="font-bold">{{ $v->name }}</span>
+                </div>
+            @endforeach
+
+
+
+            {{--            <div --}}
+            {{--                class="h-[75px] hover:shadow-xl border hover:border-none bg-white  transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer"> --}}
+            {{--                <span class="material-symbols-outlined font-bold  text-primary mr-2"> --}}
+            {{--                    work --}}
+            {{--                </span> --}}
+            {{--                <span class="font-bold">Ringkasan Informasi Tentang Kinerja</span> --}}
+            {{--            </div> --}}
+
+            {{--            <div --}}
+            {{--                class="h-[75px] hover:shadow-xl border hover:border-none  bg-white transitiom ease-in-out duration-300 rounded-md flex items-center p-5 cursor-pointer"> --}}
+            {{--                <span class="material-symbols-outlined font-bold  text-primary mr-2"> --}}
+            {{--                    dangerous --}}
+            {{--                </span> --}}
+            {{--                <span class="font-bold">Informasi Tentang Tata Cara Pengaduan Penyalahgunaan Wewenang atau Pelanggaran</span> --}}
+            {{--            </div> --}}
+
+
+        </div>
     </div>
 @endsection
 
