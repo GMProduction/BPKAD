@@ -1,8 +1,8 @@
 @extends('base')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick.css') }} "/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick-theme.css') }} "/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick.css') }} " />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick-theme.css') }} " />
 
     <style>
         #slider {
@@ -27,7 +27,7 @@
     <div class="mt-[-89px] sm:h-[796px] h-[350px] w-[100%] bg-black/30 z-[-1]  relative">
         <div class="absolute sm:bottom-[200px] bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
             <a class="font-bold text-white text-4xl" data-aos="fade-left">BPKAD </a> <a class="font-bold text-4xl text-white"
-                                                                                        data-aos="fade-left">KOTA
+                data-aos="fade-left">KOTA
                 SURAKARTA</a> <br>
             <a class="font-bold text-white " data-aos="fade-right">Badan Pengelolaan Keuangan & Aset Daerah Kota
                 Surakarta</a>
@@ -35,11 +35,11 @@
     </div>
 
     <img id="slider" src="{{ asset('assets/local/slide.jpg') }}"
-         class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] object-cover top-0 left-0"/>
+        class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] object-cover top-0 left-0" />
 
 
     <div class="mt-[-70px] min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md flex items-center "
-         data-aos="fade-up">
+        data-aos="fade-up">
         <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 mt-[auto] mb-[auto] w-[100%]">
             <div class="flex  md:justify-center justify-start  sm:mx-0 mx-5 sm:my-0 my-1 sm:mt-0 mt-3">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
@@ -109,12 +109,13 @@
                     class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
                     <div>
                         <img src="{{ asset('assets/local/simdang.png') }}"
-                             class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>
+                            class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                     </div>
                     <div class="col-span-2">
-                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI FMIS</p>
-                        <p class="text-sm text-white/80 ">Financial Management Information System (FMIS) dikembangkan dari
-                            basis SIMDA untuk mempermudah manajemen keuangan daerah pada Pemerintah Kota Surakarta.</p>
+                        <p class="text-white font-bold text-2xl italic mb-3">FMIS</p>
+                        <p class="text-sm text-white  mb-1 font-bold "> Financial Management Information System</p>
+                        <p class="text-sm text-white/80 "> Aplikasi yang dikembangkan dari basis SIMDA untuk mempermudah
+                            manajemen keuangan daerah pada Pemerintah Kota Surakarta</p>
                     </div>
 
                 </div>
@@ -124,13 +125,13 @@
                     class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
                     <div>
                         <img src="{{ asset('assets/local/hibah-online.png') }}"
-                             class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>
+                            class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                     </div>
                     <div class="col-span-2">
-                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI HIBAH ONLINE</p>
-                        <p class="text-sm text-white/80 ">Aplikasi Hibah Bansos dan Bankeu
-                            Pemerintah Surakarta, Jawa Tengah
-                            Badan Pendapatan Pengelolaan Keuangan dan Aset Daerah</p>
+                        <p class="text-white font-bold text-2xl italic mb-3">HIBAH ONLINE</p>
+                        <p class="text-sm text-white mb-1 font-bold ">Aplikasi Hibah Online Kota Surakarta</p>
+                        <p class="text-sm text-white/80 ">Aplikasi untuk memudahkan dalam pengajuan permohonan bantuan hibah
+                            dan bansos oleh masyarakat ataupun organisasi yang ada di kota Surakarta</p>
                     </div>
 
                 </div>
@@ -139,11 +140,13 @@
                 <div
                     class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
                     <div>
-                        <img src="{{ asset('assets/local/sinta.png') }}" class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>
+                        <img src="{{ asset('assets/local/sinta.png') }}" class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                     </div>
                     <div class="col-span-2">
-                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SINTA</p>
-                        <p class="text-sm text-white/80 ">Sistem Informasi Tanah Pemerintah Kota Surakarta</p>
+                        <p class="text-white font-bold text-2xl italic mb-3">SINTA</p>
+                        <p class="text-sm text-white mb-1 font-bold">Sistem Informasi Tanah Pemerintah Kota Surakarta</p>
+                        <p class="text-sm text-white/80 ">Aplikasi untuk memudahkan dalam pencarian tanah Hak Pakai
+                            Pemerintah Kota Surakarta berdasarkan klasifikasi penggunaan dan wilayah</p>
                     </div>
 
                 </div>
@@ -153,11 +156,13 @@
                     class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
                     <div>
                         <img src="{{ asset('assets/local/sikendis.png') }}"
-                             class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>
+                            class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                     </div>
                     <div class="col-span-2">
-                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SIKENDIS</p>
-                        <p class="text-sm text-white/80 ">Sistem Informasi Kendaraan Dinas
+                        <p class="text-white font-bold text-2xl italic mb-3">SIKENDIS</p>
+                        <p class="text-sm text-white mb-1 font-bold">Sistem Informasi Kendaraan Dinas Pemerintah Kota
+                            Surakarta</p>
+                        <p class="text-sm text-white/80 ">Aplikasi untuk memudahkan dalam penatausahaan Kendaraan Dinas
                             Pemerintah Kota Surakarta</p>
                     </div>
 
@@ -169,12 +174,14 @@
                     class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
                     <div>
                         <img src="{{ asset('assets/local/siperon.png') }}"
-                             class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>
+                            class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                     </div>
                     <div class="col-span-2">
-                        <p class="text-white font-bold text-2xl italic mb-3">APLIKASI SIPERON<i
+                        <p class="text-white font-bold text-2xl italic mb-3">SIPERON<i
                                 class="mdi mdi-skip-previous-outline:"></i></p>
-                        <p class="text-sm text-white/80 ">Sistem Informasi Persediaan Online.</p>
+                        <p class="text-sm text-white mb-1 font-bold">Sistem Persediaan Online Kota Surakarta</p>
+                        <p class="text-sm text-white/80 ">Aplikasi untuk mempercepat tata kelola persediaan dengan
+                            menggunakan sistem informasi yang dilaksanakan secara online diseluruh skpd</p>
                     </div>
 
                 </div>
@@ -193,14 +200,14 @@
 
         <div class="video-slide dark sm:m-10 m-5 " data-aos="fade-up">
             <iframe style="height: 480px !important" src="https://www.youtube.com/embed/DwFg8kWMTVE"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
 
             <iframe style="height: 480px !important" src="https://www.youtube.com/embed/doGpA_fipuM"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
 
     </div>
@@ -208,7 +215,7 @@
     <div class="grid md:grid-cols-2 grid-cols-1 md:h-[750px] h-min-[750px] relative overflow-hidden">
         <div class="relative">
             <div class="absolute bg-black/40 top-0 left-0 w-[100%] h-[100%]"></div>
-            <img src="{{ asset('assets/local/aspirasi.jpg') }}" class="absolute z-[-1] object-cover h-full"/>
+            <img src="{{ asset('assets/local/aspirasi.jpg') }}" class="absolute z-[-1] object-cover h-full" />
 
             <div class="absolute bottom-16 left-10 " data-aos="fade-up">
                 <p class="italic font-bold text-4xl text-white mb-3" data-aos="fade-up">Kirim Aspirasi Anda</p>
@@ -223,16 +230,16 @@
                     yang lebih baik
                 </p>
             </div>
-            <form method="POST" id="form_aspiration" action="{{route('post_aspiration')}}">
+            <form method="POST" id="form_aspiration" action="{{ route('post_aspiration') }}">
                 @csrf
                 <div class="mb-6" data-aos="fade-up">
                     <label for="aspirasi-nama" class="block mb-2 text-sm font-medium text-white ">Nama</label>
                     <input type="text" id="aspirasi-nama" name="name"
-                           class="bg-gray-50 border {{$errors->has('name') ? 'border-red-500' : 'border-gray-300'}}  text-gray-900 text-sm  block w-full p-2.5 "
-                           placeholder="Masukan Nama Anda" required>
-                    @if($errors->has('name'))
+                        class="bg-gray-50 border {{ $errors->has('name') ? 'border-red-500' : 'border-gray-300' }}  text-gray-900 text-sm  block w-full p-2.5 "
+                        placeholder="Masukan Nama Anda" required>
+                    @if ($errors->has('name'))
                         <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                           {{ $errors->first('name') }}
+                            {{ $errors->first('name') }}
                         </span>
                     @endif
                 </div>
@@ -240,11 +247,11 @@
                 <div class="mb-6" data-aos="fade-up">
                     <label for="aspirasi-alamat" class="block mb-2 text-sm font-medium text-white ">Alamat</label>
                     <input type="text" id="aspirasi-alamat" name="address"
-                           class="bg-gray-50 border {{$errors->has('address') ? 'border-red-500' : 'border-gray-300'}}  text-gray-900 text-sm  block w-full p-2.5 "
-                           placeholder="Masukan Alamat Anda" required>
-                    @if($errors->has('address'))
+                        class="bg-gray-50 border {{ $errors->has('address') ? 'border-red-500' : 'border-gray-300' }}  text-gray-900 text-sm  block w-full p-2.5 "
+                        placeholder="Masukan Alamat Anda" required>
+                    @if ($errors->has('address'))
                         <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                           {{ $errors->first('address') }}
+                            {{ $errors->first('address') }}
                         </span>
                     @endif
                 </div>
@@ -252,11 +259,11 @@
                 <div class="mb-6" data-aos="fade-up">
                     <label for="aspirasi-nohp" class="block mb-2 text-sm font-medium text-white ">Email</label>
                     <input type="text" id="aspirasi-nohp" name="email"
-                           class="bg-gray-50 border {{$errors->has('email') ? 'border-red-500' : 'border-gray-300'}} text-gray-900 text-sm  block w-full p-2.5 "
-                           placeholder="Masukan Email Anda" required>
-                    @if($errors->has('email'))
+                        class="bg-gray-50 border {{ $errors->has('email') ? 'border-red-500' : 'border-gray-300' }} text-gray-900 text-sm  block w-full p-2.5 "
+                        placeholder="Masukan Email Anda" required>
+                    @if ($errors->has('email'))
                         <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                           {{ $errors->first('email') }}
+                            {{ $errors->first('email') }}
                         </span>
                     @endif
                 </div>
@@ -265,11 +272,11 @@
                     <label for="aspirasi-text" class="block mb-2 text-sm font-medium text-white ">Masukan
                         Aspirasi</label>
                     <textarea type="text" id="aspirasi-text" rows="4" name="description"
-                              class="bg-gray-50 border {{$errors->has('description') ? 'border-red-500' : 'border-gray-300'}} text-gray-900 text-sm  block w-full p-2.5 "
-                              placeholder="Masukan Aspirasi anda" required></textarea>
-                    @if($errors->has('description'))
+                        class="bg-gray-50 border {{ $errors->has('description') ? 'border-red-500' : 'border-gray-300' }} text-gray-900 text-sm  block w-full p-2.5 "
+                        placeholder="Masukan Aspirasi anda" required></textarea>
+                    @if ($errors->has('description'))
                         <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                           {{ $errors->first('description') }}
+                            {{ $errors->first('description') }}
                         </span>
                     @endif
                 </div>
@@ -277,19 +284,19 @@
                 <div class="mb-6" data-aos="fade-up">
                     <label class="block mb-2 text-sm font-medium text-white" for="user_avatar">Upload file</label>
                     <input name="image"
-                           class="block w-full text-sm text-gray-900 {{$errors->has('image') ? 'border-red-500' : 'border-gray-300'}} rounded-lg border cursor-pointer  focus:outline-none"
-                           aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                        class="block w-full text-sm text-gray-900 {{ $errors->has('image') ? 'border-red-500' : 'border-gray-300' }} rounded-lg border cursor-pointer  focus:outline-none"
+                        aria-describedby="user_avatar_help" id="user_avatar" type="file">
                     <div class="mt-1 text-sm text-white" id="user_avatar_help">Masukan Gambar / Foto jika diperlukan
                     </div>
-                    @if($errors->has('image'))
+                    @if ($errors->has('image'))
                         <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                           {{ $errors->first('image') }}
+                            {{ $errors->first('image') }}
                         </span>
                     @endif
                 </div>
 
                 <a type="submit" id="btn" data-aos="fade-up" onclick="post_aspiration()"
-                   class=" text-white bg-teal-500 hover:bg-teal-600 transition duration-300 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg w-full h-[75px] px-5 py-2.5 text-center flex justify-center items-center  font-bold text-2xl">Kirim</a>
+                    class=" text-white bg-teal-500 hover:bg-teal-600 transition duration-300 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg w-full h-[75px] px-5 py-2.5 text-center flex justify-center items-center  font-bold text-2xl">Kirim</a>
             </form>
         </div>
     </div>
@@ -302,7 +309,7 @@
 
         <div class="flex justify-end items-center mr-16 mb-4">
             <a href="/artikel"
-               class="flex justify-end items-center px-3 py-2 bg-primarylight text-sm font-bold shadow-md text-white hover:shadow-2xl transition duration-300 hover:scale-105">Lihat
+                class="flex justify-end items-center px-3 py-2 bg-primarylight text-sm font-bold shadow-md text-white hover:shadow-2xl transition duration-300 hover:scale-105">Lihat
                 Semua Artikel <span class="material-symbols-outlined">
                     arrow_right_alt
 
@@ -313,12 +320,12 @@
         <div class="artikel-slide dark  sm:px-16 px-5 " data-aos="fade-up">
 
             <a href="https://twitter.com/RADARSOLO_/status/1589464155827757056?t=KidA4z7az-0QBY80B5SZaQ&s=08"
-               target="_blank"
-               class="mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer hover:scale-105">
+                target="_blank"
+                class="mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer hover:scale-105">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
                     <img class="w-full h-full object-cover rounded-md "
-                         src="https://pbs.twimg.com/media/Fg7jMG9UoAEQMrL?format=jpg&name=medium"/>
+                        src="https://pbs.twimg.com/media/Fg7jMG9UoAEQMrL?format=jpg&name=medium" />
 
                 </div>
                 <p class="italic font-bold text-md text-center px-3 pb-3">Wali Kota Surakarta
@@ -330,12 +337,12 @@
             </a>
 
             <a class="mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer hover:scale-105"
-               href="https://www.solopos.com/1-500-orang-bersih-bersih-kawasan-sriwedari-solo-alat-berat-ikut-dikerahkan-1464928"
-               target="_blank">
+                href="https://www.solopos.com/1-500-orang-bersih-bersih-kawasan-sriwedari-solo-alat-berat-ikut-dikerahkan-1464928"
+                target="_blank">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
                     <img class="w-full h-full object-cover rounded-md "
-                         src="https://images.solopos.com/2022/11/bersih-bersih-sriwdari.jpg"/>
+                        src="https://images.solopos.com/2022/11/bersih-bersih-sriwdari.jpg" />
 
                 </div>
                 <p class="italic font-bold text-md text-center px-3 pb-3">1.500 Orang Bersih-Bersih Kawasan Sriwedari
@@ -344,12 +351,12 @@
 
             </a>
             <a class="mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer hover:scale-105"
-               href="https://solo.suaramerdeka.com/solo-raya/pr-055482435/kawasan-sriwedari-solo-dibersihkan-gerbang-sisi-utara-kembali-dibuka"
-               target="_blank">
+                href="https://solo.suaramerdeka.com/solo-raya/pr-055482435/kawasan-sriwedari-solo-dibersihkan-gerbang-sisi-utara-kembali-dibuka"
+                target="_blank">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
                     <img class="w-full h-full object-cover rounded-md "
-                         src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/11/06/39043295.jpg"/>
+                        src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/11/06/39043295.jpg" />
 
                 </div>
                 <p class="italic font-bold text-md text-center px-3 pb-3">
@@ -362,7 +369,7 @@
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
                     <img class="w-full h-full object-cover rounded-md "
-                         src="https://asset.kompas.com/crops/hI7t9Rp4KUaZO7eJ8xgckwN6KDQ=/0x0:1000x667/750x500/data/photo/2022/02/24/6217365e120c5.jpg"/>
+                        src="https://asset.kompas.com/crops/hI7t9Rp4KUaZO7eJ8xgckwN6KDQ=/0x0:1000x667/750x500/data/photo/2022/02/24/6217365e120c5.jpg" />
 
                 </div>
                 <p class="italic font-bold text-md text-center px-3 pb-3">Tari Gambyong: Gerakan, Pola Lantai,
@@ -372,12 +379,12 @@
             </a>
 
             <a class="mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer hover:scale-105"
-               href="https://www.solopos.com/1-500-orang-bersih-bersih-kawasan-sriwedari-solo-alat-berat-ikut-dikerahkan-1464928"
-               target="_blank">
+                href="https://www.solopos.com/1-500-orang-bersih-bersih-kawasan-sriwedari-solo-alat-berat-ikut-dikerahkan-1464928"
+                target="_blank">
                 <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
                     <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
                     <img class="w-full h-full object-cover rounded-md "
-                         src="https://images.solopos.com/2022/11/bersih-bersih-sriwdari.jpg"/>
+                        src="https://images.solopos.com/2022/11/bersih-bersih-sriwdari.jpg" />
 
                 </div>
                 <p class="italic font-bold text-md text-center px-3 pb-3">1.500 Orang Bersih-Bersih Kawasan Sriwedari
@@ -396,7 +403,6 @@
     <script type="text/javascript" src="{{ asset('assets/import/slick-1.8.1/slick/slick.min.js') }} "></script>
 
     <script>
-
         function post_aspiration() {
             // let clas = $('#btn').attr('class');
             // if (!clas.includes('isDisabled')) {
@@ -413,13 +419,13 @@
             centerPadding: '60px',
             slidesToShow: 3,
             responsive: [{
-                breakpoint: 1500,
-                settings: {
-                    centerMode: true,
-                    centerPadding: '40px',
-                    slidesToShow: 2
-                }
-            },
+                    breakpoint: 1500,
+                    settings: {
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 2
+                    }
+                },
                 {
                     breakpoint: 760,
                     settings: {
@@ -437,12 +443,12 @@
             slidesToShow: 1,
             focusOnSelect: 1,
             responsive: [{
-                breakpoint: 1200,
-                settings: {
-                    centerMode: false,
-                    slidesToShow: 1
-                }
-            },
+                    breakpoint: 1200,
+                    settings: {
+                        centerMode: false,
+                        slidesToShow: 1
+                    }
+                },
                 {
                     breakpoint: 760,
                     settings: {
@@ -460,18 +466,18 @@
             focusOnSelect: 1,
             arrows: true,
             responsive: [{
-                breakpoint: 1200,
-                settings: {
-                    centerMode: false,
-                    slidesToShow: 3
-                }
-            }, , {
-                breakpoint: 765,
-                settings: {
-                    centerMode: false,
-                    slidesToShow: 2
-                }
-            },
+                    breakpoint: 1200,
+                    settings: {
+                        centerMode: false,
+                        slidesToShow: 3
+                    }
+                }, , {
+                    breakpoint: 765,
+                    settings: {
+                        centerMode: false,
+                        slidesToShow: 2
+                    }
+                },
                 {
                     breakpoint: 450,
                     settings: {
@@ -491,7 +497,7 @@
 
         function slideShow() {
             document.getElementById('slider').classList.add("fadeOut");
-            setTimeout(function () {
+            setTimeout(function() {
                 document.getElementById('slider').src = imgArray[curIndex];
                 document.getElementById('slider').classList.remove("fadeOut");
             }, 400);

@@ -57,10 +57,10 @@
                             aria-current="page">Beranda</a>
                     </li>
 
-                    <li>
-                        <button id="dropdownProfilLink" data-dropdown-toggle="dropdownProfil"
+                    <li class="group">
+                        <button
                             class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-400 transition duration-300 md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">Profil
-                            <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -68,27 +68,25 @@
                             </svg>
                         </button>
 
-                        <!-- Dropdown profil -->
-                        <div id="dropdownProfil"
-                            class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow  "
-                            data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
-                            style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 110px);">
-                            <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="/visimisi" class="block py-2 px-4 hover:bg-gray-100  ">Visi & Misi</a>
-                                </li>
-                                <li>
-                                    <a href="/struktur" class="block py-2 px-4 hover:bg-gray-100  ">Struktur
-                                        Organisasi</a>
-                                </li>
 
-                            </ul>
+                        <ul
+                            class="py-1 text-sm text-gray-700 absolute hidden mt-[1px]  rounded-md group-hover:block bg-white  duration-300">
+
+                            <li>
+                                <a href="/visimisi" class="block py-2 px-4 hover:bg-gray-100  ">Visi & Misi</a>
+                            </li>
+                            <li>
+                                <a href="/struktur" class="block py-2 px-4 hover:bg-gray-100  ">Struktur
+                                    Organisasi</a>
+                            </li>
+
+                        </ul>
 
                     </li>
-                    <li>
-                        <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+                    <li class="group">
+                        <button
                             class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto  hover:bg-gray-400 transition duration-300   ">Bidang
-                            <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -98,68 +96,62 @@
 
 
                         <!-- Dropdown bidang -->
-                        <div id="dropdownNavbar"
-                            class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow  "
-                            data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
-                            style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 110px);">
-                            <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="/sekretariat" class="block py-2 px-4 hover:bg-gray-100  ">Sekretariat</a>
-                                </li>
-                                <li>
-                                    <a href="/anggaran" class="block py-2 px-4 hover:bg-gray-100  ">Anggaran</a>
-                                </li>
-                                <li>
-                                    <a href="/perbendaharaan-dan-akuntansi"
-                                        class="block py-2 px-4 hover:bg-gray-100  ">Perbendaharaan dan Akuntansi</a>
-                                </li>
-                                <li>
-                                    <a href="/aset" class="block py-2 px-4 hover:bg-gray-100  ">Aset</a>
-                                </li>
-                            </ul>
 
-                        </div>
+                        <ul
+                            class="py-1 text-sm text-gray-700 absolute hidden mt-[1px]  rounded-md group-hover:block bg-white  duration-300">
+                            <li>
+                                <a href="/sekretariat" class="block py-2 px-4 hover:bg-gray-100  ">Sekretariat</a>
+                            </li>
+                            <li>
+                                <a href="/anggaran" class="block py-2 px-4 hover:bg-gray-100  ">Anggaran</a>
+                            </li>
+                            <li>
+                                <a href="/perbendaharaan-dan-akuntansi"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Perbendaharaan dan Akuntansi</a>
+                            </li>
+                            <li>
+                                <a href="/aset" class="block py-2 px-4 hover:bg-gray-100  ">Aset</a>
+                            </li>
+                        </ul>
+
                     </li>
                     <li>
                         <a href="/artikel"
                             class="nav-button  menu block py-2 pr-4 pl-3 text-gray-200 rounded  md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3  hover:bg-gray-400 transition duration-300  ">Artikel</a>
                     </li>
-                    <li>
-                        <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar2"
+                    <li class="group">
+                        <button id="dropdownNavbarLink"
                             class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-400 transition duration-300  md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">PPID
-                            <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                     clip-rule="evenodd"></path>
                             </svg></button>
                         <!-- Dropdown menu -->
-                        <div id="dropdownNavbar2"
-                            class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow  "
-                            data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom"
-                            style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 110px);">
-                            <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="/informasi-berkala" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
-                                        Berkala</a>
-                                </li>
-                                <li>
-                                    <a href="/info-sertamerta" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
-                                        Serta
-                                        Merta</a>
-                                </li>
-                                <li>
-                                    <a href="/info-setiapsaat" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
-                                        Setiap
-                                        saat</a>
-                                </li>
-                                <li>
-                                    <a href="/info-dikecualikan" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
-                                        Dikecualikan</a>
-                                </li>
-                            </ul>
 
-                        </div>
+                        <ul
+                            class="py-1 text-sm text-gray-700 absolute hidden mt-[1px]  rounded-md group-hover:block bg-white  duration-300">
+                            <li>
+                                <a href="/informasi-berkala" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                    Berkala</a>
+                            </li>
+                            <li>
+                                <a href="/info-sertamerta" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                    Serta
+                                    Merta</a>
+                            </li>
+                            <li>
+                                <a href="/info-setiapsaat" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                    Setiap
+                                    saat</a>
+                            </li>
+                            <li>
+                                <a href="/info-dikecualikan" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                    Dikecualikan</a>
+                            </li>
+                        </ul>
+
                     </li>
                     <li>
                         <a href="/"
@@ -179,11 +171,12 @@
             <div class="grid md:grid-cols-4 sd:grid-cols-3 grid-cols-2 gap-10">
                 <div class="col-span-2">
                     <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">Sejarah Singkat</p>
-                    <p class="text-white/80 text-sm font-light mb-6 text-justify" data-aos="fade-up" id="short_his"></p>
+                    <p class="text-white/80 text-sm font-light mb-6 text-justify" data-aos="fade-up" id="short_his">
+                    </p>
 
                     <iframe data-aos="fade-up" class="md:w-[500px] md:h-[300px]"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398.3223047030822!2d110.82788629803538!3d-7.56922993376408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x62b5fc04bb57f608!2sBidang%20Akuntansi%20BPPKAD%20Kota%20Surakarta!5e0!3m2!1sen!2sid!4v1668665961788!5m2!1sen!2sid"
-                         style="border:0;" allowfullscreen="" loading="lazy"
+                        style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div>
@@ -192,7 +185,8 @@
                     <p class="text-white/80 text-sm font-light mb-3" data-aos="fade-up">bpkad@surakarta.go.id</p>
 
                     <p class="text-white text-sm font-bold italic" data-aos="fade-up">Alamat</p>
-                    <p class="text-white/80 text-sm font-light mb-3" data-aos="fade-up">Jl. Jend Sudirman No. 2, Kompleks Balaikota
+                    <p class="text-white/80 text-sm font-light mb-3" data-aos="fade-up">Jl. Jend Sudirman No. 2,
+                        Kompleks Balaikota
                         Surakarta</p>
 
                     <p class="text-white text-sm font-bold italic" data-aos="fade-up">Phone</p>
@@ -205,7 +199,8 @@
                 <div>
                     <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">Social Media</p>
                     <div class="flex flex-wrap">
-                        <a href="https://www.facebook.com/profile.php?id=100079921542712" target="_blank" data-aos="fade-up"
+                        <a href="https://www.facebook.com/profile.php?id=100079921542712" target="_blank"
+                            data-aos="fade-up"
                             class="mr-3 bg-white p-2 hover:bg-blue-600 font-semibold mb-3 text-white inline-flex items-center space-x-2 rounded transition duration-300">
                             <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24">
@@ -258,12 +253,13 @@
         document.addEventListener("DOMContentLoaded", () => {
             short_history()
         });
+
         function short_history() {
-            fetch('{{route('home.setting.json')}}')
-            .then((response) => response.json())
-            .then((data) => {
-                document.getElementById('short_his').innerHTML = data?.history
-            })
+            fetch('{{ route('home.setting.json') }}')
+                .then((response) => response.json())
+                .then((data) => {
+                    document.getElementById('short_his').innerHTML = data?.history
+                })
         }
     </script>
     <script src="{{ asset('/js/flowbite.js') }}"></script>
