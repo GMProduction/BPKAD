@@ -34,6 +34,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'kustomisasi-bidang'], function () {
         Route::match(['post', 'get'], '/', [\App\Http\Controllers\Admin\CustomizeController::class, 'bidang'])->name('customize.bidang');
+        Route::match(['post', 'get'], '/image', [\App\Http\Controllers\Admin\CustomizeController::class, 'patch_image'])->name('customize.bidang.image');
     });
 
 
@@ -60,21 +61,10 @@ Route::get('/visimisi', [\App\Http\Controllers\LandingPage\ProfileController::cl
 Route::get('/struktur', [\App\Http\Controllers\LandingPage\ProfileController::class, 'structure'])->name('structure');
 Route::get('/profile-json', [\App\Http\Controllers\LandingPage\ProfileController::class, 'json_data'])->name('profile.json');
 
-Route::get('/sekretariat', function () {
-    return view('sekretariat');
-});
-
-Route::get('/anggaran', function () {
-    return view('anggaran');
-});
-
-Route::get('/perbendaharaan-dan-akuntansi', function () {
-    return view('perbendaharaan');
-});
-
-Route::get('/aset', function () {
-    return view('aset');
-});
+Route::get('/sekretariat', [\App\Http\Controllers\LandingPage\SectorController::class,'sekretariat']);
+Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::class,'anggaran']);
+Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\LandingPage\SectorController::class,'perbendaharaan']);
+Route::get('/aset', [\App\Http\Controllers\LandingPage\SectorController::class,'aset']);
 
 Route::prefix('artikel')->group(function () {
     Route::get('/', [\App\Http\Controllers\LandingPage\ArticleController::class, 'index']);

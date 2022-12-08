@@ -1,8 +1,8 @@
 @extends('base')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick.css') }} " />
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick-theme.css') }} " />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick.css') }} "/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick-theme.css') }} "/>
 
     <style>
         #slider {
@@ -27,64 +27,57 @@
         </div>
     </div>
     <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0"
-        src="{{ asset('assets/local/gedung.jpg') }}" />
+         src="{{ asset('assets/local/gedung.jpg') }}"/>
 
     <div class=" mt-16 mb-16">
 
         <div
             class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3 ">Tugas Sekretariat</p>
-            <p class="text-sm   mx-auto">Sekretaris mempunyai tugas melaksanakan pengelolaan perencanaan,
-                penganggaran, manajemen resiko, monitoring, evaluasi dan pelaporan, kepegawaian, pengelolaan keuangan dan
-                aset, serta pengembangan kelembagaan dan tata laksana pelayanan publik, kehumasan dan kerjasama pada badan
-            </p>
+            <p class="text-sm   mx-auto">{!! $data ? $data->job : '' !!}</p>
         </div>
 
         <div
             class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3  ">Sub Bidang </p>
-            <p class="text-sm  md:w-[50%] sm:w-[80%] w-[95%]  mb-3">1. Sub Bidang Perencanaan dan
-                Penganggaran</p>
-            <p class="text-sm   mx-auto mb-3">2. Sub Bidang Administrasi dan Umum</p>
+            <p class="text-sm  md:w-[50%] sm:w-[80%] w-[95%]  mb-3">{!! $data ? $data->sub_sector : '' !!}</p>
 
             <p class="text-primary font-bold text-3xl italic mb-6  mt-10">Tugas Sub Bidang</p>
-            <p class="text-sm   mx-auto mb-3">Sub Bidang Perencanaan dan Penganggaran
-                mempunyai tugas pelaksanaan, penganggaran, dan evaluasi kinerja</p>
-            <p class="text-sm   mx-auto mb-3">Sub Bidang Administrasi dan Umum
-                mempunyai tugas pelaksanaan, monitoring dan evaluasi terkait administrasi umum, pengelolaan pelayanan umum,
-                penatausahaan barang milik daerah, kelembagaan, tata laksana pengelolaan administrasi kepegawaian, serta
-                pengelolaan administrasi keuangan pada badan</p>
+            <p class="text-sm   mx-auto mb-3">{!! $data ? $data->sub_sector_job : '' !!}</p>
         </div>
 
-        <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 relative max-h-max">
-            <div class="sm:w-[100%] w-[100%]  mx-auto">
-                <p class="text-primary font-bold text-3xl italic mb-6  ">Gallery </p>
-                <div class="slider-for dark mb-3">
-                    @for ($i = 1; $i < 47; $i++)
-                        <img src="{{ asset('assets/local/sekretariat/1 (' . $i . ').jpg') }}" class="max-h-[500px] cursor-pointer"
-                            onclick="showModal('{{ asset('assets/local/sekretariat/1 (' . $i . ').jpg') }}')" />
-                    @endfor
-                </div>
-                <div class="slider-nav">
-                    @for ($i = 1; $i < 47; $i++)
-                        <img src="{{ asset('assets/local/sekretariat/1 (' . $i . ').jpg') }}" class="max-h-[150px]" />
-                    @endfor
+        @if($data && $data->images)
+            <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 relative max-h-max">
+                <div class="sm:w-[100%] w-[100%]  mx-auto">
+                    <p class="text-primary font-bold text-3xl italic mb-6  ">Gallery </p>
+                    <div class="slider-for dark mb-3">
+                        @foreach($data->images as $d)
+                            <img src="{{ asset($d->image) }}" class="max-h-[500px] cursor-pointer"
+                                 onclick="showModal('{{ asset($d->image) }}')"/>
+                        @endforeach
+                    </div>
+                    <div class="slider-nav">
+                        @foreach($data->images as $d)
+                            <img src="{{ asset($d->image) }}" class="max-h-[150px]"/>
+                        @endforeach
 
+
+                    </div>
                 </div>
             </div>
-        </div>
+    @endif
 
-        <!-- The Modal -->
+    <!-- The Modal -->
         <div id="modal"
-            class="hidden fixed top-0 left-0 z-80 w-screen h-screen bg-black/70 flex justify-center items-center z-50"
-            onclick="closeModal()">
+             class="hidden fixed top-0 left-0 z-80 w-screen h-screen bg-black/70 flex justify-center items-center z-50"
+             onclick="closeModal()">
 
             <!-- The close button -->
             <a class="fixed z-90 top-6 right-8 text-white text-5xl font-bold" href="javascript:void(0)"
-                onclick="closeModal()">&times;</a>
+               onclick="closeModal()">&times;</a>
 
             <!-- A big image will be displayed here -->
-            <img id="modal-img" class="max-w-[90%] max-h-[90%]  object-cover" />
+            <img id="modal-img" class="max-w-[90%] max-h-[90%]  object-cover"/>
         </div>
     </div>
 @endsection
@@ -113,11 +106,11 @@
             arrows: true,
             lazyLoad: 'ondemand',
             responsive: [{
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 3
-                    }
-                },
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
             ]
         });
     </script>
@@ -131,6 +124,7 @@
 
         // this function is called when a small image is clicked
         function showModal(src) {
+            console.log(src)
             modal.classList.remove('hidden');
             modalImg.src = src;
         }

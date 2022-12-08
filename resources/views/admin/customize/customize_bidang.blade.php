@@ -3,8 +3,12 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/dropzone/css/basic.min.css') }} ">
+    <link rel="stylesheet" href="{{ asset('css/dropzone/css/dropzone.min.css') }} ">
 @endsection
 
 @section('css')
@@ -66,28 +70,28 @@
             <div class="border-b border-gray-200  mb-4">
                 <ul class="flex flex-wrap -mb-px" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
                     <li class="mr-2" role="presentation">
-                        <button
+                        <button onclick="changeTab(1)"
                             class="tabs-btn  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 "
                             id="sekretariat-tab" data-tabs-target="#sekretariat" type="button" role="tab"
                             aria-controls="sekretariat" aria-selected="false">Sekretariat
                         </button>
                     </li>
                     <li class="mr-2" role="presentation">
-                        <button
+                        <button onclick="changeTab(2)"
                             class="tabs-btn rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2  "
                             id="anggaran-tab" data-tabs-target="#anggaran" type="button" role="tab"
                             aria-controls="anggaran" aria-selected="false">Anggaran
                         </button>
                     </li>
                     <li class="mr-2" role="presentation">
-                        <button
+                        <button onclick="changeTab(3)"
                             class="tabs-btn inline-block  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 "
                             id="perbendaharaan-tab" data-tabs-target="#perbendaharaan" type="button" role="tab"
                             aria-controls="perbendaharaan" aria-selected="false">Perbendaharaan dan Akuntansi
                         </button>
                     </li>
                     <li role="presentation">
-                        <button
+                        <button onclick="changeTab(4)"
                             class="tabs-btn inline-block  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 "
                             id="aset-tab" data-tabs-target="#aset" type="button" role="tab" aria-controls="aset"
                             aria-selected="false">Aset
@@ -98,9 +102,20 @@
             <div id="myTabContent">
 
                 <div class=" p-4 rounded-lg  " id="sekretariat" role="tabpanel" aria-labelledby="sekretariat-tab">
+                    @if($data_secretarial_sector)
+                        <form id="formImg" class="dropzone mb-6" action="{{route('customize.bidang.image')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input value="{{$data_secretarial_sector->id}}" type="hidden" name="id">
+                            <!-- this is were the previews should be shown. -->
+                            <div class="fallback">
+                                <input name="image" type="file" multiple/>
+                            </div>
+                        </form>
+                    @endif
                     <form method="post" id="form-secretarial">
                         @csrf
                         <input type="hidden" name="type" value="secretarial">
+                        <input type="hidden" name="id" value="{{$data_secretarial_sector ? $data_secretarial_sector->id : ''}}">
                         <div>
                             <div class="mb-6">
                                 <label for="sekretariat-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
@@ -133,11 +148,23 @@
                             </button>
                         </div>
                     </form>
+
                 </div>
                 <div class=" p-4 rounded-lg hidden" id="anggaran" role="tabpanel" aria-labelledby="anggaran-tab">
+                    @if($data_budget_sector)
+                        <form id="formImgbudget" class="dropzone mb-6" action="{{route('customize.bidang.image')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input value="{{$data_budget_sector->id}}" type="hidden" name="id">
+                            <!-- this is were the previews should be shown. -->
+                            <div class="fallback">
+                                <input name="image" type="file" multiple/>
+                            </div>
+                        </form>
+                    @endif
                     <form method="post" id="form-budget">
                         @csrf
                         <input type="hidden" name="type" value="budget">
+                        <input type="hidden" name="id" value="{{$data_budget_sector ? $data_budget_sector->id : ''}}">
                         <div>
                             <div class="mb-6">
                                 <label for="anggaran-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
@@ -171,9 +198,21 @@
                 </div>
                 <div class=" p-4 rounded-lg hidden" id="perbendaharaan" role="tabpanel"
                      aria-labelledby="perbendaharaan-tab">
+                    @if($data_financial_sector)
+                        <form id="formImgfinancial" class="dropzone mb-6" action="{{route('customize.bidang.image')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input value="{{$data_financial_sector->id}}" type="hidden" name="id">
+                            <!-- this is were the previews should be shown. -->
+                            <div class="fallback">
+                                <input name="image" type="file" multiple/>
+                            </div>
+                        </form>
+                    @endif
                     <form method="post" id="form-financial">
                         @csrf
                         <input type="hidden" name="type" value="financial">
+                        <input type="hidden" name="id" value="{{$data_financial_sector ? $data_financial_sector->id : ''}}">
+
                         <div>
                             <div class="mb-6">
                                 <label for="perbendaharaan-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
@@ -207,15 +246,27 @@
                     </form>
                 </div>
                 <div class=" p-4 rounded-lg  hidden" id="aset" role="tabpanel" aria-labelledby="aset-tab">
+                    @if($data_asset_sector)
+                        <form id="formImgasset" class="dropzone mb-6" action="{{route('customize.bidang.image')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input value="{{$data_asset_sector->id}}" type="hidden" name="id">
+                            <!-- this is were the previews should be shown. -->
+                            <div class="fallback">
+                                <input name="image" type="file" multiple/>
+                            </div>
+                        </form>
+                    @endif
                     <form method="post" id="form-asset">
                         @csrf
                         <input type="hidden" name="type" value="asset">
+                        <input type="hidden" name="id" value="{{$data_asset_sector ? $data_asset_sector->id : ''}}">
+
                         <div>
                             <div class="mb-6">
                                 <label for="aset-tugas" class="block mb-2 text-sm font-medium text-gray-600 ">Tugas
                                     Aset</label>
                                 <textarea class="summernote" id="aset-tugas"
-                                          name="job">{{ $data_asset_sector !== null ? $data_asset_sector->_job  : ''}}</textarea>
+                                          name="job">{{ $data_asset_sector !== null ? $data_asset_sector->job  : ''}}</textarea>
                             </div>
 
                             <div class="mb-6">
@@ -249,6 +300,8 @@
 @endsection
 
 @section('morejs')
+    <script type="text/javascript" src="{{ asset('css/dropzone/js/dropzone.min.js') }} "></script>
+
     <script>
         $('.summernote').summernote({
             placeholder: '',
@@ -327,12 +380,356 @@
                 }
             });
         });
-    </script>
-@endsection
 
-@section('morejs')
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script>
+        function changeTab(a){
+            localStorage.setItem('sector_id',a);
+        }
 
+        Dropzone.options.formImg = {
+            // paramName: 'image',
+            acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+            addRemoveLinks: true,
+             removedfile: function(file) {
+                var idImg, name;
+                console.log(file)
+                if (file.xhr) {
+                    idImg = JSON.parse(file.xhr.response)['payload']['id'];
+                    name = JSON.parse(file.xhr.response)['payload']['image'];
+                } else {
+                    idImg = file['idImg'];
+                    name = file['name'];
+                }
+                console.log(idImg);
+                {{-- var name = JSON.parse(file.xhr.response)['payload']['image']; --}}
+                {{-- var idImg = JSON.parse(file.xhr.response)['payload']['id']; --}}
+                {{-- console.log('delete') --}}
+                $.ajax({
+                    type: 'POST',
+                    url: '{{route('customize.bidang.image')}}',
+                    data: {
+                        name: name,
+                        id: idImg,
+                        action: 2,
+                        '_token': '{{ csrf_token() }}',
+                    },
+                    sucess: function(data) {
+                        console.log('success: ' + data);
+                    }
+                });
+                var _ref;
+                $('.dz-message').remove()
+                return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) :
+                    void 0;
+            },
+            sending: function(file, xhr, formData) {
+                file.myCustomName = "my-new-name" + file.name;
+                // formData.append("filesize", file.size);
+                formData.append("fileName", file.myCustomName);
+                formData.append("id_achievement", $('#visi #id').val());
+            },
+            success: function(file, response) {
+
+                console.log(file);
+                console.log(response);
+                file.previewElement.querySelector("img").src = response['payload']['image'];
+                file.previewElement.children[1].children[1].children[0].innerHTML = response['payload']['image'];
+                file.previewElement.children[1].children[0].children[0].innerHTML = response['payload']['size'];
+                $('.dz-image img').attr('height', '120')
+
+            },
+            accept: function(file, done) {
+                this.options.resizeWidth = 650;
+                this.options.resizeQuality = 0.75;
+                console.log(this.options);
+                done();
+                return;
+            },
+            init: async function() {
+                let myDropzone = this;
+
+                sector_id = localStorage.getItem('sector_id');
+                var existing_files = $('[name="image[]"]').val();
+                $.get('{{route('customize.bidang.image')}}', {
+                    'type': 'secretarial'
+                }, function(data) {
+                    console.log('ddddddddd',data)
+                    if (data['status'] === 200) {
+                        var img = data['payload'];
+                        $.each(img, function(key, value) {
+                            console.log('ddddddddd',value)
+
+                            var mockFile = {
+                                name: value['image'],
+                                size: value['size'],
+                                idImg: value['id']
+                            };
+                            myDropzone.displayExistingFile(mockFile, value['image']);
+                        })
+
+                    }
+                })
+                // $('.dz-image img').attr('height', '120');
+            }
+
+        };
+
+        Dropzone.options.formImgbudget = {
+            // paramName: 'image',
+            acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+            addRemoveLinks: true,
+            removedfile: function(file) {
+                var idImg, name;
+                console.log(file)
+                if (file.xhr) {
+                    idImg = JSON.parse(file.xhr.response)['payload']['id'];
+                    name = JSON.parse(file.xhr.response)['payload']['image'];
+                } else {
+                    idImg = file['idImg'];
+                    name = file['name'];
+                }
+                console.log(idImg);
+                {{-- var name = JSON.parse(file.xhr.response)['payload']['image']; --}}
+                {{-- var idImg = JSON.parse(file.xhr.response)['payload']['id']; --}}
+                {{-- console.log('delete') --}}
+                $.ajax({
+                    type: 'POST',
+                    url: '{{route('customize.bidang.image')}}',
+                    data: {
+                        name: name,
+                        id: idImg,
+                        action: 2,
+                        '_token': '{{ csrf_token() }}',
+                    },
+                    sucess: function(data) {
+                        console.log('success: ' + data);
+                    }
+                });
+                var _ref;
+                $('.dz-message').remove()
+                return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) :
+                    void 0;
+            },
+            sending: function(file, xhr, formData) {
+                file.myCustomName = "my-new-name" + file.name;
+                // formData.append("filesize", file.size);
+                formData.append("fileName", file.myCustomName);
+                formData.append("id_achievement", $('#visi #id').val());
+            },
+            success: function(file, response) {
+
+                console.log(file);
+                console.log(response);
+                file.previewElement.querySelector("img").src = response['payload']['image'];
+                file.previewElement.children[1].children[1].children[0].innerHTML = response['payload']['image'];
+                file.previewElement.children[1].children[0].children[0].innerHTML = response['payload']['size'];
+                $('.dz-image img').attr('height', '120')
+
+            },
+            accept: function(file, done) {
+                this.options.resizeWidth = 650;
+                this.options.resizeQuality = 0.75;
+                console.log(this.options);
+                done();
+                return;
+            },
+            init: async function() {
+                let myDropzone = this;
+
+                var existing_files = $('[name="image[]"]').val();
+                $.get('{{route('customize.bidang.image')}}', {
+                    'type': 'budget'
+                }, function(data) {
+                    if (data['status'] === 200) {
+                        var img = data['payload'];
+                        $.each(img, function(key, value) {
+                            console.log('ddddddddd',value)
+
+                            var mockFile = {
+                                name: value['image'],
+                                size: value['size'],
+                                idImg: value['id']
+                            };
+                            myDropzone.displayExistingFile(mockFile, value['image']);
+                        })
+
+                    }
+                })
+                // $('.dz-image img').attr('height', '120');
+            }
+
+        };
+
+        Dropzone.options.formImgfinancial = {
+            // paramName: 'image',
+            acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+            addRemoveLinks: true,
+            removedfile: function(file) {
+                var idImg, name;
+                console.log(file)
+                if (file.xhr) {
+                    idImg = JSON.parse(file.xhr.response)['payload']['id'];
+                    name = JSON.parse(file.xhr.response)['payload']['image'];
+                } else {
+                    idImg = file['idImg'];
+                    name = file['name'];
+                }
+                console.log(idImg);
+                {{-- var name = JSON.parse(file.xhr.response)['payload']['image']; --}}
+                {{-- var idImg = JSON.parse(file.xhr.response)['payload']['id']; --}}
+                {{-- console.log('delete') --}}
+                $.ajax({
+                    type: 'POST',
+                    url: '{{route('customize.bidang.image')}}',
+                    data: {
+                        name: name,
+                        id: idImg,
+                        action: 2,
+                        '_token': '{{ csrf_token() }}',
+                    },
+                    sucess: function(data) {
+                        console.log('success: ' + data);
+                    }
+                });
+                var _ref;
+                $('.dz-message').remove()
+                return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) :
+                    void 0;
+            },
+            sending: function(file, xhr, formData) {
+                file.myCustomName = "my-new-name" + file.name;
+                // formData.append("filesize", file.size);
+                formData.append("fileName", file.myCustomName);
+                formData.append("id_achievement", $('#visi #id').val());
+            },
+            success: function(file, response) {
+
+                console.log(file);
+                console.log(response);
+                file.previewElement.querySelector("img").src = response['payload']['image'];
+                file.previewElement.children[1].children[1].children[0].innerHTML = response['payload']['image'];
+                file.previewElement.children[1].children[0].children[0].innerHTML = response['payload']['size'];
+                $('.dz-image img').attr('height', '120')
+
+            },
+            accept: function(file, done) {
+                this.options.resizeWidth = 650;
+                this.options.resizeQuality = 0.75;
+                console.log(this.options);
+                done();
+                return;
+            },
+            init: async function() {
+                let myDropzone = this;
+
+                var existing_files = $('[name="image[]"]').val();
+                $.get('{{route('customize.bidang.image')}}', {
+                    'type': 'financial'
+                }, function(data) {
+                    console.log('ddddddddd',data)
+                    if (data['status'] === 200) {
+                        var img = data['payload'];
+                        $.each(img, function(key, value) {
+                            console.log('ddddddddd',value)
+
+                            var mockFile = {
+                                name: value['image'],
+                                size: value['size'],
+                                idImg: value['id']
+                            };
+                            myDropzone.displayExistingFile(mockFile, value['image']);
+                        })
+
+                    }
+                })
+                // $('.dz-image img').attr('height', '120');
+            }
+
+        };
+
+        Dropzone.options.formImgasset = {
+            // paramName: 'image',
+            acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+            addRemoveLinks: true,
+            removedfile: function(file) {
+                var idImg, name;
+                console.log(file)
+                if (file.xhr) {
+                    idImg = JSON.parse(file.xhr.response)['payload']['id'];
+                    name = JSON.parse(file.xhr.response)['payload']['image'];
+                } else {
+                    idImg = file['idImg'];
+                    name = file['name'];
+                }
+                console.log(idImg);
+                {{-- var name = JSON.parse(file.xhr.response)['payload']['image']; --}}
+                {{-- var idImg = JSON.parse(file.xhr.response)['payload']['id']; --}}
+                {{-- console.log('delete') --}}
+                $.ajax({
+                    type: 'POST',
+                    url: '{{route('customize.bidang.image')}}',
+                    data: {
+                        name: name,
+                        id: idImg,
+                        action: 2,
+                        '_token': '{{ csrf_token() }}',
+                    },
+                    sucess: function(data) {
+                        console.log('success: ' + data);
+                    }
+                });
+                var _ref;
+                $('.dz-message').remove()
+                return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) :
+                    void 0;
+            },
+            sending: function(file, xhr, formData) {
+                file.myCustomName = "my-new-name" + file.name;
+                // formData.append("filesize", file.size);
+                formData.append("fileName", file.myCustomName);
+                formData.append("id_achievement", $('#visi #id').val());
+            },
+            success: function(file, response) {
+
+                console.log(file);
+                console.log(response);
+                file.previewElement.querySelector("img").src = response['payload']['image'];
+                file.previewElement.children[1].children[1].children[0].innerHTML = response['payload']['image'];
+                file.previewElement.children[1].children[0].children[0].innerHTML = response['payload']['size'];
+                $('.dz-image img').attr('height', '120')
+
+            },
+            accept: function(file, done) {
+                this.options.resizeWidth = 650;
+                this.options.resizeQuality = 0.75;
+                console.log(this.options);
+                done();
+                return;
+            },
+            init: async function() {
+                let myDropzone = this;
+
+                var existing_files = $('[name="image[]"]').val();
+                $.get('{{route('customize.bidang.image')}}', {
+                    'type': 'asset'
+                }, function(data) {
+                    if (data['status'] === 200) {
+                        var img = data['payload'];
+                        $.each(img, function(key, value) {
+                            console.log('ddddddddd',value)
+
+                            var mockFile = {
+                                name: value['image'],
+                                size: value['size'],
+                                idImg: value['id']
+                            };
+                            myDropzone.displayExistingFile(mockFile, value['image']);
+                        })
+
+                    }
+                })
+                // $('.dz-image img').attr('height', '120');
+            }
+
+        };
     </script>
 @endsection

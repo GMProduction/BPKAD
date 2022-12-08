@@ -83,6 +83,12 @@ return [
             'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
         ],
+        'sectorImage' => [
+            'driver' => 'local',
+            'root' => public_path() . '/assets/sector',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
     ],
 
     /*

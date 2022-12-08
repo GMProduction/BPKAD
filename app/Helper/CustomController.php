@@ -260,4 +260,18 @@ class CustomController extends Controller
         ]);
         $messaging->send($message);
     }
+
+    /**
+     * @param $model
+     * @param $id
+     * @param $name
+     */
+    public function deleteImg($model, $id, $name)
+    {
+        $class = '\\App\\Models\\' . $model;
+        $class::destroy($id);
+        if (file_exists(public_path() . $name)) {
+            unlink(public_path() . $name);
+        }
+    }
 }

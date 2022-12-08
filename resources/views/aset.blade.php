@@ -34,46 +34,40 @@
         <div
             class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3 ">Tugas Bidang Aset</p>
-            <p class="text-sm   mx-auto">Bidang aset mempunyai tugas melaksanakan
-                kebijakan daerah terkait pelaksanaan dan penilaian barang millik daerah</p>
+            <p class="text-sm   mx-auto">{!! $data ? $data->job : '' !!}</p>
+
         </div>
         <div
             class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3  ">Sub Bidang </p>
-            <p class="text-sm   mx-auto mb-3">1. Subbidang Penatalaksanaan Barang
-                Milik Daerah</p>
-            <p class="text-sm   mx-auto mb-3">2. Subbidang Penatausahaan Barang
-                Milik Daerah</p>
-            <p class="text-sm   mx-auto mb-3">3. Subbidang Penilaian dan Pengawasan
-                Barang Milik Daerah</p>
+            <p class="text-sm  md:w-[50%] sm:w-[80%] w-[95%]  mb-3">{!! $data ? $data->sub_sector : '' !!}</p>
+
 
 
             <p class="text-primary font-bold text-3xl italic   mb-6 mt-10">Tugas Sub Bidang</p>
-            <p class="text-sm   mx-auto mb-3">Subbidang Penatalaksanaan Barang Milik
-                Daerah mempunyai tugas pelaksanaan, monitoring, dan evaluasi terkait penatalaksanaan barang milik daerah</p>
-            <p class="text-sm   mx-auto mb-3">Subbidang Penatausahaan Barang Milik
-                Daerah mempunyai tugas pelaksanaan, monitoring dan evaluasi terkait penatausahaan barang milik daerah</p>
-            <p class="text-sm   mx-auto mb-3">Subbidang Penilaian dan Pengawasan
-                Barang Milik Daerah mempunyai tugas pelaksanaan, monitoring dan evaluasi terkait penilaian barang milik
-                daerah</p>
-        </div>
-        <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 relative max-h-max">
-            <div class="sm:w-[100%] w-[100%]  mx-auto">
-                <p class="text-primary font-bold text-3xl italic mb-6  ">Gallery </p>
-                <div class="slider-for dark mb-3">
-                    @for ($i = 1; $i < 23; $i++)
-                        <img src="{{ asset('assets/local/aset/1 (' . $i . ').jpg') }}" class="max-h-[500px] cursor-pointer"
-                            onclick="showModal('{{ asset('assets/local/aset/1 (' . $i . ').jpg') }}')" />
-                    @endfor
-                </div>
-                <div class="slider-nav">
-                    @for ($i = 1; $i < 23; $i++)
-                        <img src="{{ asset('assets/local/aset/1 (' . $i . ').jpg') }}" class="max-h-[150px]" />
-                    @endfor
+            <p class="text-sm   mx-auto mb-3">{!! $data ? $data->sub_sector_job : '' !!}</p>
 
+        </div>
+        @if($data && $data->images)
+            <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 relative max-h-max">
+                <div class="sm:w-[100%] w-[100%]  mx-auto">
+                    <p class="text-primary font-bold text-3xl italic mb-6  ">Gallery </p>
+                    <div class="slider-for dark mb-3">
+                        @foreach($data->images as $d)
+                            <img src="{{ asset($d->image) }}" class="max-h-[500px] cursor-pointer"
+                                 onclick="showModal('{{ asset($d->image) }}')"/>
+                        @endforeach
+                    </div>
+                    <div class="slider-nav">
+                        @foreach($data->images as $d)
+                            <img src="{{ asset($d->image) }}" class="max-h-[150px]"/>
+                        @endforeach
+
+
+                    </div>
                 </div>
             </div>
-        </div>
+    @endif
 
         <!-- The Modal -->
         <div id="modal"
