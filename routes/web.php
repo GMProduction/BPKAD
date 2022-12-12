@@ -66,13 +66,17 @@ Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::cla
 Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\LandingPage\SectorController::class,'perbendaharaan']);
 Route::get('/aset', [\App\Http\Controllers\LandingPage\SectorController::class,'aset']);
 
+Route::get('/sekretariat', [\App\Http\Controllers\SectorController::class, 'secretarial'])->name('secretarial');
+Route::get('/anggaran', [\App\Http\Controllers\SectorController::class, 'budget'])->name('budget');
+Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\SectorController::class, 'financial'])->name('financial');
+Route::get('/aset', [\App\Http\Controllers\SectorController::class, 'asset'])->name('asset');
+
 Route::prefix('artikel')->group(function () {
     Route::get('/', [\App\Http\Controllers\LandingPage\ArticleController::class, 'index']);
     Route::get('json-data/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'article'])->name('article.json');
     Route::get('count/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'count_article'])->name('article.count');
     Route::get('/detail/{slug}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'detail'])->name('article.detail');
 });
-
 
 
 Route::group(['prefix' => 'informasi-berkala'], function () {
@@ -139,7 +143,6 @@ Route::get('/info-dikecualikan', function () {
 //Route::get('/admin/informasi/detailbyyear', function () {
 //    return view('admin/informasi/informasi-detail-byyear');
 //});
-
 
 
 Route::get('/admin/dashboard', function () {

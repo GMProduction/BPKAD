@@ -19,20 +19,26 @@
 @section('content')
     <div class="mt-[-89px]  h-[350px] w-[100%] bg-black/40 z-[-1]  relative">
         <div class="absolute  sm:bottom-[100px] bottom-[50px]  z-1 opacity-100 w-[100%] text-center">
-            <a class="font-bold text-white  text-2xl sm:text-4xl mb-3 inline-block mr-3">PERBENDAHARAAN DAN AKUNTANSI </a> <a
+            <a class="font-bold text-white  text-2xl sm:text-4xl mb-3 inline-block mr-3">PERBENDAHARAAN DAN
+                AKUNTANSI </a> <a
                 class="font-bold text-4xl text-white inline-block ">BPKAD</a> <br>
-            <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-sm font-light">Bidang Perbendaharaan dan
-                Akuntansi dipimpin oleh seorang Kepala Bidang yang berkedudukan dibawah dan bertanggung jawab kepada Kepala
+            <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-sm font-light">Bidang Perbendaharaan
+                dan
+                Akuntansi dipimpin oleh seorang Kepala Bidang yang berkedudukan dibawah dan bertanggung jawab kepada
+                Kepala
                 Badan melalui Sekretaris</a>
         </div>
     </div>
     <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}"/>
+    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0"
+         src="{{ asset('assets/local/gedung.jpg') }}"/>
 
     <div class=" mt-16 mb-16">
         <div
             class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3 ">Tugas Bidang Perbendaharaan & Akuntansi</p>
             <p class="text-sm   mx-auto">{!! $data ? $data->job : '' !!}</p>
+            {!! $data !== null ? $data->job : '' !!}
         </div>
         <div
             class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
@@ -44,6 +50,27 @@
             <p class="text-sm   mx-auto mb-3">{!! $data ? $data->sub_sector_job : '' !!}</p>
 
         </div>
+            {!!  $data !== null ? $data->sub_sector : ''  !!}
+
+
+            <p class="text-primary font-bold text-3xl italic   mt-10 mb-6">Tugas Sub Bidang </p>
+            {!! $data !== null ? $data->sub_sector_job : ''  !!}
+        </div>
+
+        <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 relative max-h-max">
+            <div class="sm:w-[100%] w-[100%]  mx-auto">
+                <p class="text-primary font-bold text-3xl italic mb-6  ">Gallery </p>
+                <div class="slider-for dark mb-3">
+                    @for ($i = 1; $i < 10; $i++)
+                        <img src="{{ asset('assets/local/perben/1 (' . $i . ').jpg') }}"
+                             class="max-h-[500px] cursor-pointer"
+                             onclick="showModal('{{ asset('assets/local/perben/1 (' . $i . ').jpg') }}')"/>
+                    @endfor
+                </div>
+                <div class="slider-nav">
+                    @for ($i = 1; $i < 10; $i++)
+                        <img src="{{ asset('assets/local/perben/1 (' . $i . ').jpg') }}" class="max-h-[150px]"/>
+                    @endfor
 
         @if($data && $data->images)
             <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 relative max-h-max">

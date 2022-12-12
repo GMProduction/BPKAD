@@ -23,7 +23,8 @@
                 class="font-bold text-4xl text-white inline-block ">BPKAD</a> <br>
             <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-sm font-light">Sekretariat Badan
                 Pengelolaan Keuangan dan Aset Daerah
-                dipimpin oleh seorang Sekretaris yang berkedudukan di bawah dan bertanggung jawab kepada Kepala Badan</a>
+                dipimpin oleh seorang Sekretaris yang berkedudukan di bawah dan bertanggung jawab kepada Kepala
+                Badan</a>
         </div>
     </div>
     <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0"
@@ -35,6 +36,7 @@
             class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
             <p class="text-primary font-bold text-3xl italic mb-3 ">Tugas Sekretariat</p>
             <p class="text-sm   mx-auto">{!! $data ? $data->job : '' !!}</p>
+            {!!  $data !== null ? $data->job : ''  !!}
         </div>
 
         <div
@@ -63,6 +65,29 @@
 
 
                     </div>
+            <p class="text-primary font-bold text-3xl italic mb-3  ">Sub
+                Bidang </p>{!!   $data !== null ? $data->sub_sector : '' !!}
+            <p class="text-sm   mx-auto mb-3">2. Sub Bidang Administrasi dan Umum</p>
+
+            <p class="text-primary font-bold text-3xl italic mb-6  mt-10">Tugas Sub Bidang</p>
+            {!! $data !== null ? $data->sub_sector_job : ''  !!}
+        </div>
+
+        <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 relative max-h-max">
+            <div class="sm:w-[100%] w-[100%]  mx-auto">
+                <p class="text-primary font-bold text-3xl italic mb-6  ">Gallery </p>
+                <div class="slider-for dark mb-3">
+                    @for ($i = 1; $i < 47; $i++)
+                        <img src="{{ asset('assets/local/sekretariat/1 (' . $i . ').jpg') }}"
+                             class="max-h-[500px] cursor-pointer"
+                             onclick="showModal('{{ asset('assets/local/sekretariat/1 (' . $i . ').jpg') }}')"/>
+                    @endfor
+                </div>
+                <div class="slider-nav">
+                    @for ($i = 1; $i < 47; $i++)
+                        <img src="{{ asset('assets/local/sekretariat/1 (' . $i . ').jpg') }}" class="max-h-[150px]"/>
+                    @endfor
+
                 </div>
             </div>
     @endif
