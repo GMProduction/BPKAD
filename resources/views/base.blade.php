@@ -182,6 +182,8 @@
                             id="short_his">
                         </p>
 
+                        <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">Lokasi BPKAD</p>
+
                         <iframe data-aos="fade-up" class="md:w-[500px] md:h-[300px]"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398.3223047030822!2d110.82788629803538!3d-7.56922993376408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x62b5fc04bb57f608!2sBidang%20Akuntansi%20BPPKAD%20Kota%20Surakarta!5e0!3m2!1sen!2sid!4v1668665961788!5m2!1sen!2sid"
                             style="border:0;" allowfullscreen="" loading="lazy"
@@ -201,9 +203,9 @@
                         <p class="text-white/80 text-sm font-light mb-3" data-aos="fade-up">(0271) 648089</p>
 
                         <p class="text-white text-sm font-bold italic" data-aos="fade-up">Jam Kerja</p>
-                        <p class="text-white/80 text-sm font-light" data-aos="fade-up">Senin - Kamis 07.15-16.00 WIB
+                        <p class="text-white/80 text-sm font-light" data-aos="fade-up">Senin - Kamis 07.30-16.00 WIB
                         </p>
-                        <p class="text-white/80 text-sm font-light mb-3" data-aos="fade-up">Jumat 07.00-11.30 WIB</p>
+                        <p class="text-white/80 text-sm font-light mb-3" data-aos="fade-up">Jumat 07.15-11.30 WIB</p>
                     </div>
                     <div>
                         <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">Social Media</p>

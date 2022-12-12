@@ -40,8 +40,8 @@
 
     <div class="mt-[-70px] min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md flex items-center "
         data-aos="fade-up">
-        <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 mt-[auto] mb-[auto] w-[100%]">
-            <div class="flex  md:justify-center justify-start  sm:mx-0 mx-5 sm:my-0 my-1 sm:mt-0 mt-3">
+        <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 mt-[auto] mb-[auto] w-[100%] ">
+            <div class="flex  md:justify-center justify-start  sm:mx-0 mx-5 sm:my-0 my-1 sm:mt-0 mt-3 border-r">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     mail
                 </span>
@@ -51,7 +51,7 @@
                 </div>
             </div>
 
-            <div class="flex  md:justify-center justify-start sm:mx-0 mx-5 sm:my-0 my-1">
+            <div class="flex  md:justify-start justify-start sm:mx-0 mx-5 sm:my-0 my-1 border-r">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     location_on
                 </span>
@@ -62,7 +62,7 @@
                 </div>
             </div>
 
-            <div class="flex  jmd:justify-center justify-start sm:mx-0 mx-5 sm:my-0 my-1">
+            <div class="flex  md:justify-start justify-start sm:mx-0 mx-5 sm:my-0 my-1 border-r">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2">
                     call
                 </span>
@@ -72,14 +72,14 @@
                 </div>
             </div>
 
-            <div class="flex  md:justify-center justify-start sm:mx-0 mx-5 sm:my-0 my-1 sm:mb-0 mb-3">
+            <div class="flex  md:justify-start justify-start sm:mx-0 mx-5 sm:my-0 my-1 sm:mb-0 mb-3">
                 <span class="material-symbols-outlined font-bold  text-primary mr-2 ">
                     schedule
                 </span>
                 <div>
                     <p class="text-primary font-bold italic">Jam Kerja</p>
-                    <p>Senin-Kamis 07.15-16.00 WIB</p>
-                    <p>Jumat 07.00-11.30 WIB</p>
+                    <p>Senin-Kamis 07.30-16.00 WIB</p>
+                    <p>Jumat 07.15-11.30 WIB</p>
                 </div>
             </div>
         </div>
@@ -215,7 +215,8 @@
     <div class="bg-primary pt-16 pb-16">
 
         <p class="text-white font-bold text-3xl italic mb-3 text-center" data-aos="fade-up">Video Terbaru</p>
-        <p class="text-white  text-sm text-center md:w-[50%] sm:w-[80%] w-[95%] mx-auto" data-aos="fade-up">Video dari BPKAD untuk
+        <p class="text-white  text-sm text-center md:w-[50%] sm:w-[80%] w-[95%] mx-auto" data-aos="fade-up">Video dari
+            BPKAD untuk
             masyarakat</p>
 
         <div class="video-slide  sm:m-10 m-5 " data-aos="fade-up">
@@ -232,93 +233,24 @@
 
     </div>
 
-    <div class="grid md:grid-cols-2 grid-cols-1 md:h-[750px] h-min-[750px] relative overflow-hidden">
+    <div class="grid  grid-cols-1 md:h-[350px] h-min-[350px] relative overflow-hidden">
         <div class="relative">
-            <div class="absolute bg-black/40 top-0 left-0 w-[100%] h-[100%]"></div>
-            <img src="{{ asset('assets/local/aspirasi.jpg') }}" class="absolute z-[-1] object-cover h-full" />
+            <div class="absolute bg-black/40 top-0 left-0 w-[100%] h-[350px]"></div>
+            <img src="{{ asset('assets/local/aspirasi.jpg') }}" class="absolute z-[-1] object-cover h-[350px] w-full" />
 
-            <div class="absolute bottom-16 left-10 " data-aos="fade-up">
-                <p class="italic font-bold text-4xl text-white mb-3" data-aos="fade-up">Kirim Aspirasi Anda</p>
-                <p class=" text-white">Yuk, Masukan aspirasimu untuk BPKAD yang lebih baik</p>
+            <div class="absolute flex flex-col items-center justify-center  h-[350px] w-full" data-aos="fade-up">
+                <p class="italic font-bold text-4xl text-white mb-3 text-center" data-aos="fade-up">Kirim Aspirasi Anda
+                </p>
+                <p class=" text-white text-center">Yuk, Masukan aspirasimu untuk BPKAD yang lebih baik</p>
+                <a href="https://ulas.surakarta.go.id/"
+                    class="mt-3 relative   text-white font-bold border-white px-5 py-3 border-2 hover:bg-white/25">
+                    Kirim Aspirasi
+                </a>
+
+
             </div>
         </div>
-        <div class="bg-primary sm:px-16 pb-10 ">
-            <div class="block md:hidden">
-                <p class="italic font-bold sm:text-4xl text-2xl text-white mb-3" data-aos="fade-up">Kirim Aspirasi Anda
-                </p>
-                <p class=" text-white/80 sm:text-md text-sm mb-6" data-aos="fade-up">Yuk, Masukan aspirasimu untuk BPKAD
-                    yang lebih baik
-                </p>
-            </div>
-            <form method="POST" id="form_aspiration" action="{{ route('post_aspiration') }}">
-                @csrf
-                <div class="mb-6" data-aos="fade-up">
-                    <label for="aspirasi-nama" class="block mb-2 text-sm font-medium text-white ">Nama</label>
-                    <input type="text" id="aspirasi-nama" name="name"
-                        class="bg-gray-50 border {{ $errors->has('name') ? 'border-red-500' : 'border-gray-300' }}  text-gray-900 text-sm  block w-full p-2.5 "
-                        placeholder="Masukan Nama Anda" required>
-                    @if ($errors->has('name'))
-                        <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                            {{ $errors->first('name') }}
-                        </span>
-                    @endif
-                </div>
 
-                <div class="mb-6" data-aos="fade-up">
-                    <label for="aspirasi-alamat" class="block mb-2 text-sm font-medium text-white ">Alamat</label>
-                    <input type="text" id="aspirasi-alamat" name="address"
-                        class="bg-gray-50 border {{ $errors->has('address') ? 'border-red-500' : 'border-gray-300' }}  text-gray-900 text-sm  block w-full p-2.5 "
-                        placeholder="Masukan Alamat Anda" required>
-                    @if ($errors->has('address'))
-                        <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                            {{ $errors->first('address') }}
-                        </span>
-                    @endif
-                </div>
-
-                <div class="mb-6" data-aos="fade-up">
-                    <label for="aspirasi-nohp" class="block mb-2 text-sm font-medium text-white ">Email</label>
-                    <input type="text" id="aspirasi-nohp" name="email"
-                        class="bg-gray-50 border {{ $errors->has('email') ? 'border-red-500' : 'border-gray-300' }} text-gray-900 text-sm  block w-full p-2.5 "
-                        placeholder="Masukan Email Anda" required>
-                    @if ($errors->has('email'))
-                        <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                            {{ $errors->first('email') }}
-                        </span>
-                    @endif
-                </div>
-
-                <div class="mb-6" data-aos="fade-up">
-                    <label for="aspirasi-text" class="block mb-2 text-sm font-medium text-white ">Masukan
-                        Aspirasi</label>
-                    <textarea type="text" id="aspirasi-text" rows="4" name="description"
-                        class="bg-gray-50 border {{ $errors->has('description') ? 'border-red-500' : 'border-gray-300' }} text-gray-900 text-sm  block w-full p-2.5 "
-                        placeholder="Masukan Aspirasi anda" required></textarea>
-                    @if ($errors->has('description'))
-                        <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                            {{ $errors->first('description') }}
-                        </span>
-                    @endif
-                </div>
-
-                <div class="mb-6" data-aos="fade-up">
-                    <label class="block mb-2 text-sm font-medium text-white" for="user_avatar">Upload file</label>
-                    <input name="image"
-                        class="block w-full text-sm text-gray-900 {{ $errors->has('image') ? 'border-red-500' : 'border-gray-300' }} rounded-lg border cursor-pointer  focus:outline-none"
-                        aria-describedby="user_avatar_help" id="user_avatar" type="file">
-                    <div class="mt-1 text-sm text-white" id="user_avatar_help">Masukan Gambar / Foto jika diperlukan
-                    </div>
-                    @if ($errors->has('image'))
-                        <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                            {{ $errors->first('image') }}
-                        </span>
-                    @endif
-                </div>
-
-                <a type="submit" id="btn" data-aos="fade-up" onclick="post_aspiration()"
-                    class=" text-white bg-teal-500 hover:bg-teal-600 transition duration-300 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg w-full h-[75px] px-5 py-2.5 text-center flex justify-center items-center  font-bold text-2xl">Kirim</a>
-            </form>
-        </div>
     </div>
 
 
@@ -460,13 +392,12 @@
         $('.video-slide').slick({
             centerMode: true,
             centerPadding: '40px',
-            slidesToShow: 1,
-            focusOnSelect: 1,
+            slidesToShow: 2,
             responsive: [{
                     breakpoint: 1200,
                     settings: {
                         centerMode: false,
-                        slidesToShow: 1
+                        slidesToShow: 2
                     }
                 },
                 {
