@@ -70,7 +70,7 @@
 
 
                         <ul
-                            class="py-1 text-sm text-gray-700 absolute hidden mt-[1px]  rounded-md group-hover:block bg-white  duration-300">
+                            class="py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
 
                             <li>
                                 <a href="/visimisi" class="block py-2 px-4 hover:bg-gray-100  ">Visi & Misi</a>
@@ -98,7 +98,7 @@
                         <!-- Dropdown bidang -->
 
                         <ul
-                            class="py-1 text-sm text-gray-700 absolute hidden mt-[1px]  rounded-md group-hover:block bg-white  duration-300">
+                            class="py-1 text-sm text-gray-700 absolute hidden   rounded-md group-hover:block bg-white  duration-300">
                             <li>
                                 <a href="/sekretariat" class="block py-2 px-4 hover:bg-gray-100  ">Sekretariat</a>
                             </li>
@@ -131,7 +131,7 @@
                         <!-- Dropdown menu -->
 
                         <ul
-                            class="py-1 text-sm text-gray-700 absolute hidden mt-[1px]  rounded-md group-hover:block bg-white  duration-300">
+                            class="py-1 text-sm text-gray-700 absolute hidden  rounded-md group-hover:block bg-white  duration-300">
                             <li>
                                 <a href="/informasi-berkala" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                     Berkala</a>

@@ -66,10 +66,10 @@ Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::cla
 Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\LandingPage\SectorController::class,'perbendaharaan']);
 Route::get('/aset', [\App\Http\Controllers\LandingPage\SectorController::class,'aset']);
 
-Route::get('/sekretariat', [\App\Http\Controllers\SectorController::class, 'secretarial'])->name('secretarial');
-Route::get('/anggaran', [\App\Http\Controllers\SectorController::class, 'budget'])->name('budget');
-Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\SectorController::class, 'financial'])->name('financial');
-Route::get('/aset', [\App\Http\Controllers\SectorController::class, 'asset'])->name('asset');
+// Route::get('/sekretariat', [\App\Http\Controllers\SectorController::class, 'secretarial'])->name('secretarial');
+// Route::get('/anggaran', [\App\Http\Controllers\SectorController::class, 'budget'])->name('budget');
+// Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\SectorController::class, 'financial'])->name('financial');
+// Route::get('/aset', [\App\Http\Controllers\SectorController::class, 'asset'])->name('asset');
 
 Route::prefix('artikel')->group(function () {
     Route::get('/', [\App\Http\Controllers\LandingPage\ArticleController::class, 'index']);

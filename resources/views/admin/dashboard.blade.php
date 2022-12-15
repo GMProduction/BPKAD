@@ -4,7 +4,7 @@
 @section('content')
     <div class="panel min-h-screen">
 
-        <nav class="flex mb-6" aria-label="Breadcrumb">
+        {{-- <nav class="flex mb-6" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
                     <a href="/admin"
@@ -67,6 +67,6 @@
         <p class="mb-3 font-bold">Laporan Kunjungan Website</p>
         <div class="card">
 
-        </div>
+        </div> --}}
     </div>
 @endsection

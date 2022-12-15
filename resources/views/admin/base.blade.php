@@ -70,7 +70,7 @@
         <div class="h-[70px]"></div>
         <div class="p-3 py-5">
 
-            <a class="menu nav-link" href="{{ route('dashboard') }}">
+            {{-- <a class="menu nav-link" href="{{ route('dashboard') }}">
                 <span class="material-symbols-outlined mr-2 menu-icon">
                     dashboard
                 </span>
@@ -82,7 +82,7 @@
                     text_to_speech
                 </span>
                 <p class="title-menu block nav-link menu-text">Aspirasi </p>
-            </a>
+            </a> --}}
 
 
             <a class="menu nav-link" onclick="dropdown()">

@@ -295,6 +295,8 @@ body::-webkit-scrollbar {
 }
 // DATA TABLES
 
+
+
 /*Form fields*/
 .dataTables_wrapper select,
 .dataTables_wrapper .dataTables_filter input {
@@ -302,7 +304,7 @@ body::-webkit-scrollbar {
   /*text-gray-700*/
   padding-left: 1rem;
   /*pl-4*/
-  padding-right: 1rem;
+  padding-right: 1.5rem;
   /*pl-4*/
   padding-top: 0.5rem;
   /*pl-2*/
@@ -317,6 +319,11 @@ body::-webkit-scrollbar {
   /*border-gray-200*/
   background-color: #edf2f7;
   /*bg-gray-200*/
+}
+
+.dataTables_wrapper .dataTables_length {
+  float: left;
+  margin-bottom: 10px;
 }
 
 /*Row Hover*/
