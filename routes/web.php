@@ -37,6 +37,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::match(['post', 'get'], '/image', [\App\Http\Controllers\Admin\CustomizeController::class, 'patch_image'])->name('customize.bidang.image');
     });
 
+    Route::group(['prefix' => 'kustomisasi-aplikasi-online'], function () {
+        Route::get( '/datatable', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'datatable'])->name('customize.aplikasi.online.datatable');
+        Route::get( '/', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'index'])->name('customize.aplikasi.online');
+        Route::match(['post', 'get'], '/form', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'form'])->name('customize.aplikasi.online.form');
+    });
 
     Route::group(['prefix' => 'informasi'], function () {
         Route::get('/', [\App\Http\Controllers\Admin\InformationController::class, 'index'])->name('admin.information.index');
@@ -76,6 +81,7 @@ Route::prefix('artikel')->group(function () {
     Route::get('json-data/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'article'])->name('article.json');
     Route::get('count/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'count_article'])->name('article.count');
     Route::get('/detail/{slug}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'detail'])->name('article.detail');
+    Route::get('json-data-month', [\App\Http\Controllers\LandingPage\ArticleController::class, 'getArticleByMonth'])->name('article.json.mont');
 });
 
 

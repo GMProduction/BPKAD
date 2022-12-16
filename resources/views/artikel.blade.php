@@ -49,6 +49,24 @@
 
 
         <p class="text-primary font-bold text-3xl italic mb-3 text-center">Artikel Terbaru</p>
+        <div class="flex flex-col md:flex-row justify-between sm:px-16 px-4 ">
+            <div class=" md:w-[50%] w-full flex mb-3 md:mb-0">
+                <input type="text" id="search" name="" onkeyup="search(this)"
+                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 rounded-md "
+                       placeholder="Cari artikel" required>
+            </div>
+            <div>
+                <select onchange="changeMonth(this)" class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                        rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <option value="">Semua Artikel ({{$count}})</option>
+                    @forelse($data_article as $d)
+                        <option value="{{$d->year.'-'.$d->monthN}}">{{$d->month ?? 'No Data'}}{{' '.$d->year.' ('.$d->data.')'}}</option>
+                    @empty
+                        <option>No Article</option>
+                    @endforelse
+                </select>
+            </div>
+        </div>
         <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-5 sm:px-16 p-5 pb-0 " id="newArticle">
             @for($i = 1; $i <=8; $i++)
                 <a role="status" class="loadFirst max-w-sm rounded border border-gray-200 shadow animate-pulse dark:border-gray-700  text-center">
@@ -84,7 +102,7 @@
 
 
     <script>
-        let skip = 0, isData = true;
+        let skip = 0, isData = true, month = '',param = '';
 
         function slick() {
             $('.artikel-slide').slick({
@@ -117,6 +135,13 @@
         function artikel() {
             let dataUrl = '{{route('article.json',['type' => 0,'skip' => 'dataUrl'])}}'
             dataUrl = dataUrl.replace('dataUrl', skip);
+            if (month !== '') {
+                dataUrl = dataUrl + '&month=' + month
+            }
+           if (param !== ''){
+               dataUrl = dataUrl + '&param=' + param
+           }
+
             let newArticle = $('#newArticle');
             $('#btnLoadMore').addClass('cursor-not-allowed')
             $.ajax({
@@ -160,8 +185,10 @@
                                 '            </a>')
                         })
                     } else {
-                        console.log('asdasd')
                         if (skip == 0 && $('.articleDataDefault').length == 0) {
+                            if (param){
+                                newArticle.empty();
+                            }
                             $('.loadFirst').empty();
                             newArticle.append('<a href="https://twitter.com/RADARSOLO_/status/1589464155827757056?t=KidA4z7az-0QBY80B5SZaQ&s=08"\n' +
                                 '                target="_blank"\n' +
@@ -241,7 +268,6 @@
                 },
                 complete: function (xhr, textStatus) {
                     $('#btnLoadMore').removeClass('cursor-not-allowed')
-                    console.log($('#newArticle .articleData'))
                     if ($('.loadFirst').length == 0) {
                         skip = $('#newArticle .articleData').length;
                     }
@@ -291,7 +317,7 @@
                                 '                </a>\n' +
                                 '            </div>')
                         })
-                    }else{
+                    } else {
                         newArticle.empty();
                         newArticle.append('<div class="block overflow-hidden sm:h-[500px] h-[350px] relative rounded-md bg-white " >\n' +
                             '                <a href="https://twitter.com/RADARSOLO_/status/1589464155827757056?t=KidA4z7az-0QBY80B5SZaQ&s=08" class="absolute w-full h-full" target="_blank">\n' +
@@ -349,7 +375,6 @@
                             '                    </div>\n' +
                             '                </a>\n' +
                             '            </div>'
-
                         )
                     }
                 },
@@ -365,5 +390,26 @@
         $(document).on('click', '#btnLoadMore', function () {
             artikel()
         })
+
+        function search(a) {
+            let text = $(a).val();
+            console.log(text.length)
+            if (text.length > 2) {
+                param = text
+                skip = 0;
+                artikel();
+            }else if(text.length == 0){
+                param = '';
+                skip = 0;
+                artikel();
+            }
+
+        }
+
+        function changeMonth(a) {
+            skip = 0;
+            month = $(a).val();
+            artikel();
+        }
     </script>
 @endsection

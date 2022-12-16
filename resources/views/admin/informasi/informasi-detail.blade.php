@@ -26,10 +26,32 @@
 
     @if($errors->any())
         <script>
+
+            @if ($errors->has('file-edit'))
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('file-edit') }}"
+            })
+            @endif
+            @if ($errors->has('e-link-edit'))
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('e-link-edit') }}"
+            })
+            @endif
+
+            @if ($errors->has('link'))
             Swal.fire({
                 icon: "error",
                 text: "{{ $errors->first('link') }}"
             })
+            @endif
+            @if ($errors->has('file'))
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('file') }}"
+            })
+            @endif
         </script>
     @endif
 

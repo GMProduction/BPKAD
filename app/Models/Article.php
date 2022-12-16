@@ -15,6 +15,12 @@ class Article extends Model
         'is_highline',
         'type_article',
         'description',
-        'slug'
+        'slug',
+        'date',
+        'author_id'
     ];
+
+    public function autor(){
+        return $this->belongsTo(User::class,'author_id');
+    }
 }

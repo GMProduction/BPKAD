@@ -1,6 +1,10 @@
 @extends('admin.base')
+
+@section('head')
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+@endsection
+
 @section('css')
-    <!--Regular Datatables CSS-->
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
     <!--Responsive Extension Datatables CSS-->
     <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
@@ -12,10 +16,9 @@
         <nav class="flex mb-6" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
-                    <a href="/admin"
+                    <a href="{{ route('dashboard') }}"
                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                             </path>
@@ -31,21 +34,35 @@
                                   d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                   clip-rule="evenodd"></path>
                         </svg>
-                        <a href="#"
-                           class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Artikel</a>
+                        <a href="{{route('customize.aplikasi.online')}}"
+                           class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Customize
+                            Aplikasi Online</a>
                     </div>
                 </li>
+
             </ol>
         </nav>
-
+        @if (\Illuminate\Support\Facades\Session::has('failed'))
+            <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+                 role="alert">
+                <span class="font-medium">Gagal!</span>
+                {{ \Illuminate\Support\Facades\Session::get('failed') }}
+            </div>
+        @endif
+        @if (\Illuminate\Support\Facades\Session::has('success'))
+            <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
+                 role="alert">
+                <span class="font-medium">Berhasil!</span> {{ \Illuminate\Support\Facades\Session::get('success') }}
+            </div>
+        @endif
         <div class="panel bg-white border">
             <div class="flex justify-between mb-3 items-end">
-                <p class=" font-semibold">Artikel</p>
-                <button type="button" onclick="location.href='{{route('admin.article.form')}}'"
+                <p class=" font-semibold">Aplikasi Online</p>
+                <button type="button" onclick="location.href='{{route('customize.aplikasi.online.form')}}'"
                         class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                     <span class="material-symbols-outlined text-white mr-3">
                         add
-                    </span>Tambah Artikel
+                    </span>Tambah Aplikasi Online
                 </button>
             </div>
             <div class="overflow-x-auto relative shadow-sm ">
@@ -55,17 +72,20 @@
                         <th scope="col" class="py-3 px-6">
                             #
                         </th>
-                        <th scope="col" class="py-3 px-6">
-                            Judul Artikel
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            Author
-                        </th>
                         <th scope="col" class="py-3 px-6" width="100">
-                            Tanggal
+                            Gambar
                         </th>
                         <th scope="col" class="py-3 px-6">
-                            <span class="sr-only">Ubah</span>
+                            Nama
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Deskripsi Pendek
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            Deskripsi Panjang
+                        </th>
+                        <th scope="col" class="py-3 px-6">
+                            <span class="sr-only">Aksi</span>
                         </th>
                     </tr>
                     </thead>
@@ -95,23 +115,17 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @section('morejs')
-    <!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <!--Datatables -->
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-
-
     <script>
-        let dataUrl = '{{ route('admin.article.datatable') }}';
+        let dataUrl = '{{ route('customize.aplikasi.online.datatable') }}';
         $(document).ready(function () {
-            moment.locale("id");
 
             // .columns.adjust()
             // .responsive.recalc();
@@ -147,13 +161,15 @@
                         defaultContent: "",
                         searchable: false
                     },
-                    {data: 'title', name: 'title', orderable: true},
-                    {data: 'autor.name', name: 'autor.name', orderable: true, render:function (data) {
-                            return data ?? '';
-                        }},
-                    {data: 'date', name: 'date', orderable: true, render:function (data) {
-                            return moment(data).format('d MMMM YYYY')
-                        }},
+                    {
+                        data: 'image', name: 'name',orderable: false,searchable: false, render: function (data) {
+                            return "<img src='"+data+"' width='100' />"
+                        }
+                    },
+                    {data: 'name', name: 'name', orderable: true},
+                    {data: 'short_description', name: 'short_description', orderable: true},
+                    {data: 'description', name: 'description', orderable: true},
+
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             })
@@ -174,4 +190,3 @@
         };
     </script>
 @endsection
-

@@ -11,83 +11,104 @@ use Yajra\DataTables\DataTables;
 
 class ArticleController extends CustomController
 {
-    public function datatable(){
-        $data = Article::orderBy('created_at','DESC');
-        return DataTables::of($data)->addColumn('action', function ($data){
-            return '<div class="py-4 px-6 text-right whitespace-nowrap">
-                                <a href="'.route('admin.article.form',['q' => $data->id]).'" data-modal-toggle="modalEdit"
+    public function datatable()
+    {
+        $data = Article::with('autor:id,name');
+
+        return DataTables::of($data)->addColumn(
+            'action',
+            function ($data) {
+                return '<div class="py-4 px-6 text-right whitespace-nowrap">
+                                <a href="'.route('admin.article.form', ['q' => $data->id]).'" data-modal-toggle="modalEdit"
                                     class="font-medium text-blue-600  button-link bg-blue-100">Ubah</a>
 
                                     <a href="#" data-modal-toggle="modalEdit"
                                     class="font-medium text-red-700  button-link bg-red-100">Hapus</a>
                             </div>';
-        })->addColumn('tanggal', function ($data){
-            return Carbon::parse($data->created_at)->isoFormat('DD MMMM YYYY');
-        })->make(true);
+            }
+        )->removeColumn('description')->make(true);
     }
 
-    public function index(){
+    public function index()
+    {
 
         return view('admin/artikel/artikel');
 
-
     }
 
-    public function detail(){
-        $q = request('q');
+    public function detail()
+    {
+        $q    = request('q');
         $data = Article::find($q);
-        if (request()->method() == 'POST'){
+        if (request()->method() == 'POST') {
             return $this->post_data();
         }
-        return view('admin/artikel/artikel-form', ['data' => $data]);
 
+        return view('admin/artikel/artikel-form', ['data' => $data]);
 
     }
 
-    public function post_data(){
-       $field = request()->validate([
-            'title' => 'required',
-            'type_article' => 'required',
-        ]);
+    public function post_data()
+    {
+        $field = request()->validate(
+            [
+                'title'        => 'required',
+                'type_article' => 'required',
+                'cover'        => 'max:2000',
+                'date'         => 'required',
+            ],
+            [
+                'title.required'        => 'Judul artikel harus di isi',
+                'type_article.required' => 'tipe artikel harus di isi',
+                'date.required'         => 'tanggal artikel harus di isi',
+                'cover.max'             => 'Ukuran file tidak boleh lebih dari 2Mb',
+            ]
+        );
 
-        Arr::set($field,'is_highline', request('is_highline') ?? false);
+        Arr::set($field, 'is_highline', request('is_highline') ?? false);
 
-        if (request('type_article') == 1){
-            request()->validate([
-                'link' => 'required'
-            ]);
-            Arr::set($field,'description', request('link'));
-        }else{
-            request()->validate([
-                'description' => 'required'
-            ]);
-            Arr::set($field,'description', request('description'));
+        if (request('type_article') == 1) {
+            request()->validate(
+                [
+                    'link' => 'required',
+                ]
+            );
+            Arr::set($field, 'description', request('link'));
+        } else {
+            request()->validate(
+                [
+                    'description' => 'required',
+                ]
+            );
+            Arr::set($field, 'description', request('description'));
         }
-
-
-
         $uuid_name = $this->generateImageName('cover');
         if ($uuid_name !== '') {
-            $image_name = '/assets/article/' . $uuid_name;
+            $image_name     = '/assets/article/'.$uuid_name;
             $field['cover'] = $image_name;
             $this->uploadImage('cover', $uuid_name, 'articleImage');
         }
 
         $article = Article::find(request('q'));
-        if ($article){
+        Arr::set($field, 'author_id', auth()->id());
+        if ($article) {
             $slug = Str::slug(request('title').' '.$article->id, '-');
-            Arr::set($field,'slug', $slug);
-
+            Arr::set($field, 'slug', $slug);
             $article->update($field);
-        }else{
-            $article =  Article::create($field);
-            $slug = Str::slug(request('title').' '.$article->id, '-');
-            $article->update([
-                'slug' => $slug
-            ]);
+            $message = 'merubah';
+        } else {
+            $article = Article::create($field);
+            $slug    = Str::slug(request('title').' '.$article->id, '-');
+            $article->update(
+                [
+                    'slug' => $slug,
+                ]
+            );
+            $message = 'menambah';
 
         }
-        return redirect()->back()->with('success', 'berhasil merubah data...');
+
+        return redirect()->back()->with('success', "berhasil $message data...");
     }
 
 }

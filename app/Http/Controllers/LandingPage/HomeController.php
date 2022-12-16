@@ -4,6 +4,7 @@ namespace App\Http\Controllers\LandingPage;
 
 use App\Http\Controllers\Controller;
 use App\Models\HomeSetting;
+use App\Models\OnlineApplication;
 
 /**
  * Class HomeController
@@ -16,7 +17,8 @@ class HomeController extends Controller
      */
     public function index(){
         $shortHistory = $this->ShortHistory();
-        return view('beranda', ['history' => $shortHistory]);
+        $online_application = $this->online_applications();
+        return view('beranda', ['history' => $shortHistory, 'application' => $online_application]);
 
     }
 
@@ -26,6 +28,10 @@ class HomeController extends Controller
     public function ShortHistory()
     {
         return HomeSetting::first();
+    }
+
+    public function online_applications(){
+        return OnlineApplication::all();
     }
 
     public function post_aspiration(){

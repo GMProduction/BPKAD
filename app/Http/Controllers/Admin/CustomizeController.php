@@ -40,8 +40,7 @@ class CustomizeController extends CustomController
                 return redirect()->back()->with('success', 'berhasil merubah data...');
             } catch (\Exception $e) {
                 DB::rollBack();
-
-                return redirect()->back()->with('failed', 'gagal merubah data...');
+                return redirect()->back()->with('failed', "gagal merubah data...");
             }
         }
 

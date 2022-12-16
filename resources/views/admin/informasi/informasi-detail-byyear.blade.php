@@ -24,10 +24,32 @@
 
     @if($errors->any())
         <script>
+
+            @if ($errors->has('file-edit'))
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('file-edit') }}"
+            })
+            @endif
+            @if ($errors->has('e-link-edit'))
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('e-link-edit') }}"
+            })
+            @endif
+
+            @if ($errors->has('link'))
             Swal.fire({
                 icon: "error",
                 text: "{{ $errors->first('link') }}"
             })
+            @endif
+            @if ($errors->has('file'))
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('file') }}"
+            })
+            @endif
         </script>
     @endif
     <div class="panel h-full">
@@ -264,9 +286,9 @@
                                 <div class="mb-3  hidden" id="div-tambahfile">
                                     <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
                                         file</label>
-                                    <input
-                                        class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
-                                        aria-describedby="upload-file_help" id="upload-file" type="file" name="file">
+                                    <input onchange="checkSize(this)"
+                                        class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
+                                        aria-describedby="upload-file_help" id="upload-file" type="file" name="file" accept="application/pdf">
                                 </div>
                             </div>
                         </div>
@@ -437,9 +459,9 @@
                                 <div class="mb-3  hidden" id="div-editfile">
                                     <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
                                         file</label>
-                                    <input
-                                        class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
-                                        aria-describedby="upload-file_help" id="upload-file" type="file" name="file-edit">
+                                    <input onchange="checkSize(this)"
+                                        class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
+                                        aria-describedby="upload-file_help" id="upload-file" type="file" name="file-edit"  accept="application/pdf">
 
                                 </div>
                             </div>
@@ -493,6 +515,7 @@
             if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
                 document.querySelector('#div-tambahfile').classList.add("hidden");
                 document.querySelector('#div-tambahlink').classList.remove("hidden");
+
             } else {
                 document.querySelector('#div-tambahfile').classList.remove("hidden");
                 document.querySelector('#div-tambahlink').classList.add("hidden");
@@ -506,6 +529,7 @@
             } else {
                 document.querySelector('#div-editfile').classList.remove("hidden");
                 document.querySelector('#div-editlink').classList.add("hidden");
+
             }
         }
 
@@ -603,7 +627,7 @@
                     showCancelButton: true,
                     focusConfirm: false,
                 }).then(function (result) {
-                    if (result) {
+                    if (result.isConfirmed) {
                         addInformationCategory();
                     }
                 });
@@ -619,7 +643,7 @@
                     showCancelButton: true,
                     focusConfirm: false,
                 }).then(function (result) {
-                    if (result) {
+                    if (result.isConfirmed) {
                         $('#form-submit-information').submit();
                     }
                 });
@@ -635,7 +659,7 @@
                     showCancelButton: true,
                     focusConfirm: false,
                 }).then(function (result) {
-                    if (result) {
+                    if (result.isConfirmed) {
                         $('#form-patch').submit();
                     }
                 });
@@ -664,5 +688,16 @@
                 modaledit.show();
             });
         });
+
+        function checkSize(a) {
+
+            if ($(a)[0].files && $(a)[0].files[0].size > 2097152){
+                Swal.fire({
+                    icon: "error",
+                    text: "Ukuran file tidak boleh lebih dari 2Mb"
+                })
+                $('.upload-file').val('');
+            }
+        }
     </script>
 @endsection
