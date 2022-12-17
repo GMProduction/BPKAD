@@ -419,7 +419,7 @@
                     showCancelButton: true,
                     focusConfirm: false,
                 }).then(function (result) {
-                    if (result) {
+                    if (result.isConfirmed) {
                         $('#form-save').submit();
                     }
                 });
@@ -435,7 +435,7 @@
                     showCancelButton: true,
                     focusConfirm: false,
                 }).then(function (result) {
-                    if (result) {
+                    if (result.isConfirmed) {
                         $('#form-patch').submit();
                     }
                 });

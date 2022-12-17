@@ -15,11 +15,12 @@ class OnlineApplicationController extends CustomController
         return DataTables::of($data)->addColumn(
             'action',
             function ($data) {
+                $id = $data->id;
                 return '<div class="py-4 px-6 text-right whitespace-nowrap">
                                 <a href="'.route('customize.aplikasi.online.form', ['q' => $data->id]).'" data-modal-toggle="modalEdit"
                                     class="font-medium text-blue-600  button-link bg-blue-100">Ubah</a>
 
-                                    <a href="#" data-modal-toggle="modalEdit"
+                                    <a href="#" id="deleteData" data-id="'.$id.'"
                                     class="font-medium text-red-700  button-link bg-red-100">Hapus</a>
                             </div>';
             }
@@ -74,5 +75,17 @@ class OnlineApplicationController extends CustomController
         return redirect()->back()->with('success', "berhasil $message data...");
 
     }
+
+    public function destroy(OnlineApplication $apps)
+    {
+        try {
+            $this->deleteImg('OnlineApplication', $apps->id, $apps->image);
+            return $this->jsonResponse('success', 200);
+        } catch (\Exception $e) {
+            return $this->jsonResponse('terjadi kesalahan server...'.$e->getMessage(), 500);
+        }
+
+    }
+
 
 }

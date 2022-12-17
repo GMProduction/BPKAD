@@ -36,9 +36,9 @@
                                   d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                   clip-rule="evenodd"></path>
                         </svg>
-                        <a href="{{route('customize.aplikasi.online')}}"
+                        <a href="{{route('customize.youtube')}}"
                            class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Customize
-                            Aplikasi Online</a>
+                            Video Yotube</a>
                     </div>
                 </li>
 
@@ -59,12 +59,12 @@
         @endif
         <div class="panel bg-white border">
             <div class="flex justify-between mb-3 items-end">
-                <p class=" font-semibold">Aplikasi Online</p>
-                <button type="button" onclick="location.href='{{route('customize.aplikasi.online.form')}}'"
+                <p class=" font-semibold">Aplikasi Video Youtube</p>
+                <button type="button" onclick="location.href='{{route('customize.youtube.form')}}'"
                         class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                     <span class="material-symbols-outlined text-white mr-3">
                         add
-                    </span>Tambah Aplikasi Online
+                    </span>Tambah Video Youtube
                 </button>
             </div>
             <div class="overflow-x-auto relative shadow-sm ">
@@ -74,17 +74,8 @@
                         <th scope="col" class="py-3 px-6">
                             #
                         </th>
-                        <th scope="col" class="py-3 px-6" width="100">
-                            Gambar
-                        </th>
                         <th scope="col" class="py-3 px-6">
-                            Nama
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            Deskripsi Pendek
-                        </th>
-                        <th scope="col" class="py-3 px-6">
-                            Deskripsi Panjang
+                            Url
                         </th>
                         <th scope="col" class="py-3 px-6">
                             <span class="sr-only">Aksi</span>
@@ -126,7 +117,7 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script>
-        let dataUrl = '{{ route('customize.aplikasi.online.datatable') }}';
+        let dataUrl = '{{ route('customize.youtube.datatable') }}';
         $(document).ready(function () {
 
             // .columns.adjust()
@@ -163,15 +154,7 @@
                         defaultContent: "",
                         searchable: false
                     },
-                    {
-                        data: 'image', name: 'name',orderable: false,searchable: false, render: function (data) {
-                            return "<img src='"+data+"' width='100' />"
-                        }
-                    },
-                    {data: 'name', name: 'name', orderable: true},
-                    {data: 'short_description', name: 'short_description', orderable: true},
-                    {data: 'description', name: 'description', orderable: true},
-
+                    {data: 'url', name: 'url', orderable: true},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             })
@@ -192,7 +175,7 @@
                 focusConfirm: false,
             }).then(async function (result) {
                 if (result.isConfirmed) {
-                    let res = await $.post('/admin/kustomisasi-aplikasi-online/destroy/'+id, data)
+                    let res = await $.post('/admin/kustomisasi-video-youtube/destroy/'+id, data)
                     window.location.reload()
                 }
             });

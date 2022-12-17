@@ -103,7 +103,7 @@
                     <span class="material-symbols-outlined mr-2 menu-icon">
                         fiber_manual_record
                     </span>
-                <p class="title-menu block nav-link menu-text text-sm">Beranda </p>
+                <p class="title-menu block nav-link menu-text text-sm">Sejarah </p>
             </a>
             <a class="menu nav-link" href="{{ route('customize.profile') }}">
 
@@ -125,6 +125,20 @@
                         fiber_manual_record
                     </span>
                 <p class="title-menu block nav-link menu-text ext-sm">Aplikasi Online</p>
+            </a>
+            <a class="menu" href="{{ route('customize.contact.profile') }}">
+
+                    <span class="material-symbols-outlined mr-2 menu-icon">
+                        fiber_manual_record
+                    </span>
+                <p class="title-menu block nav-link menu-text ext-sm">Kontak Profil</p>
+            </a>
+            <a class="menu" href="{{ route('customize.youtube') }}">
+
+                    <span class="material-symbols-outlined mr-2 menu-icon">
+                        fiber_manual_record
+                    </span>
+                <p class="title-menu block nav-link menu-text ext-sm">Video Yotube</p>
             </a>
         </div>
 

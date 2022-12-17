@@ -47,7 +47,7 @@
                 </span>
                 <div>
                     <p class="text-primary font-bold italic">Email</p>
-                    <p>bpkad@surakarta.go.id</p>
+                    <p class="textEmailH"></p>
                 </div>
             </div>
 
@@ -57,8 +57,7 @@
                 </span>
                 <div>
                     <p class="text-primary font-bold italic">Alamat</p>
-                    <p>Jl. Jend Sudirman No. 2 ,
-                        Kompleks Balaikota Surakarta</p>
+                    <p class="textAddressH"></p>
                 </div>
             </div>
 
@@ -68,7 +67,7 @@
                 </span>
                 <div>
                     <p class="text-primary font-bold italic">Phone</p>
-                    <p>(0271) 648089</p>
+                    <p class="textPhoneH"></p>
                 </div>
             </div>
 
@@ -78,8 +77,7 @@
                 </span>
                 <div>
                     <p class="text-primary font-bold italic">Jam Kerja</p>
-                    <p>Senin-Kamis 07.30-16.00 WIB</p>
-                    <p>Jumat 07.15-11.30 WIB</p>
+                    <p class="textOfficeHoursH" style="white-space: pre-wrap;"></p>
                 </div>
             </div>
         </div>
@@ -239,16 +237,16 @@
             BPKAD untuk
             masyarakat</p>
 
-        <div class="video-slide  sm:m-10 m-5 " data-aos="fade-up">
-            <iframe style="height: 480px !important" src="https://www.youtube.com/embed/DwFg8kWMTVE"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+        <div class="video-slide  sm:m-10 m-5 " id="ytVideo" data-aos="fade-up">
+{{--            <iframe style="height: 480px !important" src="https://www.youtube.com/embed/DwFg8kWMTVE"--}}
+{{--                    title="YouTube video player" frameborder="0"--}}
+{{--                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"--}}
+{{--                    allowfullscreen></iframe>--}}
 
-            <iframe style="height: 480px !important" src="https://www.youtube.com/embed/doGpA_fipuM"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+{{--            <iframe style="height: 480px !important" src="https://www.youtube.com/embed/doGpA_fipuM"--}}
+{{--                    title="YouTube video player" frameborder="0"--}}
+{{--                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"--}}
+{{--                    allowfullscreen></iframe>--}}
         </div>
 
     </div>
@@ -266,7 +264,6 @@
                    class="mt-3 relative   text-white font-bold border-white px-5 py-3 border-2 hover:bg-white/25">
                     Kirim Aspirasi
                 </a>
-
 
             </div>
         </div>
@@ -409,26 +406,31 @@
             ]
         });
 
-        $('.video-slide').slick({
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 2,
-            responsive: [{
-                breakpoint: 1200,
-                settings: {
-                    centerMode: false,
-                    slidesToShow: 2
-                }
-            },
-                {
-                    breakpoint: 760,
-                    settings: {
-                        centerMode: false,
-                        slidesToShow: 1
-                    }
-                }
-            ]
-        });
+       function videoSlick() {
+           if ($('.video-slide').hasClass('slick-initialized')) {
+               $('.video-slide').slick('destroy');
+           }
+           $('.video-slide').slick({
+               centerMode: true,
+               centerPadding: '40px',
+               slidesToShow: 2,
+               responsive: [{
+                   breakpoint: 1200,
+                   settings: {
+                       centerMode: false,
+                       slidesToShow: 2
+                   }
+               },
+                   {
+                       breakpoint: 760,
+                       settings: {
+                           centerMode: false,
+                           slidesToShow: 1
+                       }
+                   }
+               ]
+           });
+       }
 
         function destroyCarousel() {
             if ($('.artikel-slide').hasClass('slick-initialized')) {
@@ -494,6 +496,7 @@
         $(document).ready(function () {
             artikel()
             articleSlick()
+            getYoutubeVideo()
         })
 
         function artikel() {
@@ -548,6 +551,19 @@
                 error: function (error, xhr, textStatus) {
                     console.log('error', error)
                 }
+            })
+        }
+
+        function getYoutubeVideo() {
+            fetch('{{route('youtube.video.json')}}')
+            .then((response) => response.json())
+            .then(data => {
+                // ytVideo
+                $('#ytVideo').empty();
+                $.each(data, function (k,v) {
+                    $('#ytVideo').append(v.url)
+                })
+                videoSlick()
             })
         }
     </script>
