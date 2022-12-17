@@ -166,7 +166,7 @@
                         </span>
                     @endif
                 </div>
-                <div class="mb-6 md:w-[50%]">
+               {{-- <div class="mb-6 md:w-[50%]">
                     <label for="Twitter" class="block mb-2 text-sm font-medium text-gray-600 ">Tiktok</label>
                     <input type="text" id="aspirasi-nama" name="tiktok" value="{{old('tiktok', $data ? $data->tiktok : '')}}"
                            class="bg-gray-50 border {{$errors->has('tiktok') ? 'border-red-500':'border-gray-300'}} text-gray-900 text-sm  block w-full p-2.5 "
@@ -176,7 +176,7 @@
                             {{$errors->first('tiktok')}}
                         </span>
                     @endif
-                </div>
+                </div>--}}
                 <button type="submit"
                         class="flex ml-auto items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2   focus:outline-none ">
                     <span class="material-symbols-outlined text-white mr-3">
