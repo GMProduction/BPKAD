@@ -149,17 +149,17 @@
                                     Berkala</a>
                             </li>
                             <li>
-                                <a href="/info-sertamerta" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                <a href="{{ route('information.serta-merta') }}" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                     Serta
                                     Merta</a>
                             </li>
                             <li>
-                                <a href="/info-setiapsaat" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                <a href="{{ route('information.setiap-saat') }}" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                     Setiap
                                     saat</a>
                             </li>
                             <li>
-                                <a href="/info-dikecualikan" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                <a href="{{ route('information.di-kecualikan') }}" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                     Dikecualikan</a>
                             </li>
                         </ul>

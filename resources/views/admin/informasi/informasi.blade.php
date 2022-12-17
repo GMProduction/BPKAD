@@ -4,9 +4,57 @@
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
     <!--Responsive Extension Datatables CSS-->
     <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 
 @section('content')
+    @if(\Illuminate\Support\Facades\Session::has('success'))
+        <script>
+            Swal.fire({
+                icon: "success",
+                text: "{{ \Illuminate\Support\Facades\Session::get('success') }}"
+            })
+        </script>
+    @endif
+    @if(\Illuminate\Support\Facades\Session::has('failed'))
+        <script>
+            Swal.fire({
+                icon: "error",
+                text: "{{ \Illuminate\Support\Facades\Session::get('failed') }}"
+            })
+        </script>
+    @endif
+
+    @if($errors->any())
+        <script>
+
+            @if ($errors->has('file-edit'))
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('file-edit') }}"
+            })
+            @endif
+            @if ($errors->has('e-link-edit'))
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('e-link-edit') }}"
+            })
+            @endif
+
+            @if ($errors->has('link'))
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('link') }}"
+            })
+            @endif
+            @if ($errors->has('file'))
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('file') }}"
+            })
+            @endif
+        </script>
+    @endif
     <div class="panel h-full">
 
         <nav class="flex mb-6" aria-label="Breadcrumb">
@@ -104,7 +152,7 @@
                                 </thead>
 
                                 <tbody>
-                                @forelse($data as $v)
+                                @forelse($data_berkala as $v)
                                     <tr
                                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                         <th class="text-center">{{ $loop->index + 1 }}</th>
@@ -143,15 +191,15 @@
                                 <p class=" font-semibold mb-2">Informasi Serta Merta</p>
 
                             </div>
-                            <button type="button" data-modal-toggle="modalTambah"
-                                    class="max-h-[47px] ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
+                            <button type="button" onclick="openModalTambah('informasi-serta-merta')"
+                                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                                 <span class="material-symbols-outlined text-white mr-3">
                                     add
-                                </span>Tambah Informasi Serta Merta
+                                </span>Tambah Informasi
                             </button>
                         </div>
                         <div class="overflow-x-auto relative shadow-sm ">
-                            <table class="w-full text-sm text-left text-gray-500  ">
+                            <table class="w-full text-sm text-left text-gray-500  " id="table-data-serta-merta">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                                 <tr>
                                     <th scope="col" class="py-3 px-6">
@@ -160,30 +208,47 @@
                                     <th scope="col" class="py-3 px-6">
                                         Nama Informasi
                                     </th>
-
+                                    <th scope="col" class="py-3 px-6">
+                                        Tahun
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Lampiran
+                                    </th>
                                     <th scope="col" class="py-3 px-6">
                                         <span class="sr-only">Ubah</span>
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="bg-white border-b ">
-                                    <th class="text-center">
-                                        1
-                                    </th>
-                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                        Informasi Tentang Profil Badan PUblic
-                                    </th>
+                                @foreach($data_serta_merta as $v)
+                                    <tr class="bg-white border-b ">
+                                        <th class="text-center">
+                                            {{ $loop->index + 1 }}
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $v->information_category->name }}
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $v->year }}
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            @if($v->type === 1)
+                                                <a href="{{ $v->target }}" target="_blank">Download</a>
+                                            @else
+                                                <a href="{{ $v->target }}" target="_blank">Link</a>
+                                            @endif
 
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="#" data-modal-toggle="modalEdit"
-                                           class="font-medium text-blue-600  button-link bg-blue-100 mr-1">Ubah</a>
+                                        </th>
 
-                                        <a href="#" data-modal-toggle="modalHapus"
-                                           class="font-medium text-red-600  button-link bg-red-100">Hapus</a>
-
-                                    </td>
-                                </tr>
+                                        <th class="py-4 px-6 text-right">
+                                            <a href="#" data-id="{{ $v->id }}"
+                                               data-type="{{ $v->type }}" data-link="{{ $v->target }}"
+                                               data-category="{{ $v->information_category_id }}"
+                                               data-year="{{ $v->year }}"
+                                               class="font-medium text-blue-600 button-link btn-edit">Ubah</a>
+                                        </th>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -196,7 +261,9 @@
                             <span class="material-symbols-outlined text-green-700 mr-2 ">
                                 info
                             </span>
-                            <span class="text-sm text-green-700 ">Informasi Setiap Saat adalah informasi yang harus disediakan oleh Badan Publik dan siap tersedia untuk dapat langsung diberikan kepada Pemohon Informasi Publik ketika terdapat permohonan terhadap Informasi Publik tersebut.
+                            <span class="text-sm text-green-700 ">Informasi Setiap Saat adalah informasi yang harus
+                                disediakan oleh Badan Publik dan siap tersedia untuk dapat langsung diberikan kepada Pemohon
+                                Informasi Publik ketika terdapat permohonan terhadap Informasi Publik tersebut.
                             </span>
                         </div>
 
@@ -205,7 +272,7 @@
                                 <p class=" font-semibold mb-2">Informasi Setiap Saat</p>
 
                             </div>
-                            <button type="button" data-modal-toggle="modalTambah"
+                            <button type="button" onclick="openModalTambah('informasi-setiap-saat')"
                                     class="max-h-[47px] ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
                                 <span class="material-symbols-outlined text-white mr-3">
                                     add
@@ -213,7 +280,7 @@
                             </button>
                         </div>
                         <div class="overflow-x-auto relative shadow-sm ">
-                            <table class="w-full text-sm text-left text-gray-500  ">
+                            <table class="w-full text-sm text-left text-gray-500  " id="table-data-setiap-saat">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                                 <tr>
                                     <th scope="col" class="py-3 px-6">
@@ -222,30 +289,47 @@
                                     <th scope="col" class="py-3 px-6">
                                         Nama Informasi
                                     </th>
-
+                                    <th scope="col" class="py-3 px-6">
+                                        Tahun
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Lampiran
+                                    </th>
                                     <th scope="col" class="py-3 px-6">
                                         <span class="sr-only">Ubah</span>
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="bg-white border-b ">
-                                    <th class="text-center">
-                                        1
-                                    </th>
-                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                        Informasi Tentang Profil Badan PUblic
-                                    </th>
+                                @foreach($data_setiap_saat as $v)
+                                    <tr class="bg-white border-b ">
+                                        <th class="text-center">
+                                            {{ $loop->index + 1 }}
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $v->information_category->name }}
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $v->year }}
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            @if($v->type === 1)
+                                                <a href="{{ $v->target }}" target="_blank">Download</a>
+                                            @else
+                                                <a href="{{ $v->target }}" target="_blank">Link</a>
+                                            @endif
 
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="#" data-modal-toggle="modalEdit"
-                                           class="font-medium text-blue-600  button-link bg-blue-100 mr-1">Ubah</a>
+                                        </th>
 
-                                        <a href="#" data-modal-toggle="modalHapus"
-                                           class="font-medium text-red-600  button-link bg-red-100">Hapus</a>
-
-                                    </td>
-                                </tr>
+                                        <th class="py-4 px-6 text-right">
+                                            <a href="#" data-id="{{ $v->id }}"
+                                               data-type="{{ $v->type }}" data-link="{{ $v->target }}"
+                                               data-category="{{ $v->information_category_id }}"
+                                               data-year="{{ $v->year }}"
+                                               class="font-medium text-blue-600 button-link btn-edit">Ubah</a>
+                                        </th>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -258,7 +342,8 @@
                             <span class="material-symbols-outlined text-green-700 mr-2 ">
                                 info
                             </span>
-                            <span class="text-sm text-green-700 ">Informasi yang tidak dapat diakses Pemohon Informasi Publik sesuai Undang-Undang Nomor 14 Tahun 2008 Tentang Keterbukaan Informasi Publik.
+                            <span class="text-sm text-green-700 ">Informasi yang tidak dapat diakses Pemohon Informasi
+                                Publik sesuai Undang-Undang Nomor 14 Tahun 2008 Tentang Keterbukaan Informasi Publik.
                             </span>
                         </div>
 
@@ -267,7 +352,7 @@
                                 <p class=" font-semibold mb-2">Informasi Dikecualikan</p>
 
                             </div>
-                            <button type="button" data-modal-toggle="modalTambah"
+                            <button type="button" onclick="openModalTambah('informasi-di-kecualikan')"
                                     class="max-h-[47px] ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
                                 <span class="material-symbols-outlined text-white mr-3">
                                     add
@@ -275,7 +360,7 @@
                             </button>
                         </div>
                         <div class="overflow-x-auto relative shadow-sm ">
-                            <table class="w-full text-sm text-left text-gray-500  ">
+                            <table class="w-full text-sm text-left text-gray-500  " id="table-data-di-kecualikan">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                                 <tr>
                                     <th scope="col" class="py-3 px-6">
@@ -284,30 +369,47 @@
                                     <th scope="col" class="py-3 px-6">
                                         Nama Informasi
                                     </th>
-
+                                    <th scope="col" class="py-3 px-6">
+                                        Tahun
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Lampiran
+                                    </th>
                                     <th scope="col" class="py-3 px-6">
                                         <span class="sr-only">Ubah</span>
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="bg-white border-b ">
-                                    <th class="text-center">
-                                        1
-                                    </th>
-                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                        Informasi Tentang Profil Badan PUblic
-                                    </th>
+                                @foreach($data_dikecualikan as $v)
+                                    <tr class="bg-white border-b ">
+                                        <th class="text-center">
+                                            {{ $loop->index + 1 }}
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $v->information_category->name }}
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $v->year }}
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            @if($v->type === 1)
+                                                <a href="{{ $v->target }}" target="_blank">Download</a>
+                                            @else
+                                                <a href="{{ $v->target }}" target="_blank">Link</a>
+                                            @endif
 
-                                    <td class="py-4 px-6 text-right">
-                                        <a href="#" data-modal-toggle="modalEdit"
-                                           class="font-medium text-blue-600  button-link bg-blue-100 mr-1">Ubah</a>
+                                        </th>
 
-                                        <a href="#" data-modal-toggle="modalHapus"
-                                           class="font-medium text-red-600  button-link bg-red-100">Hapus</a>
-
-                                    </td>
-                                </tr>
+                                        <th class="py-4 px-6 text-right">
+                                            <a href="#" data-id="{{ $v->id }}"
+                                               data-type="{{ $v->type }}" data-link="{{ $v->target }}"
+                                               data-category="{{ $v->information_category_id }}"
+                                               data-year="{{ $v->year }}"
+                                               class="font-medium text-blue-600 button-link btn-edit">Ubah</a>
+                                        </th>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -346,12 +448,11 @@
                 <div class="relative bg-white rounded-lg shadow ">
                     <!-- Modal header -->
                     <div class="flex justify-between items-start p-4 rounded-t border-b ">
-                        <h3 class="text-xl font-semibold text-gray-900 ">
+                        <h3 class="text-xl font-semibold text-gray-900 " id="title-modal-tambah">
                             Tambah Informasi
                         </h3>
-                        <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
-                                data-modal-toggle="modalTambah">
+                        <button type="button" onclick="closeModalTambah()"
+                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -361,50 +462,167 @@
                             <span class="sr-only">Close modal</span>
                         </button>
                     </div>
-
+                    <form method="post" enctype="multipart/form-data" id="form-submit-information" action="{{ route('admin.information.non-periodic.add') }}">
+                    @csrf
                     <!-- Modal body -->
+                        <div class="p-6 ">
+                            <div class="mb-3">
+                                <div>
+                                    <label for="information_categories"
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Kategori
+                                        Informasi</label>
+                                    <div class="flex">
+                                        <select id="information_categories" name="category"
+                                                class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                    rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                        </select>
+
+                                        <button type="button" onclick="openModalKategori()"
+                                                data-tooltip-target="tooltip-default"
+                                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5  transition duration-300  focus:outline-none ">
+                                    <span class="material-symbols-outlined text-white">
+                                        add
+                                    </span>
+                                        </button>
+
+
+                                        <div id="tooltip-default" role="tooltip"
+                                             class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip ">
+                                            Tombol Tambah kategori (untuk tambah data yang belum terdaftar pada pilihan
+                                            kategori
+                                            di samping)
+                                            <div class="tooltip-arrow" data-popper-arrow></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="year"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
+                                <select id="year" name="year"
+                                        class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                    rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                    <option selected>Pilih Tahun</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
+                                </select>
+                            </div>
+
+                            <p class="text-sm pb-1">Konten / Isi</p>
+                            <div class="border p-3 border-gray-200 rounded-lg">
+                                <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
+                                    <li>
+                                        <input type="radio" id="tr-link" name="tr-konten" value="tr-link"
+                                               class="hidden peer" required checked onclick="switchtambahKonten()">
+                                        <label for="tr-link"
+                                               class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <div class="block">
+                                                <div class="w-full text-lg font-semibold text-center">Link</div>
+                                                <div class="w-full text-center">Konten Menggunakan Link</div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="tr-file" name="tr-konten" value="tr-file"
+                                               class="hidden peer" onclick="switchtambahKonten()">
+                                        <label for="tr-file"
+                                               class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <div class="block">
+                                                <div class="w-full text-lg font-semibold text-center">File</div>
+                                                <div class="w-full text-center">Konten dengan file</div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                </ul>
+
+                                <div class="mb-3 " id="div-tambahlink">
+                                    <label for="link-info"
+                                           class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                    <input type="text" id="link-info" name="link"
+                                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                           placeholder="Masukan Link" required>
+                                </div>
+
+                                <div class="mb-3  hidden" id="div-tambahfile">
+                                    <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
+                                        file</label>
+                                    <input onchange="checkSize(this)"
+                                           class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
+                                           aria-describedby="upload-file_help" id="upload-file" type="file" name="file"
+                                           accept="application/pdf">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
+                            <button type="submit" id="btn-submit-information"
+                                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                        <span class="material-symbols-outlined text-white mr-3">
+                            save
+                        </span>Simpan Informasi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Tambah Kategori-->
+        <div id="modalTambahKategori" tabindex="-2" aria-hidden="true"
+             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+            <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow ">
+                    <!-- Modal header -->
+                    <div class="flex justify-between items-start p-4 rounded-t border-b ">
+                        <h3 class="text-xl font-semibold text-gray-900 " id="title-modal-tambah-kategori">
+                            Tambah Kategori
+                        </h3>
+                        <button type="button" onclick="closeModalKategori()"
+                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                      clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <input type="hidden" value="" id="slug-information-name" name="slug">
                     <div class="p-6 ">
                         <div class="mb-3">
-                            <label for="nama-info" class="block mb-2 text-sm font-medium text-gray-700 ">Nama
-                                Informasi</label>
-                            <input type="text" id="nama-info"
+                            <label for="information_category_name"
+                                   class="block mb-2 text-sm font-medium text-gray-700 ">Nama
+                                Kategori</label>
+                            <input type="text" id="information_category_name"
                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                   placeholder="Masukan Nama Informasi" required>
+                                   placeholder="Nama Kategori" required name="information_category_name">
                         </div>
 
-                        <p class="text-sm pb-1">Konten / Isi</p>
-                        <div class="border p-3 border-gray-200 rounded-lg">
-                            <div class="mb-3">
-                                <label for="link-info"
-                                       class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
-                                <input type="text" id="link-info"
-                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                       placeholder="Masukan Email Anda" required>
-                            </div>
-
-                            <p class="text-center text-sm">atau</p>
-                            <div class="mb-3">
-                                <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
-                                    file</label>
-                                <input
-                                    class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
-                                    aria-describedby="upload-file_help" id="upload-file" type="file">
-
-                            </div>
-                        </div>
                     </div>
                     <!-- Modal footer -->
                     <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                        <button type="button" data-modal-toggle="modalTambah"
+                        <button id="btn-add-category" type="button"
                                 class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
                                 save
-                            </span>Simpan Informasi
+                            </span>Simpan Kategori
                         </button>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <!-- Modal Edit -->
         <div id="modalEdit" tabindex="-1" aria-hidden="true"
@@ -419,7 +637,7 @@
                         </h3>
                         <button type="button"
                                 class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
-                                data-modal-toggle="modalEdit">
+                                onclick="closeModalEdit()">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -430,45 +648,104 @@
                         </button>
                     </div>
                     <!-- Modal body -->
-                    <div class="p-6 ">
-                        <div class="mb-3">
-                            <label for="e-nama-info" class="block mb-2 text-sm font-medium text-gray-700 ">Nama
-                                Informasi</label>
-                            <input type="text" id="e-nama-info"
-                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                   placeholder="Masukan Nama Informasi" required>
-                        </div>
-
-                        <p class="text-sm pb-1">Konten / Isi</p>
-                        <div class="border p-3 border-gray-200 rounded-lg">
+                    <form method="post" enctype="multipart/form-data" action="{{ route('admin.information.patch') }}"
+                          id="form-patch">
+                        @csrf
+                        <input type="hidden" name="id" id="id-edit" value="">
+                        <div class="p-6 ">
                             <div class="mb-3">
-                                <label for="e-link-info"
-                                       class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
-                                <input type="text" id="e-link-info"
-                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                       placeholder="Masukan Email Anda" required>
+                                <div>
+                                    <label for="information_categories_edit"
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Kategori
+                                        Informasi</label>
+                                    <div class="flex">
+                                        <select id="information_categories_edit" name="category_edit"
+                                                class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                            <option selected>Pilih Kategori Informasi</option>
+                                            <option value="">
+                                                1
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
 
-                            <p class="text-center text-sm">atau</p>
                             <div class="mb-3">
-                                <label class="block mb-2 text-sm font-medium text-gray-700 " for="e-upload-file">Upload
-                                    file</label>
-                                <input
-                                    class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none"
-                                    aria-describedby="user_avatar_help" id="e-upload-file" type="file">
+                                <label for="year_edit"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
+                                <select id="year_edit" name="year_edit"
+                                        class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                    <option selected>Pilih Tahun</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                    <option value="2026">2026</option>
+                                </select>
+                            </div>
 
+                            <p class="text-sm pb-1">Konten / Isi</p>
+                            <div class="border p-3 border-gray-200 rounded-lg">
+                                <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
+                                    <li>
+                                        <input type="radio" id="er-link" name="er-konten" value="er-link"
+                                               class="hidden peer" required checked onclick="switcheditKonten()">
+                                        <label for="er-link"
+                                               class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <div class="block">
+                                                <div class="w-full text-lg font-semibold text-center">Link</div>
+                                                <div class="w-full text-center">Konten Menggunakan Link</div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="er-file" name="er-konten" value="er-file"
+                                               class="hidden peer" onclick="switcheditKonten()">
+                                        <label for="er-file"
+                                               class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <div class="block">
+                                                <div class="w-full text-lg font-semibold text-center">File</div>
+                                                <div class="w-full text-center">Konten dengan file</div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                </ul>
+
+                                <div class="mb-3 " id="div-editlink">
+                                    <label for="e-link-info"
+                                           class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                    <input type="text" id="e-link-info"
+                                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                           placeholder="Masukan Link" required name="e-link-edit">
+                                </div>
+
+                                <div class="mb-3  hidden" id="div-editfile">
+                                    <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
+                                        file</label>
+                                    <input onchange="checkSize(this)"
+                                           class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
+                                           aria-describedby="upload-file_help" id="upload-file" type="file"
+                                           name="file-edit" accept="application/pdf">
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                        <button type="button" data-modal-toggle="modalEdit"
-                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
-                            <span class="material-symbols-outlined text-white mr-3">
-                                save
-                            </span>Simpan Informasi
-                        </button>
-                    </div>
+                        <!-- Modal footer -->
+                        <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
+                            <button type="button" id="btn-patch"
+                                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                                <span class="material-symbols-outlined text-white mr-3">
+                                    save
+                                </span>Simpan Informasi
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -522,15 +799,209 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
 
+
+    <script>
+        var _informationType = '';
+        var _sertaMertaCategories = @json($categories_serta_merta);
+        var _setiapSaatCategories = @json($categories_setiap_saat);
+        var _dikecualikanCategories = @json($categories_dikecualikan);
+
+        $(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        });
+
+        async function addCategoryNonPeriodic() {
+            try {
+                let url = '{{ route('admin.information.non-periodic.category') }}';
+                let slug = $('#slug-information-name').val();
+                let information_category_name = $('#information_category_name').val();
+                let response = await $.post(url, {
+                    information_category_name, slug
+                });
+                let payload = response['payload'];
+                switch (slug) {
+                    case 'informasi-serta-merta':
+                        _sertaMertaCategories = payload;
+                        break;
+                    case 'informasi-setiap-saat':
+                        _setiapSaatCategories = payload;
+                        break;
+                    case 'informasi-di-kecualikan':
+                        _dikecualikanCategories = payload;
+                        break;
+                    default:
+                        break;
+                }
+                generateCategoryOption(payload);
+                clearAddInformationCategory();
+                console.log(payload);
+                Swal.fire({
+                    title: 'Berhasil',
+                    icon: 'success',
+                    text: 'Berhasil menambahkan data kategori informasi...',
+                }).then(function (result) {
+                    if (result) {
+                        closeModalKategori();
+                    }
+                });
+            } catch (e) {
+                let error_message = JSON.parse(e.responseText);
+                Swal.fire({
+                    icon: "error",
+                    text: error_message.message,
+                });
+            }
+        }
+
+        function generateCategoryOption(data) {
+            let el = $("#information_categories");
+            el.empty();
+            el.append('<option value="" selected>Pilih Kategori Informasi</option>');
+            $.each(data, function (k, v) {
+                el.append('<option value="' + v['id'] + '">' + v['name'] + '</option>')
+            })
+        }
+
+        function clearAddInformationCategory() {
+            $('#information_category_name').val('');
+            $('#slug-information-name').val('');
+        }
+
+        $(document).ready(function () {
+            $('#table-data-serta-merta').DataTable();
+            $('#table-data-setiap-saat').DataTable();
+            $('#table-data-di-kecualikan').DataTable();
             var table = $('#example').DataTable({
                 responsive: true
             })
                 .columns.adjust()
                 .responsive.recalc();
+
+            $('#btn-add-category').on('click', function (e) {
+                addCategoryNonPeriodic();
+            });
+
+            $('#btn-submit-information').on('click', function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    icon: 'info',
+                    text: 'Yakin ingin menambah data informasi?',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    focusConfirm: false,
+                }).then(function (result) {
+                    if (result.isConfirmed) {
+                        $('#form-submit-information').submit();
+                    }
+                });
+            });
         });
+
+        const editm = document.getElementById('modalEdit');
+        const tambahm = document.getElementById('modalTambah');
+        const kategorim = document.getElementById('modalTambahKategori');
+
+        const options = {
+            placement: 'bottom-right',
+            backdrop: 'dynamic',
+            backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
+            onHide: () => {
+                console.log('modal is hidden');
+            },
+            onShow: () => {
+                console.log('modal is shown');
+            },
+            onToggle: () => {
+                console.log('modal has been toggled');
+            }
+        };
+
+        const modaledit = new Modal(editm, options);
+        const modaltambah = new Modal(tambahm, options);
+        const modalkategori = new Modal(kategorim, options);
+
+        function switchtambahKonten() {
+            if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
+                document.querySelector('#div-tambahfile').classList.add("hidden");
+                document.querySelector('#div-tambahlink').classList.remove("hidden");
+
+            } else {
+                document.querySelector('#div-tambahfile').classList.remove("hidden");
+                document.querySelector('#div-tambahlink').classList.add("hidden");
+            }
+        }
+
+        function switcheditKonten() {
+            if (document.querySelector('input[name="er-konten"]:checked').value == "er-link") {
+                document.querySelector('#div-editfile').classList.add("hidden");
+                document.querySelector('#div-editlink').classList.remove("hidden");
+            } else {
+                document.querySelector('#div-editfile').classList.remove("hidden");
+                document.querySelector('#div-editlink').classList.add("hidden");
+
+            }
+        }
+
+        function openModalEdit() {
+            modaledit.show();
+        }
+
+        function closeModalEdit() {
+            modaledit.hide();
+        }
+
+        function openModalTambah(type) {
+            console.log(type);
+            let data_categories = [];
+            let title = 'Tambah Informasi';
+            let title_kategori = 'Tambah Kategori';
+            $('#information_categories').empty();
+            _informationType = type;
+            switch (type) {
+                case 'informasi-serta-merta':
+                    data_categories = _sertaMertaCategories;
+                    title = 'Tambah Informasi Serta Merta';
+                    title_kategori = 'Tambah Kategori Serta Merta';
+                    break;
+                case 'informasi-setiap-saat':
+                    data_categories = _setiapSaatCategories;
+                    title = 'Tambah Informasi Setiap Saat';
+                    title_kategori = 'Tambah Kategori Setiap Saat';
+                    break;
+                case 'informasi-di-kecualikan':
+                    data_categories = _dikecualikanCategories;
+
+                    title = 'Tambah Informasi DiKecualikan';
+                    title_kategori = 'Tambah Kategori DiKecualikan';
+                    break;
+                default:
+                    break;
+            }
+            $('#title-modal-tambah').html(title);
+            $('#title-modal-tambah-kategori').html(title_kategori);
+            generateCategoryOption(data_categories);
+            modaltambah.show();
+        }
+
+        function closeModalTambah() {
+            modaltambah.hide();
+        }
+
+        function openModalKategori() {
+            $('#slug-information-name').val(_informationType);
+            modaltambah.hide();
+            modalkategori.show();
+        }
+
+        function closeModalKategori() {
+            modalkategori.hide();
+            modaltambah.show();
+        }
     </script>
 @endsection
-
