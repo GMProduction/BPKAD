@@ -143,11 +143,11 @@
                                 <p class=" font-semibold mb-2">Informasi Serta Merta</p>
 
                             </div>
-                            <button type="button" data-modal-toggle="modalTambah"
-                                class="max-h-[47px] ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
+                            <button type="button" onclick="openModalTambah()"
+                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                                 <span class="material-symbols-outlined text-white mr-3">
                                     add
-                                </span>Tambah Informasi Serta Merta
+                                </span>Tambah Informasi
                             </button>
                         </div>
                         <div class="overflow-x-auto relative shadow-sm ">
@@ -341,6 +341,143 @@
             </ul>
         </div>
 
+         <!-- Modal Tambah -->
+         <div id="modalTambah" tabindex="-1" aria-hidden="true"
+         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+        <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow ">
+                <!-- Modal header -->
+                <div class="flex justify-between items-start p-4 rounded-t border-b ">
+                    <h3 class="text-xl font-semibold text-gray-900 ">
+                        Tambah Informasi
+                    </h3>
+                    <button type="button" onclick="closeModalTambah()"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <form method="post" enctype="multipart/form-data" id="form-submit-information">
+                @csrf
+                <!-- Modal body -->
+                    <div class="p-6 ">
+                        <div class="mb-3">
+                            <div>
+                                <label for="information_categories"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Kategori
+                                    Informasi</label>
+                                <div class="flex">
+                                    <select id="information_categories" name="category"
+                                            class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                    rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                        <option selected>Pilih Kategori Informasi</option>
+                                            <option
+                                                value="1">1</option>
+                                    </select>
+
+                                    <button type="button" onclick="openModalKategori()"
+                                            data-tooltip-target="tooltip-default"
+                                            class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5  transition duration-300  focus:outline-none ">
+                                    <span class="material-symbols-outlined text-white">
+                                        add
+                                    </span>
+                                    </button>
+
+
+                                    <div id="tooltip-default" role="tooltip"
+                                         class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip ">
+                                        Tombol Tambah kategori (untuk tambah data yang belum terdaftar pada pilihan
+                                        kategori
+                                        di samping)
+                                        <div class="tooltip-arrow" data-popper-arrow></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="year"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
+                            <select id="year" name="year"
+                                    class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                    rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                <option selected>Pilih Tahun</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                            </select>
+                        </div>
+
+                        <p class="text-sm pb-1">Konten / Isi</p>
+                        <div class="border p-3 border-gray-200 rounded-lg">
+                            <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
+                                <li>
+                                    <input type="radio" id="tr-link" name="tr-konten" value="tr-link"
+                                           class="hidden peer" required checked onclick="switchtambahKonten()">
+                                    <label for="tr-link"
+                                           class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                        <div class="block">
+                                            <div class="w-full text-lg font-semibold text-center">Link</div>
+                                            <div class="w-full text-center">Konten Menggunakan Link</div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="tr-file" name="tr-konten" value="tr-file"
+                                           class="hidden peer" onclick="switchtambahKonten()">
+                                    <label for="tr-file"
+                                           class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                        <div class="block">
+                                            <div class="w-full text-lg font-semibold text-center">File</div>
+                                            <div class="w-full text-center">Konten dengan file</div>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+
+                            <div class="mb-3 " id="div-tambahlink">
+                                <label for="link-info"
+                                       class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                <input type="text" id="link-info" name="link"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                       placeholder="Masukan Link" required>
+                            </div>
+
+                            <div class="mb-3  hidden" id="div-tambahfile">
+                                <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
+                                    file</label>
+                                <input onchange="checkSize(this)"
+                                    class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
+                                    aria-describedby="upload-file_help" id="upload-file" type="file" name="file" accept="application/pdf">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
+                        <button type="submit" id="btn-submit-information"
+                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                        <span class="material-symbols-outlined text-white mr-3">
+                            save
+                        </span>Simpan Informasi
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
         <!-- Modal Tambah Kategori-->
         <div id="modalTambahKategori" tabindex="-2" aria-hidden="true"
             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
@@ -428,10 +565,8 @@
                                             class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
                                   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                             <option selected>Pilih Kategori Informasi</option>
-                                            @foreach ($information_categories as $information_category)
-                                                <option value="{{ $information_category->id }}">
-                                                    {{ $information_category->name }}</option>
-                                            @endforeach
+                                            <option value="">
+                                                1</option>
                                         </select>
                                     </div>
                                 </div>
@@ -577,6 +712,29 @@
                 .responsive.recalc();
         });
 
+        const editm = document.getElementById('modalEdit');
+        const tambahm = document.getElementById('modalTambah');
+        const kategorim = document.getElementById('modalTambahKategori');
+
+        const options = {
+            placement: 'bottom-right',
+            backdrop: 'dynamic',
+            backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
+            onHide: () => {
+                console.log('modal is hidden');
+            },
+            onShow: () => {
+                console.log('modal is shown');
+            },
+            onToggle: () => {
+                console.log('modal has been toggled');
+            }
+        };
+
+        const modaledit = new Modal(editm, options);
+        const modaltambah = new Modal(tambahm, options);
+        const modalkategori = new Modal(kategorim, options);
+
         function switchtambahKonten() {
             if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
                 document.querySelector('#div-tambahfile').classList.add("hidden");
@@ -597,6 +755,32 @@
                 document.querySelector('#div-editlink').classList.add("hidden");
 
             }
+        }
+
+        function openModalEdit() {
+            modaledit.show();
+        }
+
+        function closeModalEdit() {
+            modaledit.hide();
+        }
+
+        function openModalTambah() {
+            modaltambah.show();
+        }
+
+        function closeModalTambah() {
+            modaltambah.hide();
+        }
+
+        function openModalKategori() {
+            modaltambah.hide();
+            modalkategori.show();
+        }
+
+        function closeModalKategori() {
+            modalkategori.hide();
+            modaltambah.show();
         }
     </script>
 @endsection
