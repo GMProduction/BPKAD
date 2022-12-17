@@ -50,6 +50,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::post('/{id}/informasi-berkala/category', [\App\Http\Controllers\Admin\InformationController::class, 'add_information_category'])->name('admin.information.category.add');
         Route::post('/public-information/patch', [\App\Http\Controllers\Admin\InformationController::class, 'public_information_patch'])->name('admin.information.public.patch');
         Route::post('/information/patch', [\App\Http\Controllers\Admin\InformationController::class, 'information_patch'])->name('admin.information.patch');
+        Route::post('/non-periodic/category', [\App\Http\Controllers\Admin\InformationController::class, 'add_category_non_periodic'])->name('admin.information.non-periodic.category');
+        Route::post('/non-periodic/add', [\App\Http\Controllers\Admin\InformationController::class, 'add_non_periodic_information'])->name('admin.information.non-periodic.add');
     });
 
     Route::group(['prefix' => 'artikel'], function () {
@@ -90,17 +92,11 @@ Route::group(['prefix' => 'informasi-berkala'], function () {
     Route::get('/{slug}', [\App\Http\Controllers\InformationController::class, 'periodic_information_by_slug'])->name('information.periodic.by.slug');
 });
 
-Route::get('/info-sertamerta', function () {
-    return view('info-sertamerta');
-});
+Route::get('/informasi-serta-merta', [\App\Http\Controllers\InformationController::class, 'serta_merta_information'])->name('information.serta-merta');
 
-Route::get('/info-setiapsaat', function () {
-    return view('info-setiapsaat');
-});
+Route::get('/informasi-setiap-saat', [\App\Http\Controllers\InformationController::class, 'setiap_saat_information'])->name('information.setiap-saat');
 
-Route::get('/info-dikecualikan', function () {
-    return view('info-dikecualikan');
-});
+Route::get('/informasi-di-kecualikan', [\App\Http\Controllers\InformationController::class, 'dikecualikan_information'])->name('information.di-kecualikan');
 
 //Route::get('/informasi', function () {
 //    return view('informasi');

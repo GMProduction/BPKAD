@@ -605,7 +605,7 @@
         function generateCategoryOption(data) {
             let el = $("#information_categories");
             el.empty();
-            el.append('<option value="" selected>Pilih Kategori Informasi</option>')
+            el.append('<option value="" selected>Pilih Kategori Informasi</option>');
             $.each(data, function (k, v) {
                 el.append('<option value="' + v['id'] + '">' + v['name'] + '</option>')
             })
