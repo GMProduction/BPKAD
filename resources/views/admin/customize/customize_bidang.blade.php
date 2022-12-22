@@ -386,9 +386,9 @@
             // paramName: 'image',
             acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
             addRemoveLinks: true,
+            maxFilesize:2,
             removedfile: function(file) {
                 var idImg, name;
-                console.log(file)
                 if (file.xhr) {
                     idImg = JSON.parse(file.xhr.response)['payload']['id'];
                     name = JSON.parse(file.xhr.response)['payload']['image'];
@@ -396,7 +396,6 @@
                     idImg = file['idImg'];
                     name = file['name'];
                 }
-                console.log(idImg);
                 {{-- var name = JSON.parse(file.xhr.response)['payload']['image']; --}}
                 {{-- var idImg = JSON.parse(file.xhr.response)['payload']['id']; --}}
                 {{-- console.log('delete') --}}
@@ -426,8 +425,6 @@
             },
             success: function(file, response) {
 
-                console.log(file);
-                console.log(response);
                 file.previewElement.querySelector("img").src = response['payload']['image'];
                 file.previewElement.children[1].children[1].children[0].innerHTML = response['payload']['image'];
                 file.previewElement.children[1].children[0].children[0].innerHTML = response['payload']['size'];
@@ -437,7 +434,6 @@
             accept: function(file, done) {
                 this.options.resizeWidth = 650;
                 this.options.resizeQuality = 0.75;
-                console.log(this.options);
                 done();
                 return;
             },
@@ -449,11 +445,9 @@
                 $.get('{{ route('customize.bidang.image') }}', {
                     'type': 'secretarial'
                 }, function(data) {
-                    console.log('ddddddddd', data)
                     if (data['status'] === 200) {
                         var img = data['payload'];
                         $.each(img, function(key, value) {
-                            console.log('ddddddddd', value)
 
                             var mockFile = {
                                 name: value['image'],
@@ -474,9 +468,9 @@
             // paramName: 'image',
             acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
             addRemoveLinks: true,
+            maxFilesize:2,
             removedfile: function(file) {
                 var idImg, name;
-                console.log(file)
                 if (file.xhr) {
                     idImg = JSON.parse(file.xhr.response)['payload']['id'];
                     name = JSON.parse(file.xhr.response)['payload']['image'];
@@ -484,7 +478,6 @@
                     idImg = file['idImg'];
                     name = file['name'];
                 }
-                console.log(idImg);
                 {{-- var name = JSON.parse(file.xhr.response)['payload']['image']; --}}
                 {{-- var idImg = JSON.parse(file.xhr.response)['payload']['id']; --}}
                 {{-- console.log('delete') --}}
@@ -514,8 +507,6 @@
             },
             success: function(file, response) {
 
-                console.log(file);
-                console.log(response);
                 file.previewElement.querySelector("img").src = response['payload']['image'];
                 file.previewElement.children[1].children[1].children[0].innerHTML = response['payload']['image'];
                 file.previewElement.children[1].children[0].children[0].innerHTML = response['payload']['size'];
@@ -525,7 +516,6 @@
             accept: function(file, done) {
                 this.options.resizeWidth = 650;
                 this.options.resizeQuality = 0.75;
-                console.log(this.options);
                 done();
                 return;
             },
@@ -539,7 +529,6 @@
                     if (data['status'] === 200) {
                         var img = data['payload'];
                         $.each(img, function(key, value) {
-                            console.log('ddddddddd', value)
 
                             var mockFile = {
                                 name: value['image'],
@@ -560,9 +549,9 @@
             // paramName: 'image',
             acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
             addRemoveLinks: true,
+            maxFilesize:2,
             removedfile: function(file) {
                 var idImg, name;
-                console.log(file)
                 if (file.xhr) {
                     idImg = JSON.parse(file.xhr.response)['payload']['id'];
                     name = JSON.parse(file.xhr.response)['payload']['image'];
@@ -570,7 +559,6 @@
                     idImg = file['idImg'];
                     name = file['name'];
                 }
-                console.log(idImg);
                 {{-- var name = JSON.parse(file.xhr.response)['payload']['image']; --}}
                 {{-- var idImg = JSON.parse(file.xhr.response)['payload']['id']; --}}
                 {{-- console.log('delete') --}}
@@ -600,8 +588,6 @@
             },
             success: function(file, response) {
 
-                console.log(file);
-                console.log(response);
                 file.previewElement.querySelector("img").src = response['payload']['image'];
                 file.previewElement.children[1].children[1].children[0].innerHTML = response['payload']['image'];
                 file.previewElement.children[1].children[0].children[0].innerHTML = response['payload']['size'];
@@ -611,7 +597,6 @@
             accept: function(file, done) {
                 this.options.resizeWidth = 650;
                 this.options.resizeQuality = 0.75;
-                console.log(this.options);
                 done();
                 return;
             },
@@ -622,11 +607,9 @@
                 $.get('{{ route('customize.bidang.image') }}', {
                     'type': 'financial'
                 }, function(data) {
-                    console.log('ddddddddd', data)
                     if (data['status'] === 200) {
                         var img = data['payload'];
                         $.each(img, function(key, value) {
-                            console.log('ddddddddd', value)
 
                             var mockFile = {
                                 name: value['image'],
@@ -647,9 +630,9 @@
             // paramName: 'image',
             acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
             addRemoveLinks: true,
+            maxFilesize:2,
             removedfile: function(file) {
                 var idImg, name;
-                console.log(file)
                 if (file.xhr) {
                     idImg = JSON.parse(file.xhr.response)['payload']['id'];
                     name = JSON.parse(file.xhr.response)['payload']['image'];
@@ -657,7 +640,6 @@
                     idImg = file['idImg'];
                     name = file['name'];
                 }
-                console.log(idImg);
                 {{-- var name = JSON.parse(file.xhr.response)['payload']['image']; --}}
                 {{-- var idImg = JSON.parse(file.xhr.response)['payload']['id']; --}}
                 {{-- console.log('delete') --}}
@@ -687,8 +669,6 @@
             },
             success: function(file, response) {
 
-                console.log(file);
-                console.log(response);
                 file.previewElement.querySelector("img").src = response['payload']['image'];
                 file.previewElement.children[1].children[1].children[0].innerHTML = response['payload']['image'];
                 file.previewElement.children[1].children[0].children[0].innerHTML = response['payload']['size'];
@@ -698,7 +678,6 @@
             accept: function(file, done) {
                 this.options.resizeWidth = 650;
                 this.options.resizeQuality = 0.75;
-                console.log(this.options);
                 done();
                 return;
             },
@@ -712,7 +691,6 @@
                     if (data['status'] === 200) {
                         var img = data['payload'];
                         $.each(img, function(key, value) {
-                            console.log('ddddddddd', value)
 
                             var mockFile = {
                                 name: value['image'],

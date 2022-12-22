@@ -23,6 +23,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'aspirasi'], function () {
         Route::get('/', [\App\Http\Controllers\Admin\AspirationController::class, 'index'])->name('aspiration');
     });
+    Route::group(['prefix' => 'kustomisasi-slider'], function () {
+        Route::match(['post', 'get'], '/', [\App\Http\Controllers\Admin\SliderController::class, 'index'])->name('customize.slider');
+        Route::match(['post', 'get'], '/image', [\App\Http\Controllers\Admin\SliderController::class, 'patch_image'])->name('customize.slider.image');
+    });
 
     Route::group(['prefix' => 'kustomisasi-sejarah'], function () {
         Route::match(['post', 'get'], '/', [\App\Http\Controllers\Admin\CustomizeController::class, 'home'])->name('customize.home');
@@ -82,6 +86,7 @@ Route::get('/struktur', [\App\Http\Controllers\LandingPage\ProfileController::cl
 Route::get('/profile-json', [\App\Http\Controllers\LandingPage\ProfileController::class, 'json_data'])->name('profile.json');
 Route::get('/contact-profile-json', [\App\Http\Controllers\Admin\ContactProfileController::class, 'getContactProfile'])->name('contact.profile.json');
 Route::get('/youtube-video-json', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'getYoutubeVideo'])->name('youtube.video.json');
+Route::get('/image-slider', [\App\Http\Controllers\Admin\SliderController::class, 'image_slider'])->name('image.slider');
 
 Route::get('/sekretariat', [\App\Http\Controllers\LandingPage\SectorController::class,'sekretariat']);
 Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::class,'anggaran']);
