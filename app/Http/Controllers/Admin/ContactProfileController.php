@@ -11,8 +11,10 @@ class ContactProfileController extends Controller
     public function getContactProfile()
     {
         $data = ContactProfile::first();
-        foreach ($data->social_media as $key => $d) {
-            $data[$key] = $d;
+        if ($data){
+            foreach ($data->social_media as $key => $d) {
+                $data[$key] = $d;
+            }
         }
 
         return $data;
@@ -25,8 +27,11 @@ class ContactProfileController extends Controller
         if (request()->method() == 'POST') {
             return $this->patch_data($data);
         }
-        foreach ($data->social_media as $key => $d) {
-            $data[$key] = $d;
+
+        if ($data){
+            foreach ($data->social_media as $key => $d) {
+                $data[$key] = $d;
+            }
         }
 
         return view('admin.customize.customize_contact_profile')->with(['data' => $data]);
