@@ -45,9 +45,9 @@
                         @foreach($v['year'] as $year)
                             <td class="text-sm">
                                 @if($year['type'] === 0)
-                                    <a href="{{ $year['document'] }}">Link</a>
+                                    <a class="block text-center text-blue-600"  href="{{ $year['document'] }}">Link</a>
                                 @elseif($year['type'] === 1)
-                                    <a href="{{ $year['document'] }}">Document</a>
+                                    <a class="block text-center text-blue-600" href="{{ $year['document'] }}">Document</a>
                                 @else
                                     <span>-</span>
                                 @endif
