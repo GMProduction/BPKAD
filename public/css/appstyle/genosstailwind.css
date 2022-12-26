@@ -318,6 +318,10 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
   /*bg-indigo-500*/
 }
 
-.dropzone .dz-preview .dz-error-message{
-    top: 145px !important;
+.dropzone .dz-preview .dz-error-message {
+  top: 145px !important;
+}
+
+.dataTables_length select {
+  background-image: none;
 }

@@ -30,7 +30,7 @@
                 <thead>
                 <tr>
                     <th class="text-center" data-priority="1">No</th>
-                    <th class="text-left" data-priority="1">Dokumen</th>
+                    <th class="text-left" data-priority="2">Dokumen</th>
                     @foreach($arr_year as $year)
                         <th class="text-center">{{ $year }}</th>
                     @endforeach

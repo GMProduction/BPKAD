@@ -386,7 +386,7 @@
                                         <th class="text-center">
                                             {{ $loop->index + 1 }}
                                         </th>
-                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900  ">
                                             {{ $v->information_category->name }}
                                         </th>
                                         <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">

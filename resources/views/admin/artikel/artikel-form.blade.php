@@ -80,14 +80,14 @@
                     <label for="date" class="block mb-2 text-sm font-medium text-gray-600 ">Tanggal</label>
                     <input type="date" id="aspirasi-nama" name="date"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block  p-2.5 " value="{{old('date',$data ? $data->date : '')}}"
-                           placeholder="Nama Pemberi Aspirasi" required>
+                           placeholder="Tanggal" required>
                 </div>
                 @csrf
                 <div class="mb-6 ">
                     <label for="aspirasi-nama" class="block mb-2 text-sm font-medium text-gray-600 ">Judul</label>
                     <input type="text" id="aspirasi-nama" name="title"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " value="{{old('title',$data ? $data->title : '')}}"
-                           placeholder="Nama Pemberi Aspirasi" required>
+                           placeholder="Judul Artikel" required>
                 </div>
 
                 <div x-data="showImage()" class="w-full">
