@@ -63,7 +63,7 @@ class SliderController extends CustomController
                 $data[$key] = [
                     'id'    => $im['id'],
                     'image' => $im['image'],
-                    'size'  => filesize(public_path($im['image'])),
+//                    'size'  => filesize(public_path($im['image'])),
                 ];
             }
             $payload = $data;
