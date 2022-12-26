@@ -114,28 +114,7 @@
 
             // .columns.adjust()
             // .responsive.recalc();
-            slideShow()
         });
-
-        var imgArray = [
-                '{{ asset('assets/local/slide.jpg') }}',
-                '{{ asset('assets/local/slide2.jpg') }}',
-            ],
-            curIndex = 0;
-        imgDuration = 5000;
-
-        function slideShow() {
-            document.getElementById('slider').classList.add("fadeOut");
-            setTimeout(function () {
-                document.getElementById('slider').src = imgArray[curIndex];
-                document.getElementById('slider').classList.remove("fadeOut");
-            }, 400);
-            curIndex++;
-            if (curIndex == imgArray.length) {
-                curIndex = 0;
-            }
-            setTimeout(slideShow, imgDuration);
-        }
 
         Dropzone.options.formImgbudget = {
             // paramName: 'image',
@@ -184,7 +163,7 @@
                 console.log(response);
                 file.previewElement.querySelector("img").src = response['payload']['image'];
                 file.previewElement.children[1].children[1].children[0].innerHTML = response['payload']['image'];
-                file.previewElement.children[1].children[0].children[0].innerHTML = response['payload']['size'];
+                // file.previewElement.children[1].children[0].children[0].innerHTML = response['payload']['size'];
                 $('.dz-image img').attr('height', '120')
 
             },
@@ -207,14 +186,17 @@
 
                             var mockFile = {
                                 name: value['image'],
-                                size: value['size'],
+                                // size: value['size'],
                                 idImg: value['id']
                             };
                             myDropzone.displayExistingFile(mockFile, value['image']);
+                            $('.dz-preview .dz-details .dz-size').remove()
+
                         })
 
                     }
                 })
+
                 // $('.dz-image img').attr('height', '120');
             }
 
