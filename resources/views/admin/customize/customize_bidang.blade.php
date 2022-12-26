@@ -432,8 +432,7 @@
 
             },
             accept: function(file, done) {
-                this.options.resizeWidth = 650;
-                this.options.resizeQuality = 0.75;
+
                 done();
                 return;
             },
@@ -514,8 +513,7 @@
 
             },
             accept: function(file, done) {
-                this.options.resizeWidth = 650;
-                this.options.resizeQuality = 0.75;
+
                 done();
                 return;
             },
@@ -595,8 +593,7 @@
 
             },
             accept: function(file, done) {
-                this.options.resizeWidth = 650;
-                this.options.resizeQuality = 0.75;
+
                 done();
                 return;
             },
@@ -676,8 +673,7 @@
 
             },
             accept: function(file, done) {
-                this.options.resizeWidth = 650;
-                this.options.resizeQuality = 0.75;
+
                 done();
                 return;
             },
