@@ -143,14 +143,14 @@ class InformationController extends CustomController
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('link');
             } else {
-                $validator = Validator::make($this->request->all(), [
-                    'file' => 'max:2000'
-                ], [
-                    'file.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
-                ]);
-                if ($validator->fails()) {
-                    return redirect()->back()->withErrors($validator->errors());
-                }
+//                $validator = Validator::make($this->request->all(), [
+//                    'file' => 'max:2000'
+//                ], [
+//                    'file.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
+//                ]);
+//                if ($validator->fails()) {
+//                    return redirect()->back()->withErrors($validator->errors());
+//                }
                 $data_request['type'] = 1;
                 $uuid_name = $this->generateImageName('file');
                 if ($uuid_name !== '') {
@@ -185,14 +185,14 @@ class InformationController extends CustomController
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('link');
             } else {
-                $validator = Validator::make($this->request->all(), [
-                    'file' => 'max:2000'
-                ], [
-                    'file.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
-                ]);
-                if ($validator->fails()) {
-                    return redirect()->back()->withErrors($validator->errors());
-                }
+//                $validator = Validator::make($this->request->all(), [
+//                    'file' => 'max:2000'
+//                ], [
+//                    'file.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
+//                ]);
+//                if ($validator->fails()) {
+//                    return redirect()->back()->withErrors($validator->errors());
+//                }
                 $data_request['type'] = 1;
                 $uuid_name = $this->generateImageName('file');
                 if ($uuid_name !== '') {
@@ -227,14 +227,16 @@ class InformationController extends CustomController
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('e-link-edit');
             } else {
-                $validator = Validator::make($this->request->all(), [
-                    'file-edit' => 'max:2000'
-                ], [
-                    'file-edit.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
-                ]);
-                if ($validator->fails()) {
-                    return redirect()->back()->withErrors($validator->errors());
-                }
+//                $validator = Validator::make($this->request->all(), [
+//                    'file-edit' => 'max:2000'
+//                ], [
+//                    'file-edit.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
+//                ]);
+//                if ($validator->fails()) {
+//                    return redirect()->back()->withErrors($validator->errors());
+//                }
+
+                dd($this->request);
                 $data_request['type'] = 1;
                 $uuid_name = $this->generateImageName('file-edit');
                 if ($uuid_name !== '') {
@@ -270,14 +272,14 @@ class InformationController extends CustomController
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('e-link-edit');
             } else {
-                $validator = Validator::make($this->request->all(), [
-                    'file-edit' => 'max:2000'
-                ], [
-                    'file-edit.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
-                ]);
-                if ($validator->fails()) {
-                    return redirect()->back()->withErrors($validator->errors());
-                }
+//                $validator = Validator::make($this->request->all(), [
+//                    'file-edit' => 'max:2000'
+//                ], [
+//                    'file-edit.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
+//                ]);
+//                if ($validator->fails()) {
+//                    return redirect()->back()->withErrors($validator->errors());
+//                }
                 $data_request['type'] = 1;
                 $uuid_name = $this->generateImageName('file-edit');
                 if ($uuid_name !== '') {
