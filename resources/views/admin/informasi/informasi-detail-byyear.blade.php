@@ -691,13 +691,13 @@
 
         function checkSize(a) {
 
-            if ($(a)[0].files && $(a)[0].files[0].size > 2097152){
-                Swal.fire({
-                    icon: "error",
-                    text: "Ukuran file tidak boleh lebih dari 2Mb"
-                })
-                $('.upload-file').val('');
-            }
+            // if ($(a)[0].files && $(a)[0].files[0].size > 2097152){
+            //     Swal.fire({
+            //         icon: "error",
+            //         text: "Ukuran file tidak boleh lebih dari 2Mb"
+            //     })
+            //     $('.upload-file').val('');
+            // }
         }
     </script>
 @endsection
