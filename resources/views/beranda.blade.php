@@ -114,7 +114,7 @@
             <p class="text-white/80 text-sm text-center mb-10" data-aos="fade-up">Aplikasi Online yang dapat membantumu</p>
 
             <div class="slider-aplikasi" data-aos="fade-up">
-                @forelse($application as $ap)
+                {{-- @forelse($application as $ap)
                     <a class="block " href="{{$ap->url}}" target="_blank">
                         <div
                             class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
@@ -133,92 +133,92 @@
                     <div class="flex justify-center">
                         <p>Tidak ada aplikasi online</p>
                     </div>
-                @endforelse
-{{--                <a class="block " href="https://surakartakota.fmis.id//" target="_blank">--}}
-{{--                    <div--}}
-{{--                        class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">--}}
-{{--                        <div>--}}
-{{--                            <img src="{{ asset('assets/local/simdang.png') }}"--}}
-{{--                                 class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-span-2">--}}
-{{--                            <p class="text-white font-bold text-2xl italic mb-3">FMIS</p>--}}
-{{--                            <p class="text-sm text-white  mb-1 font-bold "> Financial Management Information System</p>--}}
-{{--                            <p class="text-sm text-white/80 "> Aplikasi yang dikembangkan dari basis SIMDA untuk mempermudah--}}
-{{--                                manajemen keuangan daerah pada Pemerintah Kota Surakarta</p>--}}
-{{--                        </div>--}}
+                @endforelse --}}
+               <a class="block " href="https://surakartakota.fmis.id//" target="_blank">
+                   <div
+                       class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
+                       <div>
+                           <img src="{{ asset('assets/local/simdang.png') }}"
+                                class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>
+                       </div>
+                       <div class="col-span-2">
+                           <p class="text-white font-bold text-2xl italic mb-3">FMIS</p>
+                           <p class="text-sm text-white  mb-1 font-bold "> Financial Management Information System</p>
+                           <p class="text-sm text-white/80 "> Aplikasi yang dikembangkan dari basis SIMDA untuk mempermudah
+                               manajemen keuangan daerah pada Pemerintah Kota Surakarta</p>
+                       </div>
 
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--                <a class="block " href="https://hibah.surakarta.go.id/" target="_blank">--}}
-{{--                    <div--}}
-{{--                        class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">--}}
-{{--                        <div>--}}
-{{--                            <img src="{{ asset('assets/local/hibah-online.png') }}"--}}
-{{--                                 class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-span-2">--}}
-{{--                            <p class="text-white font-bold text-2xl italic mb-3">HIBAH ONLINE</p>--}}
-{{--                            <p class="text-sm text-white mb-1 font-bold ">Aplikasi Hibah Online Kota Surakarta</p>--}}
-{{--                            <p class="text-sm text-white/80 ">Aplikasi untuk memudahkan dalam pengajuan permohonan bantuan--}}
-{{--                                hibah--}}
-{{--                                dan bansos oleh masyarakat ataupun organisasi yang ada di kota Surakarta</p>--}}
-{{--                        </div>--}}
+                   </div>
+               </a>
+               <a class="block " href="https://hibah.surakarta.go.id/" target="_blank">
+                   <div
+                       class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
+                       <div>
+                           <img src="{{ asset('assets/local/hibah-online.png') }}"
+                                class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>
+                       </div>
+                       <div class="col-span-2">
+                           <p class="text-white font-bold text-2xl italic mb-3">HIBAH ONLINE</p>
+                           <p class="text-sm text-white mb-1 font-bold ">Aplikasi Hibah Online Kota Surakarta</p>
+                           <p class="text-sm text-white/80 ">Aplikasi untuk memudahkan dalam pengajuan permohonan bantuan
+                               hibah
+                               dan bansos oleh masyarakat ataupun organisasi yang ada di kota Surakarta</p>
+                       </div>
 
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--                <a class="block " href="https://bppkad.surakarta.go.id/sinta/" target="_blank">--}}
-{{--                    <div--}}
-{{--                        class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">--}}
-{{--                        <div>--}}
-{{--                            <img src="{{ asset('assets/local/sinta.png') }}"--}}
-{{--                                 class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-span-2">--}}
-{{--                            <p class="text-white font-bold text-2xl italic mb-3">SINTA</p>--}}
-{{--                            <p class="text-sm text-white mb-1 font-bold">Sistem Informasi Tanah Pemerintah Kota Surakarta--}}
-{{--                            </p>--}}
-{{--                            <p class="text-sm text-white/80 ">Aplikasi untuk memudahkan dalam pencarian tanah Hak Pakai--}}
-{{--                                Pemerintah Kota Surakarta berdasarkan klasifikasi penggunaan dan wilayah</p>--}}
-{{--                        </div>--}}
+                   </div>
+               </a>
+               <a class="block " href="https://bppkad.surakarta.go.id/sinta/" target="_blank">
+                   <div
+                       class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
+                       <div>
+                           <img src="{{ asset('assets/local/sinta.png') }}"
+                                class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>
+                       </div>
+                       <div class="col-span-2">
+                           <p class="text-white font-bold text-2xl italic mb-3">SINTA</p>
+                           <p class="text-sm text-white mb-1 font-bold">Sistem Informasi Tanah Pemerintah Kota Surakarta
+                           </p>
+                           <p class="text-sm text-white/80 ">Aplikasi untuk memudahkan dalam pencarian tanah Hak Pakai
+                               Pemerintah Kota Surakarta berdasarkan klasifikasi penggunaan dan wilayah</p>
+                       </div>
 
-{{--                    </div>--}}
-{{--                </a>--}}
-{{--                <a class="block " href="https://bppkad.surakarta.go.id/sikendis/" target="_blank">--}}
-{{--                    <div--}}
-{{--                        class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">--}}
-{{--                        <div>--}}
-{{--                            <img src="{{ asset('assets/local/sikendis.png') }}"--}}
-{{--                                 class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-span-2">--}}
-{{--                            <p class="text-white font-bold text-2xl italic mb-3">SIKENDIS</p>--}}
-{{--                            <p class="text-sm text-white mb-1 font-bold">Sistem Informasi Kendaraan Dinas Pemerintah Kota--}}
-{{--                                Surakarta</p>--}}
-{{--                            <p class="text-sm text-white/80 ">Aplikasi untuk memudahkan dalam penatausahaan Kendaraan Dinas--}}
-{{--                                Pemerintah Kota Surakarta</p>--}}
-{{--                        </div>--}}
+                   </div>
+               </a>
+               <a class="block " href="https://bppkad.surakarta.go.id/sikendis/" target="_blank">
+                   <div
+                       class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
+                       <div>
+                           <img src="{{ asset('assets/local/sikendis.png') }}"
+                                class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>
+                       </div>
+                       <div class="col-span-2">
+                           <p class="text-white font-bold text-2xl italic mb-3">SIKENDIS</p>
+                           <p class="text-sm text-white mb-1 font-bold">Sistem Informasi Kendaraan Dinas Pemerintah Kota
+                               Surakarta</p>
+                           <p class="text-sm text-white/80 ">Aplikasi untuk memudahkan dalam penatausahaan Kendaraan Dinas
+                               Pemerintah Kota Surakarta</p>
+                       </div>
 
-{{--                    </div>--}}
-{{--                </a>--}}
+                   </div>
+               </a>
 
-{{--                <a class="block " href="https://bppkad.surakarta.go.id/sikendis/" target="_blank">--}}
-{{--                    <div--}}
-{{--                        class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">--}}
-{{--                        <div>--}}
-{{--                            <img src="{{ asset('assets/local/siperon.png') }}"--}}
-{{--                                 class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-span-2">--}}
-{{--                            <p class="text-white font-bold text-2xl italic mb-3">SIPERON<i--}}
-{{--                                    class="mdi mdi-skip-previous-outline:"></i></p>--}}
-{{--                            <p class="text-sm text-white mb-1 font-bold">Sistem Persediaan Online Kota Surakarta</p>--}}
-{{--                            <p class="text-sm text-white/80 ">Aplikasi untuk mempercepat tata kelola persediaan dengan--}}
-{{--                                menggunakan sistem informasi yang dilaksanakan secara online diseluruh skpd</p>--}}
-{{--                        </div>--}}
+               <a class="block " href="https://bppkad.surakarta.go.id/sikendis/" target="_blank">
+                   <div
+                       class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
+                       <div>
+                           <img src="{{ asset('assets/local/siperon.png') }}"
+                                class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>
+                       </div>
+                       <div class="col-span-2">
+                           <p class="text-white font-bold text-2xl italic mb-3">SIPERON<i
+                                   class="mdi mdi-skip-previous-outline:"></i></p>
+                           <p class="text-sm text-white mb-1 font-bold">Sistem Persediaan Online Kota Surakarta</p>
+                           <p class="text-sm text-white/80 ">Aplikasi untuk mempercepat tata kelola persediaan dengan
+                               menggunakan sistem informasi yang dilaksanakan secara online diseluruh skpd</p>
+                       </div>
 
-{{--                    </div>--}}
-{{--                </a>--}}
+                   </div>
+               </a>
 
 
             </div>
