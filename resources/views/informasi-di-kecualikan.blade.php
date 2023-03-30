@@ -25,12 +25,12 @@
 
     <div class=" mt-16 mb-16">
         <div class="bg-white p-10  w-[95%] mx-auto shadow-md mb-6">
-            <p class="text-primary font-bold text-3xl italic mb-3 text-center">{{ $category->name }}</p>
+            <p class="text-primary font-bold text-3xl italic mb-3 text-center">Informasi Dikecualikan</p>
             <table id="example" class="stripe hover " style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                 <thead>
                 <tr>
                     <th class="text-center" data-priority="1">No</th>
-                    <th class="text-left" data-priority="2">Dokumen</th>
+                    <th class="text-left" data-priority="1">Dokumen</th>
                     @foreach($arr_year as $year)
                         <th class="text-center">{{ $year }}</th>
                     @endforeach
@@ -43,11 +43,11 @@
                         <td class="text-sm text-center ai-save">{{ $loop->index + 1 }}</td>
                         <td class="text-sm">{{ $v['name'] }}</td>
                         @foreach($v['year'] as $year)
-                            <td class="text-sm">
+                            <td class="text-sm text-center">
                                 @if($year['type'] === 0)
                                     <a class="block text-center text-blue-600"  href="{{ $year['document'] }}">Link</a>
                                 @elseif($year['type'] === 1)
-                                    <a class="block text-center text-blue-600" href="{{ $year['document'] }}">Document</a>
+                                    <a class="block text-center text-blue-600"  href="{{ $year['document'] }}">Document</a>
                                 @else
                                     <span>-</span>
                                 @endif

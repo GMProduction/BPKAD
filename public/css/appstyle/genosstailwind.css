@@ -317,3 +317,11 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
   background-color: #667eea !important;
   /*bg-indigo-500*/
 }
+
+.dropzone .dz-preview .dz-error-message {
+  top: 145px !important;
+}
+
+.dataTables_length select {
+  background-image: none;
+}

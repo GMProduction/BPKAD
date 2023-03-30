@@ -114,7 +114,7 @@
                 </button>
             </div>
             <div class="overflow-x-auto relative shadow-sm ">
-                <table class="w-full text-sm text-left text-gray-500  " id="table-data">
+                <table class="w-full text-sm text-left text-gray-500  row-border" id="table-data">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                     <tr>
                         <th scope="col" class="py-3 px-6">
@@ -133,20 +133,20 @@
                     </thead>
                     <tbody>
                     @foreach($data as $v)
-                        <tr class="bg-white border-b ">
-                            <th class="text-center">
+                        <tr class="bg-white border border-b ">
+                            <td class="text-center">
                                 {{ $loop->index + 1 }}
-                            </th>
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                            </td>
+                            <td scope="row" class="py-4 px-6 font-medium text-gray-900  ">
                                 {!! $v->information !!}
-                            </th>
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                            </td>
+                            <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
                                 @if($v->type === 1)
                                     <a href="{{ $v->target }}" target="_blank">Download</a>
                                 @else
                                     <a href="{{ $v->target }}" target="_blank">Link</a>
                                 @endif
-                            </th>
+                            </td>
                             <td class="py-4 px-6 text-right">
                                 <a href="#" data-id="{{ $v->id }}"
                                    data-type="{{ $v->type }}" data-link="{{ $v->target }}"
@@ -419,7 +419,7 @@
                     showCancelButton: true,
                     focusConfirm: false,
                 }).then(function (result) {
-                    if (result) {
+                    if (result.isConfirmed) {
                         $('#form-save').submit();
                     }
                 });
@@ -435,7 +435,7 @@
                     showCancelButton: true,
                     focusConfirm: false,
                 }).then(function (result) {
-                    if (result) {
+                    if (result.isConfirmed) {
                         $('#form-patch').submit();
                     }
                 });

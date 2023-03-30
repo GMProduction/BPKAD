@@ -5,6 +5,7 @@ namespace App\Http\Controllers\LandingPage;
 use App\Http\Controllers\Controller;
 use App\Models\HomeSetting;
 use App\Models\OnlineApplication;
+use App\Models\Slider;
 
 /**
  * Class HomeController
@@ -18,9 +19,18 @@ class HomeController extends Controller
     public function index(){
         $shortHistory = $this->ShortHistory();
         $online_application = $this->online_applications();
-        return view('beranda', ['history' => $shortHistory, 'application' => $online_application]);
+        $slider = $this->image_slider();
+        return view('beranda', ['history' => $shortHistory, 'application' => $online_application,'slider' => $slider]);
 
     }
+
+    /**
+     * @return mixed
+     */
+    public function image_slider(){
+        return Slider::select(['image'])->get();
+    }
+
 
     /**
      * @return HomeSetting[]|\Illuminate\Database\Eloquent\Collection

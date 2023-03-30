@@ -23,8 +23,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'aspirasi'], function () {
         Route::get('/', [\App\Http\Controllers\Admin\AspirationController::class, 'index'])->name('aspiration');
     });
+    Route::group(['prefix' => 'kustomisasi-slider'], function () {
+        Route::match(['post', 'get'], '/', [\App\Http\Controllers\Admin\SliderController::class, 'index'])->name('customize.slider');
+        Route::match(['post', 'get'], '/image', [\App\Http\Controllers\Admin\SliderController::class, 'patch_image'])->name('customize.slider.image');
+    });
 
-    Route::group(['prefix' => 'kustomisasi-beranda'], function () {
+    Route::group(['prefix' => 'kustomisasi-sejarah'], function () {
         Route::match(['post', 'get'], '/', [\App\Http\Controllers\Admin\CustomizeController::class, 'home'])->name('customize.home');
     });
 
@@ -41,6 +45,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get( '/datatable', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'datatable'])->name('customize.aplikasi.online.datatable');
         Route::get( '/', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'index'])->name('customize.aplikasi.online');
         Route::match(['post', 'get'], '/form', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'form'])->name('customize.aplikasi.online.form');
+        Route::post( '/destroy/{apps}', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'destroy'])->name('customize.aplikasi.online.destroy');
+    });
+
+    Route::group(['prefix' => 'kustomisasi-kontak-profil'], function () {
+        Route::match(['POST','GET'], '/', [\App\Http\Controllers\Admin\ContactProfileController::class, 'index'])->name('customize.contact.profile');
+    });
+
+    Route::group(['prefix' => 'kustomisasi-video-youtube'], function () {
+        Route::get('/datatable', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'datatable'])->name('customize.youtube.datatable');
+        Route::get('/', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'index'])->name('customize.youtube');
+        Route::match(['GET','POST'],'/form', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'form'])->name('customize.youtube.form');
+        Route::post('/destroy/{youtube}', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'destroy'])->name('customize.youtube.destroy');
     });
 
     Route::group(['prefix' => 'informasi'], function () {
@@ -50,12 +66,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::post('/{id}/informasi-berkala/category', [\App\Http\Controllers\Admin\InformationController::class, 'add_information_category'])->name('admin.information.category.add');
         Route::post('/public-information/patch', [\App\Http\Controllers\Admin\InformationController::class, 'public_information_patch'])->name('admin.information.public.patch');
         Route::post('/information/patch', [\App\Http\Controllers\Admin\InformationController::class, 'information_patch'])->name('admin.information.patch');
+        Route::post('/non-periodic/category', [\App\Http\Controllers\Admin\InformationController::class, 'add_category_non_periodic'])->name('admin.information.non-periodic.category');
+        Route::post('/non-periodic/add', [\App\Http\Controllers\Admin\InformationController::class, 'add_non_periodic_information'])->name('admin.information.non-periodic.add');
     });
 
     Route::group(['prefix' => 'artikel'], function () {
         Route::get('datatable', [\App\Http\Controllers\Admin\ArticleController::class, 'datatable'])->name('admin.article.datatable');
         Route::get('', [\App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('admin.article');
         Route::match(['POST', 'GET'], 'artikel-form', [\App\Http\Controllers\Admin\ArticleController::class, 'detail'])->name('admin.article.form');
+        Route::post('destroy/{article}',[\App\Http\Controllers\Admin\ArticleController::class,'destroy'])->name('admin.article.destroy');
     });
 });
 
@@ -65,6 +84,9 @@ Route::get('/home-setting-json', [HomeController::class, 'ShortHistory'])->name(
 Route::get('/visimisi', [\App\Http\Controllers\LandingPage\ProfileController::class, 'vision'])->name('visimisi');
 Route::get('/struktur', [\App\Http\Controllers\LandingPage\ProfileController::class, 'structure'])->name('structure');
 Route::get('/profile-json', [\App\Http\Controllers\LandingPage\ProfileController::class, 'json_data'])->name('profile.json');
+Route::get('/contact-profile-json', [\App\Http\Controllers\Admin\ContactProfileController::class, 'getContactProfile'])->name('contact.profile.json');
+Route::get('/youtube-video-json', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'getYoutubeVideo'])->name('youtube.video.json');
+Route::get('/image-slider', [\App\Http\Controllers\Admin\SliderController::class, 'image_slider'])->name('image.slider');
 
 Route::get('/sekretariat', [\App\Http\Controllers\LandingPage\SectorController::class,'sekretariat']);
 Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::class,'anggaran']);
@@ -90,17 +112,11 @@ Route::group(['prefix' => 'informasi-berkala'], function () {
     Route::get('/{slug}', [\App\Http\Controllers\InformationController::class, 'periodic_information_by_slug'])->name('information.periodic.by.slug');
 });
 
-Route::get('/info-sertamerta', function () {
-    return view('info-sertamerta');
-});
+Route::get('/informasi-serta-merta', [\App\Http\Controllers\InformationController::class, 'serta_merta_information'])->name('information.serta-merta');
 
-Route::get('/info-setiapsaat', function () {
-    return view('info-setiapsaat');
-});
+Route::get('/informasi-setiap-saat', [\App\Http\Controllers\InformationController::class, 'setiap_saat_information'])->name('information.setiap-saat');
 
-Route::get('/info-dikecualikan', function () {
-    return view('info-dikecualikan');
-});
+Route::get('/informasi-di-kecualikan', [\App\Http\Controllers\InformationController::class, 'dikecualikan_information'])->name('information.di-kecualikan');
 
 //Route::get('/informasi', function () {
 //    return view('informasi');

@@ -31,9 +31,9 @@
                                 d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                        <a href="/admin/customize_beranda"
+                        <a href="{{route('customize.home')}}"
                             class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Customize
-                            Beranda</a>
+                            Sejarah</a>
                     </div>
                 </li>
 
@@ -52,7 +52,7 @@
                 <span class="font-medium">Berhasil!</span> {{ \Illuminate\Support\Facades\Session::get('success') }}
             </div>
         @endif
-        <p class="title">Tampilan Beranda</p>
+        <p class="title">Tampilan Sejarah</p>
 
         <div class="p-5 border bg-white shadow-md">
             <form method="post" enctype="multipart/form-data">

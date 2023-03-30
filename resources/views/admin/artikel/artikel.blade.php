@@ -4,6 +4,8 @@
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
     <!--Responsive Extension Datatables CSS-->
     <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 @endsection
 
 @section('content')
@@ -158,6 +160,28 @@
                 ]
             })
         }
+
+        $(document).on('click','#deleteData', function () {
+            let id = $(this).data('id');
+            let name = $(this).data('name');
+            let data = {
+                '_token' : '{{csrf_token()}}'
+            }
+            Swal.fire({
+                title: 'Konfirmasi',
+                icon: 'info',
+                text: 'Yakin ingin menghapus data '+name+' ?',
+                showCloseButton: true,
+                showCancelButton: true,
+                focusConfirm: false,
+            }).then(async function (result) {
+                if (result.isConfirmed) {
+                    let res = await $.post('/admin/artikel/destroy/'+id, data)
+                    window.location.reload()
+                }
+            });
+
+        })
 
         jQuery.fn.dataTableExt.oApi.fnPagingInfo = function (oSettings) {
             return {

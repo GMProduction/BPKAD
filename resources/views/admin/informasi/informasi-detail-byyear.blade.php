@@ -109,7 +109,7 @@
                 </button>
             </div>
             <div class="overflow-x-auto relative shadow-sm ">
-                <table class="w-full text-sm text-left text-gray-500 " id="table-data">
+                <table class="w-full text-sm text-left text-gray-500 row-border" id="table-data">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                     <tr>
                         <th scope="col" class="py-3 px-6">
@@ -132,11 +132,11 @@
                     </thead>
                     <tbody>
                     @foreach($data as $v)
-                        <tr class="bg-white border-b ">
+                        <tr class="border-b ">
                             <th class="text-center">
                                 {{ $loop->index + 1 }}
                             </th>
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900  ">
                                 {{ $v->information_category->name }}
                             </th>
                             <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
@@ -144,9 +144,9 @@
                             </th>
                             <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
                                 @if($v->type === 1)
-                                    <a href="{{ $v->target }}" target="_blank">Download</a>
+                                    <a href="{{ $v->target }}" class="block text-green-600 text-center" target="_blank">Download</a>
                                 @else
-                                    <a href="{{ $v->target }}" target="_blank">Link</a>
+                                    <a href="{{ $v->target }}" class="block text-green-600 text-center" target="_blank">Link</a>
                                 @endif
 
                             </th>
@@ -605,7 +605,7 @@
         function generateCategoryOption(data) {
             let el = $("#information_categories");
             el.empty();
-            el.append('<option value="" selected>Pilih Kategori Informasi</option>')
+            el.append('<option value="" selected>Pilih Kategori Informasi</option>');
             $.each(data, function (k, v) {
                 el.append('<option value="' + v['id'] + '">' + v['name'] + '</option>')
             })

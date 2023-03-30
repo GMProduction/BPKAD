@@ -29,6 +29,18 @@
 </head>
 
 <body style="position: relative">
+    <style>
+        iframe{
+            width: 100%;
+        }
+        @media (min-width: 768px) {
+            iframe {
+                height: 300px;
+                width: 500px;
+            }
+        }
+
+    </style>
     <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10 shadow-sm">
         <div class="container flex flex-wrap justify-between items-center mx-auto sticky top-0">
             <a href="/" class="flex items-center">
@@ -137,17 +149,17 @@
                                     Berkala</a>
                             </li>
                             <li>
-                                <a href="/info-sertamerta" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                <a href="{{ route('information.serta-merta') }}" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                     Serta
                                     Merta</a>
                             </li>
                             <li>
-                                <a href="/info-setiapsaat" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                <a href="{{ route('information.setiap-saat') }}" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                     Setiap
                                     saat</a>
                             </li>
                             <li>
-                                <a href="/info-dikecualikan" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                <a href="{{ route('information.di-kecualikan') }}" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                     Dikecualikan</a>
                             </li>
                         </ul>
@@ -183,34 +195,32 @@
                         </p>
 
                         <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">Lokasi BPKAD</p>
+                        <div id="frameLocation"></div>
 
-                        <iframe data-aos="fade-up" class="md:w-[500px] md:h-[300px]"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398.3223047030822!2d110.82788629803538!3d-7.56922993376408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x62b5fc04bb57f608!2sBidang%20Akuntansi%20BPPKAD%20Kota%20Surakarta!5e0!3m2!1sen!2sid!4v1668665961788!5m2!1sen!2sid"
-                            style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+{{--                        <iframe data-aos="fade-up" class="md:w-[500px] md:h-[300px]"--}}
+{{--                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398.3223047030822!2d110.82788629803538!3d-7.56922993376408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x62b5fc04bb57f608!2sBidang%20Akuntansi%20BPPKAD%20Kota%20Surakarta!5e0!3m2!1sen!2sid!4v1668665961788!5m2!1sen!2sid"--}}
+{{--                            style="border:0;" allowfullscreen="" loading="lazy"--}}
+{{--                            referrerpolicy="no-referrer-when-downgrade"></iframe>--}}
                     </div>
                     <div>
                         <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">Contact</p>
                         <p class="text-white text-sm font-bold italic" data-aos="fade-up">Email</p>
-                        <p class="text-white/80 text-sm font-light mb-3" data-aos="fade-up">bpkad@surakarta.go.id</p>
+                        <p class="text-white/80 text-sm font-light mb-3 textEmail" data-aos="fade-up"></p>
 
                         <p class="text-white text-sm font-bold italic" data-aos="fade-up">Alamat</p>
-                        <p class="text-white/80 text-sm font-light mb-3" data-aos="fade-up">Jl. Jend Sudirman No. 2,
-                            Kompleks Balaikota
-                            Surakarta</p>
+                        <p class="text-white/80 text-sm font-light mb-3 textAddress" data-aos="fade-up"></p>
 
                         <p class="text-white text-sm font-bold italic" data-aos="fade-up">Phone</p>
-                        <p class="text-white/80 text-sm font-light mb-3" data-aos="fade-up">(0271) 648089</p>
+                        <p class="text-white/80 text-sm font-light mb-3 textPhone" data-aos="fade-up"></p>
 
                         <p class="text-white text-sm font-bold italic" data-aos="fade-up">Jam Kerja</p>
-                        <p class="text-white/80 text-sm font-light" data-aos="fade-up">Senin - Kamis 07.30-16.00 WIB
-                        </p>
-                        <p class="text-white/80 text-sm font-light mb-3" data-aos="fade-up">Jumat 07.15-11.30 WIB</p>
+                        <p class="text-white/80 text-sm font-light textOfficeHours" style="white-space: pre-wrap;" data-aos="fade-up"></p>
+{{--                        <p class="text-white/80 text-sm font-light mb-3" data-aos="fade-up">Jumat 07.15-11.30 WIB</p>--}}
                     </div>
                     <div>
                         <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">Social Media</p>
                         <div class="flex flex-wrap">
-                            <a href="https://www.facebook.com/profile.php?id=100079921542712" target="_blank"
+                            <a href="#" id="href_facebook" target="_blank"
                                 data-aos="fade-up"
                                 class="mr-3 bg-white p-2 hover:bg-blue-600 font-semibold mb-3 text-white inline-flex items-center space-x-2 rounded transition duration-300">
                                 <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg"
@@ -220,7 +230,7 @@
                                 </svg>
                             </a>
 
-                            <a href="https://twitter.com/BpkadSolo" target="_blank" data-aos="fade-up"
+                            <a href="#" id="href_twitter" target="_blank" data-aos="fade-up"
                                 class="mr-3 bg-white hover:bg-teal-400 p-2 font-semibold mb-3 text-white inline-flex items-center space-x-2 rounded transition duration-300">
                                 <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24">
@@ -229,7 +239,7 @@
                                 </svg>
                             </a>
 
-                            <a href="https://www.instagram.com/bpkad.surakarta/" target="_blank" data-aos="fade-up"
+                            <a href="" id="href_instagram" target="_blank" data-aos="fade-up"
                                 class="mr-3 bg-white hover:bg-purple-500 p-2 font-semibold mb-3 text-white inline-flex items-center space-x-2 rounded transition duration-300">
                                 <svg class="w-5 h-5 fill-current" role="img" viewBox="0 0 256 256"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -241,7 +251,7 @@
                                 </svg>
                             </a>
 
-                            <a href="https://www.youtube.com/channel/UCDZHy-Oso1XyJe1JH2pwclA" data-aos="fade-up"
+                            <a href="#" id="href_youtube" target="_blank" data-aos="fade-up"
                                 class="bg-white hover:bg-red-600 p-2 font-semibold text-white mb-3 inline-flex items-center space-x-2 rounded transition duration-300">
                                 <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 16 16">
@@ -263,7 +273,8 @@
     <script>
         "use strict"
         document.addEventListener("DOMContentLoaded", () => {
-            short_history()
+            contact_profile();
+            short_history();
         });
 
         function short_history() {
@@ -272,6 +283,27 @@
                 .then((data) => {
                     document.getElementById('short_his').innerHTML = data?.history
                 })
+        }
+
+        function contact_profile() {
+            fetch('{{route('contact.profile.json')}}')
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('dasd',data)
+                document.querySelector('.textEmail').innerHTML = data?.email
+                document.querySelector('.textEmailH').innerHTML = data?.email
+                document.querySelector('.textAddress').innerHTML = data?.address
+                document.querySelector('.textAddressH').innerHTML = data?.address
+                document.querySelector('.textOfficeHours').innerHTML = data?.office_hours
+                document.querySelector('.textOfficeHoursH').innerHTML = data?.office_hours
+                document.querySelector('.textPhone').innerHTML = data?.phone
+                document.querySelector('.textPhoneH').innerHTML = data?.phone
+                document.querySelector('#frameLocation').innerHTML = data?.location
+                document.querySelector('#href_facebook').href = data?.facebook
+                document.querySelector('#href_twitter').href = data?.twitter
+                document.querySelector('#href_instagram').href = data?.instagram
+                document.querySelector('#href_youtube').href = data?.youtube
+            })
         }
     </script>
     <script src="{{ asset('/js/flowbite.js') }}"></script>

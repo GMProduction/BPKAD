@@ -95,6 +95,12 @@ return [
             'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
         ],
+        'sliderImage' => [
+            'driver' => 'local',
+            'root' => public_path() . '/assets/slider',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
     ],
 
     /*

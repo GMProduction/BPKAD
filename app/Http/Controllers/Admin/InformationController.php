@@ -22,8 +22,55 @@ class InformationController extends CustomController
 
     public function index()
     {
-        $data = Category::all();
-        return view('admin.informasi.informasi')->with(['data' => $data]);
+        $data_berkala = Category::where('type', '=', 0)->get();
+
+        //informasi serta merta
+        $categories_serta_merta = InformationCategory::with('category')
+            ->whereHas('category', function ($q) {
+                return $q->where('slug', '=', 'informasi-serta-merta');
+            })->get();
+        $data_serta_merta = InformationDetail::with(['information_category'])
+            ->whereHas('information_category', function ($q) {
+                return $q->with('category')->whereHas('category', function ($q2) {
+                    return $q2->where('slug', '=', 'informasi-serta-merta');
+                });
+            })
+            ->get();
+
+        //informasi setiap saat
+        $categories_setiap_saat = InformationCategory::with('category')
+            ->whereHas('category', function ($q) {
+                return $q->where('slug', '=', 'informasi-setiap-saat');
+            })->get();
+        $data_setiap_saat = InformationDetail::with(['information_category'])
+            ->whereHas('information_category', function ($q) {
+                return $q->with('category')->whereHas('category', function ($q2) {
+                    return $q2->where('slug', '=', 'informasi-setiap-saat');
+                });
+            })
+            ->get();
+
+        //informasi dikecualikan
+        $categories_dikecualikan = InformationCategory::with('category')
+            ->whereHas('category', function ($q) {
+                return $q->where('slug', '=', 'informasi-di-kecualikan');
+            })->get();
+        $data_dikecualikan = InformationDetail::with(['information_category'])
+            ->whereHas('information_category', function ($q) {
+                return $q->with('category')->whereHas('category', function ($q2) {
+                    return $q2->where('slug', '=', 'informasi-di-kecualikan');
+                });
+            })
+            ->get();
+        return view('admin.informasi.informasi')->with([
+            'data_berkala' => $data_berkala,
+            'categories_serta_merta' => $categories_serta_merta,
+            'categories_setiap_saat' => $categories_setiap_saat,
+            'categories_dikecualikan' => $categories_dikecualikan,
+            'data_serta_merta' => $data_serta_merta,
+            'data_setiap_saat' => $data_setiap_saat,
+            'data_dikecualikan' => $data_dikecualikan,
+        ]);
     }
 
     public function add_information_category($id)
@@ -96,14 +143,14 @@ class InformationController extends CustomController
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('link');
             } else {
-                $validator = Validator::make($this->request->all(), [
-                    'file' => 'max:2000'
-                ], [
-                    'file.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
-                ]);
-                if ($validator->fails()) {
-                    return redirect()->back()->withErrors($validator->errors());
-                }
+//                $validator = Validator::make($this->request->all(), [
+//                    'file' => 'max:2000'
+//                ], [
+//                    'file.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
+//                ]);
+//                if ($validator->fails()) {
+//                    return redirect()->back()->withErrors($validator->errors());
+//                }
                 $data_request['type'] = 1;
                 $uuid_name = $this->generateImageName('file');
                 if ($uuid_name !== '') {
@@ -138,14 +185,14 @@ class InformationController extends CustomController
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('link');
             } else {
-                $validator = Validator::make($this->request->all(), [
-                    'file' => 'max:2000'
-                ], [
-                    'file.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
-                ]);
-                if ($validator->fails()) {
-                    return redirect()->back()->withErrors($validator->errors());
-                }
+//                $validator = Validator::make($this->request->all(), [
+//                    'file' => 'max:2000'
+//                ], [
+//                    'file.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
+//                ]);
+//                if ($validator->fails()) {
+//                    return redirect()->back()->withErrors($validator->errors());
+//                }
                 $data_request['type'] = 1;
                 $uuid_name = $this->generateImageName('file');
                 if ($uuid_name !== '') {
@@ -180,14 +227,16 @@ class InformationController extends CustomController
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('e-link-edit');
             } else {
-                $validator = Validator::make($this->request->all(), [
-                    'file-edit' => 'max:2000'
-                ], [
-                    'file-edit.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
-                ]);
-                if ($validator->fails()) {
-                    return redirect()->back()->withErrors($validator->errors());
-                }
+//                $validator = Validator::make($this->request->all(), [
+//                    'file-edit' => 'max:2000'
+//                ], [
+//                    'file-edit.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
+//                ]);
+//                if ($validator->fails()) {
+//                    return redirect()->back()->withErrors($validator->errors());
+//                }
+
+                dd($this->request);
                 $data_request['type'] = 1;
                 $uuid_name = $this->generateImageName('file-edit');
                 if ($uuid_name !== '') {
@@ -223,14 +272,14 @@ class InformationController extends CustomController
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('e-link-edit');
             } else {
-                $validator = Validator::make($this->request->all(), [
-                    'file-edit' => 'max:2000'
-                ], [
-                    'file-edit.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
-                ]);
-                if ($validator->fails()) {
-                    return redirect()->back()->withErrors($validator->errors());
-                }
+//                $validator = Validator::make($this->request->all(), [
+//                    'file-edit' => 'max:2000'
+//                ], [
+//                    'file-edit.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
+//                ]);
+//                if ($validator->fails()) {
+//                    return redirect()->back()->withErrors($validator->errors());
+//                }
                 $data_request['type'] = 1;
                 $uuid_name = $this->generateImageName('file-edit');
                 if ($uuid_name !== '') {
@@ -247,4 +296,29 @@ class InformationController extends CustomController
         }
     }
 
+    public function add_category_non_periodic()
+    {
+        try {
+            $slug = $this->postField('slug');
+            $category = Category::where('slug', '=', $slug)->first();
+            if (!$category) {
+                return $this->jsonResponse('kategori tidak ditemukan...', 500);
+            }
+            $data = [
+                'category_id' => $category->id,
+                'name' => $this->postField('information_category_name')
+            ];
+            InformationCategory::create($data);
+
+            $information_categories = InformationCategory::where('category_id', '=', $category->id)->get();
+            return $this->jsonResponse('success', 200, $information_categories);
+        } catch (\Exception $e) {
+            return $this->jsonResponse('terjadi kesalahan server...', 500);
+        }
+    }
+
+    public function add_non_periodic_information()
+    {
+        return $this->post_information();
+    }
 }
