@@ -42,20 +42,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     });
 
     Route::group(['prefix' => 'kustomisasi-aplikasi-online'], function () {
-        Route::get( '/datatable', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'datatable'])->name('customize.aplikasi.online.datatable');
-        Route::get( '/', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'index'])->name('customize.aplikasi.online');
+        Route::get('/datatable', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'datatable'])->name('customize.aplikasi.online.datatable');
+        Route::get('/', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'index'])->name('customize.aplikasi.online');
         Route::match(['post', 'get'], '/form', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'form'])->name('customize.aplikasi.online.form');
-        Route::post( '/destroy/{apps}', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'destroy'])->name('customize.aplikasi.online.destroy');
+        Route::post('/destroy/{apps}', [\App\Http\Controllers\Admin\OnlineApplicationController::class, 'destroy'])->name('customize.aplikasi.online.destroy');
     });
 
     Route::group(['prefix' => 'kustomisasi-kontak-profil'], function () {
-        Route::match(['POST','GET'], '/', [\App\Http\Controllers\Admin\ContactProfileController::class, 'index'])->name('customize.contact.profile');
+        Route::match(['POST', 'GET'], '/', [\App\Http\Controllers\Admin\ContactProfileController::class, 'index'])->name('customize.contact.profile');
     });
 
     Route::group(['prefix' => 'kustomisasi-video-youtube'], function () {
         Route::get('/datatable', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'datatable'])->name('customize.youtube.datatable');
         Route::get('/', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'index'])->name('customize.youtube');
-        Route::match(['GET','POST'],'/form', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'form'])->name('customize.youtube.form');
+        Route::match(['GET', 'POST'], '/form', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'form'])->name('customize.youtube.form');
         Route::post('/destroy/{youtube}', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'destroy'])->name('customize.youtube.destroy');
     });
 
@@ -74,7 +74,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('datatable', [\App\Http\Controllers\Admin\ArticleController::class, 'datatable'])->name('admin.article.datatable');
         Route::get('', [\App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('admin.article');
         Route::match(['POST', 'GET'], 'artikel-form', [\App\Http\Controllers\Admin\ArticleController::class, 'detail'])->name('admin.article.form');
-        Route::post('destroy/{article}',[\App\Http\Controllers\Admin\ArticleController::class,'destroy'])->name('admin.article.destroy');
+        Route::post('destroy/{article}', [\App\Http\Controllers\Admin\ArticleController::class, 'destroy'])->name('admin.article.destroy');
     });
 });
 
@@ -88,10 +88,10 @@ Route::get('/contact-profile-json', [\App\Http\Controllers\Admin\ContactProfileC
 Route::get('/youtube-video-json', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'getYoutubeVideo'])->name('youtube.video.json');
 Route::get('/image-slider', [\App\Http\Controllers\Admin\SliderController::class, 'image_slider'])->name('image.slider');
 
-Route::get('/sekretariat', [\App\Http\Controllers\LandingPage\SectorController::class,'sekretariat']);
-Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::class,'anggaran']);
-Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\LandingPage\SectorController::class,'perbendaharaan']);
-Route::get('/aset', [\App\Http\Controllers\LandingPage\SectorController::class,'aset']);
+Route::get('/sekretariat', [\App\Http\Controllers\LandingPage\SectorController::class, 'sekretariat']);
+Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::class, 'anggaran']);
+Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\LandingPage\SectorController::class, 'perbendaharaan']);
+Route::get('/aset', [\App\Http\Controllers\LandingPage\SectorController::class, 'aset']);
 
 // Route::get('/sekretariat', [\App\Http\Controllers\SectorController::class, 'secretarial'])->name('secretarial');
 // Route::get('/anggaran', [\App\Http\Controllers\SectorController::class, 'budget'])->name('budget');
@@ -118,6 +118,17 @@ Route::get('/informasi-setiap-saat', [\App\Http\Controllers\InformationControlle
 
 Route::get('/informasi-di-kecualikan', [\App\Http\Controllers\InformationController::class, 'dikecualikan_information'])->name('information.di-kecualikan');
 
+Route::get('/maklumat', function () {
+    return view('maklumat');
+})->name('maklumat');
+
+Route::get('/skm', function () {
+    return view('skm');
+})->name('skm');
+
+Route::get('/standarpelayanan', function () {
+    return view('sp');
+})->name('sp');
 //Route::get('/informasi', function () {
 //    return view('informasi');
 //});

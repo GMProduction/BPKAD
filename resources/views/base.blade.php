@@ -30,16 +30,16 @@
 
 <body style="position: relative">
     <style>
-        iframe{
+        iframe {
             width: 100%;
         }
+
         @media (min-width: 768px) {
             iframe {
                 height: 300px;
                 width: 500px;
             }
         }
-
     </style>
     <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10 shadow-sm">
         <div class="container flex flex-wrap justify-between items-center mx-auto sticky top-0">
@@ -95,6 +95,40 @@
                         </ul>
 
                     </li>
+
+                    <li class="group">
+                        <button
+                            class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-400 transition duration-300 md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">Layanan
+                            <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+
+
+                        <ul
+                            class="py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
+
+
+                            <li>
+                                <a href="{{ route('maklumat') }}" class="block py-2 px-4 hover:bg-gray-100  ">Maklumat
+                                    Pelayanan</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('sp') }}" class="block py-2 px-4 hover:bg-gray-100  ">Standar
+                                    Pelayanan</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('skm') }}" class="block py-2 px-4 hover:bg-gray-100  ">Survey
+                                    Kepuasan
+                                    Masyarakat</a>
+                            </li>
+                        </ul>
+
+                    </li>
+
                     <li class="group">
                         <button
                             class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto  hover:bg-gray-400 transition duration-300   ">Bidang
@@ -149,17 +183,20 @@
                                     Berkala</a>
                             </li>
                             <li>
-                                <a href="{{ route('information.serta-merta') }}" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                <a href="{{ route('information.serta-merta') }}"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                     Serta
                                     Merta</a>
                             </li>
                             <li>
-                                <a href="{{ route('information.setiap-saat') }}" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                <a href="{{ route('information.setiap-saat') }}"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                     Setiap
                                     saat</a>
                             </li>
                             <li>
-                                <a href="{{ route('information.di-kecualikan') }}" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                <a href="{{ route('information.di-kecualikan') }}"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                     Dikecualikan</a>
                             </li>
                         </ul>
@@ -197,10 +234,10 @@
                         <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">Lokasi BPKAD</p>
                         <div id="frameLocation"></div>
 
-{{--                        <iframe data-aos="fade-up" class="md:w-[500px] md:h-[300px]"--}}
-{{--                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398.3223047030822!2d110.82788629803538!3d-7.56922993376408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x62b5fc04bb57f608!2sBidang%20Akuntansi%20BPPKAD%20Kota%20Surakarta!5e0!3m2!1sen!2sid!4v1668665961788!5m2!1sen!2sid"--}}
-{{--                            style="border:0;" allowfullscreen="" loading="lazy"--}}
-{{--                            referrerpolicy="no-referrer-when-downgrade"></iframe>--}}
+                        {{--                        <iframe data-aos="fade-up" class="md:w-[500px] md:h-[300px]" --}}
+                        {{--                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398.3223047030822!2d110.82788629803538!3d-7.56922993376408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x62b5fc04bb57f608!2sBidang%20Akuntansi%20BPPKAD%20Kota%20Surakarta!5e0!3m2!1sen!2sid!4v1668665961788!5m2!1sen!2sid" --}}
+                        {{--                            style="border:0;" allowfullscreen="" loading="lazy" --}}
+                        {{--                            referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
                     </div>
                     <div>
                         <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">Contact</p>
@@ -214,14 +251,14 @@
                         <p class="text-white/80 text-sm font-light mb-3 textPhone" data-aos="fade-up"></p>
 
                         <p class="text-white text-sm font-bold italic" data-aos="fade-up">Jam Kerja</p>
-                        <p class="text-white/80 text-sm font-light textOfficeHours" style="white-space: pre-wrap;" data-aos="fade-up"></p>
-{{--                        <p class="text-white/80 text-sm font-light mb-3" data-aos="fade-up">Jumat 07.15-11.30 WIB</p>--}}
+                        <p class="text-white/80 text-sm font-light textOfficeHours" style="white-space: pre-wrap;"
+                            data-aos="fade-up"></p>
+                        {{--                        <p class="text-white/80 text-sm font-light mb-3" data-aos="fade-up">Jumat 07.15-11.30 WIB</p> --}}
                     </div>
                     <div>
                         <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">Social Media</p>
                         <div class="flex flex-wrap">
-                            <a href="#" id="href_facebook" target="_blank"
-                                data-aos="fade-up"
+                            <a href="#" id="href_facebook" target="_blank" data-aos="fade-up"
                                 class="mr-3 bg-white p-2 hover:bg-blue-600 font-semibold mb-3 text-white inline-flex items-center space-x-2 rounded transition duration-300">
                                 <svg class="w-5 h-5 fill-current" role="img" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24">
@@ -286,24 +323,24 @@
         }
 
         function contact_profile() {
-            fetch('{{route('contact.profile.json')}}')
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('dasd',data)
-                document.querySelector('.textEmail').innerHTML = data?.email
-                document.querySelector('.textEmailH').innerHTML = data?.email
-                document.querySelector('.textAddress').innerHTML = data?.address
-                document.querySelector('.textAddressH').innerHTML = data?.address
-                document.querySelector('.textOfficeHours').innerHTML = data?.office_hours
-                document.querySelector('.textOfficeHoursH').innerHTML = data?.office_hours
-                document.querySelector('.textPhone').innerHTML = data?.phone
-                document.querySelector('.textPhoneH').innerHTML = data?.phone
-                document.querySelector('#frameLocation').innerHTML = data?.location
-                document.querySelector('#href_facebook').href = data?.facebook
-                document.querySelector('#href_twitter').href = data?.twitter
-                document.querySelector('#href_instagram').href = data?.instagram
-                document.querySelector('#href_youtube').href = data?.youtube
-            })
+            fetch('{{ route('contact.profile.json') }}')
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log('dasd', data)
+                    document.querySelector('.textEmail').innerHTML = data?.email
+                    document.querySelector('.textEmailH').innerHTML = data?.email
+                    document.querySelector('.textAddress').innerHTML = data?.address
+                    document.querySelector('.textAddressH').innerHTML = data?.address
+                    document.querySelector('.textOfficeHours').innerHTML = data?.office_hours
+                    document.querySelector('.textOfficeHoursH').innerHTML = data?.office_hours
+                    document.querySelector('.textPhone').innerHTML = data?.phone
+                    document.querySelector('.textPhoneH').innerHTML = data?.phone
+                    document.querySelector('#frameLocation').innerHTML = data?.location
+                    document.querySelector('#href_facebook').href = data?.facebook
+                    document.querySelector('#href_twitter').href = data?.twitter
+                    document.querySelector('#href_instagram').href = data?.instagram
+                    document.querySelector('#href_youtube').href = data?.youtube
+                })
         }
     </script>
     <script src="{{ asset('/js/flowbite.js') }}"></script>
