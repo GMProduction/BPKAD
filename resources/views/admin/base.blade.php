@@ -133,6 +133,13 @@
                         </span>
                         <p class="title-menu block nav-link menu-text ext-sm">Video Yotube</p>
                     </a>
+                    <a class="menu" href="{{ route('customize.layanan') }}">
+
+                        <span class="material-symbols-outlined mr-2 menu-icon">
+                            fiber_manual_record
+                        </span>
+                        <p class="title-menu block nav-link menu-text ext-sm">Layanan</p>
+                    </a>
                 </div>
 
 
@@ -160,7 +167,7 @@
 
             </div>
 
-            <div class="flex " style="min-height: calc(100vh - 70px)" >
+            <div class="flex " style="min-height: calc(100vh - 70px)">
                 <div class="side">
 
                 </div>

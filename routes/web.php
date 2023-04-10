@@ -129,6 +129,11 @@ Route::get('/skm', function () {
 Route::get('/standarpelayanan', function () {
     return view('sp');
 })->name('sp');
+
+Route::get('/admin/kustomisasi-layanan', function () {
+    return view('admin/customize/customize_layanan');
+})->name('customize.layanan');
+
 //Route::get('/informasi', function () {
 //    return view('informasi');
 //});

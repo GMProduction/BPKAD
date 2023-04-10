@@ -13,13 +13,13 @@
     <div class=" mt-16 mb-16">
 
 
-        <div
-            class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
+        <div class="bg-white p-10  sm:w-[80%] w-[95%]  mx-auto shadow-md mb-6 transform transition duration-500">
             <p class="text-primary font-bold text-3xl italic  text-center mb-10">Survey Kepuasan Masyarakat</p>
             <div class="w-full text-center">
                 <a id="aImage" target="_blank">
-                    <iframe src="https://drive.google.com/file/d/1her3udg4UWNYdpi3aNeZWli4QSy9EaGx/preview"
-                        class="  object-cover w-[80%] h-[60vh] mx-auto " allow="autoplay"></iframe>
+                    <iframe style="height: 80vh"
+                        src="https://drive.google.com/file/d/1her3udg4UWNYdpi3aNeZWli4QSy9EaGx/preview"
+                        class="  object-cover w-[80%]  mx-auto " allow="autoplay"></iframe>
                 </a>
             </div>
         </div>
