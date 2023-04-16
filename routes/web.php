@@ -77,8 +77,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::post('destroy/{article}', [\App\Http\Controllers\Admin\ArticleController::class, 'destroy'])->name('admin.article.destroy');
     });
 
-    Route::group(['prefix' => 'kustomisasi-layanan'], function (){
-        Route::match(['POST','GET'],'', [\App\Http\Controllers\Admin\CustomizeServiceController::class, 'index'])->name('customize.layanan');
+    Route::group(['prefix' => 'kustomisasi-layanan'], function () {
+        Route::match(['POST', 'GET'], '', [\App\Http\Controllers\Admin\CustomizeServiceController::class, 'index'])->name('customize.layanan');
         Route::get('datatable', [\App\Http\Controllers\Admin\CustomizeServiceController::class, 'dataTable'])->name('customize.layanan.datatable');
     });
 });
@@ -134,6 +134,11 @@ Route::get('/skm', function () {
 Route::get('/standarpelayanan', function () {
     return view('sp');
 })->name('sp');
+
+Route::get('/informasipublik', function () {
+    return view('informasipublik');
+})->name('information.public');
+
 
 
 //Route::get('/informasi', function () {

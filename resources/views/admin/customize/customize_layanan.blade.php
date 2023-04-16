@@ -28,29 +28,29 @@
     @if ($errors->any())
         <script>
             @if ($errors->has('file-edit'))
-            Swal.fire({
-                icon: "error",
-                text: "{{ $errors->first('file-edit') }}"
-            })
+                Swal.fire({
+                    icon: "error",
+                    text: "{{ $errors->first('file-edit') }}"
+                })
             @endif
             @if ($errors->has('e-link-edit'))
-            Swal.fire({
-                icon: "error",
-                text: "{{ $errors->first('e-link-edit') }}"
-            })
+                Swal.fire({
+                    icon: "error",
+                    text: "{{ $errors->first('e-link-edit') }}"
+                })
             @endif
 
             @if ($errors->has('link'))
-            Swal.fire({
-                icon: "error",
-                text: "{{ $errors->first('link') }}"
-            })
+                Swal.fire({
+                    icon: "error",
+                    text: "{{ $errors->first('link') }}"
+                })
             @endif
             @if ($errors->has('file'))
-            Swal.fire({
-                icon: "error",
-                text: "{{ $errors->first('file') }}"
-            })
+                Swal.fire({
+                    icon: "error",
+                    text: "{{ $errors->first('file') }}"
+                })
             @endif
         </script>
     @endif
@@ -60,9 +60,9 @@
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
                     <a href="{{ route('dashboard') }}"
-                       class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
+                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
                         <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
+                            xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                             </path>
@@ -73,13 +73,13 @@
                 <li>
                     <div class="flex items-center">
                         <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
+                            xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
-                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                  clip-rule="evenodd"></path>
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"></path>
                         </svg>
                         <a href="#"
-                           class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Layanan</a>
+                            class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Layanan</a>
                     </div>
                 </li>
 
@@ -99,15 +99,15 @@
                     <li class="mr-2" role="presentation">
                         <button
                             class="tabs-btn rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2  "
-                            id="sertamerta-tab" data-tabs-target="#sertamerta" type="button" role="tab" onclick="setTabs(2)"
-                            aria-controls="sertamerta" aria-selected="false">Standar Pelayanan
+                            id="sertamerta-tab" data-tabs-target="#sertamerta" type="button" role="tab"
+                            onclick="setTabs(2)" aria-controls="sertamerta" aria-selected="false">Standar Pelayanan
                         </button>
                     </li>
                     <li class="mr-2" role="presentation">
                         <button
                             class="tabs-btn inline-block  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 "
-                            id="setiapsaat-tab" data-tabs-target="#setiapsaat" type="button" role="tab" onclick="setTabs(3)"
-                            aria-controls="setiapsaat" aria-selected="false">Survey Kepuasan Masyarakat
+                            id="setiapsaat-tab" data-tabs-target="#setiapsaat" type="button" role="tab"
+                            onclick="setTabs(3)" aria-controls="setiapsaat" aria-selected="false">Survey Kepuasan Masyarakat
                         </button>
                     </li>
 
@@ -130,7 +130,7 @@
                                 <div class="mb-6">
                                     <form id="formBerkala" method="POST" enctype="multipart/form-data">
                                         @csrf
-                                        <input name="id" value="{{$berkala != null ? $berkala->id : ''}}" hidden>
+                                        <input name="id" value="{{ $berkala != null ? $berkala->id : '' }}" hidden>
                                         <input name="type_file" value="1" hidden>
                                         <input name="service_type" value="1" hidden>
                                         <label class="inline-block mb-2 text-gray-500">Gambar Maklumat Pelayanan</label>
@@ -138,19 +138,22 @@
                                             <label
                                                 class="flex flex-col w-full border-4 border-dashed hover:bg-gray-100 hover:border-gray-300">
                                                 <div class="relative flex flex-col items-center justify-center pt-7">
-                                                    <img id="preview" class="absolute inset-0 h-[141px] mx-auto object-fit" src="{{$berkala != null ? $berkala->url : ''}}">
+                                                    <img id="preview"
+                                                        class="absolute inset-0 h-[141px] mx-auto object-fit"
+                                                        src="{{ $berkala != null ? $berkala->url : '' }}">
                                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                                         class="w-12 h-12 text-gray-400 group-hover:text-gray-600"
-                                                         viewBox="0 0 20 20" fill="currentColor">
+                                                        class="w-12 h-12 text-gray-400 group-hover:text-gray-600"
+                                                        viewBox="0 0 20 20" fill="currentColor">
                                                         <path fill-rule="evenodd"
-                                                              d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                                                              clip-rule="evenodd"/>
+                                                            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                                                            clip-rule="evenodd" />
                                                     </svg>
                                                     <p
                                                         class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
                                                         pilih foto</p>
                                                 </div>
-                                                <input type="file" class="opacity-0" accept="image/*" onchange="showPreview(event)" name="url"/>
+                                                <input type="file" class="opacity-0" accept="image/*"
+                                                    onchange="showPreview(event)" name="url" />
                                             </label>
                                         </div>
                                         @if ($errors->has('cover'))
@@ -161,7 +164,7 @@
                                         @endif
 
                                         <button type="button" onclick="saveForm()"
-                                                class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
+                                            class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
                                             Simpan Perubahan
                                         </button>
                                     </form>
@@ -188,7 +191,7 @@
 
                             </div>
                             <button type="button" id="openModal"
-                                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                                 <span class="material-symbols-outlined text-white mr-3">
                                     add
                                 </span>Tambah SP
@@ -197,21 +200,21 @@
                         <div class="overflow-x-auto shadow-sm ">
                             <table class="w-full text-sm text-left text-gray-500  " id="table">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
-                                <tr>
-                                    <th scope="col" class="py-3 px-6">
-                                        #
-                                    </th>
-                                    <th scope="col" class="py-3 px-6">
-                                        Bidang
-                                    </th>
+                                    <tr>
+                                        <th scope="col" class="py-3 px-6">
+                                            #
+                                        </th>
+                                        <th scope="col" class="py-3 px-6">
+                                            Bidang
+                                        </th>
 
-                                    <th scope="col" class="py-3 px-6">
-                                        Link
-                                    </th>
-                                    <th scope="col" class="py-3 px-6">
-                                        <span class="sr-only">Ubah</span>
-                                    </th>
-                                </tr>
+                                        <th scope="col" class="py-3 px-6">
+                                            Link
+                                        </th>
+                                        <th scope="col" class="py-3 px-6">
+                                            <span class="sr-only">Ubah</span>
+                                        </th>
+                                    </tr>
                                 </thead>
                                 <tbody>
 
@@ -224,7 +227,7 @@
                 <div class=" p-4 rounded-lg hidden" id="setiapsaat" role="tabpanel" aria-labelledby="setiapsaat-tab">
                     <form id="formSetiap" method="POST">
                         @csrf
-                        <input name="id" value="{{$setiap != null ? $setiap->id : ''}}" hidden >
+                        <input name="id" value="{{ $setiap != null ? $setiap->id : '' }}" hidden>
                         <input name="type_file" value="2" hidden>
                         <input name="service_type" value="3" hidden>
                         <div class="bg-green-100 p-2 mb-5 flex items-center rounded-md ">
@@ -237,11 +240,12 @@
                         <div class="mb-3 ">
                             <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
                             <input type="text" id="link-info" name="url"
-                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                   required value="{{$setiap != null ? $setiap->url : ''}}" placeholder="Masukan Link Url">
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                required value="{{ $setiap != null ? $setiap->url : '' }}"
+                                placeholder="Masukan Link Url">
                         </div>
                         <button type="button" onclick="saveSetiap()"
-                                class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
+                            class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
                             Simpan Perubahan
                         </button>
                     </form>
@@ -251,21 +255,21 @@
         </div>
 
         <div id="dropdownperaturan"
-             class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+            class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="infoperaturan">
                 <li>
                     <a href="/admin/informasi/detailbyyear"
-                       class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
+                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
                         Daerah</a>
                 </li>
                 <li>
                     <a href="/admin/informasi/detailbyyear"
-                       class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
+                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
                         Walikota</a>
                 </li>
                 <li>
                     <a href="/admin/informasi/detailbyyear"
-                       class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
+                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
                         Lainya</a>
                 </li>
 
@@ -274,7 +278,7 @@
 
         <!-- Modal Tambah -->
         <div id="modalTambah" tabindex="-1" aria-hidden="true"
-             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
             <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow ">
@@ -284,31 +288,31 @@
                             Tambah Informasi
                         </h3>
                         <button type="button" onclick="modal.hide()"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                 xmlns="http://www.w3.org/2000/svg">
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
-                                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                      clip-rule="evenodd"></path>
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
                             </svg>
                             <span class="sr-only">Close modal</span>
                         </button>
                     </div>
                     <form method="post" enctype="multipart/form-data" id="formSerta">
-                    @csrf
-                        <input id="id" name="id" value="" >
+                        @csrf
+                        <input id="id" name="id" value="">
                         <input id="type_file" name="type_file">
                         <input name="service_type" value="2">
-                    <!-- Modal body -->
+                        <!-- Modal body -->
                         <div class="p-6 ">
                             <div class="mb-3">
                                 <div>
                                     <label for="information_categories"
-                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Bidang</label>
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Bidang</label>
                                     <div class="flex">
                                         <input type="text" id="bidang-info" name="sector"
-                                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                               placeholder="Masukan Bidang" required>
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                            placeholder="Masukan Bidang" required>
                                     </div>
                                 </div>
                             </div>
@@ -319,9 +323,9 @@
                                 <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
                                     <li>
                                         <input type="radio" id="tr-link" name="tr-konten" value="tr-link"
-                                               class="hidden peer" required checked onclick="switchtambahKonten()">
+                                            class="hidden peer" required checked onclick="switchtambahKonten()">
                                         <label for="tr-link"
-                                               class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                             <div class="block">
                                                 <div class="w-full text-lg font-semibold text-center">Link</div>
                                                 <div class="w-full text-center">Konten Menggunakan Link</div>
@@ -330,9 +334,9 @@
                                     </li>
                                     <li>
                                         <input type="radio" id="tr-file" name="tr-konten" value="tr-file"
-                                               class="hidden peer" onclick="switchtambahKonten()">
+                                            class="hidden peer" onclick="switchtambahKonten()">
                                         <label for="tr-file"
-                                               class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                             <div class="block">
                                                 <div class="w-full text-lg font-semibold text-center">File</div>
                                                 <div class="w-full text-center">Konten dengan file (Max 2Mb)</div>
@@ -343,26 +347,26 @@
 
                                 <div class="mb-3 " id="div-tambahlink">
                                     <label for="link-info"
-                                           class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                        class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
                                     <input type="text" id="link-url" name="url"
-                                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                           placeholder="Masukan Link" >
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                        placeholder="Masukan Link">
                                 </div>
 
                                 <div class="mb-3  hidden" id="div-tambahfile">
                                     <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
                                         file</label>
                                     <input onchange="checkSize(this)"
-                                           class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
-                                           aria-describedby="upload-file_help" id="upload-file" type="file"
-                                           name="url" accept="application/pdf">
+                                        class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
+                                        aria-describedby="upload-file_help" id="upload-file" type="file"
+                                        name="url" accept="application/pdf">
                                 </div>
                             </div>
                         </div>
                         <!-- Modal footer -->
                         <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
                             <button type="button" id="btn-submit-information" onclick="saveSerta()"
-                                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                                 <span class="material-symbols-outlined text-white mr-3">
                                     save
                                 </span>Simpan Informasi
@@ -387,12 +391,11 @@
     @if (\Illuminate\Support\Facades\Session::has('type'))
         <script>
             let type = "{{ \Illuminate\Support\Facades\Session::get('type') }}"
-            let el = document.getElementById(type+'-tab');
+            let el = document.getElementById(type + '-tab');
             el.ariaSelected = 'true'
         </script>
     @endif
     <script>
-
         let tabs = 1;
         const targetEl = document.getElementById('modalTambah');
         let modal = new Modal(targetEl, {
@@ -406,7 +409,7 @@
             }
         });
 
-        $(document).ready(function () {
+        $(document).ready(function() {
             datatable()
         })
 
@@ -440,8 +443,7 @@
             }
         }
 
-        function showPreview(event)
-        {
+        function showPreview(event) {
             if (event.target.files.length > 0) {
                 var src = URL.createObjectURL(event.target.files[0]);
                 var preview = document.getElementById("preview");
@@ -450,7 +452,7 @@
             }
         }
 
-        $(document).on('click', '#openModal', function () {
+        $(document).on('click', '#openModal', function() {
             modal.show();
         })
 
@@ -459,18 +461,18 @@
         }
 
         function saveForm() {
-            saveData('Simpan Data','formBerkala')
+            saveData('Simpan Data', 'formBerkala')
             return false;
 
         }
 
         function saveSetiap() {
-            saveData('Simpan Data','formSetiap')
+            saveData('Simpan Data', 'formSetiap')
             return false;
         }
 
         function saveSerta() {
-            saveData('Simpan Data','formSerta')
+            saveData('Simpan Data', 'formSerta')
             return false;
         }
 
@@ -482,7 +484,7 @@
                 showCloseButton: true,
                 showCancelButton: true,
                 focusConfirm: false,
-            }).then(function (result) {
+            }).then(function(result) {
                 if (result.isConfirmed) {
                     $('#' + form).submit();
                 }
@@ -500,8 +502,8 @@
                 rowReorder: {
                     selector: 'td:nth-child(2)'
                 },
-                ajax: '{{route('customize.layanan.datatable')}}',
-                fnRowCallback: function (
+                ajax: '{{ route('customize.layanan.datatable') }}',
+                fnRowCallback: function(
                     nRow,
                     aData,
                     iDisplayIndex,
@@ -514,26 +516,40 @@
                     $("td:first", nRow).html(index);
                     return nRow;
                 },
-                columns: [
-                    {
+                columns: [{
                         className: "",
                         orderable: false,
                         defaultContent: "",
                         searchable: false
                     },
-                    {data: 'sector', name: 'sector', orderable: true},
-                    {data: 'url', name: 'url', orderable: true, render(data,x,row){
-                            if (row.type_file == 1){
-                                return '<a role="button" class="text-blue-500" href="'+data+'" target="_blank">File Pdf</a>'
+                    {
+                        data: 'sector',
+                        name: 'sector',
+                        orderable: true
+                    },
+                    {
+                        data: 'url',
+                        name: 'url',
+                        orderable: true,
+                        render(data, x, row) {
+                            if (row.type_file == 1) {
+                                return '<a role="button" class="text-blue-500" href="' + data +
+                                    '" target="_blank">File Pdf</a>'
                             }
                             return data;
-                        }},
-                    {data: 'action', name: 'action', orderable: false, searchable: false},
+                        }
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
                 ]
             })
         }
 
-        $(document).on('click','#editData', function (ev) {
+        $(document).on('click', '#editData', function(ev) {
             let id = $(this).data('id')
             let sector = $(this).data('sector')
             let typefile = $(this).data('typefile')
@@ -542,12 +558,12 @@
             $('#modalTambah #id').val(id)
             $('#modalTambah #bidang-info').val(sector)
 
-            if(typefile == 1){
+            if (typefile == 1) {
                 $('#tr-link').attr('checked', false);
                 $('#tr-file').attr('checked', true);
                 switchtambahKonten()
                 $('#upload-file')
-            }else{
+            } else {
                 $('#tr-link').attr('checked', true);
                 $('#tr-file').attr('checked', false);
                 switchtambahKonten()
@@ -557,7 +573,7 @@
         })
 
 
-        jQuery.fn.dataTableExt.oApi.fnPagingInfo = function (oSettings) {
+        jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
             return {
                 "iStart": oSettings._iDisplayStart,
                 "iEnd": oSettings.fnDisplayEnd(),
@@ -570,6 +586,5 @@
                     0 : Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
             };
         };
-
     </script>
 @endsection

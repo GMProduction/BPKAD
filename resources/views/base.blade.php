@@ -199,6 +199,10 @@
                                     class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                     Dikecualikan</a>
                             </li>
+                            <li>
+                                <a href="{{ route('information.public') }}"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Daftar Informasi Publik</a>
+                            </li>
                         </ul>
 
                     </li>
