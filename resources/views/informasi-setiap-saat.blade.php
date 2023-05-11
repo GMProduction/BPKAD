@@ -10,7 +10,7 @@
 @section('content')
     <div class="mt-[-89px]  h-[350px] w-[100%] bg-black/40 z-[-1]  relative">
         <div class="absolute  bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
-            <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">INFORMASI </a> <br>
+            <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">INFORMASI SETIAP SAAT</a> <br>
             <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-sm font-light">Informasi Setiap Saat
                 adalah informasi yang harus disediakan oleh Badan Publik dan siap tersedia untuk dapat langsung diberikan
                 kepada Pemohon Informasi Publik ketika terdapat permohonan terhadap Informasi Publik tersebut.</a>
