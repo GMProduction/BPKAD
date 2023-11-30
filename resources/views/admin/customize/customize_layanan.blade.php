@@ -225,7 +225,7 @@
                 </div>
 
                 <div class=" p-4 rounded-lg hidden" id="setiapsaat" role="tabpanel" aria-labelledby="setiapsaat-tab">
-                    <form id="formSetiap" method="POST">
+                    {{-- <form id="formSetiap" method="POST">
                         @csrf
                         <input name="id" value="{{ $setiap != null ? $setiap->id : '' }}" hidden>
                         <input name="type_file" value="2" hidden>
@@ -248,9 +248,158 @@
                             class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
                             Simpan Perubahan
                         </button>
-                    </form>
-                </div>
+                    </form> --}}
 
+                    <div class="flex justify-between mb-3 items-end">
+                        <p class=" font-semibold">Survey Kepuasan Masyarakat</p>
+                        <button type="button" id="openModaltambahtahun"
+                            class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                            <span class="material-symbols-outlined text-white mr-3">
+                                add
+                            </span>Tambah Tahun
+                        </button>
+                    </div>
+
+                    <div class="relative overflow-x-auto">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        Tahun
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Triwulan I
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Triwulan II
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Triwulan III
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Triwulan IV
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        2024
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        <a href="#"> (file)</a>
+                                        <a href="#"
+                                            class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Ubah</a>
+                                        <a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#"> (file)</a>
+                                        <a href="#"
+                                            class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Ubah</a>
+                                        <a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#"> (file)</a>
+                                        <a href="#"
+                                            class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Ubah</a>
+                                        <a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#"> (file)</a>
+                                        <a href="#"
+                                            class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Ubah</a>
+                                        <a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                    </td>
+                                    <td><a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus
+                                            Baris</a></td>
+                                </tr>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        2023
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        <a href="#"> (file)</a>
+                                        <a href="#"
+                                            class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Ubah</a>
+                                        <a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#"> (file)</a>
+                                        <a href="#"
+                                            class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Ubah</a>
+                                        <a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#"> (file)</a>
+                                        <a href="#"
+                                            class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Ubah</a>
+                                        <a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#"> (file)</a>
+                                        <a href="#"
+                                            class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Ubah</a>
+                                        <a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                    </td>
+                                    <td><a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus
+                                            Baris</a></td>
+                                </tr>
+                                <tr class="bg-white dark:bg-gray-800">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        2022
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        <a href="#"> (file)</a>
+                                        <a href="#"
+                                            class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Ubah</a>
+                                        <a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#"> (file)</a>
+                                        <a href="#"
+                                            class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Ubah</a>
+                                        <a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#"> (file)</a>
+                                        <a href="#"
+                                            class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Ubah</a>
+                                        <a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#"> (file)</a>
+                                        <a href="#"
+                                            class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Ubah</a>
+                                        <a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                    </td>
+                                    <td><a href="#"
+                                            class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus
+                                            Baris</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -302,7 +451,7 @@
                         @csrf
                         <input id="id" name="id" value="">
                         <input id="type_file" name="type_file">
-                        <input name="service_type" value="2">
+                        <input name="service_type" hidden value="2">
                         <!-- Modal body -->
                         <div class="p-6 ">
                             <div class="mb-3">
@@ -377,6 +526,59 @@
             </div>
         </div>
 
+        <!-- Modal Tambah Tahun-->
+        <div id="modalTambaht" tabindex="-1" aria-hidden="true"
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+            <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow ">
+                    <!-- Modal header -->
+                    <div class="flex justify-between items-start p-4 rounded-t border-b ">
+                        <h3 class="text-xl font-semibold text-gray-900 " id="title-modal-tambah">
+                            Tambah Tahun
+                        </h3>
+                        <button type="button" onclick="modalt.hide()"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <form method="post" enctype="multipart/form-data" id="formTahun">
+                        @csrf
+                        <input id="id" name="id" value="">
+                        <!-- Modal body -->
+                        <div class="p-6 ">
+                            <div class="mb-3">
+                                <div>
+                                    <label for="information_categories"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
+                                    <div class="flex">
+                                        <input type="text" id="bidang-info" name="sector"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                            placeholder="Masukan Tahun" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
+                            <button type="button" id="btn-submit-information" onclick="saveTahun()"
+                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                                <span class="material-symbols-outlined text-white mr-3">
+                                    save
+                                </span>Simpan Tahun
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
     </div>
 @endsection
@@ -399,6 +601,18 @@
         let tabs = 1;
         const targetEl = document.getElementById('modalTambah');
         let modal = new Modal(targetEl, {
+            placement: 'bottom-right',
+            backdrop: 'dynamic',
+            onShow: () => {
+
+            },
+            onHide: () => {
+
+            }
+        });
+
+        const targetElm = document.getElementById('modalTambaht');
+        let modalt = new Modal(targetElm, {
             placement: 'bottom-right',
             backdrop: 'dynamic',
             onShow: () => {
@@ -456,6 +670,10 @@
             modal.show();
         })
 
+        $(document).on('click', '#openModaltambahtahun', function() {
+            modalt.show();
+        })
+
         function setTabs(x) {
             tabs = x
         }
@@ -473,6 +691,11 @@
 
         function saveSerta() {
             saveData('Simpan Data', 'formSerta')
+            return false;
+        }
+
+        function saveTahun() {
+            saveData('Simpan Data', 'formTahun')
             return false;
         }
 

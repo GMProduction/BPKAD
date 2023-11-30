@@ -14,13 +14,97 @@
 
         <div class="bg-white p-10  sm:w-[80%] w-[95%]  mx-auto shadow-md mb-6 transform transition duration-500">
             <p class="text-primary font-bold text-3xl italic  text-center mb-10">Survey Kepuasan Masyarakat</p>
-            <div class="w-full text-center">
+
+
+
+
+            <div class="relative overflow-x-auto">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Tahun
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Triwulan I
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Triwulan II
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Triwulan III
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Triwulan IV
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                2024
+                            </th>
+                            <td class="px-6 py-4">
+                                (file)
+                            </td>
+                            <td class="px-6 py-4">
+                                (file)
+                            </td>
+                            <td class="px-6 py-4">
+                                (file)
+                            </td>
+                            <td class="px-6 py-4">
+                                (file)
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                2023
+                            </th>
+                            <td class="px-6 py-4">
+                                (file)
+                            </td>
+                            <td class="px-6 py-4">
+                                (file)
+                            </td>
+                            <td class="px-6 py-4">
+                                $(file)
+                            </td>
+                            <td class="px-6 py-4">
+                                (file)
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                2022
+                            </th>
+                            <td class="px-6 py-4">
+                                (file)
+                            </td>
+                            <td class="px-6 py-4">
+                                (file)
+                            </td>
+                            <td class="px-6 py-4">
+                                (file)
+                            </td>
+                            <td class="px-6 py-4">
+                                (file)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            {{-- <div class="w-full text-center">
                 <a id="aImage" target="_blank">
                     <iframe style="height: 80vh"
                         src="https://drive.google.com/file/d/1her3udg4UWNYdpi3aNeZWli4QSy9EaGx/preview"
                         class="  object-cover w-[80%]  mx-auto " allow="autoplay"></iframe>
                 </a>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection

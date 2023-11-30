@@ -34,10 +34,13 @@
         </div>
     </div>
 
-    <img id="slider" src="{{ asset('assets/local/slide.jpg') }}"
-        class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] object-cover top-0 left-0" />
-
-
+    <div class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] object-cover top-0 left-0 overflow-hidden">
+        <div class=" slider-header ">
+            @foreach ($slider as $slide)
+                <img src="{{ asset($slide->image) }}" class=" " />
+            @endforeach
+        </div>
+    </div>
     <div class="mt-[-70px] min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md flex items-center "
         data-aos="fade-up">
         <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 mt-[auto] mb-[auto] w-[100%] ">
@@ -112,18 +115,17 @@
             <p class="text-white/80 text-sm text-center mb-10" data-aos="fade-up">Aplikasi Online yang dapat membantumu</p>
 
             <div class="slider-aplikasi" data-aos="fade-up">
-                {{-- @forelse($application as $ap)
-                    <a class="block " href="{{$ap->url}}" target="_blank">
+                @forelse($application as $ap)
+                    <a class="block " href="{{ $ap->url }}" target="_blank">
                         <div
                             class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
                             <div>
-                                <img src="{{ asset($ap->image) }}"
-                                     class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5"/>
+                                <img src="{{ asset($ap->image) }}" class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
                             </div>
                             <div class="col-span-2">
-                                <p class="text-white font-bold text-2xl italic mb-3">{{$ap->name}}</p>
-                                <p class="text-sm text-white  mb-1 font-bold ">{{$ap->short_description}}</p>
-                                <p class="text-sm text-white/80 ">{{$ap->description}}</p>
+                                <p class="text-white font-bold text-2xl italic mb-3">{{ $ap->name }}</p>
+                                <p class="text-sm text-white  mb-1 font-bold ">{{ $ap->short_description }}</p>
+                                <p class="text-sm text-white/80 ">{{ $ap->description }}</p>
                             </div>
                         </div>
                     </a>
@@ -131,7 +133,8 @@
                     <div class="flex justify-center">
                         <p>Tidak ada aplikasi online</p>
                     </div>
-                @endforelse --}}
+                @endforelse
+                {{--
                 <a class="block " href="https://surakartakota.fmis.id//" target="_blank">
                     <div
                         class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
@@ -216,7 +219,7 @@
                         </div>
 
                     </div>
-                </a>
+                </a> --}}
 
 
             </div>
@@ -251,20 +254,35 @@
 
     </div>
 
-    <div class="grid  grid-cols-1 md:h-[350px] h-min-[350px] relative overflow-hidden">
+    <div class="grid  grid-cols-1 md:h-[350px] h-[700px] relative overflow-hidden">
         <div class="relative">
-            <div class="absolute bg-black/40 top-0 left-0 w-[100%] h-[350px]"></div>
-            <img src="{{ asset('assets/local/aspirasi.jpg') }}" class="absolute z-[-1] object-cover h-[350px] w-full" />
+            <div class="absolute bg-black/40 top-0 left-0 w-[100%] md:h-[350px] h-[700px]"></div>
+            <img src="{{ asset('assets/local/aspirasi.jpg') }}"
+                class="absolute z-[-1] object-cover md:h-[350px] h-[700px] w-full" />
 
-            <div class="absolute flex flex-col items-center justify-center  h-[350px] w-full" data-aos="fade-up">
-                <p class="italic font-bold text-4xl text-white mb-3 text-center" data-aos="fade-up">Kirim Aspirasi Anda
-                </p>
-                <p class=" text-white text-center">Yuk, Masukan aspirasimu untuk BPKAD yang lebih baik</p>
-                <a href="https://ulas.surakarta.go.id/"
-                    class="mt-3 relative   text-white font-bold border-white px-5 py-3 border-2 hover:bg-white/25">
-                    Kirim Aspirasi
-                </a>
+            <div class="grid md:grid-cols-2 grid-cols-1">
+                <div class=" flex flex-col items-center justify-center  h-[350px] w-full" data-aos="fade-up">
+                    <p class="italic font-bold text-4xl text-white mb-3 text-center" data-aos="fade-up">Kirim Aspirasi
+                        Anda
+                    </p>
+                    <p class=" text-white text-center">Yuk, Masukan aspirasimu untuk BPKAD yang lebih baik</p>
+                    <a href="https://ulas.surakarta.go.id/"
+                        class="mt-3 relative   text-white font-bold border-white px-5 py-3 border-2 hover:bg-white/25">
+                        KIRIM ASPIRASI
+                    </a>
+                </div>
 
+                <div class=" flex flex-col items-center justify-center  h-[350px] w-full" data-aos="fade-up">
+                    <p class="italic font-bold text-4xl text-white mb-3 text-center" data-aos="fade-up">Kirim Laporan
+                        Pengaduan Online
+                    </p>
+                    <p class=" text-white text-center">Sampaikan laporan Anda langsung kepada instansi pemerintah berwenang
+                    </p>
+                    <a href="https://www.lapor.go.id/"
+                        class="mt-3 relative   text-white font-bold border-white px-5 py-3 border-2 hover:bg-white/25">
+                        SP4N LAPOR
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -288,81 +306,8 @@
 
         <div class="artikel-slide dark  sm:px-16 px-5 mb-10 " data-aos="fade-up" id="newArticle">
 
-            <a href="https://twitter.com/RADARSOLO_/status/1589464155827757056?t=KidA4z7az-0QBY80B5SZaQ&s=08"
-                target="_blank"
-                class="mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer hover:scale-105">
-                <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
-                    <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
-                    <img class="w-full h-full object-cover rounded-md "
-                        src="https://pbs.twimg.com/media/Fg7jMG9UoAEQMrL?format=jpg&name=medium" />
-
-                </div>
-                <p class="italic font-bold text-md text-center px-3 pb-3">Wali Kota Surakarta
-                    @gibran_tweet
-                    sempat mengatakan, penataan Taman Balekambang sempat mengalami keterlambatan selama beberapa saat
-                    karena
-                    persoalan teknis.
-                </p>
-            </a>
-
-            <a class="mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer hover:scale-105"
-                href="https://www.solopos.com/1-500-orang-bersih-bersih-kawasan-sriwedari-solo-alat-berat-ikut-dikerahkan-1464928"
-                target="_blank">
-                <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
-                    <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
-                    <img class="w-full h-full object-cover rounded-md "
-                        src="https://images.solopos.com/2022/11/bersih-bersih-sriwdari.jpg" />
-
-                </div>
-                <p class="italic font-bold text-md text-center px-3 pb-3">1.500 Orang Bersih-Bersih Kawasan Sriwedari
-                    Solo,
-                    Alat Berat Ikut Dikerahkan</p>
-
-            </a>
-            <a class="mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer hover:scale-105"
-                href="https://solo.suaramerdeka.com/solo-raya/pr-055482435/kawasan-sriwedari-solo-dibersihkan-gerbang-sisi-utara-kembali-dibuka"
-                target="_blank">
-                <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
-                    <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
-                    <img class="w-full h-full object-cover rounded-md "
-                        src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/11/06/39043295.jpg" />
-
-                </div>
-                <p class="italic font-bold text-md text-center px-3 pb-3">
-                    Kawasan Sriwedari Solo Dibersihkan, Gerbang Sisi Utara Kembali Dibuka
-                </p>
-            </a>
-
-
-            <a class="mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer hover:scale-105">
-                <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
-                    <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
-                    <img class="w-full h-full object-cover rounded-md "
-                        src="https://asset.kompas.com/crops/hI7t9Rp4KUaZO7eJ8xgckwN6KDQ=/0x0:1000x667/750x500/data/photo/2022/02/24/6217365e120c5.jpg" />
-
-                </div>
-                <p class="italic font-bold text-md text-center px-3 pb-3">Tari Gambyong: Gerakan, Pola Lantai,
-                    Properti, Iringan,
-                    dan Maknanya
-                </p>
-            </a>
-
-            <a class="mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer hover:scale-105"
-                href="https://www.solopos.com/1-500-orang-bersih-bersih-kawasan-sriwedari-solo-alat-berat-ikut-dikerahkan-1464928"
-                target="_blank">
-                <div class="h-[300px] rounded-md relative overflow-hidden mb-5">
-                    <div class="absolute top-0 left-0 h-full w-full bg-black/40"></div>
-                    <img class="w-full h-full object-cover rounded-md "
-                        src="https://images.solopos.com/2022/11/bersih-bersih-sriwdari.jpg" />
-
-                </div>
-                <p class="italic font-bold text-md text-center px-3 pb-3">1.500 Orang Bersih-Bersih Kawasan Sriwedari
-                    Solo,
-                    Alat Berat Ikut Dikerahkan</p>
-
-            </a>
-
         </div>
+
     </div>
 @endsection
 @section('morejs')
@@ -383,9 +328,15 @@
 
         }
 
-        $(document).ready(function() {
-            image_slider()
-        })
+        // $(document).ready(function() {
+        //     image_slider()
+        // })
+
+        $('.slider-header').slick({
+            autoplay: true,
+            autoplayspeed: 500,
+            fade: true
+        });
 
         $('.slider-aplikasi').slick({
             centerMode: true,
@@ -476,37 +427,38 @@
 
         var imgArray = [];
         var curIndex = 0;
-        var imgDuration = 5000;
+        var imgDuration = 1000;
 
 
-        function image_slider() {
-            fetch('{{ route('image.slider') }}')
-                .then(response => response.json())
-                .then(data => {
-                    imgArray = data;
-                })
-        }
+        // function image_slider() {
+        //     fetch('{{ route('image.slider') }}')
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             imgArray = data;
+        //         })
+        // }
 
-        function slideShow() {
-            document.getElementById('slider').classList.add("fadeOut");
-            setTimeout(function() {
-                document.getElementById('slider').src = imgArray[curIndex]['image'];
-                document.getElementById('slider').classList.remove("fadeOut");
-            }, 400);
-            curIndex++;
-            if (curIndex == imgArray.length) {
-                curIndex = 0;
-            }
-            setTimeout(slideShow, imgDuration);
-        }
+        // function slideShow() {
+        //     document.getElementById('slider').classList.add("fadeOut");
+        //     setTimeout(function() {
+        //         document.getElementById('slider').src = imgArray[curIndex]['image'];
+        //         document.getElementById('slider').classList.remove("fadeOut");
+        //     }, 1000);
+        //     curIndex++;
+        //     if (curIndex == imgArray.length) {
+        //         curIndex = 0;
+        //     }
+        //     setTimeout(slideShow, imgDuration);
+        // }
 
-        slideShow();
+
         // articleSlick()
 
         $(document).ready(function() {
             artikel()
             articleSlick()
             getYoutubeVideo()
+            // slideShow();
         })
 
         function artikel() {
@@ -542,7 +494,7 @@
                                 '                    <div class="absolute top-0 left-0 h-full w-full bg-black/40">\n' +
                                 '                        <img class="w-full h-full object-cover rounded-md "\n' +
                                 '                            src="' + assetImg +
-                                '" onerror="this.onerror=null;this.src=' + assetImg + '"/>\n' +
+                                '" onerror="this.onerror=null; this.src=' + assetImg + '"/>\n' +
                                 '\n' +
                                 '                    </div>\n' +
                                 '                </div>\n' +
