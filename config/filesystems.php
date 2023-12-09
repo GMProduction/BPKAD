@@ -107,6 +107,12 @@ return [
             'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
         ],
+        'publicService' => [
+            'driver' => 'local',
+            'root' => public_path() . '/assets/public-service',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
     ],
 
     /*
