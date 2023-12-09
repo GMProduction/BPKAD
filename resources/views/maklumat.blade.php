@@ -17,8 +17,7 @@
             <p class="text-primary font-bold text-3xl italic  text-center mb-10">Maklumat Pelayanan</p>
             <div class="w-full text-center">
                 <a id="aImage" target="_blank">
-                    <img id="srcImg" src="{{ asset('assets/local/maklumat.jpg') }}"
-                        class="  object-cover w-[80%] mx-auto " />
+                    <img id="srcImg" class="  object-cover w-[80%] mx-auto " />
                 </a>
             </div>
         </div>
@@ -26,5 +25,23 @@
 @endsection
 
 @section('morejs')
-    <script></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            short_image()
+        });
+
+        function short_image() {
+            fetch('{{ route('maklumat_data') }}')
+                .then((response) => response.json())
+                .then((data) => {
+                    let href = '{{ asset('dataimage') }}';
+                    href = href.replace('/dataimage', data?.structure)
+                    document.getElementById('aImage').setAttribute('href', href)
+                    document.getElementById('srcImg').setAttribute('src', href)
+
+                    console.log("data " + href)
+                })
+
+        }
+    </script>
 @endsection
