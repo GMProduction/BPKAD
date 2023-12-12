@@ -31,15 +31,15 @@
         });
 
         function short_image() {
-            fetch('{{ route('maklumat_data') }}')
+            fetch('{{ route('maklumat.json') }}')
                 .then((response) => response.json())
                 .then((data) => {
-                    let href = '{{ asset('dataimage') }}';
+                    let href = "https://bpkad.surakarta.go.id" + data.url;
                     href = href.replace('/dataimage', data?.structure)
                     document.getElementById('aImage').setAttribute('href', href)
                     document.getElementById('srcImg').setAttribute('src', href)
 
-                    console.log("data " + href)
+                    console.log("data " + data.url)
                 })
 
         }

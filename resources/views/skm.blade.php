@@ -40,49 +40,53 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @forelse($data as $d)
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{$d->year}}
-                            </th>
-                            <td class="px-6 py-4">
-                                @if($d->quarter_1)
-                                    <a role="button" href="{{$d->quarter_1}}" target="_blank" class="button-link">Download</a>
-                                @else
-                                    -
-                                @endif
-                            </td>
-                            <td class="px-6 py-4">
-                                @if($d->quarter_2)
-                                    <a role="button" href="{{$d->quarter_2}}" target="_blank" class="button-link">Download</a>
-                                @else
-                                    -
-                                @endif
-                            </td>
-                            <td class="px-6 py-4">
-                                @if($d->quarter_3)
-                                    <a role="button" href="{{$d->quarter_3}}" target="_blank" class="button-link">Download</a>
-                                @else
-                                    -
-                                @endif
-                            </td>
-                            <td class="px-6 py-4">
-                                @if($d->quarter_4)
-                                    <a role="button" href="{{$d->quarter_4}}" target="_blank" class="button-link">Download</a>
-                                @else
-                                    -
-                                @endif
-                            </td>
-                        </tr>
-                    @empty
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" colspan="4"
-                                class="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Data tidak tersedia
-                            </th>
-                        </tr>
-                    @endforelse
+                        @forelse($data as $d)
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $d->year }}
+                                </th>
+                                <td class="px-6 py-4">
+                                    @if ($d->quarter_1)
+                                        <a role="button" href="{{ $d->quarter_1 }}" target="_blank"
+                                            class="button-link">Download</a>
+                                    @else
+                                        -
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4">
+                                    @if ($d->quarter_2)
+                                        <a role="button" href="{{ $d->quarter_2 }}" target="_blank"
+                                            class="button-link">Download</a>
+                                    @else
+                                        -
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4">
+                                    @if ($d->quarter_3)
+                                        <a role="button" href="{{ $d->quarter_3 }}" target="_blank"
+                                            class="button-link">Download</a>
+                                    @else
+                                        -
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4">
+                                    @if ($d->quarter_4)
+                                        <a role="button" href="{{ $d->quarter_4 }}" target="_blank"
+                                            class="button-link">Download</a>
+                                    @else
+                                        -
+                                    @endif
+                                </td>
+                            </tr>
+                        @empty
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" colspan="5"
+                                    class="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Data tidak tersedia
+                                </th>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

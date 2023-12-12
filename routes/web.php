@@ -100,7 +100,7 @@ Route::get('/sekretariat', [\App\Http\Controllers\LandingPage\SectorController::
 Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::class, 'anggaran']);
 Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\LandingPage\SectorController::class, 'perbendaharaan']);
 Route::get('/aset', [\App\Http\Controllers\LandingPage\SectorController::class, 'aset']);
-Route::get('/maklumat_data', [\App\Http\Controllers\LandingPage\ProfileController::class, 'maklumat_data'])->name('maklumat_data');
+Route::get('/maklumat_data', [\App\Http\Controllers\LandingPage\ProfileController::class, 'maklumat_data'])->name('maklumat.json');
 
 // Route::get('/sekretariat', [\App\Http\Controllers\SectorController::class, 'secretarial'])->name('secretarial');
 // Route::get('/anggaran', [\App\Http\Controllers\SectorController::class, 'budget'])->name('budget');
