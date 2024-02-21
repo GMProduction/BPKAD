@@ -458,6 +458,7 @@
             artikel()
             articleSlick()
             getYoutubeVideo()
+            contact()
             // slideShow();
         })
 
@@ -526,6 +527,17 @@
                         $('#ytVideo').append(v.url)
                     })
                     videoSlick()
+                })
+        }
+
+        function contact() {
+            fetch('{{ route('contact.profile.json') }}')
+                .then((response) => response.json())
+                .then((data) => {
+                    document.querySelector('.textEmailH').innerHTML = data?.email
+                    document.querySelector('.textAddressH').innerHTML = data?.address
+                    document.querySelector('.textOfficeHoursH').innerHTML = data?.office_hours
+                    document.querySelector('.textPhoneH').innerHTML = data?.phone
                 })
         }
     </script>

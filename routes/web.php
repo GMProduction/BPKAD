@@ -18,6 +18,9 @@ Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('dashboard', function () {
+        return view('admin/dashboard');
+    });
 
     Route::group(['prefix' => 'aspirasi'], function () {
         Route::get('/', [\App\Http\Controllers\Admin\AspirationController::class, 'index'])->name('aspiration');
@@ -79,12 +82,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'kustomisasi-layanan'], function () {
         Route::match(['POST', 'GET'], '', [\App\Http\Controllers\Admin\CustomizeServiceController::class, 'index'])->name('customize.layanan');
         Route::get('datatable', [\App\Http\Controllers\Admin\CustomizeServiceController::class, 'dataTable'])->name('customize.layanan.datatable');
-        Route::match(['POST', 'GET'],'layanan-masyarakat',[\App\Http\Controllers\Admin\PublicServiceController::class,'getData'])->name('customize.layanan.masyarakat');
-        Route::post('layanan-masyarakat/data',[\App\Http\Controllers\Admin\PublicServiceController::class,'saveFile'])->name('customize.layanan.masyarakat.file');
-        Route::post('layanan-masyarakat/delete',[\App\Http\Controllers\Admin\PublicServiceController::class,'deleteData'])->name('customize.layanan.masyarakat.delete');
+        Route::match(['POST', 'GET'], 'layanan-masyarakat', [\App\Http\Controllers\Admin\PublicServiceController::class, 'getData'])->name('customize.layanan.masyarakat');
+        Route::post('layanan-masyarakat/data', [\App\Http\Controllers\Admin\PublicServiceController::class, 'saveFile'])->name('customize.layanan.masyarakat.file');
+        Route::post('layanan-masyarakat/delete', [\App\Http\Controllers\Admin\PublicServiceController::class, 'deleteData'])->name('customize.layanan.masyarakat.delete');
     });
 });
-Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function (){
+Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function () {
     Route::match(['get', 'post'], '/auth', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
 
     Route::get('/', [HomeController::class, 'index'])->name('beranda');
@@ -101,6 +104,7 @@ Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function ()
     Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::class, 'anggaran']);
     Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\LandingPage\SectorController::class, 'perbendaharaan']);
     Route::get('/aset', [\App\Http\Controllers\LandingPage\SectorController::class, 'aset']);
+    Route::get('/maklumat_data', [\App\Http\Controllers\LandingPage\ProfileController::class, 'maklumat_data'])->name('maklumat.json');
 
 // Route::get('/sekretariat', [\App\Http\Controllers\SectorController::class, 'secretarial'])->name('secretarial');
 // Route::get('/anggaran', [\App\Http\Controllers\SectorController::class, 'budget'])->name('budget');
@@ -114,7 +118,6 @@ Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function ()
         Route::get('/detail/{slug}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'detail'])->name('article.detail');
         Route::get('json-data-month', [\App\Http\Controllers\LandingPage\ArticleController::class, 'getArticleByMonth'])->name('article.json.mont');
     });
-
 
     Route::group(['prefix' => 'informasi-berkala'], function () {
         Route::get('/', [\App\Http\Controllers\InformationController::class, 'periodic_information'])->name('information.periodic');
@@ -131,7 +134,7 @@ Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function ()
         return view('maklumat');
     })->name('maklumat');
 
-    Route::get('/skm', [\App\Http\Controllers\LandingPage\SkmContrller::class,'index'])->name('skm');
+    Route::get('/skm', [\App\Http\Controllers\LandingPage\SkmContrller::class, 'index'])->name('skm');
 
     Route::get('/standarpelayanan', function () {
         return view('sp');
@@ -142,7 +145,6 @@ Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function ()
     })->name('information.public');
 
 });
-
 
 //Route::get('/informasi', function () {
 //    return view('informasi');
@@ -192,7 +194,3 @@ Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function ()
 //    return view('admin/informasi/informasi-detail-byyear');
 //});
 
-
-Route::get('/admin/dashboard', function () {
-    return view('admin/dashboard');
-});

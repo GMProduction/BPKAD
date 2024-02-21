@@ -330,15 +330,10 @@
             fetch('{{ route('contact.profile.json') }}')
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log('dasd', data)
                     document.querySelector('.textEmail').innerHTML = data?.email
-                    document.querySelector('.textEmailH').innerHTML = data?.email
                     document.querySelector('.textAddress').innerHTML = data?.address
-                    document.querySelector('.textAddressH').innerHTML = data?.address
                     document.querySelector('.textOfficeHours').innerHTML = data?.office_hours
-                    document.querySelector('.textOfficeHoursH').innerHTML = data?.office_hours
                     document.querySelector('.textPhone').innerHTML = data?.phone
-                    document.querySelector('.textPhoneH').innerHTML = data?.phone
                     document.querySelector('#frameLocation').innerHTML = data?.location
                     document.querySelector('#href_facebook').href = data?.facebook
                     document.querySelector('#href_twitter').href = data?.twitter
