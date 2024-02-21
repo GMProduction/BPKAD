@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::match(['get', 'post'], '/auth', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
 Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
@@ -85,61 +84,64 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::post('layanan-masyarakat/delete',[\App\Http\Controllers\Admin\PublicServiceController::class,'deleteData'])->name('customize.layanan.masyarakat.delete');
     });
 });
+Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function (){
+    Route::match(['get', 'post'], '/auth', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
 
-Route::get('/', [HomeController::class, 'index'])->name('beranda');
-Route::post('/post-aspiration', [HomeController::class, 'post_aspiration'])->name('post_aspiration');
-Route::get('/home-setting-json', [HomeController::class, 'ShortHistory'])->name('home.setting.json');
-Route::get('/visimisi', [\App\Http\Controllers\LandingPage\ProfileController::class, 'vision'])->name('visimisi');
-Route::get('/struktur', [\App\Http\Controllers\LandingPage\ProfileController::class, 'structure'])->name('structure');
-Route::get('/profile-json', [\App\Http\Controllers\LandingPage\ProfileController::class, 'json_data'])->name('profile.json');
-Route::get('/contact-profile-json', [\App\Http\Controllers\Admin\ContactProfileController::class, 'getContactProfile'])->name('contact.profile.json');
-Route::get('/youtube-video-json', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'getYoutubeVideo'])->name('youtube.video.json');
-Route::get('/image-slider', [\App\Http\Controllers\Admin\SliderController::class, 'image_slider'])->name('image.slider');
+    Route::get('/', [HomeController::class, 'index'])->name('beranda');
+    Route::post('/post-aspiration', [HomeController::class, 'post_aspiration'])->name('post_aspiration');
+    Route::get('/home-setting-json', [HomeController::class, 'ShortHistory'])->name('home.setting.json');
+    Route::get('/visimisi', [\App\Http\Controllers\LandingPage\ProfileController::class, 'vision'])->name('visimisi');
+    Route::get('/struktur', [\App\Http\Controllers\LandingPage\ProfileController::class, 'structure'])->name('structure');
+    Route::get('/profile-json', [\App\Http\Controllers\LandingPage\ProfileController::class, 'json_data'])->name('profile.json');
+    Route::get('/contact-profile-json', [\App\Http\Controllers\Admin\ContactProfileController::class, 'getContactProfile'])->name('contact.profile.json');
+    Route::get('/youtube-video-json', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'getYoutubeVideo'])->name('youtube.video.json');
+    Route::get('/image-slider', [\App\Http\Controllers\Admin\SliderController::class, 'image_slider'])->name('image.slider');
 
-Route::get('/sekretariat', [\App\Http\Controllers\LandingPage\SectorController::class, 'sekretariat']);
-Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::class, 'anggaran']);
-Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\LandingPage\SectorController::class, 'perbendaharaan']);
-Route::get('/aset', [\App\Http\Controllers\LandingPage\SectorController::class, 'aset']);
+    Route::get('/sekretariat', [\App\Http\Controllers\LandingPage\SectorController::class, 'sekretariat']);
+    Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::class, 'anggaran']);
+    Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\LandingPage\SectorController::class, 'perbendaharaan']);
+    Route::get('/aset', [\App\Http\Controllers\LandingPage\SectorController::class, 'aset']);
 
 // Route::get('/sekretariat', [\App\Http\Controllers\SectorController::class, 'secretarial'])->name('secretarial');
 // Route::get('/anggaran', [\App\Http\Controllers\SectorController::class, 'budget'])->name('budget');
 // Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\SectorController::class, 'financial'])->name('financial');
 // Route::get('/aset', [\App\Http\Controllers\SectorController::class, 'asset'])->name('asset');
 
-Route::prefix('artikel')->group(function () {
-    Route::get('/', [\App\Http\Controllers\LandingPage\ArticleController::class, 'index']);
-    Route::get('json-data/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'article'])->name('article.json');
-    Route::get('count/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'count_article'])->name('article.count');
-    Route::get('/detail/{slug}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'detail'])->name('article.detail');
-    Route::get('json-data-month', [\App\Http\Controllers\LandingPage\ArticleController::class, 'getArticleByMonth'])->name('article.json.mont');
+    Route::prefix('artikel')->group(function () {
+        Route::get('/', [\App\Http\Controllers\LandingPage\ArticleController::class, 'index']);
+        Route::get('json-data/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'article'])->name('article.json');
+        Route::get('count/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'count_article'])->name('article.count');
+        Route::get('/detail/{slug}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'detail'])->name('article.detail');
+        Route::get('json-data-month', [\App\Http\Controllers\LandingPage\ArticleController::class, 'getArticleByMonth'])->name('article.json.mont');
+    });
+
+
+    Route::group(['prefix' => 'informasi-berkala'], function () {
+        Route::get('/', [\App\Http\Controllers\InformationController::class, 'periodic_information'])->name('information.periodic');
+        Route::get('/{slug}', [\App\Http\Controllers\InformationController::class, 'periodic_information_by_slug'])->name('information.periodic.by.slug');
+    });
+
+    Route::get('/informasi-serta-merta', [\App\Http\Controllers\InformationController::class, 'serta_merta_information'])->name('information.serta-merta');
+
+    Route::get('/informasi-setiap-saat', [\App\Http\Controllers\InformationController::class, 'setiap_saat_information'])->name('information.setiap-saat');
+
+    Route::get('/informasi-di-kecualikan', [\App\Http\Controllers\InformationController::class, 'dikecualikan_information'])->name('information.di-kecualikan');
+
+    Route::get('/maklumat', function () {
+        return view('maklumat');
+    })->name('maklumat');
+
+    Route::get('/skm', [\App\Http\Controllers\LandingPage\SkmContrller::class,'index'])->name('skm');
+
+    Route::get('/standarpelayanan', function () {
+        return view('sp');
+    })->name('sp');
+
+    Route::get('/informasipublik', function () {
+        return view('informasipublik');
+    })->name('information.public');
+
 });
-
-
-Route::group(['prefix' => 'informasi-berkala'], function () {
-    Route::get('/', [\App\Http\Controllers\InformationController::class, 'periodic_information'])->name('information.periodic');
-    Route::get('/{slug}', [\App\Http\Controllers\InformationController::class, 'periodic_information_by_slug'])->name('information.periodic.by.slug');
-});
-
-Route::get('/informasi-serta-merta', [\App\Http\Controllers\InformationController::class, 'serta_merta_information'])->name('information.serta-merta');
-
-Route::get('/informasi-setiap-saat', [\App\Http\Controllers\InformationController::class, 'setiap_saat_information'])->name('information.setiap-saat');
-
-Route::get('/informasi-di-kecualikan', [\App\Http\Controllers\InformationController::class, 'dikecualikan_information'])->name('information.di-kecualikan');
-
-Route::get('/maklumat', function () {
-    return view('maklumat');
-})->name('maklumat');
-
-Route::get('/skm', [\App\Http\Controllers\LandingPage\SkmContrller::class,'index'])->name('skm');
-
-Route::get('/standarpelayanan', function () {
-    return view('sp');
-})->name('sp');
-
-Route::get('/informasipublik', function () {
-    return view('informasipublik');
-})->name('information.public');
-
 
 
 //Route::get('/informasi', function () {
