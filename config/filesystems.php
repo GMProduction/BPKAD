@@ -40,7 +40,6 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL') . '/storage',
-            'visibility' => 'public',
         ],
 
         's3' => [
@@ -57,61 +56,53 @@ return [
             'driver' => 'local',
             'root' => public_path() . '/assets/home',
             'url' => env('APP_URL') . '/public',
-            'visibility' => 'public',
         ],
         'structureImage' => [
             'driver' => 'local',
             'root' => public_path() . '/assets/structure',
             'url' => env('APP_URL') . '/public',
-            'visibility' => 'public',
         ],
         'publicAgency' => [
             'driver' => 'local',
             'root' => public_path() . '/assets/agency',
             'url' => env('APP_URL') . '/public',
-            'visibility' => 'public',
         ],
         'publicInformation' => [
             'driver' => 'local',
             'root' => public_path() . '/assets/information',
             'url' => env('APP_URL') . '/public',
-            'visibility' => 'public',
         ],
         'articleImage' => [
             'driver' => 'local',
             'root' => public_path() . '/assets/article',
             'url' => env('APP_URL') . '/public',
-            'visibility' => 'public',
         ],
         'sectorImage' => [
             'driver' => 'local',
             'root' => public_path() . '/assets/sector',
             'url' => env('APP_URL') . '/public',
-            'visibility' => 'public',
         ],
         'applicationImage' => [
             'driver' => 'local',
             'root' => public_path() . '/assets/application',
             'url' => env('APP_URL') . '/public',
-            'visibility' => 'public',
         ],
         'sliderImage' => [
             'driver' => 'local',
             'root' => public_path() . '/assets/slider',
             'url' => env('APP_URL') . '/public',
-            'visibility' => 'public',
         ],
         'serviceImage' => [
             'driver' => 'local',
             'root' => public_path() . '/assets/service',
             'url' => env('APP_URL') . '/public',
-            'visibility' => 'public',
+
         ],
         'publicService' => [
             'driver' => 'local',
             'root' => public_path() . '/assets/public-service',
             'url' => env('APP_URL') . '/public',
-            'visibility' => 'public',
+
         ],
     ],
 
