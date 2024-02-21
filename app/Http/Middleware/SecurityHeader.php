@@ -4,9 +4,18 @@ namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
+/**
+ *
+ */
 class SecurityHeader extends Middleware
 {
-    public function handle($request,$next)
+    /**
+     * @param $request
+     * @param \Closure $next
+     *
+     * @return mixed
+     */
+    public function handle($request,\Closure $next, ...$guard)
     {
         $response = $next($request);
         $response->headers->set('Content-Security-Policy', "block-all-mixed-content; script-src 'self' http://code.jquery.com/ https://fonts.googleapis.com/ https://fonts.gstatic.com https://cdn.datatables.net/ https://cdn.jsdelivr.net/; object-src 'self';");
