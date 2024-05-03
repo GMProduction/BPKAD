@@ -1278,11 +1278,11 @@ input:checked + .toggle-bg {
 .min-h-\[150px\] {
   min-height: 150px;
 }
-.min-h-screen {
-  min-height: 100vh;
-}
 .min-h-\[70px\] {
   min-height: 70px;
+}
+.min-h-screen {
+  min-height: 100vh;
 }
 .w-\[100\%\] {
   width: 100%;
@@ -1689,10 +1689,6 @@ input:checked + .toggle-bg {
 }
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
-}
-.bg-blue-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(28 100 242 / var(--tw-bg-opacity));
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;

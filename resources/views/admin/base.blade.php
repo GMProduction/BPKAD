@@ -154,7 +154,7 @@
         </div>
 
         {{-- CONTENT --}}
-        <div class="w-max-full">
+        <div class="w-full">
             <div class="h-[70px]">
 
             </div>
