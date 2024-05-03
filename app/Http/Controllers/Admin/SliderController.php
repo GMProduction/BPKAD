@@ -22,10 +22,11 @@ class SliderController extends CustomController
             if (request('action') == 2) {
                 $this->deleteImg('Slider', request('id'), request('name'));
                 $payload = [];
-
             } else {
+
+
                 $uuid_name  = $this->generateImageName('file');
-                $image_name = '/assets/slider/'.$uuid_name;
+                $image_name = '/assets/slider/' . $uuid_name;
                 $image      = $image_name;
                 $this->uploadImage('file', $uuid_name, 'sliderImage');
                 $res     = Slider::create(
@@ -36,21 +37,19 @@ class SliderController extends CustomController
                 $data    = [
                     'id'    => $res['id'],
                     'image' => $res['image'],
-                    'size'  => number_format(floor(filesize(public_path($res['image']))) / 1025, 1, '.', '').' KB',
+                    'size'  => number_format(floor(filesize(public_path($res['image']))) / 1025, 1, '.', '') . ' KB',
                 ];
                 $payload = $data;
-
             }
             $message = 'success';
             $code    = 200;
         } catch (\Exception $err) {
-            $message = 'gagal '.$err;
+            $message = 'gagal ' . $err;
             $payload = [];
             $code    = 500;
         }
 
         return $this->jsonResponse($message, $code, $payload);
-
     }
 
     public function get_image()
@@ -63,14 +62,14 @@ class SliderController extends CustomController
                 $data[$key] = [
                     'id'    => $im['id'],
                     'image' => $im['image'],
-//                    'size'  => filesize(public_path($im['image'])),
+                    //                    'size'  => filesize(public_path($im['image'])),
                 ];
             }
             $payload = $data;
             $message = 'success';
             $code    = 200;
         } catch (\Exception $err) {
-            $message = 'gagal '.$err;
+            $message = 'gagal ' . $err;
             $payload = [];
             $code    = 500;
         }
@@ -78,8 +77,8 @@ class SliderController extends CustomController
         return $this->jsonResponse($message, $code, $payload);
     }
 
-    public function image_slider(){
+    public function image_slider()
+    {
         return Slider::select(['image'])->get();
     }
-
 }

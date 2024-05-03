@@ -7,8 +7,8 @@
 @endsection
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick.css') }} "/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick-theme.css') }} "/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick.css') }} " />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick-theme.css') }} " />
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
@@ -37,8 +37,9 @@
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
                     <a href="{{ route('dashboard') }}"
-                       class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                             </path>
@@ -49,13 +50,13 @@
                 <li>
                     <div class="flex items-center">
                         <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
+                            xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
-                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                  clip-rule="evenodd"></path>
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"></path>
                         </svg>
-                        <a href="{{route('customize.slider')}}"
-                           class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Customize
+                        <a href="{{ route('customize.slider') }}"
+                            class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Customize
                             Slider</a>
                     </div>
                 </li>
@@ -64,14 +65,14 @@
         </nav>
         @if (\Illuminate\Support\Facades\Session::has('failed'))
             <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
-                 role="alert">
+                role="alert">
                 <span class="font-medium">Gagal!</span>
                 {{ \Illuminate\Support\Facades\Session::get('failed') }}
             </div>
         @endif
         @if (\Illuminate\Support\Facades\Session::has('success'))
             <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
-                 role="alert">
+                role="alert">
                 <span class="font-medium">Berhasil!</span> {{ \Illuminate\Support\Facades\Session::get('success') }}
             </div>
         @endif
@@ -80,21 +81,21 @@
                 <p class=" font-semibold">Slider Homepage</p>
             </div>
             <div class="overflow-x-auto relative shadow-sm ">
-                <form id="formImgbudget" class="dropzone mb-6" action="{{ route('customize.slider.image') }}"
-                      method="POST" enctype="multipart/form-data">
+                <form id="formImgbudget" class="dropzone mb-6" action="{{ route('customize.slider.image') }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <input value="" type="hidden" name="id">
                     <!-- this is were the previews should be shown. -->
                     <div class="fallback">
-                        <input name="image" type="file" multiple/>
+                        <input name="image" type="file" multiple accept=".jpg, .png" />
                     </div>
                 </form>
-{{--                <div class="flex justify-center pb-5 h-[50px]">--}}
-{{--                    <div class="w-[50%] ">--}}
-{{--                        <img id="slider" src="{{ asset('assets/local/slide.jpg') }}"--}}
-{{--                             class="absolute z-[-2] w-[50%]   "/>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                {{--                <div class="flex justify-center pb-5 h-[50px]"> --}}
+                {{--                    <div class="w-[50%] "> --}}
+                {{--                        <img id="slider" src="{{ asset('assets/local/slide.jpg') }}" --}}
+                {{--                             class="absolute z-[-2] w-[50%]   "/> --}}
+                {{--                    </div> --}}
+                {{--                </div> --}}
             </div>
 
 
@@ -110,7 +111,7 @@
     <!--Datatables -->
     <script>
         let dataUrl = '{{ route('customize.aplikasi.online.datatable') }}';
-        $(document).ready(function () {
+        $(document).ready(function() {
 
             // .columns.adjust()
             // .responsive.recalc();
@@ -118,10 +119,10 @@
 
         Dropzone.options.formImgbudget = {
             // paramName: 'image',
-            acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+            acceptedFiles: 'image/jpeg,image/png',
             addRemoveLinks: true,
             maxFilesize: 2,
-            removedfile: function (file) {
+            removedfile: function(file) {
                 var idImg, name;
                 if (file.xhr) {
                     idImg = JSON.parse(file.xhr.response)['payload']['id'];
@@ -142,7 +143,7 @@
                         action: 2,
                         '_token': '{{ csrf_token() }}',
                     },
-                    sucess: function (data) {
+                    sucess: function(data) {
                         console.log('success: ' + data);
                     }
                 });
@@ -151,13 +152,13 @@
                 return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) :
                     void 0;
             },
-            sending: function (file, xhr, formData) {
+            sending: function(file, xhr, formData) {
                 file.myCustomName = "my-new-name" + file.name;
                 // formData.append("filesize", file.size);
                 formData.append("fileName", file.myCustomName);
                 formData.append("id_achievement", $('#visi #id').val());
             },
-            success: function (file, response) {
+            success: function(file, response) {
 
                 console.log(file);
                 console.log(response);
@@ -167,21 +168,21 @@
                 $('.dz-image img').attr('height', '120')
 
             },
-            accept: function (file, done) {
+            accept: function(file, done) {
                 // this.options.resizeWidth = 650;
                 // this.options.resizeQuality = 0.75;
                 // console.log(this.options);
                 done();
                 return;
             },
-            init: async function () {
+            init: async function() {
                 let myDropzone = this;
 
                 var existing_files = $('[name="image[]"]').val();
-                $.get('{{ route('customize.slider.image') }}', function (data) {
+                $.get('{{ route('customize.slider.image') }}', function(data) {
                     if (data['status'] === 200) {
                         var img = data['payload'];
-                        $.each(img, function (key, value) {
+                        $.each(img, function(key, value) {
                             console.log('ddddddddd', value)
 
                             var mockFile = {
@@ -201,6 +202,5 @@
             }
 
         };
-
     </script>
 @endsection
