@@ -25,7 +25,7 @@
     @yield('css')
 </head>
 
-<body class="relative">
+<body class="relative min-h-screen">
 
     <nav class="h-[70px] bg-white  top-0 w-full shadow-sm z-20 fixed">
         <div class="px-[24px] relative h-full flex items-center z-20 justify-between">
@@ -65,7 +65,8 @@
 
         </div>
     </nav>
-    <div class="flex">
+
+    <div class="flex h-full">
         <div id="sidebar" class="bg-white shadow-sm h-full fixed top-0 left-0 sidebar">
             <div class="min-h-[70px]"></div>
             <div class="p-3 py-5">
@@ -132,6 +133,15 @@
                         </span>
                         <p class="title-menu block nav-link menu-text ext-sm">Video Yotube</p>
                     </a>
+                    <a class="menu" href="{{ route('customize.layanan') }}">
+
+                        <span class="material-symbols-outlined mr-2 menu-icon">
+                            fiber_manual_record
+                        </span>
+                        <p class="title-menu block nav-link menu-text ext-sm">Layanan</p>
+                    </a>
+
+
                 </div>
 
 
@@ -159,7 +169,7 @@
 
             </div>
 
-            <div class="flex h-full">
+            <div class="flex " style="min-height: calc(100vh - 70px)">
                 <div class="side">
 
                 </div>
