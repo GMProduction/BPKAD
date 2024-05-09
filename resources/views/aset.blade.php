@@ -32,13 +32,13 @@
     <div class=" mt-16 mb-16">
 
         <div
-            class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
+            class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-105">
             <p class="text-primary font-bold text-3xl italic mb-3 ">Tugas Bidang Aset</p>
             <p class="text-sm   mx-auto">{!! $data ? $data->job : '' !!}</p>
 
         </div>
         <div
-            class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
+            class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-105">
             <p class="text-primary font-bold text-3xl italic mb-3  ">Sub Bidang </p>
             <p class="text-sm  md:w-[50%] sm:w-[80%] w-[95%]  mb-3">{!! $data ? $data->sub_sector : '' !!}</p>
 
@@ -48,26 +48,26 @@
             <p class="text-sm   mx-auto mb-3">{!! $data ? $data->sub_sector_job : '' !!}</p>
 
         </div>
-        @if($data && $data->images)
+        @if ($data && $data->images)
             <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 relative max-h-max">
                 <div class="sm:w-[100%] w-[100%]  mx-auto">
                     <p class="text-primary font-bold text-3xl italic mb-6  ">Gallery </p>
                     <div class="slider-for dark mb-3">
-                        @foreach($data->images as $d)
+                        @foreach ($data->images as $d)
                             <img src="{{ asset($d->image) }}" class="max-h-[500px] cursor-pointer"
-                                 onclick="showModal('{{ asset($d->image) }}')"/>
+                                onclick="showModal('{{ asset($d->image) }}')" />
                         @endforeach
                     </div>
                     <div class="slider-nav">
-                        @foreach($data->images as $d)
-                            <img src="{{ asset($d->image) }}" class="max-h-[150px]"/>
+                        @foreach ($data->images as $d)
+                            <img src="{{ asset($d->image) }}" class="max-h-[150px]" />
                         @endforeach
 
 
                     </div>
                 </div>
             </div>
-    @endif
+        @endif
 
         <!-- The Modal -->
         <div id="modal"
@@ -108,12 +108,11 @@
             arrows: true,
             lazyLoad: 'ondemand',
             responsive: [{
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 3
-                    }
-                },
-            ]
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3
+                }
+            }, ]
         });
     </script>
 

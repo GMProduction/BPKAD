@@ -124,6 +124,13 @@
                             aria-selected="false">Daftar Informasi Publik
                         </button>
                     </li>
+                    <li role="presentation">
+                        <button
+                            class="tabs-btn inline-block  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 "
+                            id="dasarhukum-tab" data-tabs-target="#dasarhukum" type="button" role="tab"
+                            aria-controls="publik" aria-selected="false">Dasar Hukum PPID
+                        </button>
+                    </li>
                 </ul>
             </div>
 
@@ -440,6 +447,35 @@
                         </div>
 
                         <form id="formSetiap" method="POST">
+                            @csrf
+                            <input name="id" hidden>
+                            <input name="type_file" value="2" hidden>
+                            <input name="service_type" value="3" hidden>
+
+                            <div class="mb-3 ">
+                                <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                <input type="text" id="link-info" name="url"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                    required placeholder="Masukan Link Url">
+                            </div>
+                            <button type="button" onclick="saveSetiap()"
+                                class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
+                                Simpan Perubahan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class=" p-4 rounded-lg  hidden" id="dasarhukum" role="tabpanel" aria-labelledby="publik-tab">
+                    <div>
+                        <div class="bg-green-100 p-2 mb-5 flex items-center rounded-md ">
+                            <span class="material-symbols-outlined text-green-700 mr-2 ">
+                                info
+                            </span>
+                            <span class="text-sm text-green-700 ">Dasar Hukum PPID
+                            </span>
+                        </div>
+
+                        <form id="dasarhukum" method="POST">
                             @csrf
                             <input name="id" hidden>
                             <input name="type_file" value="2" hidden>

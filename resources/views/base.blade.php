@@ -91,7 +91,13 @@
                                 <a href="/struktur" class="block py-2 px-4 hover:bg-gray-100  ">Struktur
                                     Organisasi</a>
                             </li>
-
+                            <li>
+                                <a href="/motto" class="block py-2 px-4 hover:bg-gray-100  ">Motto</a>
+                            </li>
+                            <li>
+                                <a href="/skpengelolawebsite" class="block py-2 px-4 hover:bg-gray-100  ">SK Pengelola
+                                    Website</a>
+                            </li>
                         </ul>
 
                     </li>
@@ -125,9 +131,59 @@
                                     Kepuasan
                                     Masyarakat</a>
                             </li>
+
+                            <li>
+                                <a href="https://sippn.menpan.go.id/" target="_blank"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">
+                                    SIPPN</a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('informasilayanan') }}" class="block py-2 px-4 hover:bg-gray-100  ">
+                                    Informasi Layanan</a>
+                            </li>
                         </ul>
 
                     </li>
+
+
+                    <li class="group">
+                        <button
+                            class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-400 transition duration-300 md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">Aduan
+                            <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+
+
+                        <ul
+                            class="py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
+
+
+                            <li>
+                                <a href="https://www.lapor.go.id/" class="block py-2 px-4 hover:bg-gray-100  ">SP4N</a>
+                            </li>
+                            <li>
+                                <a href="https://ulas.surakarta.go.id/"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">ULAS</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('skaduan') }}" class="block py-2 px-4 hover:bg-gray-100  ">SK
+                                    Pengelola
+                                    Aduan</a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('grafikaduan') }}" class="block py-2 px-4 hover:bg-gray-100  ">
+                                    Grafik Aduan</a>
+                            </li>
+                        </ul>
+
+                    </li>
+
 
                     <li class="group">
                         <button
@@ -203,6 +259,14 @@
                                 <a href="{{ route('information.public') }}"
                                     class="block py-2 px-4 hover:bg-gray-100  ">Daftar Informasi Publik</a>
                             </li>
+                            <li>
+                                <a href="https://simonik.surakarta.go.id/"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Permohonan Informasi</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('information.dasarhukumppid') }}"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Dasar Hukum PPID</a>
+                            </li>
                         </ul>
 
                     </li>
@@ -210,6 +274,12 @@
                         <a href="/"
                             class="nav-button  block font-semibold py-2 pr-10 pl-3 menu active text-white rounded  md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 hover:bg-gray-400 transition duration-300"
                             aria-current="page">Produk Hukum</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('faq') }}"
+                            class="nav-button  block font-semibold py-2 pr-10 pl-3 menu active text-white  rounded  md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 hover:bg-gray-400 transition duration-300"
+                            aria-current="page">FAQ</a>
                     </li>
                 </ul>
             </div>

@@ -3,8 +3,8 @@
 @section('content')
     <div class="mt-[-89px]  h-[350px] w-[100%] bg-black/40 z-[-1]  relative">
         <div class="absolute  bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
-            <a class="font-bold text-white  text-4xl">MAKMLUMAT PELAYANAN </a> <br>
-            <a class="font-bold text-white">Maklumat Pelayanan bpkad surakarta</a>
+            <a class="font-bold text-white  text-4xl">INFORMASI LAYANAN </a> <br>
+            <a class="font-bold text-white">Informasi Layanan bpkad surakarta</a>
         </div>
     </div>
     <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}" />
@@ -13,7 +13,7 @@
 
 
         <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 ">
-            <p class="text-primary font-bold text-3xl italic  text-center mb-10">Maklumat Pelayanan</p>
+            <p class="text-primary font-bold text-3xl italic  text-center mb-10">Informasi Layanan</p>
             <div class="w-full text-center">
                 <a id="aImage" target="_blank">
                     <img id="srcImg" class="  object-cover w-[80%] mx-auto " />

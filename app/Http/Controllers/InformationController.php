@@ -46,16 +46,15 @@ class InformationController extends CustomController
                 $tmp_document = '-';
                 if ($document) {
                     $tmp_year[$year] = ['document' => $document->target, 'type' => $document->type];
-//                    $tmp_document = $document->type === 0 ? '<a href="' . $document->target . '" target="_blank">Link</a>' : '<a href="' . $document->target . '" target="_blank">Dokumen</a>';
+                    //                    $tmp_document = $document->type === 0 ? '<a href="' . $document->target . '" target="_blank">Link</a>' : '<a href="' . $document->target . '" target="_blank">Dokumen</a>';
                 } else {
                     $tmp_year[$year] = ['document' => '-', 'type' => '-'];
                 }
-
             }
             $tmp['year'] = $tmp_year;
             array_push($results, $tmp);
         }
-//        dd($results);
+        //        dd($results);
         return view('informasi-by-year')->with(['data' => $data, 'category' => $category, 'arr_year' => $arr_year, 'results' => $results]);
     }
 
@@ -81,7 +80,6 @@ class InformationController extends CustomController
                 } else {
                     $tmp_year[$year] = ['document' => '-', 'type' => '-'];
                 }
-
             }
             $tmp['year'] = $tmp_year;
             array_push($results, $tmp);
@@ -111,7 +109,6 @@ class InformationController extends CustomController
                 } else {
                     $tmp_year[$year] = ['document' => '-', 'type' => '-'];
                 }
-
             }
             $tmp['year'] = $tmp_year;
             array_push($results, $tmp);
@@ -141,11 +138,15 @@ class InformationController extends CustomController
                 } else {
                     $tmp_year[$year] = ['document' => '-', 'type' => '-'];
                 }
-
             }
             $tmp['year'] = $tmp_year;
             array_push($results, $tmp);
         }
         return view('informasi-di-kecualikan')->with(['data' => $data, 'arr_year' => $arr_year, 'results' => $results]);
+    }
+
+    public function dasarhukumPPID()
+    {
+        return view('dasarhukumppid');
     }
 }

@@ -141,6 +141,25 @@
                         <p class="title-menu block nav-link menu-text ext-sm">Layanan</p>
                     </a>
 
+                    <a class="menu" href="{{ route('customize.aduan') }}">
+
+                        <span class="material-symbols-outlined mr-2 menu-icon">
+                            fiber_manual_record
+                        </span>
+                        <p class="title-menu block nav-link menu-text ext-sm">Aduan</p>
+                    </a>
+
+
+                    <a class="menu" href="{{ route('customize.faq') }}">
+
+                        <span class="material-symbols-outlined mr-2 menu-icon">
+                            fiber_manual_record
+                        </span>
+                        <p class="title-menu block nav-link menu-text ext-sm">FAQ</p>
+                    </a>
+
+
+
 
                 </div>
 

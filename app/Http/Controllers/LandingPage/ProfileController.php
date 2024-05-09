@@ -17,6 +17,11 @@ class ProfileController extends Controller
         return view('visimisi', ['data' => $this->json_data()]);
     }
 
+    public function motto()
+    {
+        return view('motto', ['data' => $this->json_data()]);
+    }
+
     public function structure()
     {
         return view('struktur', ['data' => $this->json_data()]);

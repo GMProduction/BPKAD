@@ -79,7 +79,7 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                         <a href="#"
-                            class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Layanan</a>
+                            class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Aduan</a>
                     </div>
                 </li>
 
@@ -92,173 +92,29 @@
                     <li class="mr-2" role="presentation">
                         <button
                             class="tabs-btn  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 "
-                            id="berkala-tab" data-tabs-target="#berkala" type="button" role="tab" onclick="setTabs(1)"
-                            aria-controls="berkala" aria-selected="false">Maklumat Pelayanan
+                            id="pengelola-aduan-tab" data-tabs-target="#pengelola-aduan" type="button" role="tab"
+                            onclick="setTabs(1)" aria-controls="pengelola-aduan" aria-selected="false">SK Pengelola Aduan
                         </button>
                     </li>
                     <li class="mr-2" role="presentation">
                         <button
                             class="tabs-btn rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2  "
-                            id="sertamerta-tab" data-tabs-target="#sertamerta" type="button" role="tab"
-                            onclick="setTabs(2)" aria-controls="sertamerta" aria-selected="false">Standar Pelayanan
+                            id="grafik-tab" data-tabs-target="#grafik" type="button" role="tab" onclick="setTabs(2)"
+                            aria-controls="grafik" aria-selected="false">Grafik Pengelola Aduan
                         </button>
                     </li>
-                    <li class="mr-2" role="presentation">
-                        <button
-                            class="tabs-btn inline-block  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 "
-                            id="setiapsaat-tab" data-tabs-target="#setiapsaat" type="button" role="tab"
-                            onclick="setTabs(3)" aria-controls="setiapsaat" aria-selected="false">Survey Kepuasan Masyarakat
-                        </button>
-                    </li>
-                    <li class="mr-2" role="presentation">
-                        <button
-                            class="tabs-btn  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 "
-                            id="infolayanan-tab" data-tabs-target="#infolayanan" type="button" role="tab"
-                            onclick="setTabs(4)" aria-controls="berkala" aria-selected="false">Informasi Layanan
-                        </button>
-                    </li>
+
 
                 </ul>
             </div>
 
             <div id="myTabContent">
-                <div class=" p-4 rounded-lg  " id="berkala" role="tabpanel" aria-labelledby="berkala-tab">
-                    <div>
-                        <div class="bg-green-100 p-2 mb-5 flex items-center rounded-md">
-                            <span class="material-symbols-outlined text-green-700 mr-2">
-                                info
-                            </span>
-                            <span class="text-sm text-green-700">Maklumat Pelayanan
 
-                            </span>
-                        </div>
-                        <div class="overflow-x-auto relative shadow-sm ">
-                            <div x-data="showImage()" class="w-full">
-                                <div class="mb-6">
-                                    <form id="formBerkala" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <input name="id" value="{{ $berkala != null ? $berkala->id : '' }}" hidden>
-                                        <input name="type_file" value="1" hidden>
-                                        <input name="service_type" value="1" hidden>
-                                        <label class="inline-block mb-2 text-gray-500">Gambar Maklumat Pelayanan</label>
-                                        <div class="flex items-center justify-center w-full">
-                                            <label
-                                                class="flex flex-col w-full border-4 border-dashed hover:bg-gray-100 hover:border-gray-300">
-                                                <div class="relative flex flex-col items-center justify-center pt-7">
-                                                    <img id="preview"
-                                                        class="absolute inset-0 h-[141px] mx-auto object-fit"
-                                                        src="{{ $berkala != null ? $berkala->url : '' }}">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="w-12 h-12 text-gray-400 group-hover:text-gray-600"
-                                                        viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd"
-                                                            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                                                            clip-rule="evenodd" />
-                                                    </svg>
-                                                    <p
-                                                        class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
-                                                        pilih foto</p>
-                                                </div>
-                                                <input type="file" class="opacity-0" accept="image/*"
-                                                    onchange="showPreview(event)" name="url" />
-                                            </label>
-                                        </div>
-                                        @if ($errors->has('cover'))
-                                            <span
-                                                class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                                                {{ $errors->first('cover') }}
-                                            </span>
-                                        @endif
-
-                                        <button type="button" onclick="saveForm()"
-                                            class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
-                                            Simpan Perubahan
-                                        </button>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class=" p-4 rounded-lg hidden" id="sertamerta" role="tabpanel" aria-labelledby="sertamerta-tab">
-                    <div>
-                        <div class="bg-green-100 p-2 mb-5 flex items-center rounded-md ">
-                            <span class="material-symbols-outlined text-green-700 mr-2 ">
-                                info
-                            </span>
-                            <span class="text-sm text-green-700 ">Standar Pelayanan Masyarakat
-                            </span>
-                        </div>
-
-                        <div class="flex justify-between mb-3">
-                            <div>
-                                <p class=" font-semibold mb-2">Standar Pelayanan Masyarakat</p>
-
-                            </div>
-                            <button type="button" id="openModal"
-                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
-                                <span class="material-symbols-outlined text-white mr-3">
-                                    add
-                                </span>Tambah SP
-                            </button>
-                        </div>
-                        <div class="overflow-x-auto shadow-sm ">
-                            <table class="w-full text-sm text-left text-gray-500" id="table">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
-                                    <tr>
-                                        <th scope="col" class="py-3 px-6">
-                                            #
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            Bidang
-                                        </th>
-
-                                        <th scope="col" class="py-3 px-6">
-                                            Link
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            <span class="sr-only">Ubah</span>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class=" p-4 rounded-lg hidden" id="setiapsaat" role="tabpanel" aria-labelledby="setiapsaat-tab">
-                    {{-- <form id="formSetiap" method="POST">
-                        @csrf
-                        <input name="id" value="{{ $setiap != null ? $setiap->id : '' }}" hidden>
-                        <input name="type_file" value="2" hidden>
-                        <input name="service_type" value="3" hidden>
-                        <div class="bg-green-100 p-2 mb-5 flex items-center rounded-md ">
-                            <span class="material-symbols-outlined text-green-700 mr-2 ">
-                                info
-                            </span>
-                            <span class="text-sm text-green-700 ">Survey Kepuasan Masyarakat
-                            </span>
-                        </div>
-                        <div class="mb-3 ">
-                            <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
-                            <input type="text" id="link-info" name="url"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                required value="{{ $setiap != null ? $setiap->url : '' }}"
-                                placeholder="Masukan Link Url">
-                        </div>
-                        <button type="button" onclick="saveSetiap()"
-                            class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
-                            Simpan Perubahan
-                        </button>
-                    </form> --}}
+                <div class=" p-4 rounded-lg hidden" id="pengelola-aduan" role="tabpanel"
+                    aria-labelledby="pengelola-aduan-tab">
 
                     <div class="flex justify-between mb-3 items-end">
-                        <p class=" font-semibold">Survey Kepuasan Masyarakat</p>
+                        <p class=" font-semibold">SK Pengelola Aduan</p>
                         <button type="button" id="openModaltambahtahun"
                             class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                             <span class="material-symbols-outlined text-white mr-3">
@@ -299,63 +155,92 @@
                     </div>
                 </div>
 
-                <div class=" p-4 rounded-lg  " id="infolayanan" role="tabpanel" aria-labelledby="infolayanan-tab">
+                <div class=" p-4 rounded-lg  " id="grafik" role="tabpanel" aria-labelledby="grafik-tab">
                     <div>
                         <div class="bg-green-100 p-2 mb-5 flex items-center rounded-md">
                             <span class="material-symbols-outlined text-green-700 mr-2">
                                 info
                             </span>
-                            <span class="text-sm text-green-700">Informasi Layanan
-
+                            <span class="text-sm text-green-700">Grafik Aduan
                             </span>
                         </div>
-                        <div class="overflow-x-auto relative shadow-sm ">
-                            <div x-data="showImage()" class="w-full">
-                                <div class="mb-6">
-                                    <form id="formBerkala" method="POST" enctype="multipart/form-data">
-                                        @csrf
+                        <div class="relative overflow-x-auto">
+                            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <thead
+                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">
+                                            Tahun
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Jumlah Aduan
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Jumlah Sedang Dalam Proses
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Jumlah Selesai
+                                        </th>
 
-                                        <label class="inline-block mb-2 text-gray-500">Gambar Informasi Layanan</label>
-                                        <div class="flex items-center justify-center w-full">
-                                            <label
-                                                class="flex flex-col w-full border-4 border-dashed hover:bg-gray-100 hover:border-gray-300">
-                                                <div class="relative flex flex-col items-center justify-center pt-7">
-                                                    <img id="preview"
-                                                        class="absolute inset-0 h-[141px] mx-auto object-fit"
-                                                        src="{{ $berkala != null ? $berkala->url : '' }}">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="w-12 h-12 text-gray-400 group-hover:text-gray-600"
-                                                        viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd"
-                                                            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                                                            clip-rule="evenodd" />
-                                                    </svg>
-                                                    <p
-                                                        class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
-                                                        pilih foto</p>
-                                                </div>
-                                                <input type="file" class="opacity-0" accept="image/*"
-                                                    onchange="showPreview(event)" name="url" />
-                                            </label>
-                                        </div>
-                                        @if ($errors->has('cover'))
-                                            <span
-                                                class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                                                {{ $errors->first('cover') }}
-                                            </span>
-                                        @endif
+                                        <th scope="col" class="px-6 py-3">
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabelgrafik">
+                                    <tr>
+                                        <td>
+                                            2023
+                                        </td>
+                                        <td>
+                                            <div class="flex ">
+                                                <input type="text" id="jumlah-aduan" name="jumlah-aduan"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-28 p-2.5 "
+                                                    placeholder="Masukan Jumlah Aduan">
+                                                <a href="#"
+                                                    class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit"
+                                                    id="editData">Simpan</a>
+                                            </div>
+                                        </td>
 
-                                        <button type="button" onclick="saveForm()"
-                                            class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
-                                            Simpan Perubahan
-                                        </button>
-                                    </form>
+                                        <td>
+                                            <div class="flex">
+                                                <input type="text" id="jumlah-diproses" name="jumlah-diproses"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-28 p-2.5 "
+                                                    placeholder="Masukan Jumlah Aduan Diproses">
+                                                <a href="#"
+                                                    class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit"
+                                                    id="editData">Simpan</a>
+                                            </div>
+                                        </td>
 
-                                </div>
-                            </div>
+                                        <td>
+                                            <div class="flex">
+
+                                                <input type="text" id="jumlah-selesai" name="jumlah-selesai"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-28 p-2.5 "
+                                                    placeholder="Masukan Jumlah Selesai">
+                                                <a href="#"
+                                                    class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit"
+                                                    id="editData">Simpan</a>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <a href="#"
+                                                class="ml-5 font-small text-red-600 bg-red-100  button-link btn-edit"
+                                                id="editData">Hapus Baris</a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
+
+
+
             </div>
         </div>
 

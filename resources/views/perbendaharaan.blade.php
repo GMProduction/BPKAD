@@ -1,8 +1,8 @@
 @extends('base')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick.css') }} "/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick-theme.css') }} "/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick.css') }} " />
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/import/slick-1.8.1/slick/slick-theme.css') }} " />
 
     <style>
         #slider {
@@ -26,16 +26,17 @@
                 Badan melalui Sekretaris</a>
         </div>
     </div>
-    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}"/>
+    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0"
+        src="{{ asset('assets/local/gedung.jpg') }}" />
 
     <div class=" mt-16 mb-16">
         <div
-            class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
+            class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-105">
             <p class="text-primary font-bold text-3xl italic mb-3 ">Tugas Bidang Perbendaharaan & Akuntansi</p>
             <p class="text-sm   mx-auto">{!! $data ? $data->job : '' !!}</p>
         </div>
         <div
-            class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-110">
+            class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-105">
             <p class="text-primary font-bold text-3xl italic mb-3  ">Sub Bidang </p>
             <p class="text-sm  md:w-[50%] sm:w-[80%] w-[95%]  mb-3">{!! $data ? $data->sub_sector : '' !!}</p>
 
@@ -45,38 +46,38 @@
 
         </div>
 
-        @if($data && $data->images)
+        @if ($data && $data->images)
             <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 relative max-h-max">
                 <div class="sm:w-[100%] w-[100%]  mx-auto">
                     <p class="text-primary font-bold text-3xl italic mb-6  ">Gallery </p>
                     <div class="slider-for dark mb-3">
-                        @foreach($data->images as $d)
+                        @foreach ($data->images as $d)
                             <img src="{{ asset($d->image) }}" class="max-h-[500px] cursor-pointer"
-                                 onclick="showModal('{{ asset($d->image) }}')"/>
+                                onclick="showModal('{{ asset($d->image) }}')" />
                         @endforeach
                     </div>
                     <div class="slider-nav">
-                        @foreach($data->images as $d)
-                            <img src="{{ asset($d->image) }}" class="max-h-[150px]"/>
+                        @foreach ($data->images as $d)
+                            <img src="{{ asset($d->image) }}" class="max-h-[150px]" />
                         @endforeach
 
 
                     </div>
                 </div>
             </div>
-    @endif
+        @endif
 
-    <!-- The Modal -->
+        <!-- The Modal -->
         <div id="modal"
-             class="hidden fixed top-0 left-0 z-80 w-screen h-screen bg-black/70 flex justify-center items-center z-50"
-             onclick="closeModal()">
+            class="hidden fixed top-0 left-0 z-80 w-screen h-screen bg-black/70 flex justify-center items-center z-50"
+            onclick="closeModal()">
 
             <!-- The close button -->
             <a class="fixed z-90 top-6 right-8 text-white text-5xl font-bold" href="javascript:void(0)"
-               onclick="closeModal()">&times;</a>
+                onclick="closeModal()">&times;</a>
 
             <!-- A big image will be displayed here -->
-            <img id="modal-img" class="max-w-[90%] max-h-[90%]  object-cover"/>
+            <img id="modal-img" class="max-w-[90%] max-h-[90%]  object-cover" />
         </div>
     </div>
 @endsection
@@ -109,8 +110,7 @@
                 settings: {
                     slidesToShow: 3
                 }
-            },
-            ]
+            }, ]
         });
     </script>
 
