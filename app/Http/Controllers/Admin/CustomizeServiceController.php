@@ -18,8 +18,9 @@ class CustomizeServiceController extends CustomController
         }
         $berkala = Service::where('service_type', '=', 1)->first();
         $setiap  = Service::where('service_type', '=', 3)->first();
+        $layanan  = Service::where('service_type', '=', 5)->first();
 
-        return view('admin/customize/customize_layanan', ['berkala' => $berkala, 'setiap' => $setiap]);
+        return view('admin/customize/customize_layanan', ['berkala' => $berkala, 'setiap' => $setiap, 'layanan' => $layanan]);
     }
 
     public function saveData()

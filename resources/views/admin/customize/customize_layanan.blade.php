@@ -312,17 +312,19 @@
                         <div class="overflow-x-auto relative shadow-sm ">
                             <div x-data="showImage()" class="w-full">
                                 <div class="mb-6">
-                                    <form id="formBerkala" method="POST" enctype="multipart/form-data">
+                                    <form id="formLayanan" method="POST" enctype="multipart/form-data">
                                         @csrf
-
+                                        <input name="id" value="{{ $layanan != null ? $layanan->id : '' }}" hidden>
+                                        <input name="type_file" value="1" hidden>
+                                        <input name="service_type" value="5" hidden>
                                         <label class="inline-block mb-2 text-gray-500">Gambar Informasi Layanan</label>
                                         <div class="flex items-center justify-center w-full">
                                             <label
                                                 class="flex flex-col w-full border-4 border-dashed hover:bg-gray-100 hover:border-gray-300">
                                                 <div class="relative flex flex-col items-center justify-center pt-7">
-                                                    <img id="preview"
+                                                    <img id="previewLayanan"
                                                         class="absolute inset-0 h-[141px] mx-auto object-fit"
-                                                        src="{{ $berkala != null ? $berkala->url : '' }}">
+                                                        src="{{ $layanan != null ? $layanan->url : '' }}">
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                         class="w-12 h-12 text-gray-400 group-hover:text-gray-600"
                                                         viewBox="0 0 20 20" fill="currentColor">
@@ -335,7 +337,7 @@
                                                         pilih foto</p>
                                                 </div>
                                                 <input type="file" class="opacity-0" accept="image/*"
-                                                    onchange="showPreview(event)" name="url" />
+                                                    onchange="showPreview(event, 'previewLayanan')" name="url" />
                                             </label>
                                         </div>
                                         @if ($errors->has('cover'))
@@ -345,7 +347,7 @@
                                             </span>
                                         @endif
 
-                                        <button type="button" onclick="saveForm()"
+                                        <button type="button" onclick="saveFormLayanan()"
                                             class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
                                             Simpan Perubahan
                                         </button>
@@ -695,10 +697,10 @@
             }
         }
 
-        function showPreview(event) {
+        function showPreview(event, div = "preview") {
             if (event.target.files.length > 0) {
                 var src = URL.createObjectURL(event.target.files[0]);
-                var preview = document.getElementById("preview");
+                var preview = document.getElementById(div);
                 preview.src = src;
                 preview.style.display = "block";
             }
@@ -720,6 +722,11 @@
             saveData('Simpan Data', 'formBerkala')
             return false;
 
+        }
+
+        function saveFormLayanan() {
+            saveData('Simpan Data', 'formLayanan')
+            return false;
         }
 
         function saveSetiap() {
