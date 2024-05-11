@@ -40,6 +40,7 @@ class CustomizeController extends CustomController
                 return redirect()->back()->with('success', 'berhasil merubah data...');
             } catch (\Exception $e) {
                 DB::rollBack();
+
                 return redirect()->back()->with('failed', "gagal merubah data...");
             }
         }
@@ -57,6 +58,8 @@ class CustomizeController extends CustomController
                 $data_request = [
                     'vision'  => $this->postField('vision'),
                     'mission' => $this->postField('mission'),
+                    'motto'   => $this->postField('motto'),
+                    'url'     => $this->postField('url'),
                 ];
                 if ($uuid_name !== '') {
                     $image_name                = '/assets/structure/'.$uuid_name;
@@ -149,13 +152,13 @@ class CustomizeController extends CustomController
                 $image_name = '/assets/sector/'.$uuid_name;
                 $image      = $image_name;
                 $this->uploadImage('file', $uuid_name, 'sectorImage');
-                $res  = SectorImage::create(
+                $res     = SectorImage::create(
                     [
                         'sector_id' => request('id'),
                         'image'     => $image,
                     ]
                 );
-                $data = [
+                $data    = [
                     'id'    => $res['id'],
                     'image' => $res['image'],
                     'size'  => number_format(floor(filesize(public_path($res['image']))) / 1025, 1, '.', '').' KB',

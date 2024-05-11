@@ -14,7 +14,7 @@
         <div
             class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-105">
             <p class="text-primary font-bold text-3xl italic mb-3 ">Motto</p>
-            <p class="text-sm   mx-auto">{!! $data ? $data->vision : '' !!}</p>
+            <p class="text-sm   mx-auto">{!! $data ? $data->motto : '' !!}</p>
         </div>
 
 
