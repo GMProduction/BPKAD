@@ -25,6 +25,8 @@ return new class extends Migration
     {
         Schema::table('vision_settings', function (Blueprint $table) {
             //
+            $table->dropColumn('motto');
+            $table->dropColumn('url');
         });
     }
 };
