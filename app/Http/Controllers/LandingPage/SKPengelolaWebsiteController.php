@@ -9,6 +9,9 @@ class SKPengelolaWebsiteController extends Controller
 {
     public function index()
     {
-        return view('skpengelolaanweb');
+        $profile = new ProfileController();
+        $data    = $profile->json_data();
+
+        return view('skpengelolaanweb', ['data' => $data]);
     }
 }

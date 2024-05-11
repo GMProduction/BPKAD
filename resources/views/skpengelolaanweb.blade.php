@@ -7,7 +7,7 @@
             <a class="font-bold text-white">SK Pengelola Website BPKAD Surakarta</a>
         </div>
     </div>
-    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}" />
+    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}"/>
 
     <div class=" mt-16 mb-16">
 
@@ -17,8 +17,8 @@
             <div class="w-full text-center">
                 <a id="aImage" target="_blank">
                     <iframe style="height: 80vh" {{-- src dibawah diganti url dari inputan --}}
-                        src="https://drive.google.com/file/d/1ruBBFTSUJAZ45sZnz8xUI2IW3RDxsyKb/preview"
-                        class="  object-cover w-[80%]  mx-auto " allow="autoplay"></iframe>
+                    src="{{$data ? $data->url:''}}"
+                            class="  object-cover w-[80%]  mx-auto " allow="autoplay"></iframe>
                 </a>
             </div>
         </div>

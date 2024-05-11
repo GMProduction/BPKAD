@@ -95,7 +95,7 @@
                                 <a href="/motto" class="block py-2 px-4 hover:bg-gray-100  ">Motto</a>
                             </li>
                             <li>
-                                <a href="/skpengelolawebsite" class="block py-2 px-4 hover:bg-gray-100  ">SK Pengelola
+                                <a href="{{route('skpengelolawebsite')}}" class="block py-2 px-4 hover:bg-gray-100  ">SK Pengelola
                                     Website</a>
                             </li>
                         </ul>

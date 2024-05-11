@@ -12,6 +12,8 @@ class VisionSettings extends Model
     protected $fillable = [
         'vision',
         'mission',
-        'structure'
+        'structure',
+        'motto',
+        'url'
     ];
 }
