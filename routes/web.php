@@ -86,7 +86,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     });
 
     Route::group(['prefix' => 'kustomisasi-faq'], function () {
+        Route::get('datatable', [\App\Http\Controllers\Admin\FaqController::class, 'dataTable'])->name('customize.faq.datatable');
         Route::match(['POST', 'GET'], '', [\App\Http\Controllers\Admin\FaqController::class, 'index'])->name('customize.faq');
+        Route::post('destroy/{faq}', [\App\Http\Controllers\Admin\FaqController::class, 'destroy'])->name('customize.faq.delete');
     });
 
     Route::group(['prefix' => 'kustomisasi-layanan'], function () {
