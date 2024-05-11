@@ -152,7 +152,7 @@ Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function ()
     Route::get('/skaduan', [\App\Http\Controllers\LandingPage\SkAduanController::class, 'index'])->name('skaduan');
     Route::get('/grafikaduan', [\App\Http\Controllers\LandingPage\GrafikAduanContrller::class, 'index'])->name('grafikaduan');
     Route::get('/faq', [\App\Http\Controllers\LandingPage\FaqController::class, 'index'])->name('faq');
-    Route::get('/informasilayanan', [\App\Http\Controllers\LandingPage\InfoLayananController::class, 'index'])->name('informasilayanan');
+    Route::get('/informasi-layanan', [\App\Http\Controllers\LandingPage\InfoLayananController::class, 'index'])->name('informasilayanan');
     Route::get('/sk-pengelola-website', [\App\Http\Controllers\LandingPage\SKPengelolaWebsiteController::class, 'index'])->name('skpengelolawebsite');
 
     Route::get('/standarpelayanan', function () {

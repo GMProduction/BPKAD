@@ -16,7 +16,7 @@
             <p class="text-primary font-bold text-3xl italic  text-center mb-10">Informasi Layanan</p>
             <div class="w-full text-center">
                 <a id="aImage" target="_blank">
-                    <img id="srcImg" class="  object-cover w-[80%] mx-auto " />
+                    <img id="srcImg" src="{{$data ? $data->url : ''}}" class="  object-cover w-[80%] mx-auto " />
                 </a>
             </div>
         </div>
@@ -25,22 +25,22 @@
 
 @section('morejs')
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            short_image()
-        });
+        {{--document.addEventListener("DOMContentLoaded", () => {--}}
+        {{--    short_image()--}}
+        {{--});--}}
 
-        function short_image() {
-            fetch('{{ route('maklumat.json') }}')
-                .then((response) => response.json())
-                .then((data) => {
-                    let href = "https://bpkad.surakarta.go.id" + data.url;
-                    href = href.replace('/dataimage', data?.structure)
-                    document.getElementById('aImage').setAttribute('href', href)
-                    document.getElementById('srcImg').setAttribute('src', href)
+        {{--function short_image() {--}}
+        {{--    fetch('{{ route('maklumat.json') }}')--}}
+        {{--        .then((response) => response.json())--}}
+        {{--        .then((data) => {--}}
+        {{--            let href = "https://bpkad.surakarta.go.id" + data.url;--}}
+        {{--            href = href.replace('/dataimage', data?.structure)--}}
+        {{--            document.getElementById('aImage').setAttribute('href', href)--}}
+        {{--            document.getElementById('srcImg').setAttribute('src', href)--}}
 
-                    console.log("data " + data.url)
-                })
+        {{--            console.log("data " + data.url)--}}
+        {{--        })--}}
 
-        }
+        {{--}--}}
     </script>
 @endsection
