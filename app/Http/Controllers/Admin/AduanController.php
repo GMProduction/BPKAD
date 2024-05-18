@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Helper\CustomController;
 use App\Http\Controllers\Controller;
 use App\Models\Complaint;
+use App\Models\ComplaintCalculation;
 use App\Models\PublicService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -18,10 +19,16 @@ class AduanController extends CustomController
         $data = Complaint::with([])
             ->orderBy('year', 'DESC')
             ->get();
+        $dataCharts = ComplaintCalculation::with([])
+            ->orderBy('year', 'DESC')
+            ->get();
         if ($this->request->method() === 'POST') {
             return $this->store();
         }
-        return view("admin.customize.customize_aduan")->with(['data' => $data]);
+        return view("admin.customize.customize_aduan")->with([
+            'data' => $data,
+            'dataCharts' => $dataCharts,
+        ]);
     }
 
     private function store()
@@ -117,4 +124,65 @@ class AduanController extends CustomController
         }
     }
 
+    public function chart()
+    {
+        try {
+            $data_request = [
+                'year' => $this->postField('year'),
+            ];
+            ComplaintCalculation::create($data_request);
+            return redirect()->back()->with('success', 'Berhasil menyimpan data...');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('failed', 'internal server error...');
+        }
+    }
+
+    public function changeChart($id, $field)
+    {
+        try {
+            $value = $this->postField('value');
+            $complaintCalculation = ComplaintCalculation::with([])
+                ->where('id', '=', $id)
+                ->first();
+            if ($complaintCalculation) {
+                $data_request[$field] = $value;
+                $complaintCalculation->update($data_request);
+            } else {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Data tidak ditemukan',
+                    'data' => null
+                ], 404);
+            }
+            return response()->json([
+                'status' => 200,
+                'message' => 'Berhasil merubah data...',
+                'data' => null
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 500,
+                'message' => 'internal server error',
+                'data' => null
+            ], 500);
+        }
+    }
+
+    function dropChart($id)
+    {
+        try {
+            ComplaintCalculation::destroy($id);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Berhasil menghapus file',
+                'data' => null
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 500,
+                'message' => 'internal server error',
+                'data' => null
+            ], 500);
+        }
+    }
 }
