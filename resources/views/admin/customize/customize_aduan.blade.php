@@ -158,38 +158,52 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         @if($datum->quarter_1 !== null)
+                                            <a href="{{ $datum->quarter_1 }}" target="_blank">Download</a>
                                         @else
                                             -
                                         @endif
-                                        <a href="#" class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Edit</a>
-                                        <a href="#" class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                        <a href="#" data-quarter="1" data-id="{{ $datum->id }}"
+                                           class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit btn-edit-file">Edit</a>
+                                        <a href="#" data-quarter="1" data-id="{{ $datum->id }}"
+                                           class="font-small text-red-600 bg-red-100  button-link btn-edit btn-drop-file">Hapus</a>
                                     </td>
                                     <td class="px-6 py-4">
                                         @if($datum->quarter_2 !== null)
+                                            <a href="{{ $datum->quarter_2 }}" target="_blank">Download</a>
                                         @else
                                             -
                                         @endif
-                                        <a href="#" class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Edit</a>
-                                        <a href="#" class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                        <a href="#" data-quarter="2" data-id="{{ $datum->id }}"
+                                           class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit btn-edit-file">Edit</a>
+                                        <a href="#" data-quarter="2" data-id="{{ $datum->id }}"
+                                           class="font-small text-red-600 bg-red-100  button-link btn-edit btn-drop-file">Hapus</a>
                                     </td>
                                     <td class="px-6 py-4">
                                         @if($datum->quarter_3 !== null)
+                                            <a href="{{ $datum->quarter_3 }}" target="_blank">Download</a>
                                         @else
                                             -
                                         @endif
-                                        <a href="#" class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Edit</a>
-                                        <a href="#" class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                        <a href="#" data-quarter="3" data-id="{{ $datum->id }}"
+                                           class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit btn-edit-file">Edit</a>
+                                        <a href="#" data-quarter="3" data-id="{{ $datum->id }}"
+                                           class="font-small text-red-600 bg-red-100  button-link btn-edit btn-drop-file">Hapus</a>
                                     </td>
                                     <td class="px-6 py-4">
                                         @if($datum->quarter_4 !== null)
+                                            <a href="{{ $datum->quarter_4 }}" target="_blank">Download</a>
                                         @else
                                             -
                                         @endif
-                                        <a href="#" class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit">Edit</a>
-                                        <a href="#" class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus</a>
+                                        <a href="#" data-quarter="4" data-id="{{ $datum->id }}"
+                                           class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit btn-edit-file">Edit</a>
+                                        <a href="#" data-quarter="3" data-id="{{ $datum->id }}"
+                                           class="font-small text-red-600 bg-red-100  button-link btn-edit btn-drop-file">Hapus</a>
                                     </td>
                                     <td>
-                                        <a href="#" class="font-small text-red-600 bg-red-100  button-link btn-edit">Hapus Baris</a>
+                                        <a href="#" data-id="{{ $datum->id }}"
+                                           class="font-small text-red-600 bg-red-100  button-link btn-edit btn-drop-year">Hapus
+                                            Baris</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -281,8 +295,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
@@ -498,10 +510,11 @@
                             <span class="sr-only">Close modal</span>
                         </button>
                     </div>
-                    <form method="post" enctype="multipart/form-data" onsubmit="return saveDataFile()" id="formFile">
+                    <form method="post" enctype="multipart/form-data"
+                          action="{{ route('customize.aduan.change.file') }}" id="formFile">
                         @csrf
-                        <input id="id" name="id" value="" hidden>
-                        <input id="name" name="name" value="" hidden>
+                        <input id="quarter-id" name="id" value="" hidden>
+                        <input id="quarter-name" name="name" value="" hidden>
                         <!-- Modal body -->
                         <div class="p-6 ">
                             <div class="mb-3">
@@ -551,6 +564,7 @@
         </script>
     @endif
     <script>
+        var path = '/{{ request()->path() }}';
         let tabs = 1;
         const targetEl = document.getElementById('modalTambah');
         let modal = new Modal(targetEl, {
@@ -588,19 +602,30 @@
             }
         });
 
+        $(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        });
+
         $(document).ready(function () {
-            datatable()
+            datatable();
+            eventEditFile();
+            eventDeleteFile();
+            eventDeleteYear();
             // dataPublicService()
-        })
+        });
 
 
         $(document).on('click', '#openModal', function () {
             modal.show();
-        })
+        });
 
         $(document).on('click', '#openModaltambahtahun', function () {
             modalt.show();
-        })
+        });
 
         function setTabs(x) {
             tabs = x
@@ -614,6 +639,102 @@
                 "order": [],
                 paging: true,
             })
+        }
+
+        function eventEditFile() {
+            $('.btn-edit-file').on('click', function (e) {
+                let elQuarter = $('#fieldTahun');
+                let elYearID = $('#quarter-id');
+                let elQuarterName = $('#quarter-name');
+                elQuarter.empty();
+                elYearID.val('');
+                elQuarterName.val('');
+                e.preventDefault();
+                let dataQuarter = this.dataset.quarter;
+                let dataYearID = this.dataset.id;
+                let quarterName = 'Triwulan ' + dataQuarter;
+                elQuarter.html(quarterName);
+                elYearID.val(dataYearID);
+                elQuarterName.val(dataQuarter);
+                modalFile.show();
+            });
+        }
+
+        function eventDeleteFile() {
+            $('.btn-drop-file').on('click', function (e) {
+                e.preventDefault();
+                let dataQuarter = this.dataset.quarter;
+                let dataYearID = this.dataset.id;
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    text: 'Apakah anda yakin ingin menghapus file?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.value) {
+                        deleteFileHandler(dataYearID, dataQuarter);
+                    }
+                });
+            })
+        }
+
+        function eventDeleteYear() {
+            $('.btn-drop-year').on('click', function (e) {
+                e.preventDefault();
+                let dataYearID = this.dataset.id;
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    text: 'Apakah anda yakin ingin menghapus data?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.value) {
+                        deleteYearHandler(dataYearID);
+                    }
+                });
+            })
+        }
+
+        async function deleteFileHandler(id, quarter) {
+            try {
+                let url = path + '/' + id + '/drop-file/' + quarter;
+                await $.post(url);
+                Swal.fire({
+                    title: 'Success',
+                    text: 'Berhasil menghapus data...',
+                    icon: 'success',
+                    timer: 700
+                }).then(() => {
+                    window.location.reload();
+                })
+            } catch (e) {
+                let error_message = JSON.parse(e.responseText);
+                Swal.fire('Error', error_message.message, 'error');
+            }
+        }
+
+        async function deleteYearHandler(id) {
+            try {
+                let url = path + '/' + id + '/drop-year';
+                await $.post(url);
+                Swal.fire({
+                    title: 'Success',
+                    text: 'Berhasil menghapus data...',
+                    icon: 'success',
+                    timer: 700
+                }).then(() => {
+                    window.location.reload();
+                })
+            } catch (e) {
+                let error_message = JSON.parse(e.responseText);
+                Swal.fire('Error', error_message.message, 'error');
+            }
         }
 
 
