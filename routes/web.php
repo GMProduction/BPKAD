@@ -81,8 +81,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'kustomisasi-aduan'], function () {
         Route::match(['POST', 'GET'], '', [\App\Http\Controllers\Admin\AduanController::class, 'index'])->name('customize.aduan');
-        Route::get('datatable', [\App\Http\Controllers\Admin\AduanController::class, 'dataTable'])->name('customize.aduan.datatable');
-        Route::post('layanan-masyarakat/delete', [\App\Http\Controllers\Admin\AduanController::class, 'deleteData'])->name('customize.aduan.masyarakat.delete');
+        Route::post('/change-file', [\App\Http\Controllers\Admin\AduanController::class, 'changeFile'])->name('customize.aduan.change.file');
+        Route::post('/{id}/drop-file/{quarter}', [\App\Http\Controllers\Admin\AduanController::class, 'dropFile'])->name('customize.aduan.drop.file');
+        Route::post('/{id}/drop-year', [\App\Http\Controllers\Admin\AduanController::class, 'dropYear'])->name('customize.aduan.drop.year');
     });
 
     Route::group(['prefix' => 'kustomisasi-faq'], function () {
