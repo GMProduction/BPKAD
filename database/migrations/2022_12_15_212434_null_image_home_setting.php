@@ -15,7 +15,7 @@ class NullImageHomeSetting extends Migration
     {
         Schema::table('home_settings', function (Blueprint $table) {
             //
-            $table->text('image')->nullable(true)->default(true)->change();
+            $table->text('image')->nullable(true)->change();
         });
     }
 

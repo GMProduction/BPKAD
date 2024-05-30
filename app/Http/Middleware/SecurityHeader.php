@@ -18,7 +18,7 @@ class SecurityHeader extends Middleware
     public function handle($request, \Closure $next, ...$guard)
     {
         $response = $next($request);
-        $response->headers->set('Content-Security-Policy', "block-all-mixed-content; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://code.jquery.com/  https://cdn.datatables.net/ https://cdn.jsdelivr.net/; object-src 'self';");
+        $response->headers->set('Content-Security-Policy', "block-all-mixed-content; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://code.jquery.com/  https://cdn.datatables.net/ https://cdn.jsdelivr.net/; object-src 'self'; img-src 'self' blob: data:;");
         $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
         $response->headers->set('X-Content-Type-Options', 'nosniff');
         $response->headers->set('Referrer-Policy', 'same-origin');
