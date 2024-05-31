@@ -25,6 +25,7 @@
     {{-- ICON --}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     @yield('css')
 </head>
 
@@ -46,7 +47,8 @@
             <a href="/" class="flex items-center">
                 <img src="{{ asset('/assets/local/logosurakarta.png') }}"
                     class="logo mr-3  h-16 m-3 sm:m-0 sm:h-[80px] " alt="Surakarta Logo">
-
+                <img src="{{ asset('/assets/local/logobpkad.png') }}" class="logo mr-3  h-16 m-3 sm:m-0 sm:h-[80px] "
+                    alt="BPKAD Logo">
             </a>
             <button data-collapse-toggle="mobile-menu" type="button"
                 class="tombol-mobile inline-flex justify-center items-center m-5 text-white rounded-lg md:hidden hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300   "
@@ -95,7 +97,8 @@
                                 <a href="/motto" class="block py-2 px-4 hover:bg-gray-100  ">Motto</a>
                             </li>
                             <li>
-                                <a href="{{route('skpengelolawebsite')}}" class="block py-2 px-4 hover:bg-gray-100  ">SK Pengelola
+                                <a href="{{ route('skpengelolawebsite') }}"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">SK Pengelola
                                     Website</a>
                             </li>
                         </ul>
@@ -164,7 +167,8 @@
 
 
                             <li>
-                                <a href="https://www.lapor.go.id/" class="block py-2 px-4 hover:bg-gray-100  ">SP4N</a>
+                                <a href="https://www.lapor.go.id/"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">SP4N</a>
                             </li>
                             <li>
                                 <a href="https://ulas.surakarta.go.id/"

@@ -26,17 +26,9 @@
                                 Tahun
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Triwulan I
+                                Download Link
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                Triwulan II
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Triwulan III
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Triwulan IV
-                            </th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -49,30 +41,6 @@
                                 <td class="px-6 py-4">
                                     @if ($d->quarter_1)
                                         <a role="button" href="{{ $d->quarter_1 }}" target="_blank"
-                                            class="button-link">Download</a>
-                                    @else
-                                        -
-                                    @endif
-                                </td>
-                                <td class="px-6 py-4">
-                                    @if ($d->quarter_2)
-                                        <a role="button" href="{{ $d->quarter_2 }}" target="_blank"
-                                            class="button-link">Download</a>
-                                    @else
-                                        -
-                                    @endif
-                                </td>
-                                <td class="px-6 py-4">
-                                    @if ($d->quarter_3)
-                                        <a role="button" href="{{ $d->quarter_3 }}" target="_blank"
-                                            class="button-link">Download</a>
-                                    @else
-                                        -
-                                    @endif
-                                </td>
-                                <td class="px-6 py-4">
-                                    @if ($d->quarter_4)
-                                        <a role="button" href="{{ $d->quarter_4 }}" target="_blank"
                                             class="button-link">Download</a>
                                     @else
                                         -

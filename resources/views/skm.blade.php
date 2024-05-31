@@ -13,12 +13,8 @@
 
 
         <div class="bg-white p-10  sm:w-[80%] w-[95%]  mx-auto shadow-md mb-6 transform transition duration-500">
-            <p class="text-primary font-bold text-3xl italic  text-center mb-10">Survey Kepuasan Masyarakat</p>
-
-
-
-
-            <div class="relative overflow-x-auto">
+            <p class="text-primary font-bold text-3xl italic  text-center mb-10">Tabel Hasil Survey Kepuasan Masyarakat</p>
+            <div class="relative ">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -49,7 +45,7 @@
                                 <td class="px-6 py-4">
                                     @if ($d->quarter_1)
                                         <a role="button" href="{{ $d->quarter_1 }}" target="_blank"
-                                            class="button-link">Download</a>
+                                            class="button-link">Lihat</a>
                                     @else
                                         -
                                     @endif
@@ -57,7 +53,7 @@
                                 <td class="px-6 py-4">
                                     @if ($d->quarter_2)
                                         <a role="button" href="{{ $d->quarter_2 }}" target="_blank"
-                                            class="button-link">Download</a>
+                                            class="button-link">Lihat</a>
                                     @else
                                         -
                                     @endif
@@ -65,7 +61,7 @@
                                 <td class="px-6 py-4">
                                     @if ($d->quarter_3)
                                         <a role="button" href="{{ $d->quarter_3 }}" target="_blank"
-                                            class="button-link">Download</a>
+                                            class="button-link">Lihat</a>
                                     @else
                                         -
                                     @endif
@@ -73,7 +69,7 @@
                                 <td class="px-6 py-4">
                                     @if ($d->quarter_4)
                                         <a role="button" href="{{ $d->quarter_4 }}" target="_blank"
-                                            class="button-link">Download</a>
+                                            class="button-link">Lihat</a>
                                     @else
                                         -
                                     @endif
@@ -89,6 +85,32 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div>
+                    {{-- href="https://appbagor.surakarta.go.id/sop/skm/instrumen/isi/62" target="_blank" --}}
+                    <p class="mt-10 text-justify">Tingkatkan kualitas layanan publik dengan berbagi pendapat Anda!
+                        Partisipasi Anda
+
+                        dalam survei kepuasan masyarakat adalah langkah penting menuju perubahan yang positif. Setiap
+                        tanggapan Anda membantu kami memahami kebutuhan dan harapan masyarakat, sehingga kami dapat
+                        meningkatkan kinerja dan efisiensi layanan kami.
+
+                        Dengan mengisi survei ini, Anda tidak hanya memberikan umpan balik yang berharga, tetapi juga
+                        berkontribusi pada pembangunan komunitas yang lebih baik. Kami percaya bahwa setiap suara memiliki
+                        dampak, dan kami berkomitmen untuk mendengarkan dan merespons setiap pendapat dengan cermat.
+
+                        Jadi, jangan ragu untuk berbagi pengalaman Anda dengan kami. Bersama-sama, kita dapat menciptakan
+                        lingkungan yang lebih baik dan membangun masa depan yang lebih cerah untuk semua orang. Terima kasih
+                        atas partisipasi Anda!</p>
+
+
+
+                </div>
+                <div style="margin-top: 50px;"><a href="https://appbagor.surakarta.go.id/sop/skm/instrumen/isi/62"
+                        target="_blank" class=" py-5 px-10 text-white text-bold mt-10 " style="background-color: orange">Isi
+                        Survey
+                        disini</a></div>
+
             </div>
 
             {{-- <div class="w-full text-center">
