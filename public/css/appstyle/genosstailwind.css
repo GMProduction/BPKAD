@@ -215,10 +215,6 @@ body::-webkit-scrollbar {
 }
 
 .slick-slide {
-  height: inherit !important;
-}
-
-.slick-slide {
   margin-bottom: 0;
   -o-object-fit: cover;
      object-fit: cover;

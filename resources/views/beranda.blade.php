@@ -34,14 +34,15 @@
         </div>
     </div>
 
-    <div class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] top-0 left-0 overflow-hidden" style="object-fit: contain;">
+    <div class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] top-0 left-0 overflow-hidden">
         <div class=" slider-header ">
             @foreach ($slider as $slide)
-                <img src="{{ asset($slide->image) }}" style="object-fit: scale-down" />
+                <img src="{{ asset($slide->image) }}" style="object-fit: fill; height: 750px;" />
             @endforeach
         </div>
     </div>
-    <div class="mt-[-70px] min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md flex items-center "
+    <div class="mt-[-70px]
+                    min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md flex items-center "
         data-aos="fade-up">
         <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 mt-[auto] mb-[auto] w-[100%] ">
             <div class="flex  md:justify-center justify-start  sm:mx-0 mx-5 sm:my-0 my-1 sm:mt-0 mt-3 border-r">
@@ -103,7 +104,8 @@
     <div class="bg-transparent curved">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="#23569F" fill-opacity="1"
-                d="M0,96L60,90.7C120,85,240,75,360,96C480,117,600,171,720,176C840,181,960,139,1080,144C1200,149,1320,203,1380,229.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+                d="
+                                M0,96L60,90.7C120,85,240,75,360,96C480,117,600,171,720,176C840,181,960,139,1080,144C1200,149,1320,203,1380,229.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
             </path>
 
 
@@ -112,7 +114,8 @@
         <div class="bg-primary w-[100%] pb-10 sm:mt-[-40px] md:mt-[-60px] mt-[-0] sm:px-10 px-5">
 
             <p class="text-white font-bold text-3xl italic mb-3 text-center" data-aos="fade-up">Aplikasi Online</p>
-            <p class="text-white/80 text-sm text-center mb-10" data-aos="fade-up">Aplikasi Online yang dapat membantumu</p>
+            <p class="text-white/80 text-sm text-center mb-10" data-aos="fade-up">Aplikasi Online yang dapat
+                membantumu</p>
 
             <div class="slider-aplikasi" data-aos="fade-up">
                 @forelse($application as $ap)
@@ -275,7 +278,8 @@
                     <p class="italic font-bold text-4xl text-white mb-3 text-center" data-aos="fade-up">Kirim Laporan
                         Pengaduan Online
                     </p>
-                    <p class=" text-white text-center">Sampaikan laporan Anda langsung kepada instansi pemerintah berwenang
+                    <p class=" text-white text-center">Sampaikan laporan Anda langsung kepada instansi pemerintah
+                        berwenang
                     </p>
                     <a href="https://www.lapor.go.id/"
                         class="mt-3 relative   text-white font-bold border-white px-5 py-3 border-2 hover:bg-white/25">
@@ -334,7 +338,8 @@
         $('.slider-header').slick({
             autoplay: true,
             autoplayspeed: 500,
-            fade: true
+            fade: true,
+
         });
 
         $('.slider-aplikasi').slick({
