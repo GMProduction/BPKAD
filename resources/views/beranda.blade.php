@@ -241,15 +241,15 @@
             masyarakat</p>
 
         <div class="video-slide  sm:m-10 m-5 " id="ytVideo" data-aos="fade-up">
-            {{--            <iframe style="height: 480px !important" src="https://www.youtube.com/embed/DwFg8kWMTVE" --}}
-            {{--                    title="YouTube video player" frameborder="0" --}}
-            {{--                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" --}}
-            {{--                    allowfullscreen></iframe> --}}
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/DwFg8kWMTVE?si=q0ErLcCqDvR5cwE8"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-            {{--            <iframe style="height: 480px !important" src="https://www.youtube.com/embed/doGpA_fipuM" --}}
-            {{--                    title="YouTube video player" frameborder="0" --}}
-            {{--                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" --}}
-            {{--                    allowfullscreen></iframe> --}}
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/doGpA_fipuM?si=4ubw8YoDz4EH9ZrF"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
     </div>
