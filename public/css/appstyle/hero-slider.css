@@ -498,15 +498,7 @@ main {
   border-radius: 50%;
   opacity: 0.4;
   background: white;
-  -webkit-animation: loaderAnim 0.7s linear infinite alternate forwards;
-          animation: loaderAnim 0.7s linear infinite alternate forwards;
-}
-
-@-webkit-keyframes loaderAnim {
-  to {
-    opacity: 1;
-    transform: scale3d(0.5, 0.5, 1);
-  }
+  animation: loaderAnim 0.7s linear infinite alternate forwards;
 }
 
 @keyframes loaderAnim {

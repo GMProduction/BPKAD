@@ -14,6 +14,21 @@ body::-webkit-scrollbar {
   padding: 10px 5px;
 }
 
+.video-terbaru {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+
+  iframe {
+    width: 600px;
+  }
+}
+
+#accessibility-modal {
+  top: 42vh !important;
+}
 .sidebar {
   width: 255px;
   // border-right: solid 1px $font-grey7;
@@ -394,5 +409,14 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
 .dataTables_length {
   select {
     background-image: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .video-terbaru {
+    flex-direction: column;
+    iframe {
+      width: 80%;
+    }
   }
 }

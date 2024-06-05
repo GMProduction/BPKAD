@@ -37,7 +37,7 @@
     <div class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] top-0 left-0 overflow-hidden" style="object-fit: contain;">
         <div class=" slider-header ">
             @foreach ($slider as $slide)
-                <img src="{{ asset($slide->image) }}" class=" " />
+                <img src="{{ asset($slide->image) }}" class="object-scale-down" />
             @endforeach
         </div>
     </div>
@@ -240,18 +240,17 @@
             BPKAD untuk
             masyarakat</p>
 
-        <div class="video-slide  sm:m-10 m-5 " id="ytVideo" data-aos="fade-up">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/DwFg8kWMTVE?si=q0ErLcCqDvR5cwE8"
+        <div class="video-terbaru">
+            <iframe style="padding: 30px" src="https://www.youtube.com/embed/DwFg8kWMTVE?si=q0ErLcCqDvR5cwE8"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/doGpA_fipuM?si=4ubw8YoDz4EH9ZrF"
+            <iframe style="padding: 30px" src="https://www.youtube.com/embed/doGpA_fipuM?si=4ubw8YoDz4EH9ZrF"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
-
     </div>
 
     <div class="grid  grid-cols-1 md:h-[350px] h-[700px] relative overflow-hidden">

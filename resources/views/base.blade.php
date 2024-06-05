@@ -385,8 +385,24 @@
         </footer>
     </div>
 
+    {{-- <script src="{{ asset('js/accessibility-menu.min.js') }}"></script> --}}
+
+
+    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+    <script>
+        // optional init
+        window.onload = function() {
+            window.micAccessTool = new MicAccessTool({
+                buttonPosition: 'right', // default is 'left'
+                // default is 'en' may be 'he-IL', 'ru-RU', or 'fr_FR'
+            });
+        }
+    </script>
+
+
     <script>
         "use strict"
+
         document.addEventListener("DOMContentLoaded", () => {
             contact_profile();
             short_history();
@@ -416,6 +432,7 @@
                 })
         }
     </script>
+
     <script src="{{ asset('/js/flowbite.js') }}"></script>
     <script src="{{ asset('/js/nav.js') }}"></script>
     <script src="{{ asset('assets/import/aos-master/dist/aos.js') }}"></script>
