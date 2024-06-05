@@ -37,7 +37,7 @@
     <div class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] top-0 left-0 overflow-hidden">
         <div class=" slider-header ">
             @foreach ($slider as $slide)
-                <img src="{{ asset($slide->image) }}" style="object-fit: fill; height: 750px;" />
+                <img src="{{ asset($slide->image) }}" style="object-fit: fill; height: 770px;" />
             @endforeach
         </div>
     </div>
@@ -105,7 +105,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="#23569F" fill-opacity="1"
                 d="
-                                M0,96L60,90.7C120,85,240,75,360,96C480,117,600,171,720,176C840,181,960,139,1080,144C1200,149,1320,203,1380,229.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+                                    M0,96L60,90.7C120,85,240,75,360,96C480,117,600,171,720,176C840,181,960,139,1080,144C1200,149,1320,203,1380,229.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
             </path>
 
 
