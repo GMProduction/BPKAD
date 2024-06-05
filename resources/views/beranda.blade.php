@@ -37,7 +37,7 @@
     <div class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] top-0 left-0 overflow-hidden" style="object-fit: contain;">
         <div class=" slider-header ">
             @foreach ($slider as $slide)
-                <img src="{{ asset($slide->image) }}" class="object-scale-down" />
+                <img src="{{ asset($slide->image) }}" style="object-fit: scale-down" />
             @endforeach
         </div>
     </div>
