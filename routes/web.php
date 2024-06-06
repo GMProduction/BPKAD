@@ -84,9 +84,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::post('/change-file', [\App\Http\Controllers\Admin\AduanController::class, 'changeFile'])->name('customize.aduan.change.file');
         Route::post('/{id}/drop-file/{quarter}', [\App\Http\Controllers\Admin\AduanController::class, 'dropFile'])->name('customize.aduan.drop.file');
         Route::post('/{id}/drop-year', [\App\Http\Controllers\Admin\AduanController::class, 'dropYear'])->name('customize.aduan.drop.year');
-        Route::post( '/chart', [\App\Http\Controllers\Admin\AduanController::class, 'chart'])->name('customize.aduan.chart');
-        Route::post( '/chart/{id}/change/{field}', [\App\Http\Controllers\Admin\AduanController::class, 'changeChart'])->name('customize.aduan.chart.change');
-        Route::post( '/chart/{id}/drop-chart', [\App\Http\Controllers\Admin\AduanController::class, 'dropChart'])->name('customize.aduan.chart.drop');
+        Route::post('/chart', [\App\Http\Controllers\Admin\AduanController::class, 'chart'])->name('customize.aduan.chart');
+        Route::post('/chart/{id}/change/{field}', [\App\Http\Controllers\Admin\AduanController::class, 'changeChart'])->name('customize.aduan.chart.change');
+        Route::post('/chart/{id}/drop-chart', [\App\Http\Controllers\Admin\AduanController::class, 'dropChart'])->name('customize.aduan.chart.drop');
     });
 
     Route::group(['prefix' => 'kustomisasi-faq'], function () {
@@ -167,6 +167,16 @@ Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function ()
         return view('informasipublik');
     })->name('information.public');
 });
+
+Route::get('/produkhukumperda', function () {
+    return view('produkhukumperda');
+})->name('produkhukumperda');
+
+
+Route::get('/produkhukumperwali', function () {
+    return view('produkhukumperwali');
+})->name('produkhukumperwali');
+
 
 //Route::get('/informasi', function () {
 //    return view('informasi');
