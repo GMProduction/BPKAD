@@ -12,6 +12,7 @@ use App\Models\Sector;
 use App\Models\SectorImage;
 use App\Models\VisionSettings;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Filesystem\chmod;
 
 class CustomizeController extends CustomController
 {
@@ -62,7 +63,7 @@ class CustomizeController extends CustomController
                     'url'     => $this->postField('url'),
                 ];
                 if ($uuid_name !== '') {
-                    $image_name                = '/assets/structure/'.$uuid_name;
+                    $image_name                = '/assets/structure/' . $uuid_name;
                     $data_request['structure'] = $image_name;
                     $this->uploadImage('structure', $uuid_name, 'structureImage');
                 }
@@ -146,10 +147,9 @@ class CustomizeController extends CustomController
             if (request('action') == 2) {
                 $this->deleteImg('SectorImage', request('id'), request('name'));
                 $payload = [];
-
             } else {
                 $uuid_name  = $this->generateImageName('file');
-                $image_name = '/assets/sector/'.$uuid_name;
+                $image_name = '/assets/sector/' . $uuid_name;
                 $image      = $image_name;
                 $this->uploadImage('file', $uuid_name, 'sectorImage');
                 $res     = SectorImage::create(
@@ -161,21 +161,19 @@ class CustomizeController extends CustomController
                 $data    = [
                     'id'    => $res['id'],
                     'image' => $res['image'],
-                    'size'  => number_format(floor(filesize(public_path($res['image']))) / 1025, 1, '.', '').' KB',
+                    'size'  => number_format(floor(filesize(public_path($res['image']))) / 1025, 1, '.', '') . ' KB',
                 ];
                 $payload = $data;
-
             }
             $message = 'success';
             $code    = 200;
         } catch (\Exception $err) {
-            $message = 'gagal '.$err;
+            $message = 'gagal ' . $err;
             $payload = [];
             $code    = 500;
         }
 
         return $this->jsonResponse($message, $code, $payload);
-
     }
 
     public function get_image()
@@ -199,7 +197,7 @@ class CustomizeController extends CustomController
             $message = 'success';
             $code    = 200;
         } catch (\Exception $err) {
-            $message = 'gagal '.$err;
+            $message = 'gagal ' . $err;
             $payload = [];
             $code    = 500;
         }

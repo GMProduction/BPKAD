@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Faq;
 use App\Models\PublicService;
 use Yajra\DataTables\DataTables;
+use Illuminate\Filesystem\chmod;
 
 class FaqController extends CustomController
 {
@@ -16,17 +17,18 @@ class FaqController extends CustomController
         $data = Faq::query();
 
         return DataTables::of($data)
-                         ->make(true);
+            ->make(true);
     }
     public function index()
     {
-        if (request()->method() == 'POST'){
+        if (request()->method() == 'POST') {
             return $this->postData();
         }
         return view('admin.customize.customize_faq');
     }
 
-    public function postData(){
+    public function postData()
+    {
 
         $field = request()->validate([
             'question' => 'required',
@@ -35,9 +37,9 @@ class FaqController extends CustomController
 
         $quest = Faq::find(request('id'));
 
-        if ($quest){
+        if ($quest) {
             $quest->update($field);
-        }else{
+        } else {
             Faq::create($field);
         }
 
@@ -55,8 +57,7 @@ class FaqController extends CustomController
             $faq->delete();
             return $this->jsonResponse('success', 200);
         } catch (\Exception $e) {
-            return $this->jsonResponse('terjadi kesalahan server...'.$e->getMessage(), 500);
+            return $this->jsonResponse('terjadi kesalahan server...' . $e->getMessage(), 500);
         }
-
     }
 }

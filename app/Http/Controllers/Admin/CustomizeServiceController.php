@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Service;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
+use Illuminate\Filesystem\chmod;
 
 class CustomizeServiceController extends CustomController
 {
@@ -49,7 +50,6 @@ class CustomizeServiceController extends CustomController
                     'service_type' => request('service_type'),
                     'url'          => request('url'),
                 ];
-
             } else {
 
                 $field = [
@@ -71,7 +71,7 @@ class CustomizeServiceController extends CustomController
                 );
 
                 $uuid_name    = $this->generateImageName('url');
-                $image_name   = '/assets/service/'.$uuid_name;
+                $image_name   = '/assets/service/' . $uuid_name;
                 $field['url'] = $image_name;
                 $this->uploadImage('url', $uuid_name, 'serviceImage');
             } else {
@@ -88,9 +88,9 @@ class CustomizeServiceController extends CustomController
             $service = Service::find(request('id'));
             if ($service) {
                 if (request('type_file') == 1) {
-                    if (file_exists(public_path().$service->url)) {
+                    if (file_exists(public_path() . $service->url)) {
                         if ($service->url) {
-                            unlink(public_path().$service->url);
+                            unlink(public_path() . $service->url);
                         }
                     }
                 }
@@ -101,9 +101,8 @@ class CustomizeServiceController extends CustomController
             }
 
             return redirect()->back()->with('success', 'berhasil merubah data...')->with('type', $type);
-
         } catch (\Exception $e) {
-            return redirect()->back()->with('failed', 'gagal merubah data...'.$e->getMessage())->with('type', $type);
+            return redirect()->back()->with('failed', 'gagal merubah data...' . $e->getMessage())->with('type', $type);
         }
     }
 
@@ -126,14 +125,13 @@ class CustomizeServiceController extends CustomController
                     $dataAttr .= " data-$key = '$d'";
                 }
                 return '<div class="py-4 px-6 text-right whitespace-nowrap">
-                                <a role="button" '.$dataAttr.' id="editData"
+                                <a role="button" ' . $dataAttr . ' id="editData"
                                     class="font-medium text-blue-600  button-link bg-blue-100">Ubah</a>
 
-                                    <a role="button" '.$dataAttr.' id="deleteData"
+                                    <a role="button" ' . $dataAttr . ' id="deleteData"
                                     class="font-medium text-red-700  button-link bg-red-100">Hapus</a>
                             </div>';
             }
         )->make(true);
     }
-
 }

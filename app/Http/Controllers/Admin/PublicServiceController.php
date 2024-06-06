@@ -8,6 +8,7 @@ use App\Models\PublicService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Filesystem\chmod;
 
 class PublicServiceController extends CustomController
 {
@@ -55,14 +56,14 @@ class PublicServiceController extends CustomController
             $name          = request('name');
             $publicService = PublicService::find(request('id'));
             if ($publicService[$name]) {
-                if (file_exists(public_path().$publicService[$name])) {
+                if (file_exists(public_path() . $publicService[$name])) {
                     if ($publicService[$name]) {
-                        unlink(public_path().$publicService[$name]);
+                        unlink(public_path() . $publicService[$name]);
                     }
                 }
             }
             $uuid_name   = $this->generateImageName('file');
-            $image_name  = '/assets/public-service/'.$uuid_name;
+            $image_name  = '/assets/public-service/' . $uuid_name;
             $form[$name] = $image_name;
             $this->uploadImage('file', $uuid_name, 'publicService');
             $publicService->update($form);
@@ -72,7 +73,7 @@ class PublicServiceController extends CustomController
         } catch (\Exception $e) {
             DB::rollBack();
 
-            return $this->jsonResponse('terjadi kesalahan server...'.$e->getMessage(), 500);
+            return $this->jsonResponse('terjadi kesalahan server...' . $e->getMessage(), 500);
         }
     }
 
@@ -86,9 +87,9 @@ class PublicServiceController extends CustomController
 
             if ($name) {
                 if ($publicService[$name]) {
-                    if (file_exists(public_path().$publicService[$name])) {
+                    if (file_exists(public_path() . $publicService[$name])) {
                         if ($publicService[$name]) {
-                            unlink(public_path().$publicService[$name]);
+                            unlink(public_path() . $publicService[$name]);
                         }
                     }
                 }
@@ -96,30 +97,30 @@ class PublicServiceController extends CustomController
                 $publicService->update($form);
             } else {
                 if ($publicService['quarter_1']) {
-                    if (file_exists(public_path().$publicService['quarter_1'])) {
+                    if (file_exists(public_path() . $publicService['quarter_1'])) {
                         if ($publicService['quarter_1']) {
-                            unlink(public_path().$publicService['quarter_1']);
+                            unlink(public_path() . $publicService['quarter_1']);
                         }
                     }
                 }
                 if ($publicService['quarter_2']) {
-                    if (file_exists(public_path().$publicService['quarter_2'])) {
+                    if (file_exists(public_path() . $publicService['quarter_2'])) {
                         if ($publicService['quarter_2']) {
-                            unlink(public_path().$publicService['quarter_2']);
+                            unlink(public_path() . $publicService['quarter_2']);
                         }
                     }
                 }
                 if ($publicService['quarter_3']) {
-                    if (file_exists(public_path().$publicService['quarter_3'])) {
+                    if (file_exists(public_path() . $publicService['quarter_3'])) {
                         if ($publicService['quarter_3']) {
-                            unlink(public_path().$publicService['quarter_3']);
+                            unlink(public_path() . $publicService['quarter_3']);
                         }
                     }
                 }
                 if ($publicService['quarter_4']) {
-                    if (file_exists(public_path().$publicService['quarter_4'])) {
+                    if (file_exists(public_path() . $publicService['quarter_4'])) {
                         if ($publicService['quarter_4']) {
-                            unlink(public_path().$publicService['quarter_4']);
+                            unlink(public_path() . $publicService['quarter_4']);
                         }
                     }
                 }
@@ -131,8 +132,7 @@ class PublicServiceController extends CustomController
         } catch (\Exception $e) {
             DB::rollBack();
 
-            return $this->jsonResponse('terjadi kesalahan server...'.$e->getMessage(), 500);
+            return $this->jsonResponse('terjadi kesalahan server...' . $e->getMessage(), 500);
         }
     }
-
 }

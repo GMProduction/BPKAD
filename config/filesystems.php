@@ -59,7 +59,7 @@ return [
         ],
         'structureImage' => [
             'driver' => 'local',
-            'root' => public_path() . '/assets/structure',
+            'root' => public_path('assets/structure'),
             'url' => env('APP_URL') . '/public',
         ],
         'publicAgency' => [
