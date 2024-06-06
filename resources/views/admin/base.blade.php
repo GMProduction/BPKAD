@@ -150,6 +150,15 @@
                     </a>
 
 
+                    <a class="menu" href="{{ route('customize.produkhukum') }}">
+
+                        <span class="material-symbols-outlined mr-2 menu-icon">
+                            fiber_manual_record
+                        </span>
+                        <p class="title-menu block nav-link menu-text ext-sm">Produk Hukum</p>
+                    </a>
+
+
                     <a class="menu" href="{{ route('customize.faq') }}">
 
                         <span class="material-symbols-outlined mr-2 menu-icon">

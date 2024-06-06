@@ -95,6 +95,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::post('destroy/{faq}', [\App\Http\Controllers\Admin\FaqController::class, 'destroy'])->name('customize.faq.delete');
     });
 
+    Route::group(['prefix' => 'kustomisasi-produkhukum'], function () {
+        Route::match(['POST', 'GET'], '', [\App\Http\Controllers\Admin\ProdukHukumController::class, 'index'])->name('customize.produkhukum');
+    });
     Route::group(['prefix' => 'kustomisasi-layanan'], function () {
         Route::match(['POST', 'GET'], '', [\App\Http\Controllers\Admin\CustomizeServiceController::class, 'index'])->name('customize.layanan');
         Route::get('datatable', [\App\Http\Controllers\Admin\CustomizeServiceController::class, 'dataTable'])->name('customize.layanan.datatable');
