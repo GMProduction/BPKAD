@@ -11,6 +11,7 @@ class RegionLawProduct extends Model
 
     protected $fillable = [
         'name',
-        'link'
+        'link',
+        'type'
     ];
 }

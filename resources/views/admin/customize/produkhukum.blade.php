@@ -229,8 +229,9 @@
                             <span class="sr-only">Close modal</span>
                         </button>
                     </div>
-                    <form method="post" enctype="multipart/form-data" id="formSerta">
+                    <form method="post" enctype="multipart/form-data" id="form-perda">
                         @csrf
+                        <input type="hidden" name="type" value="region">
                         <input id="id" name="id" value="">
                         <input id="type_file" name="type_file">
                         <input name="service_type" hidden value="2">
@@ -238,10 +239,10 @@
                         <div class="p-6 ">
                             <div class="mb-3">
                                 <div>
-                                    <label for="information_categories"
+                                    <label for="nama-perda"
                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">PERDA</label>
                                     <div class="flex">
-                                        <input type="text" id="nama-perda" name="sector"
+                                        <input type="text" id="nama-perda" name="name"
                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                                                placeholder="Masukan Perda" required>
                                     </div>
@@ -277,7 +278,7 @@
                                 </ul>
 
                                 <div class="mb-3 " id="div-tambahlink">
-                                    <label for="link-info"
+                                    <label for="link-url"
                                            class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
                                     <input type="text" id="link-url" name="url"
                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
@@ -287,16 +288,16 @@
                                 <div class="mb-3  hidden" id="div-tambahfile">
                                     <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
                                         file</label>
-                                    <input onchange="checkSize(this)"
+                                    <input
                                            class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
                                            aria-describedby="upload-file_help" id="upload-file" type="file"
-                                           name="url" accept="application/pdf">
+                                           name="file" accept="application/pdf">
                                 </div>
                             </div>
                         </div>
                         <!-- Modal footer -->
                         <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                            <button type="button" id="btn-submit-information" onclick="saveSerta()"
+                            <button type="button" id="btn-submit-perda"
                                     class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                                 <span class="material-symbols-outlined text-white mr-3">
                                     save
@@ -331,8 +332,9 @@
                             <span class="sr-only">Close modal</span>
                         </button>
                     </div>
-                    <form method="post" enctype="multipart/form-data" id="formSerta">
+                    <form method="post" enctype="multipart/form-data" id="form-wali">
                         @csrf
+                        <input type="hidden" name="type" value="mayor">
                         <input id="id" name="id" value="">
                         <input id="type_file" name="type_file">
                         <input name="service_type" hidden value="2">
@@ -343,7 +345,7 @@
                                     <label for="information_categories"
                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">PERWALI</label>
                                     <div class="flex">
-                                        <input type="text" id="nama-perwali" name="sector"
+                                        <input type="text" id="nama-perwali" name="name"
                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
                                                placeholder="Masukan Perwali" required>
                                     </div>
@@ -389,16 +391,16 @@
                                 <div class="mb-3  hidden" id="div-tambahfile">
                                     <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
                                         file</label>
-                                    <input onchange="checkSize(this)"
+                                    <input
                                            class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
                                            aria-describedby="upload-file_help" id="upload-file" type="file"
-                                           name="url" accept="application/pdf">
+                                           name="file" accept="application/pdf">
                                 </div>
                             </div>
                         </div>
                         <!-- Modal footer -->
                         <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                            <button type="button" id="btn-submit-information" onclick="saveSerta()"
+                            <button type="button" id="btn-submit-mayor"
                                     class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                                 <span class="material-symbols-outlined text-white mr-3">
                                     save
@@ -539,13 +541,53 @@
             })
         }
 
+        function eventSubmitRegion() {
+            $('#btn-submit-perda').on('click', function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    text: 'Apakah anda yakin ingin menyimpan data?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.value) {
+                        // deleteChartHandler(dataChartID);
+                        $('#form-perda').submit();
+                    }
+                });
+            })
+        }
+
+        function eventSubmitMayor() {
+            $('#btn-submit-mayor').on('click', function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    text: 'Apakah anda yakin ingin menyimpan data?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya'
+                }).then((result) => {
+                    if (result.value) {
+                        // deleteChartHandler(dataChartID);
+                        $('#form-wali').submit();
+                    }
+                });
+            })
+        }
         $(document).ready(function () {
             datatableRegion();
             datatableMayor();
             eventOpenModalRegion();
             eventOpenModalMayor();
             eventSwitchTab();
-
+            eventSubmitRegion();
+            eventSubmitMayor();
         });
 
         $(document).on('click', '#editData', function (ev) {

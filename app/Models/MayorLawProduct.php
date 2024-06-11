@@ -11,6 +11,7 @@ class MayorLawProduct extends Model
 
     protected $fillable = [
         'name',
-        'link'
+        'link',
+        'type'
     ];
 }
