@@ -26,7 +26,10 @@ class ProdukHukumController extends CustomController
         $mayors = MayorLawProduct::with([])
             ->orderBy('created_at', 'DESC')
             ->get();
-        return view('admin.customize.produkhukum');
+        return view('admin.customize.produkhukum')->with([
+            'regions' => $regions,
+            'mayors' => $mayors
+        ]);
     }
 
     private function store()

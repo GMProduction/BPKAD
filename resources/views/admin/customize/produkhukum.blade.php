@@ -131,7 +131,8 @@
                             </button>
                         </div>
                         <div class="overflow-x-auto shadow-sm ">
-                            <table class="w-full text-sm text-left text-gray-500" id="table-region" style="width: 100%;">
+                            <table class="w-full text-sm text-left text-gray-500" id="table-region"
+                                   style="width: 100%;">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                                 <tr>
                                     <th scope="col" class="py-3 px-6">
@@ -150,7 +151,23 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($regions as $region)
+                                    <tr>
+                                        <td class="py-3 px-6">
+                                            {{ $loop->index + 1 }}
+                                        </td>
+                                        <td class="py-3 px-6">
+                                            {{ $region->name }}
+                                        </td>
 
+                                        <td class="py-3 px-6">
+                                            <a href="{{ $region->link }}">Download</a>
+                                        </td>
+                                        <td class="py-3 px-6">
+                                            <span class="sr-only">Ubah</span>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -289,9 +306,9 @@
                                     <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
                                         file</label>
                                     <input
-                                           class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
-                                           aria-describedby="upload-file_help" id="upload-file" type="file"
-                                           name="file" accept="application/pdf">
+                                        class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
+                                        aria-describedby="upload-file_help" id="upload-file" type="file"
+                                        name="file" accept="application/pdf">
                                 </div>
                             </div>
                         </div>
@@ -392,9 +409,9 @@
                                     <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
                                         file</label>
                                     <input
-                                           class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
-                                           aria-describedby="upload-file_help" id="upload-file" type="file"
-                                           name="file" accept="application/pdf">
+                                        class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
+                                        aria-describedby="upload-file_help" id="upload-file" type="file"
+                                        name="file" accept="application/pdf">
                                 </div>
                             </div>
                         </div>
@@ -580,6 +597,7 @@
                 });
             })
         }
+
         $(document).ready(function () {
             datatableRegion();
             datatableMayor();
