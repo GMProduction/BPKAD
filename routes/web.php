@@ -171,14 +171,10 @@ Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function ()
     })->name('information.public');
 });
 
-Route::get('/produkhukumperda', function () {
-    return view('produkhukumperda');
-})->name('produkhukumperda');
+Route::get('/produkhukumperda', [\App\Http\Controllers\LandingPage\ProdukHukumController::class, 'regionPage'])->name('produkhukumperda');
 
 
-Route::get('/produkhukumperwali', function () {
-    return view('produkhukumperwali');
-})->name('produkhukumperwali');
+Route::get('/produkhukumperwali', [\App\Http\Controllers\LandingPage\ProdukHukumController::class, 'mayorPage'])->name('produkhukumperwali');
 
 
 //Route::get('/informasi', function () {

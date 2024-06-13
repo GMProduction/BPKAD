@@ -7,7 +7,8 @@
             <a class="font-bold text-white">Produk Hukum Perda BPKAD Surakarta</a>
         </div>
     </div>
-    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}" />
+    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0"
+         src="{{ asset('assets/local/gedung.jpg') }}"/>
 
     <div class=" mt-16 mb-16">
 
@@ -19,35 +20,37 @@
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-3">
-                                    #
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Nama Perda
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Link
-                                </th>
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                #
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Nama Perda
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Link
+                            </th>
 
-                            </tr>
+                        </tr>
                         </thead>
                         <tbody>
+                        @foreach($regions as $region)
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    1
+                                    {{ $loop->index + 1 }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    Hukum Perda 1
+                                    {{ $region->name }}
                                 </td>
 
                                 <td class="px-6 py-4">
                                     <a target="_blank"
-                                        href="https://drive.google.com/drive/folders/1t0vAt7vrjttSsrlH-dvbllLfpDeQvKfm"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
+                                       href="{{ $region->link }}"
+                                       class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
                                 </td>
                             </tr>
+                        @endforeach
 
                         </tbody>
                     </table>
