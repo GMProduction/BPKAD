@@ -375,7 +375,7 @@
                                 <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
                                     <li>
                                         <input type="radio" id="tr-linkperwali" name="tr-kontenperwali"
-                                            value="tr-kontenperwali" class="hidden peer" required checked
+                                            value="tr-linkperwali" class="hidden peer" required checked
                                             onclick="switchtambahKontenperwali()">
                                         <label for="tr-linkperwali"
                                             class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
@@ -492,12 +492,10 @@
 
         function switchtambahKontenperwali() {
             if (document.querySelector('input[name="tr-kontenperwali"]:checked').value == "tr-linkperwali") {
-                console.log(document.querySelector('input[name="tr-kontenperwali"]:checked').value);
                 document.querySelector('#div-tambahfileperwali').classList.add("hidden");
                 document.querySelector('#div-tambahlinkperwali').classList.remove("hidden");
                 $('#type_fileperwali').val('2')
             } else {
-                console.log(document.querySelector('input[name="tr-kontenperwali"]:checked').value);
                 document.querySelector('#div-tambahfileperwali').classList.remove("hidden");
                 document.querySelector('#div-tambahlinkperwali').classList.add("hidden");
                 $('#type_fileperwali').val('1')
