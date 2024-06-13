@@ -477,7 +477,6 @@
         });
 
         function switchtambahKonten() {
-            alert('perda');
             if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
                 console.log(document.querySelector('input[name="tr-konten"]:checked').value);
                 document.querySelector('#div-tambahfile').classList.add("hidden");
@@ -492,7 +491,6 @@
         }
 
         function switchtambahKontenperwali() {
-            alert('perwali');
             if (document.querySelector('input[name="tr-kontenperwali"]:checked').value == "tr-linkperwali") {
                 console.log(document.querySelector('input[name="tr-kontenperwali"]:checked').value);
                 document.querySelector('#div-tambahfileperwali').classList.add("hidden");
@@ -647,8 +645,6 @@
             modal.show();
         })
     </script>
-
-    <script></script>
     <script>
         jQuery.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings) {
             return {
