@@ -225,6 +225,61 @@
                         <a href="/artikel"
                             class="nav-button  menu block py-2 pr-4 pl-3 text-gray-200 rounded  md:border-0 md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3  hover:bg-gray-400 transition duration-300  ">Artikel</a>
                     </li>
+
+                    <li class="group">
+                        <button id="dropdownNavbarLink"
+                            class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-400 transition duration-300  md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">PPID
+                            <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg></button>
+                        <!-- Dropdown menu -->
+
+                        <ul
+                            class="py-1 text-sm text-gray-700 absolute hidden  rounded-md group-hover:block bg-white  duration-300">
+                            <li>
+                                <a href="/informasi-berkala" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                    Berkala</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('information.serta-merta') }}"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                    Serta
+                                    Merta</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('information.setiap-saat') }}"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                    Setiap
+                                    saat</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('information.di-kecualikan') }}"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Informasi
+                                    Dikecualikan</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('information.public') }}"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Daftar Informasi Publik</a>
+                            </li>
+                            <li>
+                                <a href="https://simonik.surakarta.go.id/"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Permohonan Informasi</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('information.dasarhukumppid') }}"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Dasar Hukum PPID</a>
+                            </li>
+                            <li>
+                                <a href="https://moniks.surakarta.go.id/" target="_blank"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">SIMONIKS</a>
+                            </li>
+                        </ul>
+
+                    </li>
+
                     <li class="group">
                         <button id="dropdownNavbarLink"
                             class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-400 transition duration-300  md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">Produk
@@ -251,38 +306,7 @@
                         </ul>
 
                     </li>
-                    <li class="group">
-                        <button
-                            class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto  hover:bg-gray-400 transition duration-300   ">Bidang
-                            <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg></button>
 
-
-
-                        <!-- Dropdown bidang -->
-
-                        <ul
-                            class="py-1 text-sm text-gray-700 absolute hidden   rounded-md group-hover:block bg-white  duration-300">
-                            <li>
-                                <a href="/sekretariat" class="block py-2 px-4 hover:bg-gray-100  ">Sekretariat</a>
-                            </li>
-                            <li>
-                                <a href="/anggaran" class="block py-2 px-4 hover:bg-gray-100  ">Anggaran</a>
-                            </li>
-                            <li>
-                                <a href="/perbendaharaan-dan-akuntansi"
-                                    class="block py-2 px-4 hover:bg-gray-100  ">Perbendaharaan dan Akuntansi</a>
-                            </li>
-                            <li>
-                                <a href="/aset" class="block py-2 px-4 hover:bg-gray-100  ">Aset</a>
-                            </li>
-                        </ul>
-
-                    </li>
 
                     <li>
                         <a href="{{ route('faq') }}"
