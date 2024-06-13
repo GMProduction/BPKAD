@@ -374,7 +374,7 @@
                             <div class="border p-3 border-gray-200 rounded-lg">
                                 <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
                                     <li>
-                                        <input type="radio" id="tr-linkperwali" name="tr-kontenperwali"
+                                        <input type="radio" id="tr-linkperwali" name="tr-konten"
                                             value="tr-linkperwali" class="hidden peer" required checked
                                             onclick="switchtambahKontenperwali()">
                                         <label for="tr-linkperwali"
@@ -386,7 +386,7 @@
                                         </label>
                                     </li>
                                     <li>
-                                        <input type="radio" id="tr-fileperwali" name="tr-kontenperwali"
+                                        <input type="radio" id="tr-fileperwali" name="tr-konten"
                                             value="tr-fileperwali" class="hidden peer"
                                             onclick="switchtambahKontenperwali()">
                                         <label for="tr-fileperwali"

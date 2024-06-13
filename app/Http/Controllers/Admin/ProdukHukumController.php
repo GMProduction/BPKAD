@@ -69,11 +69,11 @@ class ProdukHukumController extends CustomController
             }
 
             if ($type === 'mayor') {
-                if ($contentType === 'tr-link') {
+                if ($contentType === 'tr-linkperwali') {
                     $link = $this->request->request->get('url');
                 }
 
-                if ($contentType === 'tr-file') {
+                if ($contentType === 'tr-fileperwali') {
                     $contentTypeValue = 2;
                     $link = $this->request->request->get('file');
                     if ($this->request->hasFile('file')) {
