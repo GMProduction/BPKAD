@@ -47,7 +47,13 @@
                                 <td class="px-6 py-4">
                                     <a target="_blank"
                                        href="{{ $region->link }}"
-                                       class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
+                                       class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                        @if($region->type == 1)
+                                            Link
+                                        @else
+                                            Download
+                                        @endif
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
