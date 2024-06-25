@@ -31,7 +31,7 @@ class InformationController extends CustomController
             return view('informasi')->with(['data' => $data, 'category' => $category]);
         }
         $current_year = (int)Carbon::now()->format('Y');
-        $arr_year = [$current_year, ($current_year - 1), ($current_year - 2)];
+        $arr_year = [$current_year, ($current_year - 1), ($current_year - 2), ($current_year - 3)];
         $data = InformationCategory::with(['details' => function ($q) use ($arr_year) {
             return $q->whereIn('year', $arr_year);
         }])->where('category_id', '=', $category->id)
@@ -61,7 +61,7 @@ class InformationController extends CustomController
     public function serta_merta_information()
     {
         $current_year = (int)Carbon::now()->format('Y');
-        $arr_year = [$current_year, ($current_year - 1), ($current_year - 2)];
+        $arr_year = [$current_year, ($current_year - 1), ($current_year - 2), ($current_year - 3)];
         $data = InformationCategory::with(['details' => function ($q) use ($arr_year) {
             return $q->whereIn('year', $arr_year);
         }, 'category'])->whereHas('category', function ($q) {
@@ -90,7 +90,7 @@ class InformationController extends CustomController
     public function setiap_saat_information()
     {
         $current_year = (int)Carbon::now()->format('Y');
-        $arr_year = [$current_year, ($current_year - 1), ($current_year - 2)];
+        $arr_year = [$current_year, ($current_year - 1), ($current_year - 2), ($current_year - 3)];
         $data = InformationCategory::with(['details' => function ($q) use ($arr_year) {
             return $q->whereIn('year', $arr_year);
         }, 'category'])->whereHas('category', function ($q) {
@@ -119,7 +119,7 @@ class InformationController extends CustomController
     public function dikecualikan_information()
     {
         $current_year = (int)Carbon::now()->format('Y');
-        $arr_year = [$current_year, ($current_year - 1), ($current_year - 2)];
+        $arr_year = [$current_year, ($current_year - 1), ($current_year - 2), ($current_year - 3)];
         $data = InformationCategory::with(['details' => function ($q) use ($arr_year) {
             return $q->whereIn('year', $arr_year);
         }, 'category'])->whereHas('category', function ($q) {
