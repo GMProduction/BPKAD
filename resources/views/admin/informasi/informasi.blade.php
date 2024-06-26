@@ -28,29 +28,29 @@
     @if ($errors->any())
         <script>
             @if ($errors->has('file-edit'))
-                Swal.fire({
-                    icon: "error",
-                    text: "{{ $errors->first('file-edit') }}"
-                })
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('file-edit') }}"
+            })
             @endif
             @if ($errors->has('e-link-edit'))
-                Swal.fire({
-                    icon: "error",
-                    text: "{{ $errors->first('e-link-edit') }}"
-                })
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('e-link-edit') }}"
+            })
             @endif
 
             @if ($errors->has('link'))
-                Swal.fire({
-                    icon: "error",
-                    text: "{{ $errors->first('link') }}"
-                })
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('link') }}"
+            })
             @endif
             @if ($errors->has('file'))
-                Swal.fire({
-                    icon: "error",
-                    text: "{{ $errors->first('file') }}"
-                })
+            Swal.fire({
+                icon: "error",
+                text: "{{ $errors->first('file') }}"
+            })
             @endif
         </script>
     @endif
@@ -60,9 +60,9 @@
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
                     <a href="{{ route('dashboard') }}"
-                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
+                       class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
                         <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
+                             xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                             </path>
@@ -73,13 +73,13 @@
                 <li>
                     <div class="flex items-center">
                         <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
+                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
+                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                  clip-rule="evenodd"></path>
                         </svg>
                         <a href="#"
-                            class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Informasi</a>
+                           class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Informasi</a>
                     </div>
                 </li>
 
@@ -150,38 +150,38 @@
                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <thead
                                     class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                    <tr>
-                                        <th scope="col" class="py-3 px-6">
-                                            #
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            Nama Informasi
-                                        </th>
+                                <tr>
+                                    <th scope="col" class="py-3 px-6">
+                                        #
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Nama Informasi
+                                    </th>
 
-                                        <th scope="col" class="py-3 px-6">
-                                            <span class="sr-only">Lihat Detail</span>
-                                        </th>
-                                    </tr>
+                                    <th scope="col" class="py-3 px-6">
+                                        <span class="sr-only">Lihat Detail</span>
+                                    </th>
+                                </tr>
                                 </thead>
 
                                 <tbody>
-                                    @forelse($data_berkala as $v)
-                                        <tr
-                                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                            <th class="text-center">{{ $loop->index + 1 }}</th>
-                                            <th scope="row"
-                                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                {{ $v->name }}
-                                            </th>
+                                @forelse($data_berkala as $v)
+                                    <tr
+                                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                        <th class="text-center">{{ $loop->index + 1 }}</th>
+                                        <th scope="row"
+                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $v->name }}
+                                        </th>
 
-                                            <td class="py-4 px-6 text-right">
-                                                <a href="{{ route('admin.information.periodic', ['slug' => $v->slug]) }}"
-                                                    class="font-medium text-blue-600   button-link bg-blue-100">Lihat
-                                                    Detail</a>
-                                            </td>
-                                        </tr>
-                                    @empty
-                                    @endforelse
+                                        <td class="py-4 px-6 text-right">
+                                            <a href="{{ route('admin.information.periodic', ['slug' => $v->slug]) }}"
+                                               class="font-medium text-blue-600   button-link bg-blue-100">Lihat
+                                                Detail</a>
+                                        </td>
+                                    </tr>
+                                @empty
+                                @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -205,7 +205,7 @@
 
                             </div>
                             <button type="button" onclick="openModalTambah('informasi-serta-merta')"
-                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                                 <span class="material-symbols-outlined text-white mr-3">
                                     add
                                 </span>Tambah Informasi
@@ -214,57 +214,57 @@
                         <div class="overflow-x-auto relative shadow-sm ">
                             <table class="w-full text-sm text-left text-gray-500  " id="table-data-serta-merta">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
-                                    <tr>
-                                        <th scope="col" class="py-3 px-6">
-                                            #
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            Nama Informasi
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            Tahun
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            Lampiran
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            <span class="sr-only">Ubah</span>
-                                        </th>
-                                    </tr>
+                                <tr>
+                                    <th scope="col" class="py-3 px-6">
+                                        #
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Nama Informasi
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Tahun
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Lampiran
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        <span class="sr-only">Ubah</span>
+                                    </th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data_serta_merta as $v)
-                                        <tr class="bg-white border-b ">
-                                            <th class="text-center">
-                                                {{ $loop->index + 1 }}
-                                            </th>
-                                            <th scope="row"
-                                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                                {{ $v->information_category->name }}
-                                            </th>
-                                            <th scope="row"
-                                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                                {{ $v->year }}
-                                            </th>
-                                            <th scope="row"
-                                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                                @if ($v->type === 1)
-                                                    <a href="{{ $v->target }}" target="_blank">Download</a>
-                                                @else
-                                                    <a href="{{ $v->target }}" target="_blank">Link</a>
-                                                @endif
+                                @foreach ($data_serta_merta as $v)
+                                    <tr class="bg-white border-b ">
+                                        <th class="text-center">
+                                            {{ $loop->index + 1 }}
+                                        </th>
+                                        <th scope="row"
+                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $v->information_category->name }}
+                                        </th>
+                                        <th scope="row"
+                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $v->year }}
+                                        </th>
+                                        <th scope="row"
+                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            @if ($v->type === 1)
+                                                <a href="{{ $v->target }}" target="_blank">Download</a>
+                                            @else
+                                                <a href="{{ $v->target }}" target="_blank">Link</a>
+                                            @endif
 
-                                            </th>
+                                        </th>
 
-                                            <th class="py-4 px-6 text-right">
-                                                <a href="#" data-id="{{ $v->id }}"
-                                                    data-type="{{ $v->type }}" data-link="{{ $v->target }}"
-                                                    data-category="{{ $v->information_category_id }}"
-                                                    data-year="{{ $v->year }}"
-                                                    class="font-medium text-blue-600 button-link btn-edit">Ubah</a>
-                                            </th>
-                                        </tr>
-                                    @endforeach
+                                        <th class="py-4 px-6 text-right">
+                                            <a href="#" data-id="{{ $v->id }}" data-jenis="informasi-serta-merta"
+                                               data-type="{{ $v->type }}" data-link="{{ $v->target }}"
+                                               data-category="{{ $v->information_category_id }}"
+                                               data-year="{{ $v->year }}"
+                                               class="font-medium text-blue-600 button-link btn-edit">Ubah</a>
+                                        </th>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -289,7 +289,7 @@
 
                             </div>
                             <button type="button" onclick="openModalTambah('informasi-setiap-saat')"
-                                class="max-h-[47px] ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
+                                    class="max-h-[47px] ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
                                 <span class="material-symbols-outlined text-white mr-3">
                                     add
                                 </span>Tambah Informasi Setiap Saat
@@ -298,64 +298,64 @@
                         <div class="overflow-x-auto relative shadow-sm ">
                             <table class="w-full text-sm text-left text-gray-500  " id="table-data-setiap-saat">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
-                                    <tr>
-                                        <th scope="col" class="py-3 px-6">
-                                            #
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            Nama Informasi
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            Tahun
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            Lampiran
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            <span class="sr-only">Ubah</span>
-                                        </th>
-                                    </tr>
+                                <tr>
+                                    <th scope="col" class="py-3 px-6">
+                                        #
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Nama Informasi
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Tahun
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Lampiran
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        <span class="sr-only">Ubah</span>
+                                    </th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data_setiap_saat as $v)
-                                        <tr class="bg-white border-b ">
-                                            <th class="text-center">
-                                                {{ $loop->index + 1 }}
-                                            </th>
-                                            <th scope="row"
-                                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                                {{ $v->information_category->name }}
-                                            </th>
-                                            <th scope="row"
-                                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                                {{ $v->year }}
-                                            </th>
-                                            <th scope="row"
-                                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                                @if ($v->type === 1)
-                                                    <a href="{{ $v->target }}" target="_blank">Download</a>
-                                                @else
-                                                    <a href="{{ $v->target }}" target="_blank">Link</a>
-                                                @endif
+                                @foreach ($data_setiap_saat as $v)
+                                    <tr class="bg-white border-b ">
+                                        <th class="text-center">
+                                            {{ $loop->index + 1 }}
+                                        </th>
+                                        <th scope="row"
+                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $v->information_category->name }}
+                                        </th>
+                                        <th scope="row"
+                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $v->year }}
+                                        </th>
+                                        <th scope="row"
+                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            @if ($v->type === 1)
+                                                <a href="{{ $v->target }}" target="_blank">Download</a>
+                                            @else
+                                                <a href="{{ $v->target }}" target="_blank">Link</a>
+                                            @endif
 
-                                            </th>
+                                        </th>
 
-                                            <th class="py-4 px-6 text-right">
-                                                <a href="#" data-id="{{ $v->id }}"
-                                                    data-type="{{ $v->type }}" data-link="{{ $v->target }}"
-                                                    data-category="{{ $v->information_category_id }}"
-                                                    data-year="{{ $v->year }}"
-                                                    class="font-medium text-blue-600 button-link btn-edit">Ubah</a>
-                                            </th>
-                                        </tr>
-                                    @endforeach
+                                        <th class="py-4 px-6 text-right">
+                                            <a href="#" data-id="{{ $v->id }}" data-jenis="informasi-setiap-saat"
+                                               data-type="{{ $v->type }}" data-link="{{ $v->target }}"
+                                               data-category="{{ $v->information_category_id }}"
+                                               data-year="{{ $v->year }}"
+                                               class="font-medium text-blue-600 button-link btn-edit">Ubah</a>
+                                        </th>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
                 <div class=" p-4 rounded-lg  hidden" id="dikecualikan" role="tabpanel"
-                    aria-labelledby="dikecualikan-tab">
+                     aria-labelledby="dikecualikan-tab">
                     <div>
                         <div class="bg-green-100 p-2 mb-5 flex items-center rounded-md ">
                             <span class="material-symbols-outlined text-green-700 mr-2 ">
@@ -372,7 +372,7 @@
 
                             </div>
                             <button type="button" onclick="openModalTambah('informasi-di-kecualikan')"
-                                class="max-h-[47px] ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
+                                    class="max-h-[47px] ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
                                 <span class="material-symbols-outlined text-white mr-3">
                                     add
                                 </span>Tambah Informasi Dikecualikan
@@ -381,56 +381,56 @@
                         <div class="overflow-x-auto relative shadow-sm ">
                             <table class="w-full text-sm text-left text-gray-500  " id="table-data-di-kecualikan">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
-                                    <tr>
-                                        <th scope="col" class="py-3 px-6">
-                                            #
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            Nama Informasi
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            Tahun
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            Lampiran
-                                        </th>
-                                        <th scope="col" class="py-3 px-6">
-                                            <span class="sr-only">Ubah</span>
-                                        </th>
-                                    </tr>
+                                <tr>
+                                    <th scope="col" class="py-3 px-6">
+                                        #
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Nama Informasi
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Tahun
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        Lampiran
+                                    </th>
+                                    <th scope="col" class="py-3 px-6">
+                                        <span class="sr-only">Ubah</span>
+                                    </th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data_dikecualikan as $v)
-                                        <tr class="bg-white border-b ">
-                                            <th class="text-center">
-                                                {{ $loop->index + 1 }}
-                                            </th>
-                                            <th scope="row" class="py-4 px-6 font-medium text-gray-900  ">
-                                                {{ $v->information_category->name }}
-                                            </th>
-                                            <th scope="row"
-                                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                                {{ $v->year }}
-                                            </th>
-                                            <th scope="row"
-                                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
-                                                @if ($v->type === 1)
-                                                    <a href="{{ $v->target }}" target="_blank">Download</a>
-                                                @else
-                                                    <a href="{{ $v->target }}" target="_blank">Link</a>
-                                                @endif
+                                @foreach ($data_dikecualikan as $v)
+                                    <tr class="bg-white border-b ">
+                                        <th class="text-center">
+                                            {{ $loop->index + 1 }}
+                                        </th>
+                                        <th scope="row" class="py-4 px-6 font-medium text-gray-900  ">
+                                            {{ $v->information_category->name }}
+                                        </th>
+                                        <th scope="row"
+                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            {{ $v->year }}
+                                        </th>
+                                        <th scope="row"
+                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
+                                            @if ($v->type === 1)
+                                                <a href="{{ $v->target }}" target="_blank">Download</a>
+                                            @else
+                                                <a href="{{ $v->target }}" target="_blank">Link</a>
+                                            @endif
 
-                                            </th>
+                                        </th>
 
-                                            <th class="py-4 px-6 text-right">
-                                                <a href="#" data-id="{{ $v->id }}"
-                                                    data-type="{{ $v->type }}" data-link="{{ $v->target }}"
-                                                    data-category="{{ $v->information_category_id }}"
-                                                    data-year="{{ $v->year }}"
-                                                    class="font-medium text-blue-600 button-link btn-edit">Ubah</a>
-                                            </th>
-                                        </tr>
-                                    @endforeach
+                                        <th class="py-4 px-6 text-right">
+                                            <a href="#" data-id="{{ $v->id }}" data-jenis="informasi-di-kecualikan"
+                                               data-type="{{ $v->type }}" data-link="{{ $v->target }}"
+                                               data-category="{{ $v->information_category_id }}"
+                                               data-year="{{ $v->year }}"
+                                               class="font-medium text-blue-600 button-link btn-edit">Ubah</a>
+                                        </th>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -453,13 +453,14 @@
                             <input name="service_type" value="3" hidden>
 
                             <div class="mb-3 ">
-                                <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                <label for="link-info"
+                                       class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
                                 <input type="text" id="link-info" name="url"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                    required placeholder="Masukan Link Url">
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                       required placeholder="Masukan Link Url">
                             </div>
                             <button type="button" onclick="saveSetiap()"
-                                class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
+                                    class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
                                 Simpan Perubahan
                             </button>
                         </form>
@@ -482,13 +483,14 @@
                             <input name="service_type" value="3" hidden>
 
                             <div class="mb-3 ">
-                                <label for="link-info" class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                <label for="link-info"
+                                       class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
                                 <input type="text" id="link-info" name="url"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                    required placeholder="Masukan Link Url">
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                       required placeholder="Masukan Link Url">
                             </div>
                             <button type="button" onclick="saveSetiap()"
-                                class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
+                                    class="max-h-[47px] ml-auto flex items-center mt-10 text-white bg-primary hover:bg-primarylight focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none max">
                                 Simpan Perubahan
                             </button>
                         </form>
@@ -497,21 +499,21 @@
             </div>
 
             <div id="dropdownperaturan"
-                class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                 class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="infoperaturan">
                     <li>
                         <a href="/admin/informasi/detailbyyear"
-                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
+                           class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
                             Daerah</a>
                     </li>
                     <li>
                         <a href="/admin/informasi/detailbyyear"
-                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
+                           class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
                             Walikota</a>
                     </li>
                     <li>
                         <a href="/admin/informasi/detailbyyear"
-                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
+                           class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
                             Lainya</a>
                     </li>
 
@@ -520,7 +522,7 @@
 
             <!-- Modal Tambah -->
             <div id="modalTambah" tabindex="-1" aria-hidden="true"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
                 <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
                     <!-- Modal content -->
                     <div class="relative bg-white rounded-lg shadow ">
@@ -530,35 +532,35 @@
                                 Tambah Informasi
                             </h3>
                             <button type="button" onclick="closeModalTambah()"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
                                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
-                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                        clip-rule="evenodd"></path>
+                                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                          clip-rule="evenodd"></path>
                                 </svg>
                                 <span class="sr-only">Close modal</span>
                             </button>
                         </div>
                         <form method="post" enctype="multipart/form-data" id="form-submit-information"
-                            action="{{ route('admin.information.non-periodic.add') }}">
-                            @csrf
-                            <!-- Modal body -->
+                              action="{{ route('admin.information.non-periodic.add') }}">
+                        @csrf
+                        <!-- Modal body -->
                             <div class="p-6 ">
                                 <div class="mb-3">
                                     <div>
                                         <label for="information_categories"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Kategori
+                                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Kategori
                                             Informasi</label>
                                         <div class="flex">
                                             <select id="information_categories" name="category"
-                                                class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                                    class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
                                     rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                             </select>
 
                                             <button type="button" onclick="openModalKategori()"
-                                                data-tooltip-target="tooltip-default"
-                                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5  transition duration-300  focus:outline-none ">
+                                                    data-tooltip-target="tooltip-default"
+                                                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5  transition duration-300  focus:outline-none ">
                                                 <span class="material-symbols-outlined text-white">
                                                     add
                                                 </span>
@@ -566,8 +568,9 @@
 
 
                                             <div id="tooltip-default" role="tooltip"
-                                                class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip ">
-                                                Tombol Tambah kategori (untuk tambah data yang belum terdaftar pada pilihan
+                                                 class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip ">
+                                                Tombol Tambah kategori (untuk tambah data yang belum terdaftar pada
+                                                pilihan
                                                 kategori
                                                 di samping)
                                                 <div class="tooltip-arrow" data-popper-arrow></div>
@@ -578,9 +581,9 @@
 
                                 <div class="mb-3">
                                     <label for="year"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
                                     <select id="year" name="year"
-                                        class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                            class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
                                     rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                         <option selected>Pilih Tahun</option>
                                         <option value="2018">2018</option>
@@ -600,9 +603,9 @@
                                     <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
                                         <li>
                                             <input type="radio" id="tr-link" name="tr-konten" value="tr-link"
-                                                class="hidden peer" required checked onclick="switchtambahKonten()">
+                                                   class="hidden peer" required checked onclick="switchtambahKonten()">
                                             <label for="tr-link"
-                                                class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                   class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="block">
                                                     <div class="w-full text-lg font-semibold text-center">Link</div>
                                                     <div class="w-full text-center">Konten Menggunakan Link</div>
@@ -611,9 +614,9 @@
                                         </li>
                                         <li>
                                             <input type="radio" id="tr-file" name="tr-konten" value="tr-file"
-                                                class="hidden peer" onclick="switchtambahKonten()">
+                                                   class="hidden peer" onclick="switchtambahKonten()">
                                             <label for="tr-file"
-                                                class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                   class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="block">
                                                     <div class="w-full text-lg font-semibold text-center">File</div>
                                                     <div class="w-full text-center">Konten dengan file</div>
@@ -624,27 +627,28 @@
 
                                     <div class="mb-3 " id="div-tambahlink">
                                         <label for="link-info"
-                                            class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                               class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
                                         <input type="text" id="link-info" name="link"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                            placeholder="Masukan Link" required>
+                                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                               placeholder="Masukan Link" required>
                                     </div>
 
                                     <div class="mb-3  hidden" id="div-tambahfile">
                                         <label class="block mb-2 text-sm font-medium text-gray-700 "
-                                            for="upload-file">Upload
+                                               for="upload-file">Upload
                                             file</label>
                                         <input onchange="checkSize(this)"
-                                            class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
-                                            aria-describedby="upload-file_help" id="upload-file" type="file"
-                                            name="file" accept="application/pdf">
+                                               class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
+                                               aria-describedby="upload-file_help" id="upload-file" type="file"
+                                               name="file" accept="application/pdf">
                                     </div>
                                 </div>
                             </div>
                             <!-- Modal footer -->
-                            <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
+                            <div
+                                class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
                                 <button type="submit" id="btn-submit-information"
-                                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                                        class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                                     <span class="material-symbols-outlined text-white mr-3">
                                         save
                                     </span>Simpan Informasi
@@ -657,7 +661,7 @@
 
             <!-- Modal Tambah Kategori-->
             <div id="modalTambahKategori" tabindex="-2" aria-hidden="true"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
                 <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                     <!-- Modal content -->
                     <div class="relative bg-white rounded-lg shadow ">
@@ -667,12 +671,12 @@
                                 Tambah Kategori
                             </h3>
                             <button type="button" onclick="closeModalKategori()"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
                                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
-                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                        clip-rule="evenodd"></path>
+                                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                          clip-rule="evenodd"></path>
                                 </svg>
                                 <span class="sr-only">Close modal</span>
                             </button>
@@ -682,18 +686,18 @@
                         <div class="p-6 ">
                             <div class="mb-3">
                                 <label for="information_category_name"
-                                    class="block mb-2 text-sm font-medium text-gray-700 ">Nama
+                                       class="block mb-2 text-sm font-medium text-gray-700 ">Nama
                                     Kategori</label>
                                 <input type="text" id="information_category_name"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                    placeholder="Nama Kategori" required name="information_category_name">
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                       placeholder="Nama Kategori" required name="information_category_name">
                             </div>
 
                         </div>
                         <!-- Modal footer -->
                         <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
                             <button id="btn-add-category" type="button"
-                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                                 <span class="material-symbols-outlined text-white mr-3">
                                     save
                                 </span>Simpan Kategori
@@ -706,41 +710,41 @@
 
             <!-- Modal Edit -->
             <div id="modalEdit" tabindex="-1" aria-hidden="true"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
+                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
                 <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
                     <!-- Modal content -->
                     <div class="relative bg-white rounded-lg shadow ">
                         <!-- Modal header -->
                         <div class="flex justify-between items-start p-4 rounded-t border-b ">
-                            <h3 class="text-xl font-semibold text-gray-900 ">
+                            <h3 class="text-xl font-semibold text-gray-900 " id="title-modal-edit">
                                 Edit Informasi
                             </h3>
                             <button type="button"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
-                                onclick="closeModalEdit()">
+                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
+                                    onclick="closeModalEdit()">
                                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
-                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                        clip-rule="evenodd"></path>
+                                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                          clip-rule="evenodd"></path>
                                 </svg>
                                 <span class="sr-only">Close modal</span>
                             </button>
                         </div>
                         <!-- Modal body -->
                         <form method="post" enctype="multipart/form-data"
-                            action="{{ route('admin.information.patch') }}" id="form-patch">
+                              action="{{ route('admin.information.patch') }}" id="form-patch">
                             @csrf
                             <input type="hidden" name="id" id="id-edit" value="">
                             <div class="p-6 ">
                                 <div class="mb-3">
                                     <div>
                                         <label for="information_categories_edit"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Kategori
+                                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Kategori
                                             Informasi</label>
                                         <div class="flex">
                                             <select id="information_categories_edit" name="category_edit"
-                                                class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                                    class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
                                   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                                 <option selected>Pilih Kategori Informasi</option>
                                                 <option value="">
@@ -753,20 +757,11 @@
 
                                 <div class="mb-3">
                                     <label for="year_edit"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
+                                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
                                     <select id="year_edit" name="year_edit"
-                                        class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
+                                            class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
                                   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                         <option selected>Pilih Tahun</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2025">2025</option>
-                                        <option value="2026">2026</option>
                                     </select>
                                 </div>
 
@@ -775,9 +770,9 @@
                                     <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
                                         <li>
                                             <input type="radio" id="er-link" name="er-konten" value="er-link"
-                                                class="hidden peer" required checked onclick="switcheditKonten()">
+                                                   class="hidden peer" required checked onclick="switcheditKonten()">
                                             <label for="er-link"
-                                                class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                   class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="block">
                                                     <div class="w-full text-lg font-semibold text-center">Link</div>
                                                     <div class="w-full text-center">Konten Menggunakan Link</div>
@@ -786,9 +781,9 @@
                                         </li>
                                         <li>
                                             <input type="radio" id="er-file" name="er-konten" value="er-file"
-                                                class="hidden peer" onclick="switcheditKonten()">
+                                                   class="hidden peer" onclick="switcheditKonten()">
                                             <label for="er-file"
-                                                class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                   class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="block">
                                                     <div class="w-full text-lg font-semibold text-center">File</div>
                                                     <div class="w-full text-center">Konten dengan file</div>
@@ -799,28 +794,29 @@
 
                                     <div class="mb-3 " id="div-editlink">
                                         <label for="e-link-info"
-                                            class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
+                                               class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
                                         <input type="text" id="e-link-info"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                            placeholder="Masukan Link" required name="e-link-edit">
+                                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                                               placeholder="Masukan Link" required name="e-link-edit">
                                     </div>
 
                                     <div class="mb-3  hidden" id="div-editfile">
                                         <label class="block mb-2 text-sm font-medium text-gray-700 "
-                                            for="upload-file">Upload
+                                               for="upload-file">Upload
                                             file</label>
                                         <input onchange="checkSize(this)"
-                                            class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
-                                            aria-describedby="upload-file_help" id="upload-file" type="file"
-                                            name="file-edit" accept="application/pdf">
+                                               class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
+                                               aria-describedby="upload-file_help" id="upload-file" type="file"
+                                               name="file-edit" accept="application/pdf">
 
                                     </div>
                                 </div>
                             </div>
                             <!-- Modal footer -->
-                            <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
+                            <div
+                                class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
                                 <button type="button" id="btn-patch"
-                                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
+                                        class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
                                     <span class="material-symbols-outlined text-white mr-3">
                                         save
                                     </span>Simpan Informasi
@@ -834,36 +830,36 @@
 
             {{-- MODAL DELETE --}}
             <div id="modalHapus" tabindex="-1"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full">
+                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full">
                 <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <button type="button"
-                            class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                            data-modal-toggle="modalHapus">
+                                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                                data-modal-toggle="modalHapus">
                             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
+                                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                      clip-rule="evenodd"></path>
                             </svg>
                             <span class="sr-only">Close modal</span>
                         </button>
                         <div class="p-6 text-center">
                             <svg aria-hidden="true" class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                             <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Kamu yakin ingin
                                 menghapus
                                 data ini ?</h3>
                             <button data-modal-toggle="modalHapus" type="button"
-                                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                    class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                                 Ya, Saya Yakin
                             </button>
                             <button data-modal-toggle="modalHapus" type="button"
-                                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+                                    class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
                                 Tidak,
                                 Batalkan
                             </button>
@@ -872,220 +868,299 @@
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
 
-    @section('morejs')
-        <!-- jQuery -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+@section('morejs')
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-        <!--Datatables -->
-        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <!--Datatables -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
 
 
-        <script>
-            var _informationType = '';
-            var _sertaMertaCategories = @json($categories_serta_merta);
-            var _setiapSaatCategories = @json($categories_setiap_saat);
-            var _dikecualikanCategories = @json($categories_dikecualikan);
+    <script>
+        var _informationType = '';
+        var _sertaMertaCategories = @json($categories_serta_merta);
+        var _setiapSaatCategories = @json($categories_setiap_saat);
+        var _dikecualikanCategories = @json($categories_dikecualikan);
 
-            $(function() {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
+        $(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                }
             });
+        });
 
-            async function addCategoryNonPeriodic() {
-                try {
-                    let url = '{{ route('admin.information.non-periodic.category') }}';
-                    let slug = $('#slug-information-name').val();
-                    let information_category_name = $('#information_category_name').val();
-                    let response = await $.post(url, {
-                        information_category_name,
-                        slug
-                    });
-                    let payload = response['payload'];
-                    switch (slug) {
-                        case 'informasi-serta-merta':
-                            _sertaMertaCategories = payload;
-                            break;
-                        case 'informasi-setiap-saat':
-                            _setiapSaatCategories = payload;
-                            break;
-                        case 'informasi-di-kecualikan':
-                            _dikecualikanCategories = payload;
-                            break;
-                        default:
-                            break;
-                    }
-                    generateCategoryOption(payload);
-                    clearAddInformationCategory();
-                    console.log(payload);
-                    Swal.fire({
-                        title: 'Berhasil',
-                        icon: 'success',
-                        text: 'Berhasil menambahkan data kategori informasi...',
-                    }).then(function(result) {
-                        if (result) {
-                            closeModalKategori();
-                        }
-                    });
-                } catch (e) {
-                    let error_message = JSON.parse(e.responseText);
-                    Swal.fire({
-                        icon: "error",
-                        text: error_message.message,
-                    });
-                }
-            }
-
-            function generateCategoryOption(data) {
-                let el = $("#information_categories");
-                el.empty();
-                el.append('<option value="" selected>Pilih Kategori Informasi</option>');
-                $.each(data, function(k, v) {
-                    el.append('<option value="' + v['id'] + '">' + v['name'] + '</option>')
-                })
-            }
-
-            function clearAddInformationCategory() {
-                $('#information_category_name').val('');
-                $('#slug-information-name').val('');
-            }
-
-            $(document).ready(function() {
-                $('#table-data-serta-merta').DataTable();
-                $('#table-data-setiap-saat').DataTable();
-                $('#table-data-di-kecualikan').DataTable();
-                var table = $('#example').DataTable({
-                        responsive: true
-                    })
-                    .columns.adjust()
-                    .responsive.recalc();
-
-                $('#btn-add-category').on('click', function(e) {
-                    addCategoryNonPeriodic();
+        async function addCategoryNonPeriodic() {
+            try {
+                let url = '{{ route('admin.information.non-periodic.category') }}';
+                let slug = $('#slug-information-name').val();
+                let information_category_name = $('#information_category_name').val();
+                let response = await $.post(url, {
+                    information_category_name,
+                    slug
                 });
-
-                $('#btn-submit-information').on('click', function(e) {
-                    e.preventDefault();
-                    Swal.fire({
-                        title: 'Konfirmasi',
-                        icon: 'info',
-                        text: 'Yakin ingin menambah data informasi?',
-                        showCloseButton: true,
-                        showCancelButton: true,
-                        focusConfirm: false,
-                    }).then(function(result) {
-                        if (result.isConfirmed) {
-                            $('#form-submit-information').submit();
-                        }
-                    });
-                });
-            });
-
-            const editm = document.getElementById('modalEdit');
-            const tambahm = document.getElementById('modalTambah');
-            const kategorim = document.getElementById('modalTambahKategori');
-
-            const options = {
-                placement: 'bottom-right',
-                backdrop: 'dynamic',
-                backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
-                onHide: () => {
-                    console.log('modal is hidden');
-                },
-                onShow: () => {
-                    console.log('modal is shown');
-                },
-                onToggle: () => {
-                    console.log('modal has been toggled');
-                }
-            };
-
-            const modaledit = new Modal(editm, options);
-            const modaltambah = new Modal(tambahm, options);
-            const modalkategori = new Modal(kategorim, options);
-
-            function switchtambahKonten() {
-                if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
-                    document.querySelector('#div-tambahfile').classList.add("hidden");
-                    document.querySelector('#div-tambahlink').classList.remove("hidden");
-
-                } else {
-                    document.querySelector('#div-tambahfile').classList.remove("hidden");
-                    document.querySelector('#div-tambahlink').classList.add("hidden");
-                }
-            }
-
-            function switcheditKonten() {
-                if (document.querySelector('input[name="er-konten"]:checked').value == "er-link") {
-                    document.querySelector('#div-editfile').classList.add("hidden");
-                    document.querySelector('#div-editlink').classList.remove("hidden");
-                } else {
-                    document.querySelector('#div-editfile').classList.remove("hidden");
-                    document.querySelector('#div-editlink').classList.add("hidden");
-
-                }
-            }
-
-            function openModalEdit() {
-                modaledit.show();
-            }
-
-            function closeModalEdit() {
-                modaledit.hide();
-            }
-
-            function openModalTambah(type) {
-                console.log(type);
-                let data_categories = [];
-                let title = 'Tambah Informasi';
-                let title_kategori = 'Tambah Kategori';
-                $('#information_categories').empty();
-                _informationType = type;
-                switch (type) {
+                let payload = response['payload'];
+                switch (slug) {
                     case 'informasi-serta-merta':
-                        data_categories = _sertaMertaCategories;
-                        title = 'Tambah Informasi Serta Merta';
-                        title_kategori = 'Tambah Kategori Serta Merta';
+                        _sertaMertaCategories = payload;
                         break;
                     case 'informasi-setiap-saat':
-                        data_categories = _setiapSaatCategories;
-                        title = 'Tambah Informasi Setiap Saat';
-                        title_kategori = 'Tambah Kategori Setiap Saat';
+                        _setiapSaatCategories = payload;
                         break;
                     case 'informasi-di-kecualikan':
-                        data_categories = _dikecualikanCategories;
-
-                        title = 'Tambah Informasi DiKecualikan';
-                        title_kategori = 'Tambah Kategori DiKecualikan';
+                        _dikecualikanCategories = payload;
                         break;
                     default:
                         break;
                 }
-                $('#title-modal-tambah').html(title);
-                $('#title-modal-tambah-kategori').html(title_kategori);
-                generateCategoryOption(data_categories);
-                modaltambah.show();
+                generateCategoryOption(payload);
+                clearAddInformationCategory();
+                console.log(payload);
+                Swal.fire({
+                    title: 'Berhasil',
+                    icon: 'success',
+                    text: 'Berhasil menambahkan data kategori informasi...',
+                }).then(function (result) {
+                    if (result) {
+                        closeModalKategori();
+                    }
+                });
+            } catch (e) {
+                let error_message = JSON.parse(e.responseText);
+                Swal.fire({
+                    icon: "error",
+                    text: error_message.message,
+                });
             }
+        }
 
-            function closeModalTambah() {
-                modaltambah.hide();
+        function generateCategoryOption(data, edit = false, category = '') {
+            if (edit) {
+                let el = $("#information_categories_edit");
+                el.empty();
+                el.append('<option value="">Pilih Kategori Informasi</option>');
+                $.each(data, function (k, v) {
+                    console.log(category);
+                    if (v['id'] == category) {
+                        el.append('<option value="' + v['id'] + '" selected>' + v['name'] + '</option>')
+                    } else {
+                        el.append('<option value="' + v['id'] + '">' + v['name'] + '</option>')
+                    }
+                })
+            } else {
+                let el = $("#information_categories");
+                el.empty();
+                el.append('<option value="" selected>Pilih Kategori Informasi</option>');
+                $.each(data, function (k, v) {
+                })
             }
+        }
 
-            function openModalKategori() {
-                $('#slug-information-name').val(_informationType);
-                modaltambah.hide();
-                modalkategori.show();
-            }
+        function clearAddInformationCategory() {
+            $('#information_category_name').val('');
+            $('#slug-information-name').val('');
+        }
 
-            function closeModalKategori() {
-                modalkategori.hide();
-                modaltambah.show();
+        $(document).ready(function () {
+            $('#table-data-serta-merta').DataTable();
+            $('#table-data-setiap-saat').DataTable();
+            $('#table-data-di-kecualikan').DataTable();
+            var table = $('#example').DataTable({
+                responsive: true
+            })
+                .columns.adjust()
+                .responsive.recalc();
+
+            $('#btn-add-category').on('click', function (e) {
+                addCategoryNonPeriodic();
+            });
+
+            $('#btn-submit-information').on('click', function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    icon: 'info',
+                    text: 'Yakin ingin menambah data informasi?',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    focusConfirm: false,
+                }).then(function (result) {
+                    if (result.isConfirmed) {
+                        $('#form-submit-information').submit();
+                    }
+                });
+            });
+
+            $('#btn-patch').on('click', function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    icon: 'info',
+                    text: 'Yakin ingin merubah data informasi?',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    focusConfirm: false,
+                }).then(function (result) {
+                    if (result.isConfirmed) {
+                        $('#form-patch').submit();
+                    }
+                });
+            });
+
+            $('.btn-edit').on('click', function (e) {
+                e.preventDefault();
+                let id = this.dataset.id;
+                $('#id-edit').val(id);
+                let jenis = this.dataset.jenis;
+                let year = this.dataset.year;
+                let category = this.dataset.category;
+                openModalEdit(jenis, year, category);
+            })
+        });
+
+        const editm = document.getElementById('modalEdit');
+        const tambahm = document.getElementById('modalTambah');
+        const kategorim = document.getElementById('modalTambahKategori');
+
+        const options = {
+            placement: 'bottom-right',
+            backdrop: 'dynamic',
+            backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
+            onHide: () => {
+                console.log('modal is hidden');
+            },
+            onShow: () => {
+                console.log('modal is shown');
+            },
+            onToggle: () => {
+                console.log('modal has been toggled');
             }
-        </script>
-    @endsection
+        };
+
+        const modaledit = new Modal(editm, options);
+        const modaltambah = new Modal(tambahm, options);
+        const modalkategori = new Modal(kategorim, options);
+
+        function switchtambahKonten() {
+            if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
+                document.querySelector('#div-tambahfile').classList.add("hidden");
+                document.querySelector('#div-tambahlink').classList.remove("hidden");
+
+            } else {
+                document.querySelector('#div-tambahfile').classList.remove("hidden");
+                document.querySelector('#div-tambahlink').classList.add("hidden");
+            }
+        }
+
+        function switcheditKonten() {
+            if (document.querySelector('input[name="er-konten"]:checked').value == "er-link") {
+                document.querySelector('#div-editfile').classList.add("hidden");
+                document.querySelector('#div-editlink').classList.remove("hidden");
+            } else {
+                document.querySelector('#div-editfile').classList.remove("hidden");
+                document.querySelector('#div-editlink').classList.add("hidden");
+
+            }
+        }
+
+        function openModalEdit(type, year, category) {
+            let data_categories = [];
+            let title = 'Tambah Informasi';
+            $('#information_categories_edit').empty();
+
+            _informationType = type;
+            switch (type) {
+                case 'informasi-serta-merta':
+                    data_categories = _sertaMertaCategories;
+                    title = 'Edit Informasi Serta Merta';
+                    break;
+                case 'informasi-setiap-saat':
+                    data_categories = _setiapSaatCategories;
+                    title = 'Tambah Informasi Setiap Saat';
+                    break;
+                case 'informasi-di-kecualikan':
+                    data_categories = _dikecualikanCategories;
+                    title = 'Edit Informasi DiKecualikan';
+                    break;
+                default:
+                    break;
+            }
+            $('#title-modal-edit').html(title);
+            generateCategoryOption(data_categories, true, category);
+            generateYearEditOption(year);
+            modaledit.show();
+        }
+
+        function generateYearEditOption(year) {
+                let rangeYear = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+                let el = $("#year_edit");
+                el.empty();
+                el.append('<option value="">Pilih Kategori Informasi</option>');
+                $.each(rangeYear, function (k, v) {
+                    if (v == year) {
+                        el.append('<option value="' + v + '" selected>' + v + '</option>')
+                    } else {
+                        el.append('<option value="' + v + '">' + v + '</option>')
+                    }
+                })
+        }
+
+        function closeModalEdit() {
+            modaledit.hide();
+        }
+
+        function openModalTambah(type) {
+            console.log(type);
+            let data_categories = [];
+            let title = 'Tambah Informasi';
+            let title_kategori = 'Tambah Kategori';
+            $('#information_categories').empty();
+            _informationType = type;
+            switch (type) {
+                case 'informasi-serta-merta':
+                    data_categories = _sertaMertaCategories;
+                    title = 'Tambah Informasi Serta Merta';
+                    title_kategori = 'Tambah Kategori Serta Merta';
+                    break;
+                case 'informasi-setiap-saat':
+                    data_categories = _setiapSaatCategories;
+                    title = 'Tambah Informasi Setiap Saat';
+                    title_kategori = 'Tambah Kategori Setiap Saat';
+                    break;
+                case 'informasi-di-kecualikan':
+                    data_categories = _dikecualikanCategories;
+
+                    title = 'Tambah Informasi DiKecualikan';
+                    title_kategori = 'Tambah Kategori DiKecualikan';
+                    break;
+                default:
+                    break;
+            }
+            $('#title-modal-tambah').html(title);
+            $('#title-modal-tambah-kategori').html(title_kategori);
+            generateCategoryOption(data_categories);
+            modaltambah.show();
+        }
+
+        function closeModalTambah() {
+            generateCategoryOption(data_categories);
+            modaltambah.hide();
+        }
+
+        function openModalKategori() {
+            $('#slug-information-name').val(_informationType);
+            modaltambah.hide();
+            modalkategori.show();
+        }
+
+        function closeModalKategori() {
+            modalkategori.hide();
+            modaltambah.show();
+        }
+    </script>
+@endsection

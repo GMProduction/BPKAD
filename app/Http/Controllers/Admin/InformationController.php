@@ -89,7 +89,7 @@ class InformationController extends CustomController
             $information_categories = InformationCategory::where('category_id', '=', $category->id)->get();
             return $this->jsonResponse('success', 200, $information_categories);
         } catch (\Exception $e) {
-            return $this->jsonResponse('terjadi kesalahan server...', 500);
+            return $this->jsonResponse('terjadi kesalahan server...' . $e->getMessage(), 500);
         }
 
     }
@@ -299,6 +299,7 @@ class InformationController extends CustomController
     public function add_category_non_periodic()
     {
         try {
+
             $slug = $this->postField('slug');
             $category = Category::where('slug', '=', $slug)->first();
             if (!$category) {
