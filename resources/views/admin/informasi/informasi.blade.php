@@ -170,7 +170,7 @@
                                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                             <th class="text-center">{{ $loop->index + 1 }}</th>
                                             <th scope="row"
-                                                class="py-4 px-6 font-medium text-gray-900 dark:text-white">
+                                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 {{ $v->name }}
                                             </th>
 
@@ -238,7 +238,8 @@
                                             <th class="text-center">
                                                 {{ $loop->index + 1 }}
                                             </th>
-                                            <th scope="row" class="py-4 px-6 font-medium text-gray-900  ">
+                                            <th scope="row"
+                                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
                                                 {{ $v->information_category->name }}
                                             </th>
                                             <th scope="row"
@@ -257,7 +258,8 @@
 
                                             <th class="py-4 px-6 text-right">
                                                 <a href="#" data-id="{{ $v->id }}"
-                                                    data-type="{{ $v->type }}" data-link="{{ $v->target }}"
+                                                    data-jenis="informasi-serta-merta" data-type="{{ $v->type }}"
+                                                    data-link="{{ $v->target }}"
                                                     data-category="{{ $v->information_category_id }}"
                                                     data-year="{{ $v->year }}"
                                                     class="font-medium text-blue-600 button-link btn-edit">Ubah</a>
@@ -321,7 +323,8 @@
                                             <th class="text-center">
                                                 {{ $loop->index + 1 }}
                                             </th>
-                                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 ">
+                                            <th scope="row"
+                                                class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap ">
                                                 {{ $v->information_category->name }}
                                             </th>
                                             <th scope="row"
@@ -340,7 +343,8 @@
 
                                             <th class="py-4 px-6 text-right">
                                                 <a href="#" data-id="{{ $v->id }}"
-                                                    data-type="{{ $v->type }}" data-link="{{ $v->target }}"
+                                                    data-jenis="informasi-setiap-saat" data-type="{{ $v->type }}"
+                                                    data-link="{{ $v->target }}"
                                                     data-category="{{ $v->information_category_id }}"
                                                     data-year="{{ $v->year }}"
                                                     class="font-medium text-blue-600 button-link btn-edit">Ubah</a>
@@ -422,7 +426,8 @@
 
                                             <th class="py-4 px-6 text-right">
                                                 <a href="#" data-id="{{ $v->id }}"
-                                                    data-type="{{ $v->type }}" data-link="{{ $v->target }}"
+                                                    data-jenis="informasi-di-kecualikan" data-type="{{ $v->type }}"
+                                                    data-link="{{ $v->target }}"
                                                     data-category="{{ $v->information_category_id }}"
                                                     data-year="{{ $v->year }}"
                                                     class="font-medium text-blue-600 button-link btn-edit">Ubah</a>
@@ -565,7 +570,8 @@
 
                                             <div id="tooltip-default" role="tooltip"
                                                 class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip ">
-                                                Tombol Tambah kategori (untuk tambah data yang belum terdaftar pada pilihan
+                                                Tombol Tambah kategori (untuk tambah data yang belum terdaftar pada
+                                                pilihan
                                                 kategori
                                                 di samping)
                                                 <div class="tooltip-arrow" data-popper-arrow></div>
@@ -710,7 +716,7 @@
                     <div class="relative bg-white rounded-lg shadow ">
                         <!-- Modal header -->
                         <div class="flex justify-between items-start p-4 rounded-t border-b ">
-                            <h3 class="text-xl font-semibold text-gray-900 ">
+                            <h3 class="text-xl font-semibold text-gray-900 " id="title-modal-edit">
                                 Edit Informasi
                             </h3>
                             <button type="button"
@@ -756,15 +762,6 @@
                                         class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
                                   rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                         <option selected>Pilih Tahun</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2025">2025</option>
-                                        <option value="2026">2026</option>
                                     </select>
                                 </div>
 
@@ -870,220 +867,298 @@
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
 
-    @section('morejs')
-        <!-- jQuery -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+@section('morejs')
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-        <!--Datatables -->
-        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <!--Datatables -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
 
 
-        <script>
-            var _informationType = '';
-            var _sertaMertaCategories = @json($categories_serta_merta);
-            var _setiapSaatCategories = @json($categories_setiap_saat);
-            var _dikecualikanCategories = @json($categories_dikecualikan);
+    <script>
+        var _informationType = '';
+        var _sertaMertaCategories = @json($categories_serta_merta);
+        var _setiapSaatCategories = @json($categories_setiap_saat);
+        var _dikecualikanCategories = @json($categories_dikecualikan);
 
-            $(function() {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                }
             });
+        });
 
-            async function addCategoryNonPeriodic() {
-                try {
-                    let url = '{{ route('admin.information.non-periodic.category') }}';
-                    let slug = $('#slug-information-name').val();
-                    let information_category_name = $('#information_category_name').val();
-                    let response = await $.post(url, {
-                        information_category_name,
-                        slug
-                    });
-                    let payload = response['payload'];
-                    switch (slug) {
-                        case 'informasi-serta-merta':
-                            _sertaMertaCategories = payload;
-                            break;
-                        case 'informasi-setiap-saat':
-                            _setiapSaatCategories = payload;
-                            break;
-                        case 'informasi-di-kecualikan':
-                            _dikecualikanCategories = payload;
-                            break;
-                        default:
-                            break;
-                    }
-                    generateCategoryOption(payload);
-                    clearAddInformationCategory();
-                    console.log(payload);
-                    Swal.fire({
-                        title: 'Berhasil',
-                        icon: 'success',
-                        text: 'Berhasil menambahkan data kategori informasi...',
-                    }).then(function(result) {
-                        if (result) {
-                            closeModalKategori();
-                        }
-                    });
-                } catch (e) {
-                    let error_message = JSON.parse(e.responseText);
-                    Swal.fire({
-                        icon: "error",
-                        text: error_message.message,
-                    });
-                }
-            }
-
-            function generateCategoryOption(data) {
-                let el = $("#information_categories");
-                el.empty();
-                el.append('<option value="" selected>Pilih Kategori Informasi</option>');
-                $.each(data, function(k, v) {
-                    el.append('<option value="' + v['id'] + '">' + v['name'] + '</option>')
-                })
-            }
-
-            function clearAddInformationCategory() {
-                $('#information_category_name').val('');
-                $('#slug-information-name').val('');
-            }
-
-            $(document).ready(function() {
-                $('#table-data-serta-merta').DataTable();
-                $('#table-data-setiap-saat').DataTable();
-                $('#table-data-di-kecualikan').DataTable();
-                var table = $('#example').DataTable({
-                        responsive: true
-                    })
-                    .columns.adjust()
-                    .responsive.recalc();
-
-                $('#btn-add-category').on('click', function(e) {
-                    addCategoryNonPeriodic();
+        async function addCategoryNonPeriodic() {
+            try {
+                let url = '{{ route('admin.information.non-periodic.category') }}';
+                let slug = $('#slug-information-name').val();
+                let information_category_name = $('#information_category_name').val();
+                let response = await $.post(url, {
+                    information_category_name,
+                    slug
                 });
-
-                $('#btn-submit-information').on('click', function(e) {
-                    e.preventDefault();
-                    Swal.fire({
-                        title: 'Konfirmasi',
-                        icon: 'info',
-                        text: 'Yakin ingin menambah data informasi?',
-                        showCloseButton: true,
-                        showCancelButton: true,
-                        focusConfirm: false,
-                    }).then(function(result) {
-                        if (result.isConfirmed) {
-                            $('#form-submit-information').submit();
-                        }
-                    });
-                });
-            });
-
-            const editm = document.getElementById('modalEdit');
-            const tambahm = document.getElementById('modalTambah');
-            const kategorim = document.getElementById('modalTambahKategori');
-
-            const options = {
-                placement: 'bottom-right',
-                backdrop: 'dynamic',
-                backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
-                onHide: () => {
-                    console.log('modal is hidden');
-                },
-                onShow: () => {
-                    console.log('modal is shown');
-                },
-                onToggle: () => {
-                    console.log('modal has been toggled');
-                }
-            };
-
-            const modaledit = new Modal(editm, options);
-            const modaltambah = new Modal(tambahm, options);
-            const modalkategori = new Modal(kategorim, options);
-
-            function switchtambahKonten() {
-                if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
-                    document.querySelector('#div-tambahfile').classList.add("hidden");
-                    document.querySelector('#div-tambahlink').classList.remove("hidden");
-
-                } else {
-                    document.querySelector('#div-tambahfile').classList.remove("hidden");
-                    document.querySelector('#div-tambahlink').classList.add("hidden");
-                }
-            }
-
-            function switcheditKonten() {
-                if (document.querySelector('input[name="er-konten"]:checked').value == "er-link") {
-                    document.querySelector('#div-editfile').classList.add("hidden");
-                    document.querySelector('#div-editlink').classList.remove("hidden");
-                } else {
-                    document.querySelector('#div-editfile').classList.remove("hidden");
-                    document.querySelector('#div-editlink').classList.add("hidden");
-
-                }
-            }
-
-            function openModalEdit() {
-                modaledit.show();
-            }
-
-            function closeModalEdit() {
-                modaledit.hide();
-            }
-
-            function openModalTambah(type) {
-                console.log(type);
-                let data_categories = [];
-                let title = 'Tambah Informasi';
-                let title_kategori = 'Tambah Kategori';
-                $('#information_categories').empty();
-                _informationType = type;
-                switch (type) {
+                let payload = response['payload'];
+                switch (slug) {
                     case 'informasi-serta-merta':
-                        data_categories = _sertaMertaCategories;
-                        title = 'Tambah Informasi Serta Merta';
-                        title_kategori = 'Tambah Kategori Serta Merta';
+                        _sertaMertaCategories = payload;
                         break;
                     case 'informasi-setiap-saat':
-                        data_categories = _setiapSaatCategories;
-                        title = 'Tambah Informasi Setiap Saat';
-                        title_kategori = 'Tambah Kategori Setiap Saat';
+                        _setiapSaatCategories = payload;
                         break;
                     case 'informasi-di-kecualikan':
-                        data_categories = _dikecualikanCategories;
-
-                        title = 'Tambah Informasi DiKecualikan';
-                        title_kategori = 'Tambah Kategori DiKecualikan';
+                        _dikecualikanCategories = payload;
                         break;
                     default:
                         break;
                 }
-                $('#title-modal-tambah').html(title);
-                $('#title-modal-tambah-kategori').html(title_kategori);
-                generateCategoryOption(data_categories);
-                modaltambah.show();
+                generateCategoryOption(payload);
+                clearAddInformationCategory();
+                console.log(payload);
+                Swal.fire({
+                    title: 'Berhasil',
+                    icon: 'success',
+                    text: 'Berhasil menambahkan data kategori informasi...',
+                }).then(function(result) {
+                    if (result) {
+                        closeModalKategori();
+                    }
+                });
+            } catch (e) {
+                let error_message = JSON.parse(e.responseText);
+                Swal.fire({
+                    icon: "error",
+                    text: error_message.message,
+                });
             }
+        }
 
-            function closeModalTambah() {
-                modaltambah.hide();
+        function generateCategoryOption(data, edit = false, category = '') {
+            if (edit) {
+                let el = $("#information_categories_edit");
+                el.empty();
+                el.append('<option value="">Pilih Kategori Informasi</option>');
+                $.each(data, function(k, v) {
+                    console.log(category);
+                    if (v['id'] == category) {
+                        el.append('<option value="' + v['id'] + '" selected>' + v['name'] + '</option>')
+                    } else {
+                        el.append('<option value="' + v['id'] + '">' + v['name'] + '</option>')
+                    }
+                })
+            } else {
+                let el = $("#information_categories");
+                el.empty();
+                el.append('<option value="" selected>Pilih Kategori Informasi</option>');
+                $.each(data, function(k, v) {})
             }
+        }
 
-            function openModalKategori() {
-                $('#slug-information-name').val(_informationType);
-                modaltambah.hide();
-                modalkategori.show();
-            }
+        function clearAddInformationCategory() {
+            $('#information_category_name').val('');
+            $('#slug-information-name').val('');
+        }
 
-            function closeModalKategori() {
-                modalkategori.hide();
-                modaltambah.show();
+        $(document).ready(function() {
+            $('#table-data-serta-merta').DataTable();
+            $('#table-data-setiap-saat').DataTable();
+            $('#table-data-di-kecualikan').DataTable();
+            var table = $('#example').DataTable({
+                    responsive: true
+                })
+                .columns.adjust()
+                .responsive.recalc();
+
+            $('#btn-add-category').on('click', function(e) {
+                addCategoryNonPeriodic();
+            });
+
+            $('#btn-submit-information').on('click', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    icon: 'info',
+                    text: 'Yakin ingin menambah data informasi?',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    focusConfirm: false,
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        $('#form-submit-information').submit();
+                    }
+                });
+            });
+
+            $('#btn-patch').on('click', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    icon: 'info',
+                    text: 'Yakin ingin merubah data informasi?',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    focusConfirm: false,
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        $('#form-patch').submit();
+                    }
+                });
+            });
+
+            $('.btn-edit').on('click', function(e) {
+                e.preventDefault();
+                let id = this.dataset.id;
+                $('#id-edit').val(id);
+                let jenis = this.dataset.jenis;
+                let year = this.dataset.year;
+                let category = this.dataset.category;
+                openModalEdit(jenis, year, category);
+            })
+        });
+
+        const editm = document.getElementById('modalEdit');
+        const tambahm = document.getElementById('modalTambah');
+        const kategorim = document.getElementById('modalTambahKategori');
+
+        const options = {
+            placement: 'bottom-right',
+            backdrop: 'dynamic',
+            backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
+            onHide: () => {
+                console.log('modal is hidden');
+            },
+            onShow: () => {
+                console.log('modal is shown');
+            },
+            onToggle: () => {
+                console.log('modal has been toggled');
             }
-        </script>
-    @endsection
+        };
+
+        const modaledit = new Modal(editm, options);
+        const modaltambah = new Modal(tambahm, options);
+        const modalkategori = new Modal(kategorim, options);
+
+        function switchtambahKonten() {
+            if (document.querySelector('input[name="tr-konten"]:checked').value == "tr-link") {
+                document.querySelector('#div-tambahfile').classList.add("hidden");
+                document.querySelector('#div-tambahlink').classList.remove("hidden");
+
+            } else {
+                document.querySelector('#div-tambahfile').classList.remove("hidden");
+                document.querySelector('#div-tambahlink').classList.add("hidden");
+            }
+        }
+
+        function switcheditKonten() {
+            if (document.querySelector('input[name="er-konten"]:checked').value == "er-link") {
+                document.querySelector('#div-editfile').classList.add("hidden");
+                document.querySelector('#div-editlink').classList.remove("hidden");
+            } else {
+                document.querySelector('#div-editfile').classList.remove("hidden");
+                document.querySelector('#div-editlink').classList.add("hidden");
+
+            }
+        }
+
+        function openModalEdit(type, year, category) {
+            let data_categories = [];
+            let title = 'Tambah Informasi';
+            $('#information_categories_edit').empty();
+
+            _informationType = type;
+            switch (type) {
+                case 'informasi-serta-merta':
+                    data_categories = _sertaMertaCategories;
+                    title = 'Edit Informasi Serta Merta';
+                    break;
+                case 'informasi-setiap-saat':
+                    data_categories = _setiapSaatCategories;
+                    title = 'Tambah Informasi Setiap Saat';
+                    break;
+                case 'informasi-di-kecualikan':
+                    data_categories = _dikecualikanCategories;
+                    title = 'Edit Informasi DiKecualikan';
+                    break;
+                default:
+                    break;
+            }
+            $('#title-modal-edit').html(title);
+            generateCategoryOption(data_categories, true, category);
+            generateYearEditOption(year);
+            modaledit.show();
+        }
+
+        function generateYearEditOption(year) {
+            let rangeYear = [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
+            let el = $("#year_edit");
+            el.empty();
+            el.append('<option value="">Pilih Kategori Informasi</option>');
+            $.each(rangeYear, function(k, v) {
+                if (v == year) {
+                    el.append('<option value="' + v + '" selected>' + v + '</option>')
+                } else {
+                    el.append('<option value="' + v + '">' + v + '</option>')
+                }
+            })
+        }
+
+        function closeModalEdit() {
+            modaledit.hide();
+        }
+
+        function openModalTambah(type) {
+            console.log(type);
+            let data_categories = [];
+            let title = 'Tambah Informasi';
+            let title_kategori = 'Tambah Kategori';
+            $('#information_categories').empty();
+            _informationType = type;
+            switch (type) {
+                case 'informasi-serta-merta':
+                    data_categories = _sertaMertaCategories;
+                    title = 'Tambah Informasi Serta Merta';
+                    title_kategori = 'Tambah Kategori Serta Merta';
+                    break;
+                case 'informasi-setiap-saat':
+                    data_categories = _setiapSaatCategories;
+                    title = 'Tambah Informasi Setiap Saat';
+                    title_kategori = 'Tambah Kategori Setiap Saat';
+                    break;
+                case 'informasi-di-kecualikan':
+                    data_categories = _dikecualikanCategories;
+
+                    title = 'Tambah Informasi DiKecualikan';
+                    title_kategori = 'Tambah Kategori DiKecualikan';
+                    break;
+                default:
+                    break;
+            }
+            $('#title-modal-tambah').html(title);
+            $('#title-modal-tambah-kategori').html(title_kategori);
+            generateCategoryOption(data_categories);
+            modaltambah.show();
+        }
+
+        function closeModalTambah() {
+            generateCategoryOption(data_categories);
+            modaltambah.hide();
+        }
+
+        function openModalKategori() {
+            $('#slug-information-name').val(_informationType);
+            modaltambah.hide();
+            modalkategori.show();
+        }
+
+        function closeModalKategori() {
+            modalkategori.hide();
+            modaltambah.show();
+        }
+    </script>
+@endsection
