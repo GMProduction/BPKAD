@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('dashboard', function () {
         return view('admin/dashboard');
@@ -175,52 +175,3 @@ Route::get('/produkhukumperda', [\App\Http\Controllers\LandingPage\ProdukHukumCo
 
 
 Route::get('/produkhukumperwali', [\App\Http\Controllers\LandingPage\ProdukHukumController::class, 'mayorPage'])->name('produkhukumperwali');
-
-
-//Route::get('/informasi', function () {
-//    return view('informasi');
-//});
-
-// LOGIN
-
-//Route::get('/login', function () {
-//    return view('auth.login');
-//});
-
-//ADMIN
-
-//Route::get('/admin', function () {
-//    return view('admin/base');
-//});
-
-//Route::get('/admin/aspirasi', function () {
-//    return view('admin/aspirasi/aspirasi');
-//});
-//
-//Route::get('/admin/aspirasi/detail', function () {
-//    return view('admin/aspirasi/aspirasi-detail');
-//});
-
-//Route::get('/admin/customize_beranda', function () {
-//    return view('admin/customize/customize_beranda');
-//});
-
-//Route::get('/admin/customize_profil', function () {
-//    return view('admin/customize/customize_profil');
-//});
-//
-//Route::get('/admin/customize_bidang', function () {
-//    return view('admin/customize/customize_bidang');
-//});
-
-//Route::get('/admin/informasi', function () {
-//    return view('admin/informasi/informasi');
-//});
-
-//Route::get('/admin/informasi/detail', function () {
-//    return view('admin/informasi/informasi-detail');
-//});
-//
-//Route::get('/admin/informasi/detailbyyear', function () {
-//    return view('admin/informasi/informasi-detail-byyear');
-//});
