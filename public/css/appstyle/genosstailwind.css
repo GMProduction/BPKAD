@@ -345,3 +345,9 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
     width: 80%;
   }
 }
+@media (min-width: 768px) {
+  .sm-text {
+    font-size: 0.7rem !important;
+    line-height: 1.25rem;
+  }
+}

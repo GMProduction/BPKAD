@@ -1,0 +1,17 @@
+# Blokir akses langsung ke file sensitif
+<FilesMatch "\.(env|ini|sql|bak|config|log|sh|json|xml|php|psd|asp|aspx|html|htm)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Blokir eksekusi file PHP
+<FilesMatch "\.php$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Pastikan file .htaccess tidak dapat diakses
+<Files ".htaccess">
+    Order Allow,Deny
+    Deny from all
+</Files>

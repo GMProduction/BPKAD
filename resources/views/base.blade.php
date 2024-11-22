@@ -43,7 +43,7 @@
         }
     </style>
     <nav class="genosnav bg-transparent  sticky top-0 z-1 h-[89px] transition duration-300 z-10 shadow-sm">
-        <div class="container flex flex-wrap justify-between items-center mx-auto sticky top-0">
+        <div class="container flex flex-wrap justify-between items-center mx-auto sticky top-0 md:flex-nowrap ">
             <a href="/" class="flex items-center">
                 <img src="{{ asset('/assets/local/logosurakarta.png') }}"
                     class="logo mr-3  h-16 m-3 sm:m-0 sm:h-[80px] " alt="Surakarta Logo">
@@ -64,7 +64,7 @@
 
             <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
                 <ul
-                    class="md:bg-transparent flex flex-col p-4 mt-4 bg-gray-50  rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0    ">
+                    class="md:bg-transparent flex flex-col text-sm p-4 mt-4 bg-gray-50  rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 sm-text md:font-medium md:border-0    ">
                     <li>
                         <a href="/"
                             class="nav-button  block font-semibold py-2 pr-10 pl-3 menu active text-white  rounded  md:text-zinc-200 md:hover:text-white md:pr-3 md:pl-3 hover:bg-gray-400 transition duration-300"
@@ -73,7 +73,7 @@
 
                     <li class="group">
                         <button
-                            class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-400 transition duration-300 md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">Profil
+                            class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-200  md:text-zinc-200  rounded hover:bg-gray-400 transition duration-300 md:border-0 md:hover:text-white md:pr-3 md:pl-1 md:w-auto      ">Profil
                             <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
