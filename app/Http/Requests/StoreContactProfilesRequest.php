@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
 
 class StoreContactProfilesRequest extends FormRequest
 {
@@ -21,13 +22,17 @@ class StoreContactProfilesRequest extends FormRequest
      */
     public function rules(): array
     {
+        Log::info('StoreContactProfilesRequest: rules() dipanggil');
         return [
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email',
             'address' => 'required|string|max:255',
             'phone' => 'required|string|max:14',
             'office_hours' => 'required|string|max:14',
             'location' => 'required|string|max:255',
-            'social_media' => 'required|string|max:255',
+            'instagram' => 'nullable|string|max:255',
+            'twitter' => 'nullable|string|max:255',
+            'facebook' => 'nullable|string|max:255',
+            'youtube' => 'nullable|string|max:255',
         ];
     }
 }

@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreContactProfilesRequest;
 use App\Models\ContactProfile;
+use Exception;
+use Illuminate\Support\Facades\Log;
+
+use function Laravel\Prompts\alert;
 
 class ContactProfileController extends Controller
 {
@@ -12,11 +16,6 @@ class ContactProfileController extends Controller
     public function getContactProfile()
     {
         $data = ContactProfile::first();
-        if ($data) {
-            foreach ($data->social_media as $key => $d) {
-                $data[$key] = $d;
-            }
-        }
 
         return $data;
     }
@@ -29,91 +28,46 @@ class ContactProfileController extends Controller
             return $this->patch_data($data);
         }
 
-        if ($data) {
-            foreach ($data->social_media as $key => $d) {
-                $data[$key] = $d;
-            }
-        }
-
         return view('admin.customize.customize_contact_profile')->with(['data' => $data]);
     }
 
-    public function patch_data(StoreContactProfilesRequest $data)
+    public function patch_data(StoreContactProfilesRequest $request)
     {
+        Log::info('patch_data() dipanggil');
+        Log::info('Request input:', $request->all());
 
-        $validatedData = $data->validated();
+        try {
+            Log::info('Sebelum validasi:', $request->all());
 
-        $validatedData['email'] = filter_var($validatedData['email'], FILTER_SANITIZE_EMAIL);
-        $validatedData['address'] = strip_tags($validatedData['address']);
-        $validatedData['phone'] = filter_var($validatedData['phone'], FILTER_SANITIZE_NUMBER_INT);
-        $validatedData['office_hours'] = strip_tags($validatedData['office_hours']);
-        $validatedData['location'] = strip_tags($validatedData['location']);
+            $validatedData = $request->validated();
 
+            $validatedData['email'] = filter_var($validatedData['email'], FILTER_SANITIZE_EMAIL);
+            $validatedData['address'] = strip_tags($validatedData['address']);
+            $validatedData['phone'] = filter_var($validatedData['phone'], FILTER_SANITIZE_NUMBER_INT);
+            $validatedData['office_hours'] = strip_tags($validatedData['office_hours']);
+            $validatedData['location'] = strip_tags($validatedData['location']);
+            $validatedData['facebook'] = strip_tags($validatedData['facebook']);
+            $validatedData['twitter'] = strip_tags($validatedData['twitter']);
+            $validatedData['instagram'] = strip_tags($validatedData['instagram']);
+            $validatedData['youtube'] = strip_tags($validatedData['youtube']);
 
-        if ($data) {
-            $data->update($validatedData);
-        } else {
-            $data = new ContactProfile();
-            $data->create($validatedData);
+            // Cek apakah sudah ada data contact profile, asumsi kamu hanya punya satu baris
+            $contact = \App\Models\ContactProfile::first();
+
+            if ($contact) {
+                $contact->update($validatedData);
+            } else {
+                \App\Models\ContactProfile::create($validatedData);
+            }
+            Log::error('Gagal update contact profile: ');
+            return redirect()->back()->with('success', 'Berhasil merubah data...');
+        } catch (Exception $e) {
+            // Log error untuk debugging di storage/logs/laravel.log
+            Log::error('Gagal update contact profile: ' . $e->getMessage());
+
+            return redirect()->back()
+                ->withErrors(['message' => 'Terjadi kesalahan saat menyimpan data.'])
+                ->withInput();
         }
-
-
-
-
-        // $field = request()->validate(
-        //     [
-        //         'email'        => 'required',
-        //         'address'      => 'required',
-        //         'phone'        => 'required',
-        //         'office_hours' => 'required',
-        //         'location'     => 'required',
-        //     ]
-        // );
-
-        // $social_media = null;
-        // if (request('instagram')) {
-        //     request()->validate(
-        //         [
-        //             'instagram' => 'url|regex:(instagram.com)',
-        //         ]
-        //     );
-        //     $social_media['instagram'] = request('instagram');
-        // }
-        // if (request('facebook')) {
-        //     request()->validate(
-        //         [
-        //             'facebook' => 'url|regex:(facebook.com)',
-        //         ]
-        //     );
-        //     $social_media['facebook'] = request('facebook');
-        // }
-        // if (request('twitter')) {
-        //     request()->validate(
-        //         [
-        //             'twitter' => 'url|regex:(twitter.com)',
-        //         ]
-        //     );
-        //     $social_media['twitter'] = request('twitter');
-        // }
-        // if (request('youtube')) {
-        //     request()->validate(
-        //         [
-        //             'youtube' => 'url|regex:(youtube.com)',
-        //         ]
-        //     );
-        //     $social_media['youtube'] = request('youtube');
-        // }
-        // if (request('tiktok')) {
-        //     request()->validate(
-        //         [
-        //             'tiktok' => 'url|regex:(tiktok.com)',
-        //         ]
-        //     );
-        //     $social_media['tiktok'] = request('tiktok');
-        // }
-
-        // $field['social_media'] = $social_media;
-
-        return redirect()->back()->with('success', "berhasil merubah data...");
     }
 }

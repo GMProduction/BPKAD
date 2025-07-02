@@ -8,19 +8,15 @@
 @endsection
 
 @section('content')
-    <div class="mt-[-89px]  h-[350px] w-[100%] bg-black/40 z-[-1]  relative">
-        <div class="absolute  bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
-            <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">INFORMASI SETIAP SAAT</a> <br>
-            <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-sm font-light">Informasi Setiap Saat
-                adalah informasi yang harus disediakan oleh Badan Publik dan siap tersedia untuk dapat langsung diberikan
-                kepada Pemohon Informasi Publik ketika terdapat permohonan terhadap Informasi Publik tersebut.</a>
-        </div>
-    </div>
-    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}" />
+    <x-page-header>
+        <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">INFORMASI SETIAP SAAT</a> <br>
+        <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-sm font-light">Informasi Setiap Saat
+            adalah informasi yang harus disediakan oleh Badan Publik dan siap tersedia untuk dapat langsung diberikan
+            kepada Pemohon Informasi Publik ketika terdapat permohonan terhadap Informasi Publik tersebut.</a>
+    </x-page-header>
 
-    <div class=" mt-16 mb-16">
+    <x-panel-content title="Informasi Setiap saat" cardStyle="margin-bottom: 10px; margin-top: 50px;">
         <div class="bg-white p-10  w-[95%] mx-auto shadow-md mb-6">
-            <p class="text-primary font-bold text-3xl italic mb-3 text-center">Informasi Setiap saat</p>
             <table id="example" class="stripe hover " style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                 <thead>
                     <tr>
@@ -55,7 +51,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </x-panel-content>
 @endsection
 
 @section('morejs')

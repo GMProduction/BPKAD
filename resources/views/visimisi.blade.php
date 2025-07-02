@@ -1,26 +1,48 @@
 @extends('base')
 
 @section('content')
-    <div class="mt-[-89px]  h-[350px] w-[100%] bg-black/40 z-[-1]  relative">
-        <div class="absolute  bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
-            <a class="font-bold text-white  text-4xl">VISI & MISI </a> <br>
-            <a class="font-bold text-white">Profil bpkad surakarta</a>
+    <div class="page-content">
+        <div class="background-overlay">
+            <div class="overlay-text">
+                <a class="title">VISI & MISI</a> <br>
+                <a>Profil BPKAD Surakarta</a>
+            </div>
         </div>
+        <img class="background-image" src="{{ asset('assets/local/gedung.jpg') }}" alt="Background" />
     </div>
-    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}" />
 
-    <div class=" mt-16 mb-16">
 
-        <div
-            class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-105">
-            <p class="text-primary font-bold text-3xl italic mb-3 ">Visi</p>
-            <p class="text-sm   mx-auto">{!! $data ? $data->vision : '' !!}</p>
+    <section class="visi-misi-section">
+        <img class="background" src="{{ asset('assets/local/ornament2.png') }}" alt="Aspirasi Image" />
+
+        <div class="container">
+            <div class="visi-misi-wrapper">
+
+                <!-- Kiri: Kartu Visi & Misi -->
+                <div class="visi-misi-cards">
+
+                    <!-- Card Visi -->
+                    <div class="card-visimisi first">
+                        <div class="card-header">Visi</div>
+                        <div class="card-body">
+                            <p class="text-sm   mx-auto">{!! $data ? $data->vision : '' !!}</p>
+                        </div>
+                    </div>
+
+                    <!-- Card Misi -->
+                    <div class="card-visimisi second">
+                        <div class="card-header">Misi</div>
+                        <div class="card-body">
+                            <p class="text-sm   mx-auto mb-3">{!! $data ? $data->mission : '' !!}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kanan: Gambar -->
+                <div class="visi-misi-image">
+                    <img src="{{ asset('assets/local/javanese_people.png') }}" alt="Gambar Visi Misi">
+                </div>
+            </div>
         </div>
-        <div
-            class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500 hover:scale-105">
-            <p class="text-primary font-bold text-3xl italic mb-3  ">Misi</p>
-            <p class="text-sm   mx-auto mb-3">{!! $data ? $data->mission : '' !!}</p>
-        </div>
-
-    </div>
+    </section>
 @endsection

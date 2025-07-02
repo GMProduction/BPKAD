@@ -1,106 +1,115 @@
 @extends('base')
 
 @section('content')
-    <div class="mt-[-89px]  h-[350px] w-[100%] bg-black/40 z-[-1]  relative">
-        <div class="absolute  bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
-            <a class="font-bold text-white  text-4xl">STANDAR PELAYANAN </a> <br>
-            <a class="font-bold text-white">Standar Pelayanan bpkad surakarta</a>
-        </div>
-    </div>
-    <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}" />
-
-    <div class=" mt-16 mb-16">
-
-
-        <div class="bg-white p-10  sm:w-[80%] w-[95%] mx-auto shadow-md mb-6 transform transition duration-500">
-            <p class="text-primary font-bold text-3xl italic  text-center mb-10">Standar Pelayanan</p>
-            <div class="w-full text-center">
-
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-3">
-                                    #
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Bidang
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Link
-                                </th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    1
-                                </th>
-                                <td class="px-6 py-4">
-                                    Sekertariat
-                                </td>
-
-                                <td class="px-6 py-4">
-                                    <a target="_blank"
-                                        href="https://drive.google.com/drive/folders/1t0vAt7vrjttSsrlH-dvbllLfpDeQvKfm"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
-                                </td>
-                            </tr>
-
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    2
-                                </th>
-                                <td class="px-6 py-4">
-                                    Anggaran
-                                </td>
-
-                                <td class="px-6 py-4">
-                                    <a target="_blank"
-                                        href="https://drive.google.com/open?id=13QCBGgdkkSL4kkeD0X5G1U_nmqqpyObS&authuser=0"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    3
-                                </th>
-                                <td class="px-6 py-4">
-                                    Perbendaharaan dan Akuntansi
-                                </td>
-
-                                <td class="px-6 py-4">
-                                    <a target="_blank"
-                                        href="https://drive.google.com/drive/folders/1r2XIkzkxe-VKrTT2EpdYvQB7W8AiQEcY?usp=share_link"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                                <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    4
-                                </th>
-                                <td class="px-6 py-4">
-                                    Aset
-                                </td>
-
-                                <td class="px-6 py-4">
-                                    <a target="_blank"
-                                        href="https://drive.google.com/drive/folders/1F-KpyifFcjYZgNPkgYlQq2hxQBlLzVku?usp=share_link"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
+    <div class="page-content">
+        <div class="background-overlay">
+            <div class="overlay-text">
+                <a class="font-bold text-white  text-4xl">STANDAR PELAYANAN </a> <br>
+                <a class="font-bold text-white">Standar Pelayanan bpkad surakarta</a>
             </div>
         </div>
+        <img class="background-image" src="{{ asset('assets/local/gedung.jpg') }}" alt="Background" />
     </div>
+
+    <section class="visi-misi-section">
+        <img class="background" src="{{ asset('assets/local/ornament2.png') }}" alt="Aspirasi Image" />
+
+        <div class="container">
+            <div class="visi-misi-wrapper">
+
+                <!-- Kiri: Kartu Visi & Misi -->
+                <div class="visi-misi-cards">
+
+                    <!-- Card Visi -->
+                    <div class="card-visimisi first">
+                        <div class="card-header">Standar Pelayanan</div>
+                        <div class="card-body">
+                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                    <thead
+                                        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3">
+                                                #
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Bidang
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Link
+                                            </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                1
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Sekertariat
+                                            </td>
+
+                                            <td class="px-6 py-4">
+                                                <a target="_blank"
+                                                    href="https://drive.google.com/drive/folders/1t0vAt7vrjttSsrlH-dvbllLfpDeQvKfm"
+                                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
+                                            </td>
+                                        </tr>
+
+                                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                2
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Anggaran
+                                            </td>
+
+                                            <td class="px-6 py-4">
+                                                <a target="_blank"
+                                                    href="https://drive.google.com/open?id=13QCBGgdkkSL4kkeD0X5G1U_nmqqpyObS&authuser=0"
+                                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                3
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Perbendaharaan dan Akuntansi
+                                            </td>
+
+                                            <td class="px-6 py-4">
+                                                <a target="_blank"
+                                                    href="https://drive.google.com/drive/folders/1r2XIkzkxe-VKrTT2EpdYvQB7W8AiQEcY?usp=share_link"
+                                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
+                                            </td>
+                                        </tr>
+                                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                            <th scope="row"
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                4
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                Aset
+                                            </td>
+
+                                            <td class="px-6 py-4">
+                                                <a target="_blank"
+                                                    href="https://drive.google.com/drive/folders/1F-KpyifFcjYZgNPkgYlQq2hxQBlLzVku?usp=share_link"
+                                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
 @endsection
 
 @section('morejs')

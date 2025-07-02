@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('dashboard', function () {
         return view('admin/dashboard');
@@ -52,6 +52,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     Route::group(['prefix' => 'kustomisasi-kontak-profil'], function () {
         Route::match(['POST', 'GET'], '/', [\App\Http\Controllers\Admin\ContactProfileController::class, 'index'])->name('customize.contact.profile');
+        Route::post('/contact-profile', [\App\Http\Controllers\Admin\ContactProfileController::class, 'patch_data'])->name('customize.contact.profile.patch');
     });
 
     Route::group(['prefix' => 'kustomisasi-video-youtube'], function () {
@@ -110,26 +111,61 @@ Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function ()
     Route::match(['get', 'post'], '/auth', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
 
     Route::get('/', [HomeController::class, 'index'])->name('beranda');
+
+    Route::group(['prefix' => 'profil'], function () {
+        Route::get('/visimisi', [\App\Http\Controllers\LandingPage\ProfileController::class, 'vision'])->name('visimisi');
+        Route::get('/motto', [\App\Http\Controllers\LandingPage\ProfileController::class, 'motto'])->name('motto');
+        Route::get('/struktur', [\App\Http\Controllers\LandingPage\ProfileController::class, 'structure'])->name('structure');
+        Route::get('/sk-pengelola-website', [\App\Http\Controllers\LandingPage\SKPengelolaWebsiteController::class, 'index'])->name('skpengelolawebsite');
+    });
+
+    Route::group(['prefix' => 'layanan'], function () {
+        Route::get('/skm', [\App\Http\Controllers\LandingPage\SkmContrller::class, 'index'])->name('skm');
+        Route::get('/maklumat', function () {
+            return view('maklumat');
+        })->name('maklumat');
+        Route::get('/standarpelayanan', function () {
+            return view('sp');
+        })->name('sp');
+        Route::get('/informasi-layanan', [\App\Http\Controllers\LandingPage\InfoLayananController::class, 'index'])->name('informasilayanan');
+    });
+
+    Route::group(['prefix' => 'aduan'], function () {
+        Route::get('/skaduan', [\App\Http\Controllers\LandingPage\SkAduanController::class, 'index'])->name('skaduan');
+        Route::get('/grafikaduan', [\App\Http\Controllers\LandingPage\GrafikAduanContrller::class, 'index'])->name('grafikaduan');
+    });
+
+    Route::group(['prefix' => 'bidang'], function () {
+        Route::get('/sekretariat', [\App\Http\Controllers\LandingPage\SectorController::class, 'sekretariat'])->name('sekretariat');
+        Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::class, 'anggaran'])->name('anggaran');
+        Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\LandingPage\SectorController::class, 'perbendaharaan'])->name('perbendaharaan');
+        Route::get('/aset', [\App\Http\Controllers\LandingPage\SectorController::class, 'aset'])->name('aset');
+    });
+
+    Route::group(['prefix' => 'ppid'], function () {
+        Route::get('/informasi-serta-merta', [\App\Http\Controllers\InformationController::class, 'serta_merta_information'])->name('information.serta-merta');
+        Route::get('/informasi-setiap-saat', [\App\Http\Controllers\InformationController::class, 'setiap_saat_information'])->name('information.setiap-saat');
+        Route::get('/informasi-di-kecualikan', [\App\Http\Controllers\InformationController::class, 'dikecualikan_information'])->name('information.di-kecualikan');
+        Route::get('/informasi-dasarhukumppid', [\App\Http\Controllers\InformationController::class, 'dasarhukumPPID'])->name('information.dasarhukumppid');
+        Route::get('/informasipublik', function () {
+            return view('informasipublik');
+        })->name('information.public');
+        Route::group(['prefix' => 'informasi-berkala'], function () {
+            Route::get('/', [\App\Http\Controllers\InformationController::class, 'periodic_information'])->name('information.periodic');
+            Route::get('/{slug}', [\App\Http\Controllers\InformationController::class, 'periodic_information_by_slug'])->name('information.periodic.by.slug');
+        });
+    });
+
     Route::post('/post-aspiration', [HomeController::class, 'post_aspiration'])->name('post_aspiration');
     Route::get('/home-setting-json', [HomeController::class, 'ShortHistory'])->name('home.setting.json');
-    Route::get('/visimisi', [\App\Http\Controllers\LandingPage\ProfileController::class, 'vision'])->name('visimisi');
-    Route::get('/motto', [\App\Http\Controllers\LandingPage\ProfileController::class, 'motto'])->name('motto');
-    Route::get('/struktur', [\App\Http\Controllers\LandingPage\ProfileController::class, 'structure'])->name('structure');
+
     Route::get('/profile-json', [\App\Http\Controllers\LandingPage\ProfileController::class, 'json_data'])->name('profile.json');
     Route::get('/contact-profile-json', [\App\Http\Controllers\Admin\ContactProfileController::class, 'getContactProfile'])->name('contact.profile.json');
     Route::get('/youtube-video-json', [\App\Http\Controllers\Admin\YoutubeVideoController::class, 'getYoutubeVideo'])->name('youtube.video.json');
     Route::get('/image-slider', [\App\Http\Controllers\Admin\SliderController::class, 'image_slider'])->name('image.slider');
 
-    Route::get('/sekretariat', [\App\Http\Controllers\LandingPage\SectorController::class, 'sekretariat']);
-    Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::class, 'anggaran']);
-    Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\LandingPage\SectorController::class, 'perbendaharaan']);
-    Route::get('/aset', [\App\Http\Controllers\LandingPage\SectorController::class, 'aset']);
-    Route::get('/maklumat_data', [\App\Http\Controllers\LandingPage\ProfileController::class, 'maklumat_data'])->name('maklumat.json');
 
-    // Route::get('/sekretariat', [\App\Http\Controllers\SectorController::class, 'secretarial'])->name('secretarial');
-    // Route::get('/anggaran', [\App\Http\Controllers\SectorController::class, 'budget'])->name('budget');
-    // Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\SectorController::class, 'financial'])->name('financial');
-    // Route::get('/aset', [\App\Http\Controllers\SectorController::class, 'asset'])->name('asset');
+    Route::get('/maklumat_data', [\App\Http\Controllers\LandingPage\ProfileController::class, 'maklumat_data'])->name('maklumat.json');
 
     Route::prefix('artikel')->group(function () {
         Route::get('/', [\App\Http\Controllers\LandingPage\ArticleController::class, 'index']);
@@ -139,39 +175,12 @@ Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function ()
         Route::get('json-data-month', [\App\Http\Controllers\LandingPage\ArticleController::class, 'getArticleByMonth'])->name('article.json.mont');
     });
 
-    Route::group(['prefix' => 'informasi-berkala'], function () {
-        Route::get('/', [\App\Http\Controllers\InformationController::class, 'periodic_information'])->name('information.periodic');
-        Route::get('/{slug}', [\App\Http\Controllers\InformationController::class, 'periodic_information_by_slug'])->name('information.periodic.by.slug');
-    });
 
-    Route::get('/informasi-serta-merta', [\App\Http\Controllers\InformationController::class, 'serta_merta_information'])->name('information.serta-merta');
 
-    Route::get('/informasi-setiap-saat', [\App\Http\Controllers\InformationController::class, 'setiap_saat_information'])->name('information.setiap-saat');
-
-    Route::get('/informasi-di-kecualikan', [\App\Http\Controllers\InformationController::class, 'dikecualikan_information'])->name('information.di-kecualikan');
-    Route::get('/informasi-dasarhukumppid', [\App\Http\Controllers\InformationController::class, 'dasarhukumPPID'])->name('information.dasarhukumppid');
-
-    Route::get('/maklumat', function () {
-        return view('maklumat');
-    })->name('maklumat');
-
-    Route::get('/skm', [\App\Http\Controllers\LandingPage\SkmContrller::class, 'index'])->name('skm');
-    Route::get('/skaduan', [\App\Http\Controllers\LandingPage\SkAduanController::class, 'index'])->name('skaduan');
-    Route::get('/grafikaduan', [\App\Http\Controllers\LandingPage\GrafikAduanContrller::class, 'index'])->name('grafikaduan');
     Route::get('/faq', [\App\Http\Controllers\LandingPage\FaqController::class, 'index'])->name('faq');
-    Route::get('/informasi-layanan', [\App\Http\Controllers\LandingPage\InfoLayananController::class, 'index'])->name('informasilayanan');
-    Route::get('/sk-pengelola-website', [\App\Http\Controllers\LandingPage\SKPengelolaWebsiteController::class, 'index'])->name('skpengelolawebsite');
 
-    Route::get('/standarpelayanan', function () {
-        return view('sp');
-    })->name('sp');
-
-    Route::get('/informasipublik', function () {
-        return view('informasipublik');
-    })->name('information.public');
+    Route::prefix('produk-hukum')->group(function () {
+        Route::get('/produkhukumperda', [\App\Http\Controllers\LandingPage\ProdukHukumController::class, 'regionPage'])->name('produkhukumperda');
+        Route::get('/produkhukumperwali', [\App\Http\Controllers\LandingPage\ProdukHukumController::class, 'mayorPage'])->name('produkhukumperwali');
+    });
 });
-
-Route::get('/produkhukumperda', [\App\Http\Controllers\LandingPage\ProdukHukumController::class, 'regionPage'])->name('produkhukumperda');
-
-
-Route::get('/produkhukumperwali', [\App\Http\Controllers\LandingPage\ProdukHukumController::class, 'mayorPage'])->name('produkhukumperwali');

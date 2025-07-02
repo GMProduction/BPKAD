@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\LandingPage;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use App\Models\HomeSetting;
 use App\Models\OnlineApplication;
 use App\Models\Slider;
@@ -21,7 +22,9 @@ class HomeController extends Controller
         $shortHistory = $this->ShortHistory();
         $online_application = $this->online_applications();
         $slider = $this->image_slider();
-        return view('beranda', ['history' => $shortHistory, 'application' => $online_application, 'slider' => $slider]);
+        $articles = $this->articles();
+        $firstarticle = $this->firstarticle();
+        return view('beranda', ['history' => $shortHistory, 'application' => $online_application, 'slider' => $slider, 'articles' => $articles, 'firstarticle' => $firstarticle,]);
     }
 
     /**
@@ -45,6 +48,20 @@ class HomeController extends Controller
     {
         return OnlineApplication::all();
     }
+    public function articles()
+    {
+        return Article::orderBy('created_at', 'desc')
+            ->skip(1)
+            ->take(6)
+            ->get();
+    }
+
+    public function firstarticle()
+    {
+        return Article::orderBy('created_at', 'desc')
+            ->first();
+    }
+
 
     public function post_aspiration()
     {

@@ -24,63 +24,58 @@
 @endsection
 
 @section('content')
-    <div class="mt-[-89px] sm:h-[796px] h-[350px] w-[100%] bg-black/30 z-[-1]  relative">
-        <div class="absolute sm:bottom-[200px] bottom-[100px]  z-1 opacity-100 w-[100%] text-center">
-            <a class="font-bold text-white text-4xl" data-aos="fade-left">BPKAD </a> <a class="font-bold text-4xl text-white"
-                data-aos="fade-left">KOTA
-                SURAKARTA</a> <br>
-            <a class="font-bold text-white " data-aos="fade-right">Badan Pengelolaan Keuangan & Aset Daerah Kota
-                Surakarta</a>
+    <div class="slider-items">
+        <div class="background-layer">
+            <div class="slider-header">
+                @foreach ($slider as $slide)
+                    <img src="{{ asset($slide->image) }}" alt="slider image" />
+                @endforeach
+            </div>
         </div>
     </div>
 
-    <div class="absolute z-[-2] w-[100%] sm:h-[796px] h-[350px] top-0 left-0 overflow-hidden">
-        <div class=" slider-header ">
-            @foreach ($slider as $slide)
-                <img src="{{ asset($slide->image) }}" style="object-fit: fill; height: 770px;" />
-            @endforeach
-        </div>
-    </div>
+    <img class="absolute z-[-2]" src="{{ asset('assets/local/ornament1.jpg') }}" />
+
     <div class="mt-[-70px]
                     min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md flex items-center "
         data-aos="fade-up">
         <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 mt-[auto] mb-[auto] w-[100%] ">
             <div class="flex  md:justify-center justify-start  sm:mx-0 mx-5 sm:my-0 my-1 sm:mt-0 mt-3 border-r">
-                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                <span class="material-symbols-outlined font-bold  t-primary mr-2">
                     mail
                 </span>
                 <div>
-                    <p class="text-primary font-bold italic">Email</p>
+                    <p class="t-primary font-bold italic">Email</p>
                     <p class="textEmailH"></p>
                 </div>
             </div>
 
             <div class="flex  md:justify-start justify-start sm:mx-0 mx-5 sm:my-0 my-1 border-r">
-                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                <span class="material-symbols-outlined font-bold  t-primary mr-2">
                     location_on
                 </span>
                 <div>
-                    <p class="text-primary font-bold italic">Alamat</p>
+                    <p class="t-primary font-bold italic">Alamat</p>
                     <p class="textAddressH"></p>
                 </div>
             </div>
 
             <div class="flex  md:justify-start justify-start sm:mx-0 mx-5 sm:my-0 my-1 border-r">
-                <span class="material-symbols-outlined font-bold  text-primary mr-2">
+                <span class="material-symbols-outlined font-bold  t-primary mr-2">
                     call
                 </span>
                 <div>
-                    <p class="text-primary font-bold italic">Phone</p>
+                    <p class="t-primary font-bold italic">Phone</p>
                     <p class="textPhoneH"></p>
                 </div>
             </div>
 
             <div class="flex  md:justify-start justify-start sm:mx-0 mx-5 sm:my-0 my-1 sm:mb-0 mb-3">
-                <span class="material-symbols-outlined font-bold  text-primary mr-2 ">
+                <span class="material-symbols-outlined font-bold  t-primary mr-2 ">
                     schedule
                 </span>
                 <div>
-                    <p class="text-primary font-bold italic">Jam Kerja</p>
+                    <p class="t-primary font-bold italic">Jam Kerja</p>
                     <p class="textOfficeHoursH" style="white-space: pre-wrap;"></p>
                 </div>
             </div>
@@ -88,229 +83,120 @@
     </div>
 
 
-    <div class="container grid sm:grid-cols-8 grid-cols-1 gap-4 mt-16 mb-6">
+    <div class=" flex justify-center mt-16 mb-16">
 
-        <div class="col-span-1">
-            {{-- <img src="{{ asset('assets/local/mantab_no_korupsi.png') }}" class="w-[40%] m-auto" /> --}}
-        </div>
-
-
-        <div class="col-span-5 sm:mx-0 mx-5">
-            <p class="text-primary font-bold text-3xl italic mb-3 " data-aos="fade-up">Tentang BPKAD Surakarta?</p>
-            <p class="text-sm" data-aos="fade-up">{!! $history ? $history->history : '' !!}</p>
-        </div>
+        <p class="t-primary font-bold text-5xl  mb-3 " data-aos="fade-up">Berita Terkini</p>
     </div>
 
-    <div class="bg-transparent curved">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#23569F" fill-opacity="1"
-                d="
-                                    M0,96L60,90.7C120,85,240,75,360,96C480,117,600,171,720,176C840,181,960,139,1080,144C1200,149,1320,203,1380,229.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
-            </path>
-
-
-        </svg>
-
-        <div class="bg-primary w-[100%] pb-10 sm:mt-[-40px] md:mt-[-60px] mt-[-0] sm:px-10 px-5">
-
-            <p class="text-white font-bold text-3xl italic mb-3 text-center" data-aos="fade-up">Aplikasi Online</p>
-            <p class="text-white/80 text-sm text-center mb-10" data-aos="fade-up">Aplikasi Online yang dapat
-                membantumu</p>
-
-            <div class="slider-aplikasi" data-aos="fade-up">
-                @forelse($application as $ap)
-                    <a class="block " href="{{ $ap->url }}" target="_blank">
-                        <div
-                            class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
-                            <div>
-                                <img src="{{ asset($ap->image) }}" class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
-                            </div>
-                            <div class="col-span-2">
-                                <p class="text-white font-bold text-2xl italic mb-3">{{ $ap->name }}</p>
-                                <p class="text-sm text-white  mb-1 font-bold ">{{ $ap->short_description }}</p>
-                                <p class="text-sm text-white/80 ">{{ $ap->description }}</p>
-                            </div>
-                        </div>
-                    </a>
-                @empty
-                    <div class="flex justify-center">
-                        <p>Tidak ada aplikasi online</p>
-                    </div>
-                @endforelse
-                {{--
-                <a class="block " href="https://surakartakota.fmis.id//" target="_blank">
-                    <div
-                        class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
-                        <div>
-                            <img src="{{ asset('assets/local/simdang.png') }}"
-                                class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
-                        </div>
-                        <div class="col-span-2">
-                            <p class="text-white font-bold text-2xl italic mb-3">FMIS</p>
-                            <p class="text-sm text-white  mb-1 font-bold "> Financial Management Information System</p>
-                            <p class="text-sm text-white/80 "> Aplikasi yang dikembangkan dari basis SIMDA untuk mempermudah
-                                manajemen keuangan daerah pada Pemerintah Kota Surakarta</p>
-                        </div>
-
-                    </div>
-                </a>
-                <a class="block " href="https://hibah.surakarta.go.id/" target="_blank">
-                    <div
-                        class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
-                        <div>
-                            <img src="{{ asset('assets/local/hibah-online.png') }}"
-                                class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
-                        </div>
-                        <div class="col-span-2">
-                            <p class="text-white font-bold text-2xl italic mb-3">HIBAH ONLINE</p>
-                            <p class="text-sm text-white mb-1 font-bold ">Aplikasi Hibah Online Kota Surakarta</p>
-                            <p class="text-sm text-white/80 ">Aplikasi untuk memudahkan dalam pengajuan permohonan bantuan
-                                hibah
-                                dan bansos oleh masyarakat ataupun organisasi yang ada di kota Surakarta</p>
-                        </div>
-
-                    </div>
-                </a>
-                <a class="block " href="https://bppkad.surakarta.go.id/sinta/" target="_blank">
-                    <div
-                        class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
-                        <div>
-                            <img src="{{ asset('assets/local/sinta.png') }}"
-                                class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
-                        </div>
-                        <div class="col-span-2">
-                            <p class="text-white font-bold text-2xl italic mb-3">SINTA</p>
-                            <p class="text-sm text-white mb-1 font-bold">Sistem Informasi Tanah Pemerintah Kota Surakarta
-                            </p>
-                            <p class="text-sm text-white/80 ">Aplikasi untuk memudahkan dalam pencarian tanah Hak Pakai
-                                Pemerintah Kota Surakarta berdasarkan klasifikasi penggunaan dan wilayah</p>
-                        </div>
-
-                    </div>
-                </a>
-                <a class="block " href="https://bppkad.surakarta.go.id/sikendis/" target="_blank">
-                    <div
-                        class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
-                        <div>
-                            <img src="{{ asset('assets/local/sikendis.png') }}"
-                                class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
-                        </div>
-                        <div class="col-span-2">
-                            <p class="text-white font-bold text-2xl italic mb-3">SIKENDIS</p>
-                            <p class="text-sm text-white mb-1 font-bold">Sistem Informasi Kendaraan Dinas Pemerintah Kota
-                                Surakarta</p>
-                            <p class="text-sm text-white/80 ">Aplikasi untuk memudahkan dalam penatausahaan Kendaraan Dinas
-                                Pemerintah Kota Surakarta</p>
-                        </div>
-
-                    </div>
-                </a>
-
-                <a class="block " href="https://bppkad.surakarta.go.id/sikendis/" target="_blank">
-                    <div
-                        class="rounded-md w-[100%] bg-white/25 hover:bg-white/50 grid grid-cols-1 sm:grid-cols-3 p-5 transition duration-150 cursor-pointer h-[300px] sm:h-[250px]">
-                        <div>
-                            <img src="{{ asset('assets/local/siperon.png') }}"
-                                class="w-[100px] m-auto sm:w-[80%] sm:mb-0 mb-5" />
-                        </div>
-                        <div class="col-span-2">
-                            <p class="text-white font-bold text-2xl italic mb-3">SIPERON<i
-                                    class="mdi mdi-skip-previous-outline:"></i></p>
-                            <p class="text-sm text-white mb-1 font-bold">Sistem Persediaan Online Kota Surakarta</p>
-                            <p class="text-sm text-white/80 ">Aplikasi untuk mempercepat tata kelola persediaan dengan
-                                menggunakan sistem informasi yang dilaksanakan secara online diseluruh skpd</p>
-                        </div>
-
-                    </div>
-                </a> --}}
-
-
+    <section class="py-12 px-4 sm:px-10 bg-white">
+        {{-- Berita Utama --}}
+        <div class="berita-utama">
+            <div class="berita-utama__image">
+                <img src="{{ asset($firstarticle->cover) }}" alt="berita utama">
             </div>
-
-        </div>
-
-        {{-- <svg xmlns="http://www.w3.org/2000/svg" class="sm:mt-[-100px] md:mt-[-50px] mt-[-10px] rotate-180" viewBox="0 0 1440 320" >
-            <path fill="#23569F" fill-opacity="1"
-                d="M0,160L60,176C120,192,240,224,360,208C480,192,600,128,720,138.7C840,149,960,235,1080,250.7C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
-            </path>
-        </svg> --}}
-    </div>
-
-    <div class="bg-primary pt-16 pb-16">
-
-        <p class="text-white font-bold text-3xl italic mb-3 text-center" data-aos="fade-up">Video Terbaru</p>
-        <p class="text-white  text-sm text-center md:w-[50%] sm:w-[80%] w-[95%] mx-auto" data-aos="fade-up">Video dari
-            BPKAD untuk
-            masyarakat</p>
-
-        <div class="video-terbaru">
-            <iframe style="padding: 30px" src="https://www.youtube.com/embed/DwFg8kWMTVE?si=q0ErLcCqDvR5cwE8"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"></iframe>
-
-            <iframe style="padding: 30px" src="https://www.youtube.com/embed/doGpA_fipuM?si=4ubw8YoDz4EH9ZrF"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </div>
-    </div>
-
-    <div class="grid  grid-cols-1 md:h-[350px] h-[700px] relative overflow-hidden">
-        <div class="relative">
-            <div class="absolute bg-black/40 top-0 left-0 w-[100%] md:h-[350px] h-[700px]"></div>
-            <img src="{{ asset('assets/local/aspirasi.jpg') }}"
-                class="absolute z-[-1] object-cover md:h-[350px] h-[700px] w-full" />
-
-            <div class="grid md:grid-cols-2 grid-cols-1">
-                <div class=" flex flex-col items-center justify-center  h-[350px] w-full" data-aos="fade-up">
-                    <p class="italic font-bold text-4xl text-white mb-3 text-center" data-aos="fade-up">Kirim Aspirasi
-                        Anda
+            <div class="berita-utama__content">
+                <div>
+                    <h2>{{ $firstarticle->title }}</h2>
+                    <p>
+                        {!! $firstarticle->description !!}
                     </p>
-                    <p class=" text-white text-center">Yuk, Masukan aspirasimu untuk BPKAD yang lebih baik</p>
-                    <a href="https://ulas.surakarta.go.id/"
-                        class="mt-3 relative   text-white font-bold border-white px-5 py-3 border-2 hover:bg-white/25">
-                        KIRIM ASPIRASI
-                    </a>
                 </div>
-
-                <div class=" flex flex-col items-center justify-center  h-[350px] w-full" data-aos="fade-up">
-                    <p class="italic font-bold text-4xl text-white mb-3 text-center" data-aos="fade-up">Kirim Laporan
-                        Pengaduan Online
-                    </p>
-                    <p class=" text-white text-center">Sampaikan laporan Anda langsung kepada instansi pemerintah
-                        berwenang
-                    </p>
-                    <a href="https://www.lapor.go.id/"
-                        class="mt-3 relative   text-white font-bold border-white px-5 py-3 border-2 hover:bg-white/25">
-                        SP4N LAPOR
-                    </a>
+                <div class="berita-utama__button">
+                    <a href="{{ route('article.detail', [$firstarticle->slug]) }}">Baca Selengkapnya</a>
                 </div>
             </div>
         </div>
 
+
+        {{-- Garis pemisah --}}
+        <hr class="my-6 border-t border-gray-200">
+
+        {{-- Daftar Berita Lainnya --}}
+        <div class="berita-lainnya">
+            @foreach ($articles as $article)
+                <a class="item" href="{{ route('article.detail', [$article->slug]) }}">
+                    <img src="{{ asset($article->cover) }}" alt="{{ $article->title }}">
+                    <div class="judul">
+                        {{ $article->title }}
+                    </div>
+                </a>
+            @endforeach
+        </div>
+        <div class="berita-lainnya__button">
+            <a href="/article">Lihat Berita yang Lain</a>
+        </div>
+
+    </section>
+
+    <div class="video-section" style="background-image: url('{{ asset('assets/local/kota.png') }}');">
+        <div class="video-overlay">
+            <div class="video-container">
+                <div class="video-text" data-aos="fade-right">
+                    <h2>Video Terbaru</h2>
+                    <p>
+                        BPKAD Kota Surakarta menghadirkan video terbaru yang membahas berbagai hal menarik seputar
+                        pengelolaan keuangan daerah, inovasi pelayanan, serta perkembangan terbaru dalam tata kelola
+                        pemerintahan yang transparan dan akuntabel
+                    </p>
+                </div>
+
+                <div class="video-embeds" data-aos="fade-left">
+                    <div class="video-frame">
+                        <iframe src="https://www.youtube.com/embed/DwFg8kWMTVE?si=q0ErLcCqDvR5cwE8" ...></iframe>
+                    </div>
+                    <div class="video-frame second">
+                        <iframe src="https://www.youtube.com/embed/doGpA_fipuM?si=4ubw8YoDz4EH9ZrF" ...></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
 
-    <div class=" mt-16">
 
-        <p class="text-primary font-bold text-3xl italic mb-3 text-center" data-aos="fade-up">Artikel</p>
-        <p class="text-sm text-center w-[50%] mx-auto" data-aos="fade-up">Artikel terbaru dari kami</p>
 
-        <div class="flex justify-end items-center mr-16 mb-4">
-            <a href="/artikel"
-                class="flex justify-end items-center px-3 py-2 bg-primarylight text-sm font-bold shadow-md text-white hover:shadow-2xl transition duration-300 hover:scale-105">Lihat
-                Semua Artikel <span class="material-symbols-outlined">
-                    arrow_right_alt
 
-                </span></a>
+    <div class="aplikasi-online ">
+        <p class="title" data-aos="fade-up">Aplikasi Online</p>
 
+        <div class="grid-container">
+            @forelse($application as $ap)
+                <a href="{{ $ap->url }}" target="_blank" class="app-card"
+                    style="background-image: url('{{ asset('assets/local/bg-onlineapps.png') }}');">
+                    <div class="icon">
+                        <img src="{{ asset($ap->image) }}" alt="{{ $ap->name }}">
+                    </div>
+                    <div class="content">
+                        <p class="app-title">{{ $ap->name }}</p>
+                        <p class="short-desc">{{ $ap->short_description }}</p>
+                        <p class="long-desc">{{ $ap->description }}</p>
+                    </div>
+                </a>
+            @empty
+                <p class="text-center ">Tidak ada aplikasi online</p>
         </div>
+        @endforelse
+    </div>
 
-        <div class="artikel-slide dark  sm:px-16 px-5 mb-10 " data-aos="fade-up" id="newArticle">
 
+    <div class="aspirasi-section">
+        <div class="aspirasi-left" data-aos="fade-up">
+            <img class="background" src="{{ asset('assets/local/bg-aspirasi.png') }}" alt="Aspirasi Image" />
+            <div class="card">
+                <h3>Kirim Aspirasi Anda</h3>
+                <p>Yuk, Masukan aspirasimu untuk BPKAD yang lebih baik</p>
+                <a href="https://ulas.surakarta.go.id/" target="_blank">Kirim Aspirasi</a>
+            </div>
+            <div class="card second">
+                <h3>Kirim Laporan<br>Pengaduan Online</h3>
+                <p>Sampaikan Laporan langsung kepada instansi pemerintah berwenang</p>
+                <a href="https://www.lapor.go.id/" target="_blank">SP4N LAPOR</a>
+            </div>
         </div>
-
+        <div class="aspirasi-right" data-aos="fade-left">
+            <img src="{{ asset('assets/local/aspirasi_pic.png') }}" alt="Aspirasi Image">
+        </div>
     </div>
 @endsection
 @section('morejs')
@@ -320,21 +206,6 @@
     <script type="text/javascript" src="{{ asset('assets/import/slick-1.8.1/slick/slick.min.js') }} "></script>
 
     <script>
-        function post_aspiration() {
-            // let clas = $('#btn').attr('class');
-            // if (!clas.includes('isDisabled')) {
-            //     document.getElementById('form_aspiration').method = 'POST';
-            //     document.getElementById('form_aspiration').submit();
-            //     console.log('asdasd')
-            //     $('#btn').addClass('isDisabled');
-            // }
-
-        }
-
-        // $(document).ready(function() {
-        //     image_slider()
-        // })
-
         $('.slider-header').slick({
             autoplay: true,
             autoplayspeed: 500,
@@ -391,141 +262,20 @@
             });
         }
 
-        function destroyCarousel() {
-            if ($('.artikel-slide').hasClass('slick-initialized')) {
-                $('.artikel-slide').slick('destroy');
-            }
-        }
-
-        function articleSlick() {
-            destroyCarousel();
-            $('.artikel-slide').slick({
-
-                centerPadding: '40px',
-                slidesToShow: 4,
-                focusOnSelect: 1,
-                arrows: true,
-                responsive: [{
-                        breakpoint: 1200,
-                        settings: {
-                            centerMode: false,
-                            slidesToShow: 3
-                        }
-                    }, {
-                        breakpoint: 765,
-                        settings: {
-                            centerMode: false,
-                            slidesToShow: 2
-                        }
-                    },
-                    {
-                        breakpoint: 450,
-                        settings: {
-                            centerMode: false,
-                            slidesToShow: 1
-                        }
-                    }
-                ]
-            });
-        }
-
         var imgArray = [];
         var curIndex = 0;
         var imgDuration = 1000;
 
 
-        // function image_slider() {
-        //     fetch('{{ route('image.slider') }}')
-        //         .then(response => response.json())
-        //         .then(data => {
-        //             imgArray = data;
-        //         })
-        // }
-
-        // function slideShow() {
-        //     document.getElementById('slider').classList.add("fadeOut");
-        //     setTimeout(function() {
-        //         document.getElementById('slider').src = imgArray[curIndex]['image'];
-        //         document.getElementById('slider').classList.remove("fadeOut");
-        //     }, 1000);
-        //     curIndex++;
-        //     if (curIndex == imgArray.length) {
-        //         curIndex = 0;
-        //     }
-        //     setTimeout(slideShow, imgDuration);
-        // }
-
-
-        // articleSlick()
-
         $(document).ready(function() {
-            artikel()
-            articleSlick()
             getYoutubeVideo()
             contact()
-            // slideShow();
         })
-
-        function artikel() {
-            let dataUrl = '{{ route('article.json', ['type' => 0]) }}'
-            let newArticle = $('#newArticle');
-            $('#btnLoadMore').addClass('cursor-not-allowed')
-            $.ajax({
-                type: 'GET',
-                url: dataUrl,
-                headers: {
-                    'Accept': "application/json"
-                },
-                success: function(data, textStatus, xhr) {
-                    if (data.length > 0) {
-                        destroyCarousel()
-                        newArticle.empty();
-                        // newArticle[0].empty()
-                        $.each(data, function(k, v) {
-                            let url = v.type_article == 1 ? v.description : '/artikel/detail/' + v.slug;
-                            let img = '';
-                            let assetImg = '';
-                            assetImg = '{{ asset('dataImage') }}';
-                            if (v.cover) {
-                                assetImg = assetImg.replace('/dataImage', v.cover)
-                            } else {
-                                assetImg = assetImg.replace('/dataImage',
-                                    '/assets/local/logosurakarta.png')
-                            }
-                            newArticle.append('<a href="' + url + '"\n' +
-                                '                target="_blank"\n' +
-                                '                class="articleData mb-10 block hover:shadow-xl hover:bg-white transition duration-300 cursor-pointer hover:scale-105">\n' +
-                                '                <div class="h-[300px] rounded-md relative overflow-hidden mb-5">\n' +
-                                '                    <div class="absolute top-0 left-0 h-full w-full bg-black/40">\n' +
-                                '                        <img class="w-full h-full object-cover rounded-md "\n' +
-                                '                            src="' + assetImg +
-                                '" onerror="this.onerror=null; this.src=' + assetImg + '"/>\n' +
-                                '\n' +
-                                '                    </div>\n' +
-                                '                </div>\n' +
-                                '\n' +
-                                '                <div class="mb-3"><p class="italic font-bold text-md text-center px-3  line-clamp-3">' +
-                                v.title + '</p></div>\n' +
-                                '            </a>')
-                        })
-                    }
-
-                },
-
-                complete: function(xhr, textStatus) {
-                    articleSlick()
-                },
-                error: function(error, xhr, textStatus) {
-                    console.log('error', error)
-                }
-            })
-        }
 
         function getYoutubeVideo() {
             fetch('{{ route('youtube.video.json') }}')
                 .then((response) => response.json())
                 .then(data => {
-                    // ytVideo
                     $('#ytVideo').empty();
                     $.each(data, function(k, v) {
                         $('#ytVideo').append(v.url)
@@ -544,5 +294,21 @@
                     document.querySelector('.textPhoneH').innerHTML = data?.phone
                 })
         }
+
+        document.querySelectorAll('.berita-utama__content p').forEach(p => {
+            const children = Array.from(p.childNodes);
+
+            const onlyAllowed = children.every(child => {
+                return (
+                    (child.nodeType === 1 && (child.tagName === 'IMG' || child.tagName === 'BR')) ||
+                    // <img> atau <br>
+                    (child.nodeType === 3 && child.textContent.trim() === '') // text node kosong
+                );
+            });
+
+            if (onlyAllowed) {
+                p.style.display = 'none';
+            }
+        });
     </script>
 @endsection

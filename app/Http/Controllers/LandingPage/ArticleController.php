@@ -15,7 +15,7 @@ class ArticleController extends Controller
         $data  = $this->getArticleByMonth();
         $count = $this->count_article_all(0);
 
-        return view('artikel')->with(['data_article' => $data,'count' => $count]);
+        return view('artikel')->with(['data_article' => $data, 'count' => $count]);
     }
 
     public function article($type)
@@ -25,19 +25,19 @@ class ArticleController extends Controller
             $month = null;
             $year = null;
             $param = request('param');
-            if (request('month')){
-                $split = explode('-',request('month'));
+            if (request('month')) {
+                $split = explode('-', request('month'));
                 $month = $split[1];
                 $year = $split[0];
             }
             $article = Article::where('is_highline', $type)->orderBy('date', 'DESC');
 
-            if ($month){
-                $article = $article->whereMonth('date','=',$month)->whereYear('date','=',$year);
+            if ($month) {
+                $article = $article->whereMonth('date', '=', $month)->whereYear('date', '=', $year);
             }
 
-            if ($param){
-                $article = $article->where('title','LIKE',"%$param%")->orWhere('description','LIKE',"%$param%")->where('is_highline', $type);
+            if ($param) {
+                $article = $article->where('title', 'LIKE', "%$param%")->orWhere('description', 'LIKE', "%$param%")->where('is_highline', $type);
             }
 
             $article = $article->skip($skip)->take(8)->get();
@@ -65,8 +65,8 @@ class ArticleController extends Controller
         try {
             $param = request('param');
             $article = Article::where('is_highline', $type);
-            if ($param){
-                $article = $article->where('title','LIKE',"%$param%")->orWhere('description','LIKE',"%$param%")->where('is_highline', $type);
+            if ($param) {
+                $article = $article->where('title', 'LIKE', "%$param%")->orWhere('description', 'LIKE', "%$param%")->where('is_highline', $type);
             }
             return $article->count('*');
         } catch (\ErrorException $e) {
@@ -77,8 +77,16 @@ class ArticleController extends Controller
     public function detail($slug)
     {
         $article = Article::where('slug', $slug)->firstOrFail();
+        $articles = $this->articles();
 
-        return view('artikel-detail', ['article' => $article]);
+        return view('artikel-detail', ['article' => $article, 'articles' => $articles]);
+    }
+
+    public function articles()
+    {
+        return Article::orderBy('created_at', 'desc')
+            ->take(6)
+            ->get();
     }
 
     public function getArticleByMonth()
@@ -86,19 +94,16 @@ class ArticleController extends Controller
         $param = request('param');
 
         $article = Article::where('is_highline', 0);
-        if ($param){
-            $article = $article->where('title','LIKE',"%$param%")->orWhere('description','LIKE',"%$param%")->where('is_highline', 0);
+        if ($param) {
+            $article = $article->where('title', 'LIKE', "%$param%")->orWhere('description', 'LIKE', "%$param%")->where('is_highline', 0);
         }
         $article = $article->selectRaw('year(date) year, month(date) monthN,monthname(date) month, count(*) data')
-                           ->groupBy('year', 'month', 'monthN')
-                           ->orderBy('year', 'desc')
-                           ->get();
+            ->groupBy('year', 'month', 'monthN')
+            ->orderBy('year', 'desc')
+            ->get();
 
         return $article;
     }
 
-    public function getSelectMonth(){
-
-    }
-
+    public function getSelectMonth() {}
 }
