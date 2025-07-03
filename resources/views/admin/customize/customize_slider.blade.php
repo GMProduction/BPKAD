@@ -1,4 +1,4 @@
-@extends('admin.base')
+@extends('admin.customize.base')
 
 @section('head')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
@@ -30,39 +30,10 @@
     </style>
 @endsection
 
-@section('content')
-    <div class="panel h-full">
+@section('content-customize')
+    <div class="panel-container">
 
-        <nav class="flex mb-6" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                <li class="inline-flex items-center">
-                    <a href="{{ route('dashboard') }}"
-                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
-                            </path>
-                        </svg>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <a href="{{ route('customize.slider') }}"
-                            class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Customize
-                            Slider</a>
-                    </div>
-                </li>
 
-            </ol>
-        </nav>
         @if (\Illuminate\Support\Facades\Session::has('failed'))
             <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
                 role="alert">
@@ -76,10 +47,15 @@
                 <span class="font-medium">Berhasil!</span> {{ \Illuminate\Support\Facades\Session::get('success') }}
             </div>
         @endif
-        <div class="panel bg-white border">
-            <div class="flex justify-between mb-3 items-end">
-                <p class=" font-semibold">Slider Homepage</p>
+        <div class="panel">
+            <div class="panel-heading">
+                <h4 class="panel-title">Upload Slider Homepage</h4>
             </div>
+            <p class="help-block">
+                Gambar yang Anda unggah di sini akan ditampilkan di <strong>halaman utama (landing page)</strong>. Format:
+                <strong>JPG/PNG</strong>. Maks: <strong>2MB</strong>.
+            </p>
+
             <div class="overflow-x-auto relative shadow-sm ">
                 <form id="formImgbudget" class="dropzone mb-6" action="{{ route('customize.slider.image') }}" method="POST"
                     enctype="multipart/form-data">
@@ -90,15 +66,10 @@
                         <input name="image" type="file" multiple accept=".jpg, .png" />
                     </div>
                 </form>
-                {{--                <div class="flex justify-center pb-5 h-[50px]"> --}}
-                {{--                    <div class="w-[50%] "> --}}
-                {{--                        <img id="slider" src="{{ asset('assets/local/slide.jpg') }}" --}}
-                {{--                             class="absolute z-[-2] w-[50%]   "/> --}}
-                {{--                    </div> --}}
-                {{--                </div> --}}
             </div>
-
-
+            <div class="alert alert-info small mt-3">
+                <strong>Catatan:</strong> Gambar akan digunakan untuk slider di halaman utama.
+            </div>
         </div>
     </div>
 @endsection

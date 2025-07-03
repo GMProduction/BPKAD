@@ -1,4 +1,4 @@
-@extends('admin.base')
+@extends('admin.customize.base')
 @section('css')
     <!--Regular Datatables CSS-->
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -7,7 +7,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 
-@section('content')
+@section('content-customize')
     @if (\Illuminate\Support\Facades\Session::has('success'))
         <script>
             Swal.fire({

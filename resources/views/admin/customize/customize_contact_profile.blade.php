@@ -1,4 +1,4 @@
-@extends('admin.base')
+@extends('admin.customize.base')
 
 @section('head')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
@@ -7,7 +7,7 @@
 @section('css')
 @endsection
 
-@section('content')
+@section('content-customize')
     <div class="panel h-full">
 
         <nav class="flex mb-6" aria-label="Breadcrumb">

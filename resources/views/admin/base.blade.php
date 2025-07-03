@@ -11,216 +11,127 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    {{-- BOOTSTRAP --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+    {{-- ADMIN GENOSSTYLE --}}
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="{{ asset('css/appstyle/genosstailwind.css') }}" type="text/css">
-
-    {{-- <link rel="stylesheet"
-
+    <link rel="stylesheet" href="{{ asset('css/appstyle/admin-genosstyle.css') }}" type="text/css">
 
 
     {{-- ICON --}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     @yield('css')
 </head>
 
-<body class="relative min-h-screen">
-
-    <nav class="h-[70px] bg-white  top-0 w-full shadow-sm z-20 fixed">
-        <div class="px-[24px] relative h-full flex items-center z-20 justify-between">
-
-            <div class=" h-full flex items-center">
-                <a onclick="openNav()"><span
-                        class="material-symbols-outlined cursor-pointer rounded-full p-2 hover:bg-black/10 transition duration-300">
-                        menu
-                    </span></a>
-
-                <img src="{{ asset('/assets/local/logosurakarta.png') }}" class="logo   h-10   " alt="Surakarta Logo">
-
-                <p class="text-xl font-bold">BPKAD SURAKARTA</p>
-            </div>
-
-            <div class=" h-full flex items-center">
-                <button type="button" id="dropdownDefault" data-dropdown-toggle="dropdown"
-                    class="block w-[35px] h-[35px] rounded-full bg-black/10 cursor-pointer overflow-hidden">
-                    <img src="{{ asset('/assets/local/profile.png') }}" class="logo   h-full w-full   "
-                        alt="Surakarta Logo">
-                </button>
-
-
-                <!-- Dropdown menu -->
-                <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
-                    <ul class="py-1 text-sm text-gray-700 " aria-labelledby="dropdownDefault">
-
-                        <li>
-                            <a href="{{ route('logout') }}"
-                                class="block py-2 px-4 hover:bg-gray-100  text-red-600 ">Sign
-                                out</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
+<div class="d-flex admin ">
+    <div class="sidebar">
+        <div class="logo-container">
+            <img class="company-logos" src="{{ asset('assets/local/logobpkad.png') }}" />
+            <img class="company-logos-minimize" src="{{ asset('assets/local/logobpkad.png') }}" />
         </div>
-    </nav>
+        <div class="menu-container">
 
-    <div class="flex h-full">
-        <div id="sidebar" class="bg-white shadow-sm h-full fixed top-0 left-0 sidebar">
-            <div class="min-h-[70px]"></div>
-            <div class="p-3 py-5">
-
-                <a class="menu nav-link" onclick="dropdown()">
-                    <span class="material-symbols-outlined mr-2 menu-icon">
-                        settings
-                    </span>
-                    <div class="flex justify-between w-full">
-                        <p class="title-menu block menu-text">Customize</p>
-                        <span id="arrow" class="material-symbols-outlined mr-2 menu-icon">
-                            expand_more
-
+            <ul>
+                <li>
+                    <a class="menu {{ Request::is('admin/kustomisasi') ? 'active' : '' }} tooltip"
+                        href="/admin/kustomisasi-slider">
+                        <span class="material-symbols-outlined">
+                            settings
                         </span>
-                    </div>
+                        <span class="text-menu"> Custom Website</span>
+                        <span class="tooltiptext">Custom Website</span>
 
-                </a>
-
-                <div id="submenu" class="transition">
-                    <a class="menu  nav-link " href="{{ route('customize.slider') }}">
-                        <span class="material-symbols-outlined mr-2 menu-icon">
-                            fiber_manual_record
-                        </span>
-                        <p class="title-menu block nav-link menu-text text-sm">Slider </p>
                     </a>
-                    <a class="menu  nav-link " href="{{ route('customize.home') }}">
+                </li>
+
+                <li>
+                    <a class="menu  nav-link" href="/admin/informasi">
                         <span class="material-symbols-outlined mr-2 menu-icon">
-                            fiber_manual_record
+                            info
                         </span>
-                        <p class="title-menu block nav-link menu-text text-sm">Sejarah </p>
+                        <span class="text-menu">Information</span>
+                        <span class="tooltiptext">Information</span>
                     </a>
-                    <a class="menu nav-link" href="{{ route('customize.profile') }}">
-
+                </li>
+                <li>
+                    <a class="menu nav-link" href="/admin/artikel">
                         <span class="material-symbols-outlined mr-2 menu-icon">
-                            fiber_manual_record
+                            feed
                         </span>
-                        <p class="title-menu block nav-link menu-text ext-sm">Profil </p>
+                        <span class="text-menu"> Artikel</span>
+                        <span class="tooltiptext">Artikel/span>
                     </a>
-                    <a class="menu" href="{{ route('customize.bidang') }}">
-
-                        <span class="material-symbols-outlined mr-2 menu-icon">
-                            fiber_manual_record
-                        </span>
-                        <p class="title-menu block nav-link menu-text ext-sm">Bidang </p>
-                    </a>
-                    <a class="menu" href="{{ route('customize.aplikasi.online') }}">
-
-                        <span class="material-symbols-outlined mr-2 menu-icon">
-                            fiber_manual_record
-                        </span>
-                        <p class="title-menu block nav-link menu-text ext-sm">Aplikasi Online</p>
-                    </a>
-                    <a class="menu" href="{{ route('customize.contact.profile') }}">
-
-                        <span class="material-symbols-outlined mr-2 menu-icon">
-                            fiber_manual_record
-                        </span>
-                        <p class="title-menu block nav-link menu-text ext-sm">Kontak Profil</p>
-                    </a>
-                    <a class="menu" href="{{ route('customize.youtube') }}">
-
-                        <span class="material-symbols-outlined mr-2 menu-icon">
-                            fiber_manual_record
-                        </span>
-                        <p class="title-menu block nav-link menu-text ext-sm">Video Yotube</p>
-                    </a>
-                    <a class="menu" href="{{ route('customize.layanan') }}">
-
-                        <span class="material-symbols-outlined mr-2 menu-icon">
-                            fiber_manual_record
-                        </span>
-                        <p class="title-menu block nav-link menu-text ext-sm">Layanan</p>
-                    </a>
-
-                    <a class="menu" href="{{ route('customize.aduan') }}">
-
-                        <span class="material-symbols-outlined mr-2 menu-icon">
-                            fiber_manual_record
-                        </span>
-                        <p class="title-menu block nav-link menu-text ext-sm">Aduan</p>
-                    </a>
-
-
-                    <a class="menu" href="{{ route('customize.produkhukum') }}">
-
-                        <span class="material-symbols-outlined mr-2 menu-icon">
-                            fiber_manual_record
-                        </span>
-                        <p class="title-menu block nav-link menu-text ext-sm">Produk Hukum</p>
-                    </a>
-
-
-                    <a class="menu" href="{{ route('customize.faq') }}">
-
-                        <span class="material-symbols-outlined mr-2 menu-icon">
-                            fiber_manual_record
-                        </span>
-                        <p class="title-menu block nav-link menu-text ext-sm">FAQ</p>
-                    </a>
-
-
-
-
-                </div>
-
-
-                <a class="menu  nav-link" href="/admin/informasi">
-                    <span class="material-symbols-outlined mr-2 menu-icon">
-                        info
-                    </span>
-                    <p class="title-menu block menu-text">Information</p>
-                </a>
-
-                <a class="menu nav-link" href="/admin/artikel">
-                    <span class="material-symbols-outlined mr-2 menu-icon">
-                        feed
-                    </span>
-                    <p class="title-menu block menu-text">Artikel</p>
-                </a>
-            </div>
-
+                </li>
+            </ul>
 
         </div>
 
-        {{-- CONTENT --}}
-        <div class="w-full">
-            <div class="h-[70px]">
-
-            </div>
-
-            <div class="flex " style="min-height: calc(100vh - 70px)">
-                <div class="side">
-
-                </div>
-                <div class="flex-1">
-                    @yield('content')
-                </div>
-            </div>
-        </div>
     </div>
 
-    <script type="text/javascript">
-        function dropdown() {
-            document.querySelector("#submenu").classList.toggle("hidden");
-            document.querySelector("#arrow").classList.toggle("rotate-0");
-        }
+    {{-- CONTENT --}}
+    <div class="gen-body">
+        <div class="gen-nav">
+            <div class="start">
+                <a class="nav-button">
+                    <span class="iconfwd material-symbols-outlined">
+                        arrow_forward
+                    </span>
+                    <span class="iconback material-symbols-outlined">
+                        arrow_back
+                    </span>
+                </a>
 
-        dropdown();
-    </script>
-    <script src="{{ asset('/js/flowbite.js') }}"></script>
-    <script src="{{ asset('/js/admin/nav.js') }}"></script>
-    {{-- <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script> --}}
 
-    @yield('morejs')
+            </div>
+
+            <div class="end">
+
+                <div class="dropdown">
+                    <div class="profile-button">
+                        <div class="content">
+
+                            <a id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{ asset('assets/local/account.jpg') }}" />
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <p class="user">User</p>
+                                <p class="email">user@gmail.com</p>
+                                <hr>
+                                <a class="logout" href="/logout">Logout</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="gen-content">
+            @yield('content')
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+</script>
+<script src="{{ asset('js/admin-genosstyle.js') }}"></script>
+{{-- <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script> --}}
+
+@yield('morejs')
 </body>
 
 </html>

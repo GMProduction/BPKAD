@@ -1,0 +1,120 @@
+.login-page {
+    font-family: "Noto Sans", sans-serif;
+    background-color: #f3f4f6;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    display: flex;
+    width: 100%;
+    max-width: 1100px; // diperlebar sedikit
+    height: 600px; // ditinggikan
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        height: auto;
+        max-width: 90%;
+    }
+}
+
+.login-image {
+    flex: 1.4; // diperbesar bagian kiri
+    background-color: #ddd;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.login-form-wrapper {
+    flex: 1;
+    padding: 60px 48px; // padding kanan diperbesar
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .logo-section {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 24px;
+
+        img {
+            width: 60px;
+        }
+    }
+
+    .welcome-text {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        color: #1e293b;
+    }
+
+    .alert {
+        background-color: #fee2e2;
+        border-left: 4px solid #dc2626;
+        color: #991b1b;
+        padding: 16px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    .form-login {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                font-weight: 600;
+                font-size: 14px;
+                margin-bottom: 6px;
+            }
+
+            input {
+                padding: 14px 16px; // tinggi input ditambah
+                border: 1px solid #d1d5db;
+                border-radius: 8px;
+                font-size: 15px;
+                transition: border 0.2s;
+
+                &:focus {
+                    border-color: #0284c7;
+                    outline: none;
+                }
+            }
+        }
+
+        .btn-login {
+            margin-top: 14px;
+            background-color: #0284c7;
+            color: white;
+            padding: 14px;
+            border: none;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #0369a1;
+            }
+        }
+    }
+}

@@ -1,4 +1,4 @@
-@extends('admin.base')
+@extends('admin.customize.base')
 
 @section('head')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
@@ -7,14 +7,14 @@
 @section('css')
 @endsection
 
-@section('content')
+@section('content-customize')
     <div class="panel h-full">
 
         <nav class="flex mb-6" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
                     <a href="{{ route('dashboard') }}"
-                       class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
+                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
                         <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
@@ -26,40 +26,39 @@
                 <li>
                     <div class="flex items-center">
                         <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
+                            xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
-                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                  clip-rule="evenodd"></path>
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"></path>
                         </svg>
-                        <a href="{{route('customize.aplikasi.online')}}"
-                           class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Customize
+                        <a href="{{ route('customize.aplikasi.online') }}"
+                            class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Customize
                             Aplikasi Online</a>
                     </div>
                 </li>
                 <li>
                     <div class="flex items-center">
                         <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                             xmlns="http://www.w3.org/2000/svg">
+                            xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
-                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                  clip-rule="evenodd"></path>
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"></path>
                         </svg>
-                        <span
-                           class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Form</span>
+                        <span class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Form</span>
                     </div>
                 </li>
             </ol>
         </nav>
         @if (\Illuminate\Support\Facades\Session::has('failed'))
             <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
-                 role="alert">
+                role="alert">
                 <span class="font-medium">Gagal!</span>
                 {{ \Illuminate\Support\Facades\Session::get('failed') }}
             </div>
         @endif
         @if (\Illuminate\Support\Facades\Session::has('success'))
             <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
-                 role="alert">
+                role="alert">
                 <span class="font-medium">Berhasil!</span> {{ \Illuminate\Support\Facades\Session::get('success') }}
             </div>
         @endif
@@ -78,25 +77,24 @@
                                     class="flex flex-col w-full border-4 border-dashed hover:bg-gray-100 hover:border-gray-300">
                                     <div class="relative flex flex-col items-center justify-center pt-7">
                                         <img id="preview" class="absolute inset-0 h-[141px] object-fit"
-                                             src="{{ $data !== null ? asset($data->image) : '' }}">
+                                            src="{{ $data !== null ? asset($data->image) : '' }}">
                                         <svg xmlns="http://www.w3.org/2000/svg"
-                                             class="w-12 h-12 text-gray-400 group-hover:text-gray-600"
-                                             viewBox="0 0 20 20"
-                                             fill="currentColor">
+                                            class="w-12 h-12 text-gray-400 group-hover:text-gray-600" viewBox="0 0 20 20"
+                                            fill="currentColor">
                                             <path fill-rule="evenodd"
-                                                  d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                                                  clip-rule="evenodd"/>
+                                                d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                                                clip-rule="evenodd" />
                                         </svg>
                                         <p class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
                                             pilih foto</p>
                                     </div>
                                     <input type="file" class="opacity-0" accept="image/*" @change="showPreview(event)"
-                                           name="icon"/>
+                                        name="icon" />
                                 </label>
                             </div>
                             @if ($errors->has('icon'))
                                 <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
-                                {{ $errors->first('icon') }}
+                                    {{ $errors->first('icon') }}
                                 </span>
                             @endif
                         </div>
@@ -106,30 +104,33 @@
                 <div class="mb-6 ">
                     <label for="aspirasi-nama" class="block mb-2 text-sm font-medium text-gray-600 ">Nama Aplikasi</label>
                     <input type="text" id="aspirasi-nama" name="name"
-                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " value="{{old('name',$data ? $data->name : '')}}"
-                           placeholder="Nama Pemberi Aspirasi" required>
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                        value="{{ old('name', $data ? $data->name : '') }}" placeholder="Nama Pemberi Aspirasi" required>
                 </div>
                 <div class="mb-6 ">
                     <label for="aspirasi-nama" class="block mb-2 text-sm font-medium text-gray-600 ">Url Aplikasi</label>
                     <input type="text" id="aspirasi-nama" name="url"
-                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " value="{{old('url',$data ? $data->url : '')}}"
-                           placeholder="Url Aplikasi" required>
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                        value="{{ old('url', $data ? $data->url : '') }}" placeholder="Url Aplikasi" required>
                 </div>
                 <div class="mb-6 ">
-                    <label for="aspirasi-nama" class="block mb-2 text-sm font-medium text-gray-600 ">Deskripsi Pendek</label>
+                    <label for="aspirasi-nama" class="block mb-2 text-sm font-medium text-gray-600 ">Deskripsi
+                        Pendek</label>
                     <input type="text" id="aspirasi-nama" name="short_description"
-                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " value="{{old('short_description',$data ? $data->short_description : '')}}"
-                           placeholder="Deskripsi Pendek" required>
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
+                        value="{{ old('short_description', $data ? $data->short_description : '') }}"
+                        placeholder="Deskripsi Pendek" required>
                 </div>
                 <div class="mb-6">
-                    <label for="sejarah-text" class="block mb-2 text-sm font-medium text-gray-600 ">Deskripsi Panjang</label>
+                    <label for="sejarah-text" class="block mb-2 text-sm font-medium text-gray-600 ">Deskripsi
+                        Panjang</label>
                     <textarea type="text" id="sejarah-text" rows="4" required
-                              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Deskripsi Panjang"
-                              name="description">{{ old('description',$data ? $data->description : '') }}</textarea>
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 " placeholder="Deskripsi Panjang"
+                        name="description">{{ old('description', $data ? $data->description : '') }}</textarea>
                 </div>
 
                 <button type="submit"
-                        class="flex ml-auto items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2   focus:outline-none ">
+                    class="flex ml-auto items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2   focus:outline-none ">
                     <span class="material-symbols-outlined text-white mr-3">
                         save
 
