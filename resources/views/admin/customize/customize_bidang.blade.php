@@ -6,9 +6,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <link rel="stylesheet" href="{{ asset('css/dropzone/css/basic.min.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/dropzone/css/dropzone.min.css') }} ">
 
@@ -104,9 +101,8 @@
                     <!-- Anggaran Tab -->
                     <div class="tab-pane fade" id="anggaran" role="tabpanel" aria-labelledby="anggaran-tab">
                         @if ($data_budget_sector)
-                            <form id="formImgbudget" class="dropzone mt-4"
-                                action="{{ route('customize.bidang.image') }}" method="POST"
-                                enctype="multipart/form-data">
+                            <form id="formImgbudget" class="dropzone mt-4" action="{{ route('customize.bidang.image') }}"
+                                method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $data_budget_sector->id }}">
                                 <div class="fallback">
@@ -353,16 +349,17 @@
 
             },
             accept: function(file, done) {
-
+                \
                 done();
                 return;
             },
             init: async function() {
+                console.log('Init Dropzone');
                 let myDropzone = this;
 
                 sector_id = localStorage.getItem('sector_id');
                 var existing_files = $('[name="image[]"]').val();
-                $.get('{{ route('customize.bidang.image') }}', {
+                $.get('{{ route('customize.bidang.iage') }}', {
                     'type': 'secretarial'
                 }, function(data) {
                     if (data['status'] === 200) {
@@ -420,7 +417,8 @@
                     void 0;
             },
             sending: function(file, xhr, formData) {
-                file.myCustomName = "my-new-name" + file.name;
+                formData.append("fileName", file.myCustomName);
+
                 // formData.append("filesize", file.size);
                 formData.append("fileName", file.myCustomName);
                 formData.append("id_achievement", $('#visi #id').val());
