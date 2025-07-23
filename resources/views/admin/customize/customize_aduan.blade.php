@@ -1,10 +1,7 @@
 @extends('admin.customize.base')
 @section('css')
-    <!--Regular Datatables CSS-->
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!--Responsive Extension Datatables CSS-->
-    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.3.2/datatables.min.css" rel="stylesheet"
+        integrity="sha384-oy6ZmHnH9nTuDaccEOUPX5BSJbGKwDpz3u3XiFJBdNXDpAAZh28v/4zfMCU7o63p" crossorigin="anonymous">
 @endsection
 
 @section('content-customize')
@@ -54,147 +51,79 @@
             @endif
         </script>
     @endif
-    <div class="panel h-full">
+    <div class="panel-container">
 
-        <nav class="flex mb-6" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                <li class="inline-flex items-center">
-                    <a href="{{ route('dashboard') }}"
-                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
-                            </path>
-                        </svg>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <a href="#"
-                            class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Aduan</a>
-                    </div>
-                </li>
-
-            </ol>
-        </nav>
-
+        <!-- ========= Tabs ========= -->
         <div class="panel bg-white border">
-            <div class="border-b border-gray-200  mb-4">
-                <ul class="flex flex-wrap -mb-px" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
-                    <li class="mr-2" role="presentation">
-                        <button
-                            class="tabs-btn  rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2 "
-                            id="pengelola-aduan-tab" data-tabs-target="#pengelola-aduan" type="button" role="tab"
-                            onclick="setTabs(1)" aria-controls="pengelola-aduan" aria-selected="false">SK Pengelola
-                            Aduan
-                        </button>
-                    </li>
-                    <li class="mr-2" role="presentation">
-                        <button
-                            class="tabs-btn rounded-t-lg py-4 px-4 text-sm font-medium text-center border-transparent border-b-2  "
-                            id="grafik-tab" data-tabs-target="#grafik" type="button" role="tab" onclick="setTabs(2)"
-                            aria-controls="grafik" aria-selected="false">Grafik Pengelola Aduan
-                        </button>
-                    </li>
+            <!-- Nav -->
+            <ul class="nav nav-underline border-bottom mb-4" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link tabs-btn active" id="pengelola-aduan-tab" data-bs-toggle="tab"
+                        data-bs-target="#pengelola-aduan" type="button" role="tab" aria-controls="pengelola-aduan"
+                        aria-selected="true" onclick="setTabs(1)">
+                        SK Pengelola Aduan
+                    </button>
+                </li>
 
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link tabs-btn" id="grafik-tab" data-bs-toggle="tab" data-bs-target="#grafik"
+                        type="button" role="tab" aria-controls="grafik" aria-selected="false" onclick="setTabs(2)">
+                        Grafik Pengelola Aduan
+                    </button>
+                </li>
+            </ul>
+            <!-- /Nav -->
 
-                </ul>
-            </div>
-
-            <div id="myTabContent">
-
-                <div class=" p-4 rounded-lg hidden" id="pengelola-aduan" role="tabpanel"
+            <!-- Tab panes (tetap sesuai kebutuhan Anda) -->
+            <div class="tab-content p-4 border rounded-bottom" id="myTabContent">
+                <!-- ===== SK Pengelola Aduan ===== -->
+                <div class="tab-pane fade show active" id="pengelola-aduan" role="tabpanel"
                     aria-labelledby="pengelola-aduan-tab">
+                    <!-- Heading + Tombol -->
+                    <div class="d-flex align-items-end justify-content-between mb-3">
+                        <p class="fw-semibold mb-0">SK Pengelola Aduan</p>
 
-                    <div class="flex justify-between mb-3 items-end">
-                        <p class=" font-semibold">SK Pengelola Aduan</p>
-                        <button type="button" id="openModaltambahtahun"
-                            class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
-                            <span class="material-symbols-outlined text-white mr-3">
-                                add
-                            </span>Tambah Tahun
+                        <button type="button" id="openModaltambahtahun" class="bt-primary d-flex align-items-center"
+                            data-bs-toggle="modal" data-bs-target="#modalTambaht">
+                            <span class="material-symbols-outlined me-1">add</span> Tambah Tahun
                         </button>
                     </div>
 
-                    <div class="relative overflow-x-auto">
-                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                            id="table-data">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <!-- Tabel -->
+                    <div class="table-responsive">
+                        <table class="table table-striped align-middle" id="table-data">
+                            <thead class="table-light">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3">
-                                        Tahun
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        File
-                                    </th>
-
-                                    <th scope="col" class="px-6 py-3">
-                                        Action
-                                    </th>
+                                    <th>Tahun</th>
+                                    <th>File</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
+
                             <tbody id="bodyPublicService">
                                 @foreach ($data as $datum)
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ $datum->year }}
-                                        </td>
-                                        <td class="px-6 py-4">
+                                    <tr>
+                                        <td class="fw-medium">{{ $datum->year }}</td>
+
+                                        <!-- File + Aksi -->
+                                        <td>
                                             @if ($datum->quarter_1 !== null)
                                                 <a href="{{ $datum->quarter_1 }}" target="_blank">Download</a>
                                             @else
-                                                -
+                                                &mdash;
                                             @endif
+
                                             <a href="#" data-quarter="1" data-id="{{ $datum->id }}"
-                                                class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit btn-edit-file">Edit</a>
+                                                class="button-link editbutton ms-3 btn-edit-file  ">Edit</a>
+
                                             <a href="#" data-quarter="1" data-id="{{ $datum->id }}"
-                                                class="font-small text-red-600 bg-red-100  button-link btn-edit btn-drop-file">Hapus</a>
+                                                class="button-link deletebutton ms-2 btn-drop-file">Hapus</a>
                                         </td>
-                                        {{-- <td class="px-6 py-4">
-                                            @if ($datum->quarter_2 !== null)
-                                                <a href="{{ $datum->quarter_2 }}" target="_blank">Download</a>
-                                            @else
-                                                -
-                                            @endif
-                                            <a href="#" data-quarter="2" data-id="{{ $datum->id }}"
-                                                class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit btn-edit-file">Edit</a>
-                                            <a href="#" data-quarter="2" data-id="{{ $datum->id }}"
-                                                class="font-small text-red-600 bg-red-100  button-link btn-edit btn-drop-file">Hapus</a>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            @if ($datum->quarter_3 !== null)
-                                                <a href="{{ $datum->quarter_3 }}" target="_blank">Download</a>
-                                            @else
-                                                -
-                                            @endif
-                                            <a href="#" data-quarter="3" data-id="{{ $datum->id }}"
-                                                class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit btn-edit-file">Edit</a>
-                                            <a href="#" data-quarter="3" data-id="{{ $datum->id }}"
-                                                class="font-small text-red-600 bg-red-100  button-link btn-edit btn-drop-file">Hapus</a>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            @if ($datum->quarter_4 !== null)
-                                                <a href="{{ $datum->quarter_4 }}" target="_blank">Download</a>
-                                            @else
-                                                -
-                                            @endif
-                                            <a href="#" data-quarter="4" data-id="{{ $datum->id }}"
-                                                class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit btn-edit-file">Edit</a>
-                                            <a href="#" data-quarter="3" data-id="{{ $datum->id }}"
-                                                class="font-small text-red-600 bg-red-100  button-link btn-edit btn-drop-file">Hapus</a>
-                                        </td> --}}
-                                        <td>
+
+                                        <!-- Hapus baris -->
+                                        <td class="actionButtonContainer">
                                             <a href="#" data-id="{{ $datum->id }}"
-                                                class="font-small text-red-600 bg-red-100  button-link btn-edit btn-drop-year">Hapus
-                                                Baris</a>
+                                                class="button-link deletebutton btn-drop-year">Hapus Baris</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -202,419 +131,300 @@
                         </table>
                     </div>
                 </div>
-                <div class=" p-4 rounded-lg  " id="grafik" role="tabpanel" aria-labelledby="grafik-tab">
-                    <div>
-                        <div class="bg-green-100 p-2 mb-5 flex items-center rounded-md">
-                            <span class="material-symbols-outlined text-green-700 mr-2">
-                                info
-                            </span>
-                            <span class="text-sm text-green-700">Grafik Aduan
-                            </span>
-                        </div>
-                        <div class="flex justify-between mb-3 items-end">
-                            {{--                            <p class=" font-semibold">SK Pengelola Aduan</p> --}}
-                            <button type="button" id="openModaltambahtahungrafik"
-                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
-                                <span class="material-symbols-outlined text-white mr-3">
-                                    add
-                                </span>Tambah Tahun
-                            </button>
-                        </div>
-                        <div class="relative overflow-x-auto w-full">
-                            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                                id="table-data-grafik" style="width: 100%;">
-                                <thead
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+
+                <!-- ===== Grafik Pengelola Aduan ===== -->
+                <div class="tab-pane fade" id="grafik" role="tabpanel" aria-labelledby="grafik-tab">
+                    <!-- Header -->
+                    <div class="alert alert-success d-flex align-items-center py-2 mb-4" role="alert">
+                        <span class="material-symbols-outlined me-2">info</span>
+                        Grafik Aduan
+                    </div>
+
+                    <div class="d-flex align-items-end justify-content-end mb-3">
+                        <button type="button" id="openModaltambahtahungrafik" class="bt-primary d-flex align-items-center"
+                            data-bs-toggle="modal" data-bs-target="#modalTambahg">
+                            <span class="material-symbols-outlined me-1">add</span> Tambah Tahun
+                        </button>
+                    </div>
+
+                    <!-- Tabel Grafik -->
+                    <div class="table-responsive">
+                        <table class="table table-striped align-middle w-100" id="table-data-grafik">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Tahun</th>
+                                    <th>Jumlah Aduan</th>
+                                    <th>Jumlah Sedang Dalam Proses</th>
+                                    <th>Jumlah Selesai</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="tabelgrafik">
+                                @foreach ($dataCharts as $dataChart)
                                     <tr>
-                                        <th scope="col" class="px-6 py-3">
-                                            Tahun
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Jumlah Aduan
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Jumlah Sedang Dalam Proses
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Jumlah Selesai
-                                        </th>
+                                        <td>{{ $dataChart->year }}</td>
 
-                                        <th scope="col" class="px-6 py-3">
-                                            Action
-                                        </th>
+                                        <!-- Total -->
+                                        <td class="py-2">
+                                            <div class="d-flex">
+                                                <input type="text" id="total-value-{{ $dataChart->id }}"
+                                                    class="form-control form-control-sm w-25"
+                                                    value="{{ $dataChart->total }}">
+                                                <a href="#" data-id="{{ $dataChart->id }}" data-field="total"
+                                                    class="button-link editbutton ms-3 btn-change-total">Simpan</a>
+                                            </div>
+                                        </td>
+
+                                        <!-- Process -->
+                                        <td class="py-2">
+                                            <div class="d-flex">
+                                                <input type="text" id="process-value-{{ $dataChart->id }}"
+                                                    class="form-control form-control-sm w-25"
+                                                    value="{{ $dataChart->process }}">
+                                                <a href="#" data-id="{{ $dataChart->id }}" data-field="process"
+                                                    class="button-link editbutton ms-3 btn-change-total">Simpan</a>
+                                            </div>
+                                        </td>
+
+                                        <!-- Finish -->
+                                        <td class="py-2">
+                                            <div class="d-flex">
+                                                <input type="text" id="finish-value-{{ $dataChart->id }}"
+                                                    class="form-control form-control-sm w-25"
+                                                    value="{{ $dataChart->finish }}">
+                                                <a href="#" data-id="{{ $dataChart->id }}" data-field="finish"
+                                                    class="button-link editbutton ms-3 btn-change-total">Simpan</a>
+                                            </div>
+                                        </td>
+
+                                        <!-- Hapus -->
+                                        <td>
+                                            <a href="#" data-id="{{ $dataChart->id }}"
+                                                class="button-link deletebutton btn-drop-year-chart">Hapus</a>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody id="tabelgrafik">
-                                    @foreach ($dataCharts as $dataChart)
-                                        <tr>
-                                            <td>
-                                                {{ $dataChart->year }}
-                                            </td>
-                                            <td>
-                                                <div class="flex">
-                                                    <input type="text" id="total-value-{{ $dataChart->id }}"
-                                                        name="jumlah-aduan"
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-28 p-2.5 "
-                                                        placeholder="Masukan Jumlah Aduan"
-                                                        value="{{ $dataChart->total }}">
-                                                    <a href="#" data-id="{{ $dataChart->id }}" data-field="total"
-                                                        class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit btn-change-total"
-                                                        id="editData">Simpan</a>
-                                                </div>
-                                            </td>
-
-                                            <td>
-                                                <div class="flex">
-                                                    <input type="text" id="process-value-{{ $dataChart->id }}"
-                                                        name="jumlah-diproses"
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-28 p-2.5 "
-                                                        placeholder="Masukan Jumlah Aduan Diproses"
-                                                        value="{{ $dataChart->process }}">
-                                                    <a href="#" data-id="{{ $dataChart->id }}"
-                                                        data-field="process"
-                                                        class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit btn-change-total"
-                                                        id="editData">Simpan</a>
-                                                </div>
-                                            </td>
-
-                                            <td>
-                                                <div class="flex">
-                                                    <input type="text" id="finish-value-{{ $dataChart->id }}"
-                                                        name="jumlah-selesai"
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-28 p-2.5 "
-                                                        placeholder="Masukan Jumlah Selesai"
-                                                        value="{{ $dataChart->finish }}">
-                                                    <a href="#" data-id="{{ $dataChart->id }}" data-field="finish"
-                                                        class="ml-5 font-small text-green-600 bg-green-100  button-link btn-edit btn-change-total"
-                                                        id="editData">Simpan</a>
-                                                </div>
-                                            </td>
-
-                                            <td>
-                                                <a href="#" data-id="{{ $dataChart->id }}"
-                                                    class="ml-5 font-small text-red-600 bg-red-100  button-link btn-edit btn-drop-year-chart"
-                                                    id="editData">Hapus</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="dropdownperaturan"
-            class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="infoperaturan">
-                <li>
-                    <a href="/admin/informasi/detailbyyear"
-                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
-                        Daerah</a>
-                </li>
-                <li>
-                    <a href="/admin/informasi/detailbyyear"
-                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
-                        Walikota</a>
-                </li>
-                <li>
-                    <a href="/admin/informasi/detailbyyear"
-                        class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Peraturan
-                        Lainya</a>
-                </li>
+    </div>
 
-            </ul>
-        </div>
+    <!-- ============ TAB PANES ============ -->
 
-        <!-- Modal Tambah -->
-        <div id="modalTambah" tabindex="-1" aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-            <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
-                <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow ">
-                    <!-- Modal header -->
-                    <div class="flex justify-between items-start p-4 rounded-t border-b ">
-                        <h3 class="text-xl font-semibold text-gray-900 " id="title-modal-tambah">
-                            Tambah Informasi
-                        </h3>
-                        <button type="button" onclick="modal.hide()"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
-                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="sr-only">Close modal</span>
+    <div id="dropdownperaturan"
+        class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+        <ul id="dropdownperaturan" class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="infoperaturan">
+            <!-- tombol pemicu masih memakai id yang sama -->
+
+            <li>
+                <a class="dropdown-item" href="/admin/informasi/detailbyyear">
+                    Peraturan Daerah
+                </a>
+            </li>
+
+            <li>
+                <a class="dropdown-item" href="/admin/informasi/detailbyyear">
+                    Peraturan Walikota
+                </a>
+            </li>
+
+            <li>
+                <a class="dropdown-item" href="/admin/informasi/detailbyyear">
+                    Peraturan Lainnya
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ============  Modal Tambah ============ -->
+    <div class="modal fade" id="modalTambah" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="title-modal-tambah">Tambah Informasi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form id="formSerta" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" id="id" name="id">
+                    <input type="hidden" id="type_file" name="type_file">
+                    <input type="hidden" name="service_type" value="2">
+
+                    <div class="modal-body">
+                        <!-- Bidang -->
+                        <div class="mb-3">
+                            <label class="form-label" for="bidang-info">Bidang</label>
+                            <input type="text" id="bidang-info" name="sector" class="form-control"
+                                placeholder="Masukan Bidang" required>
+                        </div>
+
+                        <!-- Konten / Isi -->
+                        <p class="small mb-2">Konten / Isi</p>
+                        <div class="border rounded p-3">
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <input class="form-check-input d-none" type="radio" id="tr-link"
+                                        name="tr-konten" value="tr-link" checked onclick="switchtambahKonten()">
+                                    <label class="form-check-label w-100 border rounded p-3 text-center" for="tr-link">
+                                        <strong>Link</strong><br><span class="small">Konten menggunakan link</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-check-input d-none" type="radio" id="tr-file"
+                                        name="tr-konten" value="tr-file" onclick="switchtambahKonten()">
+                                    <label class="form-check-label w-100 border rounded p-3 text-center" for="tr-file">
+                                        <strong>File</strong><br><span class="small">Konten dengan file (Max 2 MB)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3" id="div-tambahlink">
+                                <label class="form-label" for="link-url">Link</label>
+                                <input type="text" id="link-url" name="url" class="form-control"
+                                    placeholder="Masukan Link">
+                            </div>
+
+                            <div class="mb-3 d-none" id="div-tambahfile">
+                                <label class="form-label" for="upload-file">Upload File</label>
+                                <input class="form-control upload-file" id="upload-file" name="url" type="file"
+                                    accept="application/pdf" onchange="checkSize(this)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="bt-primary" id="btn-submit-information" onclick="saveSerta()">
+                            <span class="material-symbols-outlined me-1">save</span> Simpan Informasi
                         </button>
                     </div>
-                    <form method="post" enctype="multipart/form-data" id="formSerta">
-                        @csrf
-                        <input id="id" name="id" value="">
-                        <input id="type_file" name="type_file">
-                        <input name="service_type" hidden value="2">
-                        <!-- Modal body -->
-                        <div class="p-6 ">
-                            <div class="mb-3">
-                                <div>
-                                    <label for="information_categories"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Bidang</label>
-                                    <div class="flex">
-                                        <input type="text" id="bidang-info" name="sector"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                            placeholder="Masukan Bidang" required>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <p class="text-sm pb-1">Konten / Isi</p>
-                            <div class="border p-3 border-gray-200 rounded-lg">
-                                <ul class="grid gap-6 w-full md:grid-cols-2 mb-5">
-                                    <li>
-                                        <input type="radio" id="tr-link" name="tr-konten" value="tr-link"
-                                            class="hidden peer" required checked onclick="switchtambahKonten()">
-                                        <label for="tr-link"
-                                            class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                            <div class="block">
-                                                <div class="w-full text-lg font-semibold text-center">Link</div>
-                                                <div class="w-full text-center">Konten Menggunakan Link</div>
-                                            </div>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" id="tr-file" name="tr-konten" value="tr-file"
-                                            class="hidden peer" onclick="switchtambahKonten()">
-                                        <label for="tr-file"
-                                            class="inline-flex justify-center items-center p-5 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                            <div class="block">
-                                                <div class="w-full text-lg font-semibold text-center">File</div>
-                                                <div class="w-full text-center">Konten dengan file (Max 2Mb)</div>
-                                            </div>
-                                        </label>
-                                    </li>
-                                </ul>
-
-                                <div class="mb-3 " id="div-tambahlink">
-                                    <label for="link-info"
-                                        class="block mb-2 text-sm font-medium text-gray-700 ">Link</label>
-                                    <input type="text" id="link-url" name="url"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 "
-                                        placeholder="Masukan Link">
-                                </div>
-
-                                <div class="mb-3  hidden" id="div-tambahfile">
-                                    <label class="block mb-2 text-sm font-medium text-gray-700 " for="upload-file">Upload
-                                        file</label>
-                                    <input onchange="checkSize(this)"
-                                        class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer  focus:outline-none upload-file"
-                                        aria-describedby="upload-file_help" id="upload-file" type="file"
-                                        name="url" accept="application/pdf">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                            <button type="button" id="btn-submit-information" onclick="saveSerta()"
-                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
-                                <span class="material-symbols-outlined text-white mr-3">
-                                    save
-                                </span>Simpan Informasi
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
+    </div>
 
-        <!-- Modal Tambah Tahun-->
-        <div id="modalTambaht" tabindex="-1" aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-            <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
-                <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow ">
-                    <!-- Modal header -->
-                    <div class="flex justify-between items-start p-4 rounded-t border-b ">
-                        <h3 class="text-xl font-semibold text-gray-900 " id="title-modal-tambah">
-                            Tambah Tahun
-                        </h3>
-                        <button type="button" onclick="modalt.hide()"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
-                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="sr-only">Close modal</span>
+    <!-- ============  Modal Tambah Tahun (pengelola aduan) ============ -->
+    <div class="modal fade" id="modalTambaht" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambah Tahun</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form id="formTahun" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label" for="year">Tahun</label>
+                            <select id="year" name="year" class="form-select" required>
+                                <option value="" selected>Pilih Tahun</option>
+                                @for ($x = 5; $x >= 1; $x--)
+                                    <option value="{{ \Carbon\Carbon::now()->add('-' . $x, 'year')->format('Y') }}">
+                                        {{ \Carbon\Carbon::now()->add('-' . $x, 'year')->format('Y') }}
+                                    </option>
+                                @endfor
+                                <option value="{{ \Carbon\Carbon::now()->format('Y') }}">
+                                    {{ \Carbon\Carbon::now()->format('Y') }}</option>
+                                @for ($x = 1; $x <= 5; $x++)
+                                    <option value="{{ \Carbon\Carbon::now()->add($x, 'year')->format('Y') }}">
+                                        {{ \Carbon\Carbon::now()->add($x, 'year')->format('Y') }}
+                                    </option>
+                                @endfor
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="bt-primary">
+                            <span class="material-symbols-outlined me-1">save</span> Simpan Tahun
                         </button>
                     </div>
-                    <form method="post" id="formTahun">
-                        @csrf
-                        <!-- Modal body -->
-                        <div class="p-6 ">
-                            <div class="mb-3">
-                                <div>
-                                    <label for="year"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
-                                    <div class="flex">
-                                        <select id="year" name="year" required
-                                            class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
-                                        rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                            <option selected value="">Pilih Tahun</option>
-                                            @for ($x = 5; $x >= 1; $x--)
-                                                <option
-                                                    value="{{ \Carbon\Carbon::now()->add('-' . $x, 'year')->format('Y') }}">
-                                                    {{ \Carbon\Carbon::now()->add('-' . $x, 'year')->format('Y') }}
-                                                </option>
-                                            @endfor
-                                            <option value="{{ \Carbon\Carbon::now()->format('Y') }}">
-                                                {{ \Carbon\Carbon::now()->format('Y') }}</option>
-                                            @for ($x = 1; $x <= 5; $x++)
-                                                <option value="{{ \Carbon\Carbon::now()->add($x, 'year')->format('Y') }}">
-                                                    {{ \Carbon\Carbon::now()->add($x, 'year')->format('Y') }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                            <button type="submit" id="btn-submit-information"
-                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
-                                <span class="material-symbols-outlined text-white mr-3">
-                                    save
-                                </span>Simpan Tahun
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
+    </div>
 
-        <div id="modalTambahFile" tabindex="-1" aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-            <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
-                <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow ">
-                    <!-- Modal header -->
-                    <div class="flex justify-between items-start p-4 rounded-t border-b ">
-                        <h3 class="text-xl font-semibold text-gray-900 " id="title-modal-tambah">
-                            Tambah File Tahun <span id="fieldTahun"></span>
-                        </h3>
-                        <button type="button" onclick="modalFile.hide()"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
-                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="sr-only">Close modal</span>
+    <!-- ============  Modal Tambah File  ============ -->
+    <div class="modal fade" id="modalTambahFile" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambah File Tahun <span id="fieldTahun"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form id="formFile" method="POST" enctype="multipart/form-data"
+                    action="{{ route('customize.aduan.change.file') }}">
+                    @csrf
+                    <input type="hidden" id="quarter-id" name="id">
+                    <input type="hidden" id="quarter-name" name="name">
+
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label" for="small_size">File <span id="textField"></span></label>
+                            <input class="form-control" type="file" id="small_size" name="file"
+                                accept="image/jpeg,application/pdf">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="bt-primary">
+                            <span class="material-symbols-outlined me-1">save</span> Simpan File
                         </button>
                     </div>
-                    <form method="post" enctype="multipart/form-data"
-                        action="{{ route('customize.aduan.change.file') }}" id="formFile">
-                        @csrf
-                        <input id="quarter-id" name="id" value="" hidden>
-                        <input id="quarter-name" name="name" value="" hidden>
-                        <!-- Modal body -->
-                        <div class="p-6 ">
-                            <div class="mb-3">
-                                <div>
-                                    <label for="information_categories"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">File
-                                        <span id="textField"></span></label>
-                                    <div class="flex">
-                                        <input name="file" accept="image/jpeg, application/pdf"
-                                            class="block w-full mb-5 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                            id="small_size" type="file">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                            <button type="submit" id="btn-submit-information"
-                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
-                                <span class="material-symbols-outlined text-white mr-3">
-                                    save
-                                </span>Simpan File
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
+    </div>
 
-        <!-- Modal Tambah Tahun-->
-        <div id="modalTambahtg" tabindex="-1" aria-hidden="true"
-            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
-            <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
-                <!-- Modal content -->
-                <div class="relative bg-white rounded-lg shadow ">
-                    <!-- Modal header -->
-                    <div class="flex justify-between items-start p-4 rounded-t border-b ">
-                        <h3 class="text-xl font-semibold text-gray-900 " id="title-modal-tambah">
-                            Tambah Tahun
-                        </h3>
-                        <button type="button" onclick="modaltg.hide()"
-                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center ">
-                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <span class="sr-only">Close modal</span>
+    <!-- ============  Modal Tambah Tahun (grafik) ============ -->
+    <div class="modal fade" id="modalTambahtg" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambah Tahun</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <form id="formTahunGrafik" method="POST" action="{{ route('customize.aduan.chart') }}">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label" for="year-grafik">Tahun</label>
+                            <select id="year-grafik" name="year" class="form-select" required>
+                                <option value="" selected>Pilih Tahun</option>
+                                @for ($x = 5; $x >= 1; $x--)
+                                    <option value="{{ \Carbon\Carbon::now()->add('-' . $x, 'year')->format('Y') }}">
+                                        {{ \Carbon\Carbon::now()->add('-' . $x, 'year')->format('Y') }}
+                                    </option>
+                                @endfor
+                                <option value="{{ \Carbon\Carbon::now()->format('Y') }}">
+                                    {{ \Carbon\Carbon::now()->format('Y') }}</option>
+                                @for ($x = 1; $x <= 5; $x++)
+                                    <option value="{{ \Carbon\Carbon::now()->add($x, 'year')->format('Y') }}">
+                                        {{ \Carbon\Carbon::now()->add($x, 'year')->format('Y') }}
+                                    </option>
+                                @endfor
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="bt-primary">
+                            <span class="material-symbols-outlined me-1">save</span> Simpan Tahun
                         </button>
                     </div>
-                    <form method="post" id="formTahunGrafik" action="{{ route('customize.aduan.chart') }}">
-                        @csrf
-                        <!-- Modal body -->
-                        <div class="p-6 ">
-                            <div class="mb-3">
-                                <div>
-                                    <label for="year"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tahun</label>
-                                    <div class="flex">
-                                        <select id="year" name="year" required
-                                            class="mr-3 flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm
-                                        rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                            <option selected value="">Pilih Tahun</option>
-                                            @for ($x = 5; $x >= 1; $x--)
-                                                <option
-                                                    value="{{ \Carbon\Carbon::now()->add('-' . $x, 'year')->format('Y') }}">
-                                                    {{ \Carbon\Carbon::now()->add('-' . $x, 'year')->format('Y') }}
-                                                </option>
-                                            @endfor
-                                            <option value="{{ \Carbon\Carbon::now()->format('Y') }}">
-                                                {{ \Carbon\Carbon::now()->format('Y') }}</option>
-                                            @for ($x = 1; $x <= 5; $x++)
-                                                <option value="{{ \Carbon\Carbon::now()->add($x, 'year')->format('Y') }}">
-                                                    {{ \Carbon\Carbon::now()->add($x, 'year')->format('Y') }}</option>
-                                            @endfor
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="flex items-center justify-end p-6 space-x-2 rounded-b border-t border-gray-200 ">
-                            <button type="submit" id="btn-submit-information"
-                                class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
-                                <span class="material-symbols-outlined text-white mr-3">
-                                    save
-                                </span>Simpan Tahun
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -622,11 +432,9 @@
 
 @section('morejs')
     <!-- jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-    <!--Datatables -->
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.3.2/datatables.min.js"
+        integrity="sha384-F5wD4YVHPFcdPbOt91vfXz6ZUTjeWsy4mJlvR4duPvlQdnq704Bh6DxV1BJy3gA2" crossorigin="anonymous">
+    </script>
     @if (\Illuminate\Support\Facades\Session::has('type'))
         <script>
             let type = "{{ \Illuminate\Support\Facades\Session::get('type') }}"
@@ -638,53 +446,7 @@
         var path = '/{{ request()->path() }}';
         var tableGrafik;
         let tabs = 1;
-        const targetEl = document.getElementById('modalTambah');
-        let modal = new Modal(targetEl, {
-            placement: 'bottom-right',
-            backdrop: 'dynamic',
-            onShow: () => {
 
-            },
-            onHide: () => {
-
-            }
-        });
-
-        const targetElm = document.getElementById('modalTambaht');
-        let modalt = new Modal(targetElm, {
-            placement: 'bottom-right',
-            backdrop: 'dynamic',
-            onShow: () => {
-
-            },
-            onHide: () => {
-
-            }
-        });
-
-        const targetElmG = document.getElementById('modalTambahtg');
-        let modaltg = new Modal(targetElmG, {
-            placement: 'bottom-right',
-            backdrop: 'dynamic',
-            onShow: () => {
-
-            },
-            onHide: () => {
-
-            }
-        });
-
-        const targetElFile = document.getElementById('modalTambahFile');
-        let modalFile = new Modal(targetElFile, {
-            placement: 'bottom-right',
-            backdrop: 'dynamic',
-            onShow: () => {
-
-            },
-            onHide: () => {
-
-            }
-        });
 
         $(function() {
             $.ajaxSetup({
@@ -709,17 +471,6 @@
         });
 
 
-        $(document).on('click', '#openModal', function() {
-            modal.show();
-        });
-
-        $(document).on('click', '#openModaltambahtahun', function() {
-            modalt.show();
-        });
-
-        $(document).on('click', '#openModaltambahtahungrafik', function() {
-            modaltg.show();
-        });
 
         function setTabs(x) {
             tabs = x
@@ -746,24 +497,43 @@
             })
         }
 
+        const modalFileBS = new bootstrap.Modal(
+            document.getElementById('modalTambahFile'), {
+                backdrop: 'static'
+            } // opsional: klik latar tak menutup
+        );
+
         function eventEditFile() {
-            $('.btn-edit-file').on('click', function(e) {
-                let elQuarter = $('#fieldTahun');
-                let elYearID = $('#quarter-id');
-                let elQuarterName = $('#quarter-name');
-                elQuarter.empty();
-                elYearID.val('');
-                elQuarterName.val('');
+            // pakai event‑delegation supaya berlaku untuk elemen yang ditambah dinamis
+            $(document).on('click', '.btn-edit-file', function(e) {
                 e.preventDefault();
-                let dataQuarter = this.dataset.quarter;
-                let dataYearID = this.dataset.id;
-                let quarterName = 'Triwulan ' + dataQuarter;
-                elQuarter.html(quarterName);
-                elYearID.val(dataYearID);
-                elQuarterName.val(dataQuarter);
-                modalFile.show();
+
+                // elemen target di dalam modal
+                const $quarterText = $('#fieldTahun'); // span judul
+                const $quarterId = $('#quarter-id'); // input hidden id
+                const $quarterName = $('#quarter-name'); // input hidden quarter
+
+                // reset nilai lama
+                $quarterText.text('');
+                $quarterId.val('');
+                $quarterName.val('');
+
+                // ambil data‑atribut dari tombol
+                const quarter = $(this).data('quarter'); // contoh: "1"
+                const yearId = $(this).data('id'); // contoh: 17
+
+                // set nilai ke dalam modal
+                $quarterText.text('Triwulan ' + quarter);
+                $quarterId.val(yearId);
+                $quarterName.val(quarter);
+
+                // tampilkan modal
+                modalFileBS.show();
             });
         }
+
+        // panggil sekali
+        eventEditFile();
 
         function eventDeleteFile() {
             $('.btn-drop-file').on('click', function(e) {

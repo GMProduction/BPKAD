@@ -19,11 +19,11 @@ class YoutubeVideoController extends CustomController
                 $url = $data->url;
                 $id = $data->id;
 
-                return "<div class='py-4 px-6 text-right whitespace-nowrap'>
-                                <a href='".route('customize.youtube.form', ['q' => $data->id])."' data-modal-toggle='modalEdit'
-                                    class='font-medium text-blue-600  button-link bg-blue-100'>Ubah</a>
-                                    <a href='#' id='deleteData' data-id='".$id."' data-modal-toggle='modalEdit'
-                                    class='font-medium text-red-700  button-link bg-red-100'>Hapus</a>
+                return "<div class='actionButtonContainer'>
+                                <a href='" . route('customize.youtube.form', ['q' => $data->id]) . "' data-modal-toggle='modalEdit'
+                                    class='editbutton'>Ubah</a>
+                                    <a href='#' id='deleteData' data-id='" . $id . "' data-modal-toggle='modalEdit'
+                                    class='deletebutton'>Hapus</a>
                             </div>";
             }
         )->make(true);
@@ -80,9 +80,7 @@ class YoutubeVideoController extends CustomController
             $youtube->delete();
             return $this->jsonResponse('success', 200);
         } catch (\Exception $e) {
-            return $this->jsonResponse('terjadi kesalahan server...'.$e->getMessage(), 500);
+            return $this->jsonResponse('terjadi kesalahan server...' . $e->getMessage(), 500);
         }
-
     }
-
 }

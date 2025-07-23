@@ -26,9 +26,9 @@ class StoreContactProfilesRequest extends FormRequest
         return [
             'email' => 'required|email',
             'address' => 'required|string|max:255',
-            'phone' => 'required|string|max:14',
-            'office_hours' => 'required|string|max:14',
-            'location' => 'required|string|max:255',
+            'phone' => 'required|string',
+            'office_hours' => 'required|string',
+            'location' => 'required|string',
             'instagram' => 'nullable|string|max:255',
             'twitter' => 'nullable|string|max:255',
             'facebook' => 'nullable|string|max:255',

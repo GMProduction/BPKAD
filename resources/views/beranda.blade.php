@@ -40,42 +40,57 @@
                     min-h-[150px] w-[90%] mx-[auto] rounded-md bg-white shadow-md flex items-center "
         data-aos="fade-up">
         <div class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 mt-[auto] mb-[auto] w-[100%] ">
-            <div class="flex  md:justify-center justify-start  sm:mx-0 mx-5 sm:my-0 my-1 sm:mt-0 mt-3 border-r">
-                <span class="material-symbols-outlined font-bold  t-primary mr-2">
-                    mail
-                </span>
+            <div
+                class="flex flex-col md:justify-center justify-center items-center  sm:mx-0 px-5 sm:my-0 my-1 sm:mt-0 mt-3 border-r text-center">
+                <div class="flex flex-row items-center mb-2">
+                    <span class="material-symbols-outlined font-bold  t-primary mr-2">
+                        mail
+                    </span>
+                    <span class="t-primary font-bold italic">Email</span>
+                </div>
                 <div>
-                    <p class="t-primary font-bold italic">Email</p>
                     <p class="textEmailH"></p>
                 </div>
             </div>
 
-            <div class="flex  md:justify-start justify-start sm:mx-0 mx-5 sm:my-0 my-1 border-r">
-                <span class="material-symbols-outlined font-bold  t-primary mr-2">
-                    location_on
-                </span>
+            <div
+                class="flex  flex-col md:justify-center justify-start items-center  sm:mx-0 px-5 sm:my-0 my-1 sm:mt-0 mt-3 border-r text-center">
+                <div class="flex flex-row items-center mb-2">
+                    <span class="material-symbols-outlined font-bold  t-primary mr-2">
+                        location_on
+                    </span>
+                    <span class="t-primary font-bold italic">Alamat</span>
+                </div>
+
                 <div>
-                    <p class="t-primary font-bold italic">Alamat</p>
-                    <p class="textAddressH"></p>
+                    <p class="textAddressH " style="text-align: center"></p>
                 </div>
             </div>
 
-            <div class="flex  md:justify-start justify-start sm:mx-0 mx-5 sm:my-0 my-1 border-r">
-                <span class="material-symbols-outlined font-bold  t-primary mr-2">
-                    call
-                </span>
+            <div
+                class="flex flex-col md:justify-center justify-start items-center  sm:mx-0 px-5 sm:my-0 my-1 sm:mt-0 mt-3 border-r text-center">
+                <div class="flex flex-row items-center mb-2">
+                    <span class="material-symbols-outlined font-bold  t-primary mr-2">
+                        call
+                    </span>
+                    <span class="t-primary font-bold italic">Phone</span>
+                </div>
+
                 <div>
-                    <p class="t-primary font-bold italic">Phone</p>
                     <p class="textPhoneH"></p>
                 </div>
             </div>
 
-            <div class="flex  md:justify-start justify-start sm:mx-0 mx-5 sm:my-0 my-1 sm:mb-0 mb-3">
-                <span class="material-symbols-outlined font-bold  t-primary mr-2 ">
-                    schedule
-                </span>
+            <div
+                class="flex flex-col md:justify-center justify-start items-center  sm:mx-0 px-5 sm:my-0 my-1 sm:mt-0 mt-3 border-r text-center">
+                <div class="flex flex-row items-center mb-2">
+                    <span class="material-symbols-outlined font-bold  t-primary mr-2">
+                        schedule
+                    </span>
+                    <span class="t-primary font-bold italic">Jam Kerja</span>
+                </div>
+
                 <div>
-                    <p class="t-primary font-bold italic">Jam Kerja</p>
                     <p class="textOfficeHoursH" style="white-space: pre-wrap;"></p>
                 </div>
             </div>
@@ -97,9 +112,9 @@
             <div class="berita-utama__content">
                 <div>
                     <h2>{{ $firstarticle->title }}</h2>
-                    <p>
+                    <div class="article-content">
                         {!! $firstarticle->description !!}
-                    </p>
+                    </div>
                 </div>
                 <div class="berita-utama__button">
                     <a href="{{ route('article.detail', [$firstarticle->slug]) }}">Baca Selengkapnya</a>

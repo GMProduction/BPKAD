@@ -374,13 +374,13 @@
                         orderable: false,
                         searchable: false,
                         render(data, x, row) {
-                            return '<div class="py-4 px-6">' +
+                            return '<div class="actionButtonContainer">' +
                                 '<a href="#!" id="editData" data-id="' + row.id + '" data-question="' + row
                                 .question + '" data-answer="' + row.answer +
-                                '" class="font-medium text-blue-600  button-link bg-blue-100 mr-2">Ubah</a>' +
+                                '" class="editbutton mr-2">Ubah</a>' +
                                 '<a href="#" id="deleteData" data-id="' + row.id + '" data-question="' + row
                                 .question + '" data-answer="' + row.answer + '" ' +
-                                '  class="font-medium text-red-700  button-link bg-red-100">Hapus</a>' +
+                                '  class="deletebutton">Hapus</a>' +
                                 '</div>';
                         }
                     },

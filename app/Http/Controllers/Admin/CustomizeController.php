@@ -13,6 +13,9 @@ use App\Models\SectorImage;
 use App\Models\VisionSettings;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Filesystem\chmod;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class CustomizeController extends CustomController
 {
@@ -137,43 +140,51 @@ class CustomizeController extends CustomController
         );
     }
 
-    public function patch_image()
+    public function patch_image(Request $request)
     {
-
+        Log::info('MASUK DI PATCH IMAGE');
         if (request()->method() == 'GET') {
             return $this->get_image();
         }
-        try {
-            if (request('action') == 2) {
-                $this->deleteImg('SectorImage', request('id'), request('name'));
-                $payload = [];
-            } else {
-                $uuid_name  = $this->generateImageName('file');
-                $image_name = '/assets/sector/' . $uuid_name;
-                $image      = $image_name;
-                $this->uploadImage('file', $uuid_name, 'sectorImage');
-                $res     = SectorImage::create(
-                    [
-                        'sector_id' => request('id'),
-                        'image'     => $image,
-                    ]
-                );
-                $data    = [
-                    'id'    => $res['id'],
-                    'image' => $res['image'],
-                    'size'  => number_format(floor(filesize(public_path($res['image']))) / 1025, 1, '.', '') . ' KB',
-                ];
-                $payload = $data;
-            }
-            $message = 'success';
-            $code    = 200;
-        } catch (\Exception $err) {
-            $message = 'gagal ' . $err;
-            $payload = [];
-            $code    = 500;
+
+        $sector = Sector::where('type', $request->type)->first();
+        if (!$sector) {
+            Log::info('cARI sECTOR');
+            Log::info('TYPE', ['type' => $request->type]);
+            Log::info('sector', ['sector' => $sector]);
+            return response()->json([
+                'status' => 400,
+                'message' => 'Sector tidak ditemukan untuk type: ' . $request->type,
+                'payload' => []
+            ]);
         }
 
-        return $this->jsonResponse($message, $code, $payload);
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = Str::uuid() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('assets/sector'), $filename);
+
+            $image = new SectorImage();
+            $image->sector_id = $sector->id;
+            $image->image = 'assets/sector/' . $filename;
+            $image->save();
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'success',
+                'payload' => [
+                    'id' => $image->id,
+                    'image' => asset($image->image),
+                    'size' => filesize(public_path($image->image)),
+                ]
+            ]);
+        }
+
+        return response()->json([
+            'status' => 400,
+            'message' => 'File not found',
+            'payload' => []
+        ]);
     }
 
     public function get_image()
@@ -187,10 +198,16 @@ class CustomizeController extends CustomController
             }
             $data = [];
             foreach ($img as $key => $im) {
+                $filePath = public_path($im['image']);
+
+                if (!file_exists($filePath)) {
+                    continue; // atau bisa dilewatkan
+                }
+
                 $data[$key] = [
                     'id'    => $im['id'],
-                    'image' => $im['image'],
-                    'size'  => filesize(public_path($im['image'])),
+                    'image' => asset($im['image']),
+                    'size'  => filesize($filePath),
                 ];
             }
             $payload = $data;

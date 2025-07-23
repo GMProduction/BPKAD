@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('css/appstyle/admin-genosstyle.css') }}" type="text/css">
 
 
+
     {{-- ICON --}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     @yield('css')

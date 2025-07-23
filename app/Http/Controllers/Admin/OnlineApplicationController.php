@@ -16,12 +16,12 @@ class OnlineApplicationController extends CustomController
             'action',
             function ($data) {
                 $id = $data->id;
-                return '<div class="py-4 px-6 text-right whitespace-nowrap">
-                                <a href="'.route('customize.aplikasi.online.form', ['q' => $data->id]).'" data-modal-toggle="modalEdit"
-                                    class="font-medium text-blue-600  button-link bg-blue-100">Ubah</a>
+                return '<div class="container-button-action ">
+                                <a href="' . route('customize.aplikasi.online.form', ['q' => $data->id]) . '" data-modal-toggle="modalEdit"
+                                    class="button-action  is-blue">Ubah</a>
 
-                                    <a href="#" id="deleteData" data-id="'.$id.'"
-                                    class="font-medium text-red-700  button-link bg-red-100">Hapus</a>
+                                    <a href="#" id="deleteData" data-id="' . $id . '"
+                                    class="button-action  is-red">Hapus</a>
                             </div>';
             }
         )->make(true);
@@ -59,7 +59,7 @@ class OnlineApplicationController extends CustomController
 
         $uuid_name = $this->generateImageName('icon');
         if ($uuid_name !== '') {
-            $image_name     = '/assets/application/'.$uuid_name;
+            $image_name     = '/assets/application/' . $uuid_name;
             $field['image'] = $image_name;
             $this->uploadImage('icon', $uuid_name, 'applicationImage');
         }
@@ -73,7 +73,6 @@ class OnlineApplicationController extends CustomController
         }
 
         return redirect()->back()->with('success', "berhasil $message data...");
-
     }
 
     public function destroy(OnlineApplication $apps)
@@ -82,10 +81,7 @@ class OnlineApplicationController extends CustomController
             $this->deleteImg('OnlineApplication', $apps->id, $apps->image);
             return $this->jsonResponse('success', 200);
         } catch (\Exception $e) {
-            return $this->jsonResponse('terjadi kesalahan server...'.$e->getMessage(), 500);
+            return $this->jsonResponse('terjadi kesalahan server...' . $e->getMessage(), 500);
         }
-
     }
-
-
 }

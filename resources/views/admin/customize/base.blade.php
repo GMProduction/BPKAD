@@ -16,7 +16,7 @@
                 'route' => 'customize.contact.profile',
                 'match' => 'admin/kustomisasi-kontak-profil',
             ],
-            ['label' => 'Video Youtube', 'route' => 'customize.youtube', 'match' => 'admin/kustomisasi-video-youtube'],
+            // ['label' => 'Video Youtube', 'route' => 'customize.youtube', 'match' => 'admin/kustomisasi-video-youtube'],
             ['label' => 'Layanan', 'route' => 'customize.layanan', 'match' => 'admin/kustomisasi-layanan'],
             ['label' => 'Aduan', 'route' => 'customize.aduan', 'match' => 'admin/kustomisasi-aduan'],
             ['label' => 'Produk Hukum', 'route' => 'customize.produkhukum', 'match' => 'admin/kustomisasi-produkhukum'],

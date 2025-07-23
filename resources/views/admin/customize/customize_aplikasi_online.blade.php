@@ -12,60 +12,29 @@
 @endsection
 
 @section('content-customize')
-    <div class="panel h-full">
+    <div class="panel-container">
 
-        <nav class="flex mb-6" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                <li class="inline-flex items-center">
-                    <a href="{{ route('dashboard') }}"
-                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
-                            </path>
-                        </svg>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <a href="{{ route('customize.aplikasi.online') }}"
-                            class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Customize
-                            Aplikasi Online</a>
-                    </div>
-                </li>
 
-            </ol>
-        </nav>
         @if (\Illuminate\Support\Facades\Session::has('failed'))
-            <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
-                role="alert">
+            <div class="alert alert-danger" role="alert">
                 <span class="font-medium">Gagal!</span>
-                {{ \Illuminate\Support\Facades\Session::get('failed') }}
+                {{ Session::get('failed') }}
             </div>
         @endif
         @if (\Illuminate\Support\Facades\Session::has('success'))
-            <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
-                role="alert">
-                <span class="font-medium">Berhasil!</span> {{ \Illuminate\Support\Facades\Session::get('success') }}
+            <div class="alert alert-success" role="alert">
+                <span class="font-medium">Berhasil!</span> {{ Session::get('success') }}
             </div>
         @endif
         <div class="panel bg-white border">
             <div class="flex justify-between mb-3 items-end">
                 <p class=" font-semibold">Aplikasi Online</p>
                 <button type="button" onclick="location.href='{{ route('customize.aplikasi.online.form') }}'"
-                    class="ml-auto flex items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 transition duration-300  focus:outline-none ">
-                    <span class="material-symbols-outlined text-white mr-3">
-                        add
-                    </span>Tambah Aplikasi Online
+                    class="ml-auto bt-primary">
+                    <span class="material-symbols-outlined me-2">add</span>
+                    Tambah Aplikasi Online
                 </button>
+
             </div>
             <div class="overflow-x-auto relative shadow-sm ">
                 <table id="table" class="w-full text-sm text-left text-gray-500  ">
@@ -138,7 +107,7 @@
             $('#table').DataTable({
                 processing: true,
                 serverSide: true,
-                responsive: true,
+                responsive: false,
                 rowReorder: {
                     selector: 'td:nth-child(2)'
                 },
@@ -184,7 +153,8 @@
                     {
                         data: 'description',
                         name: 'description',
-                        orderable: true
+                        orderable: true,
+                        className: 'wrap-text'
                     },
 
                     {

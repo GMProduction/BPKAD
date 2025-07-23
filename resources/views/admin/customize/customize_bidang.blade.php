@@ -69,7 +69,7 @@
                             <form id="formImg" class="dropzone mt-4" action="{{ route('customize.bidang.image') }}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="id" value="{{ $data_secretarial_sector->id }}">
+                                <input type="hidden" name="type" value="secretarial">
                                 <div class="fallback">
                                     <input name="image" type="file" multiple />
                                 </div>
@@ -104,7 +104,7 @@
                             <form id="formImgbudget" class="dropzone mt-4" action="{{ route('customize.bidang.image') }}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="id" value="{{ $data_budget_sector->id }}">
+                                <input type="hidden" name="type" value="budget">
                                 <div class="fallback">
                                     <input name="image" type="file" multiple />
                                 </div>
@@ -140,7 +140,7 @@
                                 action="{{ route('customize.bidang.image') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="id" value="{{ $data_financial_sector->id }}">
+                                <input type="hidden" name="type" value="financial">
                                 <div class="fallback">
                                     <input name="image" type="file" multiple />
                                 </div>
@@ -175,7 +175,7 @@
                             <form id="formImgasset" class="dropzone mt-4" action="{{ route('customize.bidang.image') }}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="id" value="{{ $data_asset_sector->id }}">
+                                <input type="hidden" name="type" value="asset">
                                 <div class="fallback">
                                     <input name="image" type="file" multiple />
                                 </div>
@@ -300,7 +300,7 @@
         }
 
         Dropzone.options.formImg = {
-            // paramName: 'image',
+            paramName: 'image',
             acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
             addRemoveLinks: true,
             maxFilesize: 2,
@@ -349,7 +349,7 @@
 
             },
             accept: function(file, done) {
-                \
+
                 done();
                 return;
             },
@@ -359,7 +359,7 @@
 
                 sector_id = localStorage.getItem('sector_id');
                 var existing_files = $('[name="image[]"]').val();
-                $.get('{{ route('customize.bidang.iage') }}', {
+                $.get('{{ route('customize.bidang.image') }}', {
                     'type': 'secretarial'
                 }, function(data) {
                     if (data['status'] === 200) {
@@ -382,7 +382,7 @@
         };
 
         Dropzone.options.formImgbudget = {
-            // paramName: 'image',
+            paramName: 'image',
             acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
             addRemoveLinks: true,
             maxFilesize: 2,
@@ -452,6 +452,9 @@
                                 size: value['size'],
                                 idImg: value['id']
                             };
+
+                            console.log('Memuat gambar:', value[
+                                'image']); // ✅ Nama file yang diload
                             myDropzone.displayExistingFile(mockFile, value['image']);
                         })
 
@@ -463,7 +466,7 @@
         };
 
         Dropzone.options.formImgfinancial = {
-            // paramName: 'image',
+            paramName: 'image',
             acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
             addRemoveLinks: true,
             maxFilesize: 2,
@@ -543,7 +546,7 @@
         };
 
         Dropzone.options.formImgasset = {
-            // paramName: 'image',
+            paramName: 'image',
             acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
             addRemoveLinks: true,
             maxFilesize: 2,

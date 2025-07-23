@@ -20,12 +20,12 @@ class ArticleController extends CustomController
             function ($data) {
                 $id = $data->id;
                 $name = $data->title;
-                return '<div class="py-4 px-6 text-right whitespace-nowrap">
-                                <a href="'.route('admin.article.form', ['q' => $data->id]).'" data-modal-toggle="modalEdit"
-                                    class="font-medium text-blue-600  button-link bg-blue-100">Ubah</a>
+                return '<div class="actionButtonContainer">
+                                <a href="' . route('admin.article.form', ['q' => $data->id]) . '" data-modal-toggle="modalEdit"
+                                    class="editbutton">Ubah</a>
 
-                                    <a href="#" id="deleteData" data-id="'.$id.'" data-name="'.$name.'"
-                                    class="font-medium text-red-700  button-link bg-red-100">Hapus</a>
+                                    <a href="#" id="deleteData" data-id="' . $id . '" data-name="' . $name . '"
+                                    class="deletebutton">Hapus</a>
                             </div>';
             }
         )->removeColumn('description')->make(true);
@@ -35,7 +35,6 @@ class ArticleController extends CustomController
     {
 
         return view('admin/artikel/artikel');
-
     }
 
     public function detail()
@@ -47,7 +46,6 @@ class ArticleController extends CustomController
         }
 
         return view('admin/artikel/artikel-form', ['data' => $data]);
-
     }
 
     public function post_data()
@@ -86,7 +84,7 @@ class ArticleController extends CustomController
         }
         $uuid_name = $this->generateImageName('cover');
         if ($uuid_name !== '') {
-            $image_name     = '/assets/article/'.$uuid_name;
+            $image_name     = '/assets/article/' . $uuid_name;
             $field['cover'] = $image_name;
             $this->uploadImage('cover', $uuid_name, 'articleImage');
         }
@@ -94,33 +92,31 @@ class ArticleController extends CustomController
         $article = Article::find(request('q'));
         Arr::set($field, 'author_id', auth()->id());
         if ($article) {
-            $slug = Str::slug(request('title').' '.$article->id, '-');
+            $slug = Str::slug(request('title') . ' ' . $article->id, '-');
             Arr::set($field, 'slug', $slug);
             $article->update($field);
             $message = 'merubah';
         } else {
             $article = Article::create($field);
-            $slug    = Str::slug(request('title').' '.$article->id, '-');
+            $slug    = Str::slug(request('title') . ' ' . $article->id, '-');
             $article->update(
                 [
                     'slug' => $slug,
                 ]
             );
             $message = 'menambah';
-
         }
 
         return redirect()->back()->with('success', "berhasil $message data...");
     }
 
-    public function destroy(Article $article){
+    public function destroy(Article $article)
+    {
         try {
             $this->deleteImg('Article', $article->id, $article->cover);
             return $this->jsonResponse('success', 200);
-        }catch (\Exception $e){
-            return $this->jsonResponse('terjadi kesalahan server...'.$e->getMessage(), 500);
+        } catch (\Exception $e) {
+            return $this->jsonResponse('terjadi kesalahan server...' . $e->getMessage(), 500);
         }
-
     }
-
 }

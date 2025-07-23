@@ -8,6 +8,7 @@ use App\Models\Service;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 use Illuminate\Filesystem\chmod;
+use Illuminate\Http\Request;
 
 class CustomizeServiceController extends CustomController
 {
@@ -51,7 +52,6 @@ class CustomizeServiceController extends CustomController
                     'url'          => request('url'),
                 ];
             } else {
-
                 $field = [
                     'type_file'    => request('type_file'),
                     'service_type' => request('service_type'),
@@ -110,28 +110,36 @@ class CustomizeServiceController extends CustomController
     {
         $data = Service::where('service_type', 2);
 
-        return DataTables::of($data)->addColumn(
-            'action',
-            function ($data) {
-                $field    = [
-                    'id'          => $data->id,
-                    'sector'      => $data->sector,
-                    'typeFile'    => $data->type_file,
-                    'url'         => $data->url,
-                    'serviceType' => $data->service_type,
-                ];
-                $dataAttr = '';
-                foreach ($field as $key => $d) {
-                    $dataAttr .= " data-$key = '$d'";
-                }
-                return '<div class="py-4 px-6 text-right whitespace-nowrap">
-                                <a role="button" ' . $dataAttr . ' id="editData"
-                                    class="font-medium text-blue-600  button-link bg-blue-100">Ubah</a>
+        return DataTables::of($data)->addColumn('action', function ($data) {
+            // array data baris
+            $payload = [
+                'id'          => $data->id,
+                'sector'      => $data->sector,
+                'typeFile'    => $data->type_file,
+                'url'         => $data->url,
+                'serviceType' => $data->service_type,
+            ];
 
-                                    <a role="button" ' . $dataAttr . ' id="deleteData"
-                                    class="font-medium text-red-700  button-link bg-red-100">Hapus</a>
-                            </div>';
-            }
-        )->make(true);
+            // encode ke JSON dan amankan petiknya
+            $json = htmlspecialchars(json_encode($payload), ENT_QUOTES, 'UTF-8');
+
+            return '
+        <div class="actionButtonContainer">
+            <a role="button" onclick="openEdit(' . $json . ')" class="editbutton">Ubah</a>
+            <a role="button" onclick="deleteData(' . $data->id . ')" data-id="' . $data->id . '" class="deletebutton">Hapus</a>
+        </div>';
+        })->make(true);
+    }
+
+    public function deleteData(Request $request)
+    {
+
+        try {
+            $service = Service::find($request->id);
+            $service->delete();
+            return $this->jsonResponse('success', 200);
+        } catch (\Exception $e) {
+            return $this->jsonResponse('terjadi kesalahan server...' . $e->getMessage(), 500);
+        }
     }
 }

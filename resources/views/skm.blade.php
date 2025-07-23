@@ -131,8 +131,8 @@
                                     </div>
                                     <div style="margin-top: 50px;"><a
                                             href="https://appbagor.surakarta.go.id/sop/skm/instrumen/isi/62" target="_blank"
-                                            class=" py-5 px-10 text-white text-bold mt-10 "
-                                            style="background-color: orange">Isi
+                                            class=" py-2 px-5 text-white text-bold mt-10 "
+                                            style="background-color: rgb(25, 48, 253); text-decoration: none; border-radius: 10px">Isi
                                             Survey
                                             disini</a></div>
 

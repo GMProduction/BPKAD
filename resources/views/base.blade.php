@@ -76,10 +76,10 @@
 
         <div class="mobile-menu" id="mobile-menu">
             <ul
-                class="md:bg-transparent flex flex-col text-sm p-4 mt-4 bg-gray-50  rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 sm-text md:font-medium md:border-0    ">
+                class="md:bg-transparent flex flex-col text-sm p-4 bg-gray-50   border border-gray-100 md:flex-row md:space-x-8 md:mt-0 sm-text md:font-medium md:border-0    ">
                 <li>
                     <a href="/"
-                        class="  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium  transition duration-300 d:text-zinc-200  rounded hover:bg-gray-400   md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto {{ request()->is('/') ? 'active' : '' }}">
+                        class="menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium  transition duration-300 d:text-zinc-200  rounded hover:bg-gray-400   md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto {{ request()->is('/') ? 'active' : '' }}">
                         Beranda
                     </a>
 
@@ -89,16 +89,10 @@
                     <button type="button"
                         class="menu dropdown-toggle flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium transition duration-300 md:text-zinc-200 rounded hover:bg-gray-400 md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto {{ request()->is('profil*') ? 'active' : '' }}">
                         Profil
-                        <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
+
                     </button>
 
-                    <ul
-                        class="dropdown-menu hidden py-1 text-sm text-gray-700 absolute rounded-md bg-white duration-300 z-10">
+                    <ul class="menu hidden py-1 text-sm text-gray-700 absolute rounded-md bg-white duration-300 z-10">
                         <li><a href="/profil/visimisi" class="block py-2 px-4 hover:bg-gray-100">Visi & Misi</a></li>
                         <li><a href="/profil/struktur" class="block py-2 px-4 hover:bg-gray-100">Struktur Organisasi</a>
                         </li>
@@ -112,17 +106,11 @@
                 <li class="group">
                     <button
                         class=" menu dropdown-toggle  flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium  transition duration-300 d:text-zinc-200  rounded hover:bg-gray-400   md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto    {{ request()->is('layanan*') ? 'active' : '' }}    ">Layanan
-                        <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
+
                     </button>
 
 
-                    <ul
-                        class="dropdown-menu hidden py-1 text-sm text-gray-700 absolute rounded-md bg-white duration-300 z-10">
+                    <ul class="menu hidden py-1 text-sm text-gray-700 absolute rounded-md bg-white duration-300 z-10">
 
 
                         <li>
@@ -157,17 +145,11 @@
                 <li class="group">
                     <button
                         class=" menu flex dropdown-toggle  justify-between items-center py-2 pr-4 pl-3 w-full font-medium  transition duration-300 d:text-zinc-200  rounded hover:bg-gray-400   md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto    {{ request()->is('aduan*') ? 'active' : '' }}   ">Aduan
-                        <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
+
                     </button>
 
 
-                    <ul
-                        class="dropdown-menu hidden py-1 text-sm text-gray-700 absolute rounded-md bg-white duration-300 z-10">
+                    <ul class="menu hidden py-1 text-sm text-gray-700 absolute rounded-md bg-white duration-300 z-10">
 
 
                         <li>
@@ -196,19 +178,13 @@
                 <li class="group">
                     <button
                         class=" menu flex dropdown-toggle  justify-between items-center py-2 pr-4 pl-3 w-full font-medium  transition duration-300 d:text-zinc-200  rounded hover:bg-gray-400   md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto   {{ request()->is('bidang*') ? 'active' : '' }}  ">Bidang
-                        <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg></button>
+                    </button>
 
 
 
                     <!-- Dropdown bidang -->
 
-                    <ul
-                        class="dropdown-menu hidden py-1 text-sm text-gray-700 absolute rounded-md bg-white duration-300 z-10">
+                    <ul class="menu hidden py-1 text-sm text-gray-700 absolute rounded-md bg-white duration-300 z-10">
                         <li>
                             <a href="{{ route('sekretariat') }}"
                                 class="block py-2 px-4 hover:bg-gray-100  ">Sekretariat</a>
@@ -234,12 +210,7 @@
                 <li class="group">
                     <button id="dropdownNavbarLink"
                         class="nav-button dropdown-toggle  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium  transition duration-300 d:text-zinc-200  rounded hover:bg-gray-400   md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto   {{ request()->is('ppid*') ? 'active' : '' }}   ">PPID
-                        <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg></button>
+                    </button>
                     <!-- Dropdown menu -->
 
                     <ul
@@ -288,27 +259,22 @@
                     <button id="dropdownNavbarLink"
                         class=" menu dropdown-toggle  flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium  transition duration-300 d:text-zinc-200  rounded hover:bg-gray-400   md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto  {{ request()->is('produk-hukum*') ? 'active' : '' }}  ">Produk
                         Hukum
-                        <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg></button>
-                    <!-- Dropdown menu -->
+                        /button>
+                        <!-- Dropdown menu -->
 
-                    <ul
-                        class="py-1 text-sm text-gray-700 absolute hidden  rounded-md group-hover:block bg-white  duration-300 z-10">
-                        <li>
-                            <a href="{{ route('produkhukumperda') }}"
-                                class="block py-2 px-4 hover:bg-gray-100  ">Produk Hukum
-                                Perda</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('produkhukumperwali') }}"
-                                class="block py-2 px-4 hover:bg-gray-100 ">Produk
-                                Hukum Perwali</a>
-                        </li>
-                    </ul>
+                        <ul
+                            class="py-1 text-sm text-gray-700 absolute hidden  rounded-md group-hover:block bg-white  duration-300 z-10">
+                            <li>
+                                <a href="{{ route('produkhukumperda') }}"
+                                    class="block py-2 px-4 hover:bg-gray-100  ">Produk Hukum
+                                    Perda</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('produkhukumperwali') }}"
+                                    class="block py-2 px-4 hover:bg-gray-100 ">Produk
+                                    Hukum Perwali</a>
+                            </li>
+                        </ul>
                 </li>
 
                 <li>
@@ -323,7 +289,7 @@
 
         <div class="nav-view nav-desktop">
             <ul
-                class="md:bg-transparent flex flex-col text-sm p-4 mt-4 bg-gray-50  rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 sm-text md:font-medium md:border-0    ">
+                class="menu md:bg-transparent flex flex-col text-sm p-4 mt-4 bg-gray-50  rounded-lg   md:flex-row md:space-x-8 md:mt-0 sm-text md:font-medium     ">
                 <li>
                     <a href="/"
                         class="nav-button font-semibold pr-10 md:pr-3 md:pl-3 transition duration-300 {{ request()->is('/') ? 'active' : '' }}">
@@ -333,21 +299,21 @@
                 </li>
 
                 <li class="group">
-                    <button
-                        class="nav-button flex font-semibold pr-10 md:pr-3 md:pl-3 transition duration-300  {{ request()->is('profil*') ? 'active' : '' }}">
-                        Profil
+                    <a
+                        class="nav-button font-semibold pr-10 md:pr-3 md:pl-3 transition duration-300   {{ request()->is('profil*') ? 'active' : '' }}">
+                        <span>Profil</span>
                         <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                    </button>
+                    </a>
 
 
 
                     <ul
-                        class="py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
+                        class="menu py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
 
                         <li>
                             <a href="/profil/visimisi" class="block py-2 px-4 hover:bg-gray-100  ">Visi & Misi</a>
@@ -365,11 +331,10 @@
                                 Website</a>
                         </li>
                     </ul>
-
                 </li>
 
                 <li class="group">
-                    <button
+                    <a
                         class="nav-button flex  font-semibold  pr-10   md:text-zinc-200 md:hover:text-orange-400 md:pr-3 md:pl-3  transition duration-300    {{ request()->is('layanan*') ? 'active' : '' }}    ">Layanan
                         <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
@@ -377,11 +342,11 @@
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                    </button>
+                    </a>
 
 
                     <ul
-                        class="py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
+                        class="menu py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
 
 
                         <li>
@@ -414,7 +379,7 @@
 
 
                 <li class="group">
-                    <button
+                    <a
                         class="nav-button flex  font-semibold  pr-10   md:text-zinc-200 md:hover:text-orange-400 md:pr-3 md:pl-3  transition duration-300    {{ request()->is('aduan*') ? 'active' : '' }}   ">Aduan
                         <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
@@ -422,11 +387,11 @@
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                    </button>
+                    </a>
 
 
                     <ul
-                        class="py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
+                        class="menu py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
 
 
                         <li>
@@ -452,21 +417,21 @@
 
 
                 <li class="group">
-                    <button
+                    <a
                         class="nav-button flex  font-semibold  pr-10   md:text-zinc-200 md:hover:text-orange-400 md:pr-3 md:pl-3  transition duration-300   {{ request()->is('bidang*') ? 'active' : '' }}  ">Bidang
                         <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
-                        </svg></button>
+                        </svg></a>
 
 
 
                     <!-- Dropdown bidang -->
 
                     <ul
-                        class="py-1 text-sm text-gray-700 absolute hidden   rounded-md group-hover:block bg-white  duration-300">
+                        class="menu py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
                         <li>
                             <a href="{{ route('sekretariat') }}"
                                 class="block py-2 px-4 hover:bg-gray-100  ">Sekretariat</a>
@@ -490,18 +455,18 @@
                 </li>
 
                 <li class="group">
-                    <button id="dropdownNavbarLink"
+                    <a id="dropdownNavbarLink"
                         class="nav-button  menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium   {{ request()->is('ppid*') ? 'active' : '' }} md:text-zinc-200  rounded hover:bg-gray-400 transition duration-300  md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto      ">PPID
                         <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
-                        </svg></button>
+                        </svg></a>
                     <!-- Dropdown menu -->
 
                     <ul
-                        class="py-1 text-sm text-gray-700 absolute hidden  rounded-md group-hover:block bg-white  duration-300">
+                        class="menu py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
                         <li>
                             <a href="/ppid/informasi-berkala" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                 Berkala</a>
@@ -543,7 +508,7 @@
                 </li>
 
                 <li class="group">
-                    <button id="dropdownNavbarLink"
+                    <a id="dropdownNavbarLink"
                         class="nav-button flex  font-semibold  pr-10   md:text-zinc-200 md:hover:text-orange-400 md:pr-3 md:pl-3  transition duration-300  {{ request()->is('produk-hukum*') ? 'active' : '' }}">Produk
                         Hukum
                         <svg class="ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
@@ -551,11 +516,11 @@
                             <path fill-rule="evenodd"
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
-                        </svg></button>
+                        </svg></a>
                     <!-- Dropdown menu -->
 
                     <ul
-                        class="py-1 text-sm text-gray-700 absolute hidden  rounded-md group-hover:block bg-white  duration-300">
+                        class="menu py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
                         <li>
                             <a href="{{ route('produkhukumperda') }}"
                                 class="block py-2 px-4 hover:bg-gray-100  ">Produk Hukum
