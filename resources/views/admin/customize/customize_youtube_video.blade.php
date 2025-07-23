@@ -32,7 +32,7 @@
                 <button type="button" onclick="location.href='{{ route('customize.youtube.form') }}'"
                     class="ml-auto bt-primary">
                     <span class="material-symbols-outlined me-2">add</span>
-                    Tambah Video
+                    Tambah Video
                 </button>
             </div>
             <div class="overflow-x-auto relative shadow-sm ">

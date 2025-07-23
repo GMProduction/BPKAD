@@ -2,6 +2,8 @@
 @section('css')
     <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-2.3.2/datatables.min.css" rel="stylesheet"
         integrity="sha384-oy6ZmHnH9nTuDaccEOUPX5BSJbGKwDpz3u3XiFJBdNXDpAAZh28v/4zfMCU7o63p" crossorigin="anonymous">
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 
 @section('content-customize')
@@ -76,7 +78,7 @@
 
             <!-- Tab panes (tetap sesuai kebutuhan Anda) -->
             <div class="tab-content p-4 border rounded-bottom" id="myTabContent">
-                <!-- ===== SK Pengelola Aduan ===== -->
+                <!-- ===== SK Pengelola Aduan ===== -->
                 <div class="tab-pane fade show active" id="pengelola-aduan" role="tabpanel"
                     aria-labelledby="pengelola-aduan-tab">
                     <!-- Heading + Tombol -->
@@ -132,7 +134,7 @@
                     </div>
                 </div>
 
-                <!-- ===== Grafik Pengelola Aduan ===== -->
+                <!-- ===== Grafik Pengelola Aduan ===== -->
                 <div class="tab-pane fade" id="grafik" role="tabpanel" aria-labelledby="grafik-tab">
                     <!-- Header -->
                     <div class="alert alert-success d-flex align-items-center py-2 mb-4" role="alert">
@@ -142,7 +144,7 @@
 
                     <div class="d-flex align-items-end justify-content-end mb-3">
                         <button type="button" id="openModaltambahtahungrafik" class="bt-primary d-flex align-items-center"
-                            data-bs-toggle="modal" data-bs-target="#modalTambahg">
+                            data-bs-toggle="modal" data-bs-target="#modalTambahtg">
                             <span class="material-symbols-outlined me-1">add</span> Tambah Tahun
                         </button>
                     </div>
@@ -199,9 +201,9 @@
                                         </td>
 
                                         <!-- Hapus -->
-                                        <td>
+                                        <td class="actionButtonContainer">
                                             <a href="#" data-id="{{ $dataChart->id }}"
-                                                class="button-link deletebutton btn-drop-year-chart">Hapus</a>
+                                                class="button-link deletebutton btn-drop-year-chart">Hapus Baris</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -219,23 +221,23 @@
     <div id="dropdownperaturan"
         class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
         <ul id="dropdownperaturan" class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="infoperaturan">
-            <!-- tombol pemicu masih memakai id yang sama -->
+            <!-- tombol pemicu masih memakai id yang sama -->
 
             <li>
                 <a class="dropdown-item" href="/admin/informasi/detailbyyear">
-                    Peraturan Daerah
+                    Peraturan Daerah
                 </a>
             </li>
 
             <li>
                 <a class="dropdown-item" href="/admin/informasi/detailbyyear">
-                    Peraturan Walikota
+                    Peraturan Walikota
                 </a>
             </li>
 
             <li>
                 <a class="dropdown-item" href="/admin/informasi/detailbyyear">
-                    Peraturan Lainnya
+                    Peraturan Lainnya
                 </a>
             </li>
         </ul>
@@ -265,7 +267,7 @@
                                 placeholder="Masukan Bidang" required>
                         </div>
 
-                        <!-- Konten / Isi -->
+                        <!-- Konten / Isi -->
                         <p class="small mb-2">Konten / Isi</p>
                         <div class="border rounded p-3">
                             <div class="row g-3 mb-4">
@@ -273,14 +275,14 @@
                                     <input class="form-check-input d-none" type="radio" id="tr-link"
                                         name="tr-konten" value="tr-link" checked onclick="switchtambahKonten()">
                                     <label class="form-check-label w-100 border rounded p-3 text-center" for="tr-link">
-                                        <strong>Link</strong><br><span class="small">Konten menggunakan link</span>
+                                        <strong>Link</strong><br><span class="small">Konten menggunakan link</span>
                                     </label>
                                 </div>
                                 <div class="col-md-6">
                                     <input class="form-check-input d-none" type="radio" id="tr-file"
                                         name="tr-konten" value="tr-file" onclick="switchtambahKonten()">
                                     <label class="form-check-label w-100 border rounded p-3 text-center" for="tr-file">
-                                        <strong>File</strong><br><span class="small">Konten dengan file (Max 2 MB)</span>
+                                        <strong>File</strong><br><span class="small">Konten dengan file (Max 2 MB)</span>
                                     </label>
                                 </div>
                             </div>
@@ -309,7 +311,7 @@
         </div>
     </div>
 
-    <!-- ============  Modal Tambah Tahun (pengelola aduan) ============ -->
+    <!-- ============  Modal Tambah Tahun (pengelola aduan) ============ -->
     <div class="modal fade" id="modalTambaht" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -352,7 +354,7 @@
         </div>
     </div>
 
-    <!-- ============  Modal Tambah File  ============ -->
+    <!-- ============  Modal Tambah File  ============ -->
     <div class="modal fade" id="modalTambahFile" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -386,7 +388,7 @@
         </div>
     </div>
 
-    <!-- ============  Modal Tambah Tahun (grafik) ============ -->
+    <!-- ============  Modal Tambah Tahun (grafik) ============ -->
     <div class="modal fade" id="modalTambahtg" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
@@ -667,7 +669,7 @@
                     icon: 'success',
                     timer: 700
                 }).then(() => {
-                    window.location.reload();
+                    // window.location.reload();
                 })
             } catch (e) {
                 let error_message = JSON.parse(e.responseText);
@@ -693,6 +695,4 @@
             }
         }
     </script>
-    <script></script>
-    <script></script>
 @endsection

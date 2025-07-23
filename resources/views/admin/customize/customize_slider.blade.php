@@ -49,7 +49,7 @@
         @endif
         <div class="panel">
             <div class="panel-heading">
-                <h4 class="panel-title">Upload Slider Homepage</h4>
+                <h4 class="panel-title">Slider Utama</h4>
             </div>
             <p class="help-block">
                 Gambar yang Anda unggah di sini akan ditampilkan di <strong>halaman utama (landing page)</strong>. Format:
@@ -102,9 +102,7 @@
                     idImg = file['idImg'];
                     name = file['name'];
                 }
-                {{-- var name = JSON.parse(file.xhr.response)['payload']['image']; --}}
-                {{-- var idImg = JSON.parse(file.xhr.response)['payload']['id']; --}}
-                {{-- console.log('delete') --}}
+
                 $.ajax({
                     type: 'POST',
                     url: '{{ route('customize.slider.image') }}',

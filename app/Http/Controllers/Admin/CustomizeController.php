@@ -143,10 +143,40 @@ class CustomizeController extends CustomController
     public function patch_image(Request $request)
     {
         Log::info('MASUK DI PATCH IMAGE');
+
         if (request()->method() == 'GET') {
             return $this->get_image();
         }
 
+        // Tangani hapus gambar
+        if ($request->action == 2) {
+            $image = SectorImage::find($request->id);
+            if (!$image) {
+                Log::warning('Gambar tidak ditemukan dengan ID: ' . $request->id);
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Gambar tidak ditemukan',
+                ]);
+            }
+
+            // Hapus file dari sistem
+            if (file_exists(public_path($image->image))) {
+                unlink(public_path($image->image));
+                Log::info('File dihapus: ' . $image->image);
+            } else {
+                Log::warning('File tidak ditemukan di path: ' . public_path($image->image));
+            }
+
+            // Hapus data dari database
+            $image->delete();
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'Gambar berhasil dihapus',
+            ]);
+        }
+
+        // Tangani upload gambar
         $sector = Sector::where('type', $request->type)->first();
         if (!$sector) {
             Log::info('cARI sECTOR');
@@ -159,11 +189,14 @@ class CustomizeController extends CustomController
             ]);
         }
 
+        Log::info('image ' . $request->image);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = Str::uuid() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('assets/sector'), $filename);
 
+            Log::info('file' . $file);
+            Log::info('filename' . $filename);
             $image = new SectorImage();
             $image->sector_id = $sector->id;
             $image->image = 'assets/sector/' . $filename;
@@ -175,7 +208,7 @@ class CustomizeController extends CustomController
                 'payload' => [
                     'id' => $image->id,
                     'image' => asset($image->image),
-                    'size' => filesize(public_path($image->image)),
+                    'size' => filesize(public_path('assets/sector/' . $filename)),
                 ]
             ]);
         }
@@ -186,6 +219,7 @@ class CustomizeController extends CustomController
             'payload' => []
         ]);
     }
+
 
     public function get_image()
     {

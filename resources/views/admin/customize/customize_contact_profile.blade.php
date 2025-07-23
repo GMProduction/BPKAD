@@ -70,13 +70,13 @@
 
                         {{-- ===== Jam Kerja ===== --}}
                         <div class="form-group mt-3">
-                            <label for="office_hours" class="form-label">Jam Kerja</label>
+                            <label for="office_hours" class="form-label">Jam Kerja</label>
                             <textarea id="office_hours" name="office_hours" rows="3" class="form-control" placeholder="Jam Kerja" required>{{ old('office_hours', $data?->office_hours) }}</textarea>
                         </div>
 
                         {{-- ===== Lokasi GPS ===== --}}
                         <div class="form-group mt-3">
-                            <label for="location" class="form-label">Lokasi GPS</label>
+                            <label for="location" class="form-label">Lokasi GPS</label>
                             <textarea id="location" name="location" rows="3" class="form-control" placeholder="Lokasi GPS" required>{{ old('location', $data?->location) }}</textarea>
                         </div>
 

@@ -36,7 +36,9 @@
             </div>
 
             <div class="panel-heading">
-                <h4 class="panel-title">Bidang BPKAD</h4>
+                <div class="panel-title">
+                    <h4>Bidang BPKAD</h4>
+                </div>
             </div>
 
             <div class="tabs-wrapper border p-3 rounded">
@@ -313,20 +315,24 @@
                     idImg = file['idImg'];
                     name = file['name'];
                 }
-                {{-- var name = JSON.parse(file.xhr.response)['payload']['image']; --}}
-                {{-- var idImg = JSON.parse(file.xhr.response)['payload']['id']; --}}
-                {{-- console.log('delete') --}}
+
+                alert("gambar dihapus")
                 $.ajax({
                     type: 'POST',
                     url: '{{ route('customize.bidang.image') }}',
                     data: {
                         name: name,
                         id: idImg,
+                        image: name,
+                        type: 'secretarial',
                         action: 2,
                         '_token': '{{ csrf_token() }}',
                     },
-                    sucess: function(data) {
+                    success: function(data) {
                         console.log('success: ' + data);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', status, error);
                     }
                 });
                 var _ref;
@@ -395,15 +401,14 @@
                     idImg = file['idImg'];
                     name = file['name'];
                 }
-                {{-- var name = JSON.parse(file.xhr.response)['payload']['image']; --}}
-                {{-- var idImg = JSON.parse(file.xhr.response)['payload']['id']; --}}
-                {{-- console.log('delete') --}}
+                alert("gambar dihapus")
                 $.ajax({
                     type: 'POST',
                     url: '{{ route('customize.bidang.image') }}',
                     data: {
                         name: name,
                         id: idImg,
+                        type: 'budget',
                         action: 2,
                         '_token': '{{ csrf_token() }}',
                     },
@@ -479,15 +484,14 @@
                     idImg = file['idImg'];
                     name = file['name'];
                 }
-                {{-- var name = JSON.parse(file.xhr.response)['payload']['image']; --}}
-                {{-- var idImg = JSON.parse(file.xhr.response)['payload']['id']; --}}
-                {{-- console.log('delete') --}}
+                alert("gambar dihapus")
                 $.ajax({
                     type: 'POST',
                     url: '{{ route('customize.bidang.image') }}',
                     data: {
                         name: name,
                         id: idImg,
+                        type: 'financial',
                         action: 2,
                         '_token': '{{ csrf_token() }}',
                     },
@@ -559,12 +563,11 @@
                     idImg = file['idImg'];
                     name = file['name'];
                 }
-                {{-- var name = JSON.parse(file.xhr.response)['payload']['image']; --}}
-                {{-- var idImg = JSON.parse(file.xhr.response)['payload']['id']; --}}
-                {{-- console.log('delete') --}}
+                alert("gambar dihapus")
                 $.ajax({
                     type: 'POST',
                     url: '{{ route('customize.bidang.image') }}',
+                    type: 'asset',
                     data: {
                         name: name,
                         id: idImg,

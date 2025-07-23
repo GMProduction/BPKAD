@@ -5,6 +5,7 @@ namespace App\Http\Controllers\LandingPage;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
@@ -14,8 +15,9 @@ class ArticleController extends Controller
     {
         $data  = $this->getArticleByMonth();
         $count = $this->count_article_all(0);
-
-        return view('artikel')->with(['data_article' => $data, 'count' => $count]);
+        $articles = $this->articles();
+        $firstarticle = $this->firstarticle();
+        return view('artikel')->with(['data_article' => $data, 'count' => $count, 'articles' => $articles, 'firstarticle' => $firstarticle,]);
     }
 
     public function article($type)
@@ -77,7 +79,7 @@ class ArticleController extends Controller
     public function detail($slug)
     {
         $article = Article::where('slug', $slug)->firstOrFail();
-        $articles = $this->articles();
+        $articles = $this->randomArticles();
 
         return view('artikel-detail', ['article' => $article, 'articles' => $articles]);
     }
@@ -85,8 +87,31 @@ class ArticleController extends Controller
     public function articles()
     {
         return Article::orderBy('created_at', 'desc')
+            ->skip(1)
             ->take(6)
             ->get();
+    }
+
+    public function loadMoreArticles(Request $request)
+    {
+        $offset = $request->input('offset', 1); // default 1 karena 1 artikel pertama sudah ditampilkan
+        return Article::orderBy('created_at', 'desc')
+            ->skip($offset)
+            ->take(6)
+            ->get();
+    }
+
+    public function randomArticles()
+    {
+        return Article::inRandomOrder()
+            ->limit(8)
+            ->get();
+    }
+
+    public function firstarticle()
+    {
+        return Article::orderBy('created_at', 'desc')
+            ->first();
     }
 
     public function getArticleByMonth()

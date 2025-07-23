@@ -138,7 +138,7 @@
             @endforeach
         </div>
         <div class="berita-lainnya__button">
-            <a href="/article">Lihat Berita yang Lain</a>
+            <a href="/artikel">Lihat Berita yang Lain</a>
         </div>
 
     </section>

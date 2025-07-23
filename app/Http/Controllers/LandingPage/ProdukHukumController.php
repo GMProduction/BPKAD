@@ -34,4 +34,16 @@ class ProdukHukumController extends CustomController
             'mayors' => $mayors
         ]);
     }
+
+    public function destroyPerda($id)
+    {
+        RegionLawProduct::findOrFail($id)->delete();
+        return response()->json(['message' => 'Berhasil dihapus']);
+    }
+
+    public function destroyPerwali($id)
+    {
+        MayorLawProduct::findOrFail($id)->delete();
+        return response()->json(['message' => 'Berhasil dihapus']);
+    }
 }

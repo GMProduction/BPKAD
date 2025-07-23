@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="panel min-h-screen">
+    <div class="panel-container">
 
         {{-- <nav class="flex mb-6" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">

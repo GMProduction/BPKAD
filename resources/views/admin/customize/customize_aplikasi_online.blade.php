@@ -27,62 +27,74 @@
             </div>
         @endif
         <div class="panel bg-white border">
-            <div class="flex justify-between mb-3 items-end">
-                <p class=" font-semibold">Aplikasi Online</p>
+            <div class="d-flex justify-content-between align-items-end mb-3">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h4 class="mb-0">Aplikasi ONLINE</h4>
+                    </div>
+                </div>
+
                 <button type="button" onclick="location.href='{{ route('customize.aplikasi.online.form') }}'"
-                    class="ml-auto bt-primary">
+                    class="bt-primary d-flex align-items-center">
                     <span class="material-symbols-outlined me-2">add</span>
-                    Tambah Aplikasi Online
+                    Tambah Aplikasi Online
                 </button>
-
             </div>
-            <div class="overflow-x-auto relative shadow-sm ">
-                <table id="table" class="w-full text-sm text-left text-gray-500  ">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
-                        <tr>
-                            <th scope="col" class="py-3 px-6">
-                                #
-                            </th>
-                            <th scope="col" class="py-3 px-6" width="100">
-                                Gambar
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Nama
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Deskripsi Pendek
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                Deskripsi Panjang
-                            </th>
-                            <th scope="col" class="py-3 px-6">
-                                <span class="sr-only">Aksi</span>
-                            </th>
-                        </tr>
-                    </thead>
-                    {{--                    <tbody> --}}
-                    {{--                        <tr class="bg-white border-b "> --}}
-                    {{--                            <th class="text-center"> --}}
-                    {{--                                1 --}}
-                    {{--                            </th> --}}
-                    {{--                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 "> --}}
-                    {{--                                1.500 Orang Bersih-Bersih Kawasan Sriwedari Solo, Alat Berat Ikut Dikerahkan --}}
-                    {{--                                1.500 Orang Bersih-Bersih Kawasan Sriwedari Solo, Alat Berat Ikut Dikerahkan --}}
-                    {{--                                1.500 Orang Bersih-Bersih Kawasan Sriwedari Solo, Alat Berat Ikut Dikerahkan --}}
-                    {{--                            </th> --}}
-                    {{--                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap "> --}}
-                    {{--                                10 November 2022 --}}
-                    {{--                            </th> --}}
-                    {{--                            <td class="py-4 px-6 text-right whitespace-nowrap"> --}}
-                    {{--                                <a href="#" data-modal-toggle="modalEdit" onclick="" --}}
-                    {{--                                    class="font-medium text-blue-600  button-link bg-blue-100">Ubah</a> --}}
 
-                    {{--                                    <a href="#" data-modal-toggle="modalEdit" --}}
-                    {{--                                    class="font-medium text-red-700  button-link bg-red-100">Hapus</a> --}}
-                    {{--                            </td> --}}
-                    {{--                        </tr> --}}
-                    {{--                    </tbody> --}}
-                </table>
+            <div class="alert alert-info small">
+                <strong>Catatan:</strong> tabel ini menampilkan aplikasi online yang sudah dimasukan.
+            </div>
+
+
+            <div class="border border-gray-200 p-4">
+                <div class="overflow-x-auto relative shadow-sm ">
+                    <table id="table" class="w-full text-sm text-left text-gray-500  ">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                            <tr>
+                                <th scope="col" class="py-3 px-6">
+                                    #
+                                </th>
+                                <th scope="col" class="py-3 px-6" width="100">
+                                    Gambar
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Nama
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Deskripsi Pendek
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Deskripsi Panjang
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    <span class="sr-only">Aksi</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        {{--                    <tbody> --}}
+                        {{--                        <tr class="bg-white border-b "> --}}
+                        {{--                            <th class="text-center"> --}}
+                        {{--                                1 --}}
+                        {{--                            </th> --}}
+                        {{--                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 "> --}}
+                        {{--                                1.500 Orang Bersih-Bersih Kawasan Sriwedari Solo, Alat Berat Ikut Dikerahkan --}}
+                        {{--                                1.500 Orang Bersih-Bersih Kawasan Sriwedari Solo, Alat Berat Ikut Dikerahkan --}}
+                        {{--                                1.500 Orang Bersih-Bersih Kawasan Sriwedari Solo, Alat Berat Ikut Dikerahkan --}}
+                        {{--                            </th> --}}
+                        {{--                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap "> --}}
+                        {{--                                10 November 2022 --}}
+                        {{--                            </th> --}}
+                        {{--                            <td class="py-4 px-6 text-right whitespace-nowrap"> --}}
+                        {{--                                <a href="#" data-modal-toggle="modalEdit" onclick="" --}}
+                        {{--                                    class="font-medium text-blue-600  button-link bg-blue-100">Ubah</a> --}}
+
+                        {{--                                    <a href="#" data-modal-toggle="modalEdit" --}}
+                        {{--                                    class="font-medium text-red-700  button-link bg-red-100">Hapus</a> --}}
+                        {{--                            </td> --}}
+                        {{--                        </tr> --}}
+                        {{--                    </tbody> --}}
+                    </table>
+                </div>
             </div>
         </div>
     </div>

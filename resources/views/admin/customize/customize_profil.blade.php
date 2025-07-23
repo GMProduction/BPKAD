@@ -6,6 +6,7 @@
 @section('css')
     <link href="{{ asset('js/admin/summernote-bs5.min.css') }}" rel="stylesheet">
     <script src="{{ asset('js/admin/summernote-bs5.min.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 
 @section('content-customize')
@@ -24,15 +25,15 @@
         @endif
 
         <div class="panel">
-            <div class="alert alert-info small">
-                <strong>Catatan:</strong> Data profil ini akan ditampilkan pada halaman profil BPKAD.
-            </div>
+
             <div class="panel-heading">
                 <div class="panel-title">
                     <h4>Profil BPKAD</h4>
                 </div>
             </div>
-
+            <p class="help-block">
+                masukan sesuai dengan profil BPKAD
+            </p>
             <form method="post" enctype="multipart/form-data" class="form-horizontal" id="form-input">
                 @csrf
 
@@ -68,8 +69,12 @@
                     <input type="file" name="structure" class="form-control" accept="image/*">
                 </div>
 
+                <div class="alert alert-info small mt-3">
+                    <strong>Catatan:</strong> Data profil ini akan ditampilkan pada halaman profil BPKAD.
+                </div>
+
                 <div class="d-flex justify-content-end">
-                    <button type="submit" class="bt-primary mt-3">
+                    <button type="submit" class="bt-primary ">
                         <span class="material-symbols-outlined">save</span> Simpan
                     </button>
                 </div>
@@ -85,8 +90,6 @@
             let text = $('#visi-text').summernote('code');
             console.log(text);
         }
-
-
 
         function showImage() {
             return {

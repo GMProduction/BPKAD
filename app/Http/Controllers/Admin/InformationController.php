@@ -11,6 +11,8 @@ use App\Models\InformationDetail;
 use App\Models\ProgramActivity;
 use App\Models\ProgramActivityDetail;
 use App\Models\PublicAgencyInformation;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class InformationController extends CustomController
@@ -77,7 +79,7 @@ class InformationController extends CustomController
     {
         try {
             $category = Category::find($id);
-            if (!$category) {
+            if ($category) {
                 return $this->jsonResponse('kategori tidak ditemukan...', 500);
             }
             $data = [
@@ -91,7 +93,6 @@ class InformationController extends CustomController
         } catch (\Exception $e) {
             return $this->jsonResponse('terjadi kesalahan server...' . $e->getMessage(), 500);
         }
-
     }
 
     public function periodic_information($slug)
@@ -131,7 +132,8 @@ class InformationController extends CustomController
             $data_request = [
                 'information' => $this->postField('information'),
             ];
-            if ($this->postField('tr-konten') === 'tr-link') {
+
+            if ($this->postField('tr-konten') === 'link') {
                 $validator = Validator::make($this->request->all(), [
                     'link' => 'required|url'
                 ], [
@@ -143,14 +145,14 @@ class InformationController extends CustomController
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('link');
             } else {
-//                $validator = Validator::make($this->request->all(), [
-//                    'file' => 'max:2000'
-//                ], [
-//                    'file.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
-//                ]);
-//                if ($validator->fails()) {
-//                    return redirect()->back()->withErrors($validator->errors());
-//                }
+                //                $validator = Validator::make($this->request->all(), [
+                //                    'file' => 'max:2000'
+                //                ], [
+                //                    'file.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
+                //                ]);
+                //                if ($validator->fails()) {
+                //                    return redirect()->back()->withErrors($validator->errors());
+                //                }
                 $data_request['type'] = 1;
                 $uuid_name = $this->generateImageName('file');
                 if ($uuid_name !== '') {
@@ -162,7 +164,7 @@ class InformationController extends CustomController
             PublicAgencyInformation::create($data_request);
             return redirect()->back()->with('success', 'Berhasil Menambahkan Data...');
         } catch (\Exception $e) {
-            return redirect()->back()->with('failed', 'Terjadi kesalahan server...');
+            return redirect()->back()->with('failed', 'Terjadi kesalahan server... ' . $e->getMessage());
         }
     }
 
@@ -173,7 +175,7 @@ class InformationController extends CustomController
                 'information_category_id' => $this->postField('category'),
                 'year' => $this->postField('year')
             ];
-            if ($this->postField('tr-konten') === 'tr-link') {
+            if ($this->postField('tr-konten') === 'link') {
                 $validator = Validator::make($this->request->all(), [
                     'link' => 'required|url'
                 ], [
@@ -185,14 +187,14 @@ class InformationController extends CustomController
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('link');
             } else {
-//                $validator = Validator::make($this->request->all(), [
-//                    'file' => 'max:2000'
-//                ], [
-//                    'file.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
-//                ]);
-//                if ($validator->fails()) {
-//                    return redirect()->back()->withErrors($validator->errors());
-//                }
+                //                $validator = Validator::make($this->request->all(), [
+                //                    'file' => 'max:2000'
+                //                ], [
+                //                    'file.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
+                //                ]);
+                //                if ($validator->fails()) {
+                //                    return redirect()->back()->withErrors($validator->errors());
+                //                }
                 $data_request['type'] = 1;
                 $uuid_name = $this->generateImageName('file');
                 if ($uuid_name !== '') {
@@ -204,7 +206,7 @@ class InformationController extends CustomController
             InformationDetail::create($data_request);
             return redirect()->back()->with('success', 'Berhasil Menambahkan Data...');
         } catch (\Exception $e) {
-            return redirect()->back()->with('failed', 'Terjadi kesalahan server...');
+            return redirect()->back()->with('failed', 'Terjadi kesalahan server...3');
         }
     }
 
@@ -227,16 +229,15 @@ class InformationController extends CustomController
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('e-link-edit');
             } else {
-//                $validator = Validator::make($this->request->all(), [
-//                    'file-edit' => 'max:2000'
-//                ], [
-//                    'file-edit.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
-//                ]);
-//                if ($validator->fails()) {
-//                    return redirect()->back()->withErrors($validator->errors());
-//                }
+                //                $validator = Validator::make($this->request->all(), [
+                //                    'file-edit' => 'max:2000'
+                //                ], [
+                //                    'file-edit.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
+                //                ]);
+                //                if ($validator->fails()) {
+                //                    return redirect()->back()->withErrors($validator->errors());
+                //                }
 
-                dd($this->request);
                 $data_request['type'] = 1;
                 $uuid_name = $this->generateImageName('file-edit');
                 if ($uuid_name !== '') {
@@ -272,14 +273,14 @@ class InformationController extends CustomController
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('e-link-edit');
             } else {
-//                $validator = Validator::make($this->request->all(), [
-//                    'file-edit' => 'max:2000'
-//                ], [
-//                    'file-edit.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
-//                ]);
-//                if ($validator->fails()) {
-//                    return redirect()->back()->withErrors($validator->errors());
-//                }
+                //                $validator = Validator::make($this->request->all(), [
+                //                    'file-edit' => 'max:2000'
+                //                ], [
+                //                    'file-edit.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
+                //                ]);
+                //                if ($validator->fails()) {
+                //                    return redirect()->back()->withErrors($validator->errors());
+                //                }
                 $data_request['type'] = 1;
                 $uuid_name = $this->generateImageName('file-edit');
                 if ($uuid_name !== '') {
@@ -291,7 +292,6 @@ class InformationController extends CustomController
             $data->update($data_request);
             return redirect()->back()->with('success', 'Berhasil merubah data...');
         } catch (\Exception $e) {
-            dd($e->getMessage());
             return redirect()->back()->with('failed', 'Terjadi kesalahan server...');
         }
     }
@@ -314,12 +314,38 @@ class InformationController extends CustomController
             $information_categories = InformationCategory::where('category_id', '=', $category->id)->get();
             return $this->jsonResponse('success', 200, $information_categories);
         } catch (\Exception $e) {
-            return $this->jsonResponse('terjadi kesalahan server...', 500);
+            return $this->jsonResponse('terjadi kesalahan server...2', 500);
         }
     }
 
     public function add_non_periodic_information()
     {
         return $this->post_information();
+    }
+
+    public function delete(Request $request)
+    {
+        try {
+            $data = PublicAgencyInformation::findOrFail($request->id);
+
+            $data->delete();
+
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => 'Gagal menghapus data' . $e], 500);
+        }
+    }
+
+    public function deleteDetail(Request $request)
+    {
+        try {
+            Log::info("REQUEST ID DELETE DETAIL : " . $request->id);
+            $data = InformationDetail::findOrFail($request->id);
+            $data->delete();
+
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => 'Gagal menghapus data' . $e], 500);
+        }
     }
 }

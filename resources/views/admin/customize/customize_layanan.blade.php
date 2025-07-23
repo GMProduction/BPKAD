@@ -271,7 +271,7 @@
         </div>
 
 
-        <!-- =====================  Modal Edit  ===================== -->
+        <!-- =====================  Modal Edit  ===================== -->
         <div class="modal fade" id="modalEdit" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
@@ -285,10 +285,10 @@
                     <!-- Form -->
                     <form id="formSertaEdit" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <!-- kolom kunci -->
+                        <!-- kolom kunci -->
                         <input type="hidden" id="edit-id" name="id">
-                        <input type="hidden" id="edit-type-file" name="type_file" value="2"><!-- link -->
-                        <input type="hidden" name="service_type" value="2"><!-- tetap -->
+                        <input type="hidden" id="edit-type-file" name="type_file" value="2"><!-- link -->
+                        <input type="hidden" name="service_type" value="2"><!-- tetap -->
 
                         <div class="modal-body">
                             <!-- Bidang ------------------------------------------------ -->
@@ -408,7 +408,7 @@
                         <!-- Footer -->
                         <div class="modal-footer">
                             <button type="submit" class="bt-primary">
-                                <span class="material-symbols-outlined me-1">save</span> Simpan File
+                                <span class="material-symbols-outlined me-1">save</span> Simpan File
                             </button>
                         </div>
 
@@ -557,11 +557,9 @@
 
                 ajax: '{{ route('customize.layanan.datatable') }}',
 
-                /* ――――――――――――――――――――――――
-                   Nomor urut ↴
-                ―――――――――――――――――――――――― */
+
                 rowCallback: function(row, data, displayIndex, displayIndexFull) {
-                    // info() → { start : index baris pertama di halaman }
+                    // info() → { start : index baris pertama di halaman }
                     const pageInfo = this.api().page.info();
                     const number = pageInfo.start + displayIndex + 1; // 1‑based
                     $('td:eq(0)', row).html(number); // kolom pertama
@@ -583,9 +581,9 @@
                         name: 'url',
                         orderable: true,
                         render(data, type, row) {
-                            // type_file == 1 ⇒ file PDF, selain itu ⇒ link biasa
+                            // type_file == 1 ⇒ file PDF, selain itu ⇒ link biasa
                             return (row.type_file === 1) ?
-                                `<a href="${data}" target="_blank" class="text-blue-500">File PDF</a>` :
+                                `<a href="${data}" target="_blank" class="text-blue-500">File PDF</a>` :
                                 data;
                         }
                     },
@@ -812,7 +810,7 @@
                 });
             });
 
-            return false; // mencegah aksi default <a> / <button>
+            return false; // mencegah aksi default <a> / <button>
         }
 
 
@@ -912,19 +910,19 @@
 
     <script>
         /**
-         * Buka modalEdit dan isikan field‐fieldnya.
-         * Panggil openEdit({...}) saat user menekan tombol “Ubah”.
+         * Buka modalEdit dan isikan field‐fieldnya.
+         * Panggil openEdit({...}) saat user menekan tombol “Ubah”.
          *
          * @param {Object}  data
-         * @param {Number}  data.id          – primary key
-         * @param {String}  data.sector      – nama bidang
-         * @param {String}  data.url         – link (atau kosong jika belum ada)
-         * @param {Number}  data.type_file   – 1 = file PDF, 2 = link (dsb)
+         * @param {Number}  data.id          – primary key
+         * @param {String}  data.sector      – nama bidang
+         * @param {String}  data.url         – link (atau kosong jika belum ada)
+         * @param {Number}  data.type_file   – 1 = file PDF, 2 = link (dsb)
          */
         function openEdit(data) {
             // ─── isi form ──────────────────────────────────────────────────────────────
             document.getElementById('edit-id').value = data.id ?? '';
-            document.getElementById('edit-type-file').value = data.type_file ?? 2; // default “link”
+            document.getElementById('edit-type-file').value = data.type_file ?? 2; // default “link”
             document.getElementById('edit-bidang-info').value = data.sector ?? '';
             document.getElementById('edit-link-url').value = data.url ?? '';
 
@@ -933,11 +931,11 @@
 
             // ─── tampilkan modal ───────────────────────────────────────────────────────
             const modalEl = document.getElementById('modalEdit');
-            const modalInst = bootstrap.Modal.getOrCreateInstance(modalEl); // BS 5
+            const modalInst = bootstrap.Modal.getOrCreateInstance(modalEl); // BS 5
             modalInst.show();
         }
 
-        /*  contoh pemakaian (dalam datatable “Ubah”)
+        /*  contoh pemakaian (dalam datatable “Ubah”)
            <a href="#" onclick="openEdit({id: 15, sector: 'Bidang A', url: 'https://link.com', type_file: 2})">
               Ubah
            </a>

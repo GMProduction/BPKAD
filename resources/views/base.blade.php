@@ -629,8 +629,6 @@
 
                     </div>
 
-                    <p class="text-xl text-white font-bold mb-6 mt-6" data-aos="fade-up">
-                        Jumlah Kunjungan</p>
                 </div>
             </div>
         </div>

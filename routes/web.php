@@ -17,9 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
-    Route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/', function () {
+        return redirect('/admin/kustomisasi-slider');
+    })->name('dashboard');
+
+    // Redirect /dashboard ke /admin/kustomisasi-slider
     Route::get('dashboard', function () {
-        return view('admin/dashboard');
+        return redirect('/admin/kustomisasi-slider');
     });
 
     Route::group(['prefix' => 'aspirasi'], function () {
@@ -66,6 +70,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::get('/', [\App\Http\Controllers\Admin\InformationController::class, 'index'])->name('admin.information.index');
         Route::match(['post', 'get'], '/{slug}/informasi-berkala', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information'])->name('admin.information.periodic');
         Route::post('/{slug}/informasi-berkala/patch', [\App\Http\Controllers\Admin\InformationController::class, 'periodic_information_patch'])->name('admin.information.periodic.patch');
+        Route::post('/informasi-berkala/delete', [\App\Http\Controllers\Admin\InformationController::class, 'delete'])->name('admin.information.delete');
+        Route::post('/informasi-detail/delete', [\App\Http\Controllers\Admin\InformationController::class, 'deleteDetail'])->name('admin.information-detail.delete');
         Route::post('/{id}/informasi-berkala/category', [\App\Http\Controllers\Admin\InformationController::class, 'add_information_category'])->name('admin.information.category.add');
         Route::post('/public-information/patch', [\App\Http\Controllers\Admin\InformationController::class, 'public_information_patch'])->name('admin.information.public.patch');
         Route::post('/information/patch', [\App\Http\Controllers\Admin\InformationController::class, 'information_patch'])->name('admin.information.patch');
@@ -108,6 +114,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::post('layanan-masyarakat/delete', [\App\Http\Controllers\Admin\PublicServiceController::class, 'deleteData'])->name('customize.layanan.masyarakat.delete');
     });
 });
+
 Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function () {
     Route::match(['get', 'post'], '/auth', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
 
@@ -174,6 +181,7 @@ Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function ()
         Route::get('count/{type}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'count_article'])->name('article.count');
         Route::get('/detail/{slug}', [\App\Http\Controllers\LandingPage\ArticleController::class, 'detail'])->name('article.detail');
         Route::get('json-data-month', [\App\Http\Controllers\LandingPage\ArticleController::class, 'getArticleByMonth'])->name('article.json.mont');
+        Route::get('/load-more-articles', [\App\Http\Controllers\LandingPage\ArticleController::class, 'loadMoreArticles'])->name('articles.load_more');
     });
 
 
@@ -183,5 +191,7 @@ Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function ()
     Route::prefix('produk-hukum')->group(function () {
         Route::get('/produkhukumperda', [\App\Http\Controllers\LandingPage\ProdukHukumController::class, 'regionPage'])->name('produkhukumperda');
         Route::get('/produkhukumperwali', [\App\Http\Controllers\LandingPage\ProdukHukumController::class, 'mayorPage'])->name('produkhukumperwali');
+        Route::delete('/perda/delete/{id}', [\App\Http\Controllers\LandingPage\ProdukHukumController::class, 'destroyPerda']);
+        Route::delete('/perwali/delete/{id}', [\App\Http\Controllers\LandingPage\ProdukHukumController::class, 'destroyPerwali']);
     });
 });

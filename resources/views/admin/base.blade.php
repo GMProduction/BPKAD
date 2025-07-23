@@ -42,19 +42,19 @@
 
             <ul>
                 <li>
-                    <a class="menu {{ Request::is('admin/kustomisasi') ? 'active' : '' }} tooltip"
+                    <a class="menu {{ Request::is('admin/kustomisasi*') ? 'active' : '' }} tooltip"
                         href="/admin/kustomisasi-slider">
                         <span class="material-symbols-outlined">
                             settings
                         </span>
                         <span class="text-menu"> Custom Website</span>
                         <span class="tooltiptext">Custom Website</span>
-
                     </a>
                 </li>
 
                 <li>
-                    <a class="menu  nav-link" href="/admin/informasi">
+                    <a class="menu {{ Request::is('admin/informasi') ? 'active' : '' }} tooltip"
+                        href="/admin/informasi">
                         <span class="material-symbols-outlined mr-2 menu-icon">
                             info
                         </span>
@@ -63,12 +63,12 @@
                     </a>
                 </li>
                 <li>
-                    <a class="menu nav-link" href="/admin/artikel">
+                    <a class="menu {{ Request::is('admin/artikel') ? 'active' : '' }} tooltip" href="/admin/artikel">
                         <span class="material-symbols-outlined mr-2 menu-icon">
                             feed
                         </span>
                         <span class="text-menu"> Artikel</span>
-                        <span class="tooltiptext">Artikel/span>
+                        <span class="tooltiptext">Artikel</span>
                     </a>
                 </li>
             </ul>
@@ -104,8 +104,8 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <p class="user">User</p>
-                                <p class="email">user@gmail.com</p>
+                                <p class="user">Admin</p>
+                                {{-- <p class="email">user@gmail.com</p> --}}
                                 <hr>
                                 <a class="logout" href="/logout">Logout</a>
 
@@ -130,8 +130,6 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
 </script>
 <script src="{{ asset('js/admin-genosstyle.js') }}"></script>
-{{-- <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script> --}}
-
 @yield('morejs')
 </body>
 

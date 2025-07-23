@@ -66,7 +66,7 @@ const displacementSlider = function(opts) {
     parent.appendChild( renderer.domElement );
 
     let loader = new THREE.TextureLoader();
-    loader.crossOrigin = "anonymous";
+    loader.crossOrigin = "anonymous";
 
     images.forEach( ( img ) => {
 
