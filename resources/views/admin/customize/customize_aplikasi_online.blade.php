@@ -48,7 +48,7 @@
 
             <div class="border border-gray-200 p-4">
                 <div class="overflow-x-auto relative shadow-sm ">
-                    <table id="table" class="w-full text-sm text-left text-gray-500  ">
+                    <table id="table" class="w-full text-md text-left text-gray-500  ">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                             <tr>
                                 <th scope="col" class="py-3 px-6">

@@ -105,6 +105,13 @@ body::-webkit-scrollbar {
     }
 }
 
+.visitors {
+    p {
+        color: white;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+}
 .mobile-menu {
     ul {
         li {
@@ -237,6 +244,19 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+.bgcolor-primary {
+    background-color: #090541;
+}
+.bgcolor2-primary {
+    background-color: #040225;
+}
+
+.w-logo {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-bottom: 30px;
+}
 .berita-utama {
     display: flex;
     flex-direction: column;
@@ -1094,11 +1114,15 @@ body::-webkit-scrollbar {
 
 .page-content {
     position: relative;
-    height: 350px;
+    height: 650px;
     width: 100%;
 
+    @media (max-width: 700px) {
+        height: 350px;
+    }
+
     .background-overlay {
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.1);
         z-index: 1;
         position: relative;
         height: 100%;
@@ -1133,6 +1157,7 @@ body::-webkit-scrollbar {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        /* ⬅️ Ini geser gambar ke bawah */
     }
 }
 

@@ -8,7 +8,7 @@
                 <a class="font-bold text-white">Informasi Layanan bpkad surakarta</a>
             </div>
         </div>
-        <img class="background-image" src="{{ asset('assets/local/gedung.jpg') }}" alt="Background" />
+        <img class="background-image" src="{{ asset('assets/local/layanan.png') }}" alt="Background" />
     </div>
 
     <section class="visi-misi-section">

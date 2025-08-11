@@ -43,10 +43,11 @@
             <div
                 class="flex flex-col md:justify-center justify-center items-center  sm:mx-0 px-5 sm:my-0 my-1 sm:mt-0 mt-3 border-r text-center">
                 <div class="flex flex-row items-center mb-2">
-                    <span class="material-symbols-outlined font-bold  t-primary mr-2">
+                    {{-- <span class="material-symbols-outlined font-bold  t-primary mr-2">
                         mail
-                    </span>
-                    <span class="t-primary font-bold italic">Email</span>
+                    </span> --}}
+                    <img src="{{ asset('assets/local/mail.png') }}" style="width: 64px; height: 64px;" />
+                    {{-- <span class="t-primary font-bold italic">Email</span> --}}
                 </div>
                 <div>
                     <p class="textEmailH"></p>
@@ -56,10 +57,11 @@
             <div
                 class="flex  flex-col md:justify-center justify-start items-center  sm:mx-0 px-5 sm:my-0 my-1 sm:mt-0 mt-3 border-r text-center">
                 <div class="flex flex-row items-center mb-2">
-                    <span class="material-symbols-outlined font-bold  t-primary mr-2">
+                    {{-- <span class="material-symbols-outlined font-bold  t-primary mr-2">
                         location_on
                     </span>
-                    <span class="t-primary font-bold italic">Alamat</span>
+                    <span class="t-primary font-bold italic">Alamat</span> --}}
+                    <img src="{{ asset('assets/local/location-pin.png') }}" style="width: 64px; height: 64px;" />
                 </div>
 
                 <div>
@@ -70,10 +72,11 @@
             <div
                 class="flex flex-col md:justify-center justify-start items-center  sm:mx-0 px-5 sm:my-0 my-1 sm:mt-0 mt-3 border-r text-center">
                 <div class="flex flex-row items-center mb-2">
-                    <span class="material-symbols-outlined font-bold  t-primary mr-2">
+                    {{-- <span class="material-symbols-outlined font-bold  t-primary mr-2">
                         call
                     </span>
-                    <span class="t-primary font-bold italic">Phone</span>
+                    <span class="t-primary font-bold italic">Phone</span> --}}
+                    <img src="{{ asset('assets/local/phone.png') }}" style="width: 64px; height: 64px;" />
                 </div>
 
                 <div>
@@ -84,10 +87,12 @@
             <div
                 class="flex flex-col md:justify-center justify-start items-center  sm:mx-0 px-5 sm:my-0 my-1 sm:mt-0 mt-3 border-r text-center">
                 <div class="flex flex-row items-center mb-2">
-                    <span class="material-symbols-outlined font-bold  t-primary mr-2">
+                    {{-- <span class="material-symbols-outlined font-bold  t-primary mr-2">
                         schedule
                     </span>
-                    <span class="t-primary font-bold italic">Jam Kerja</span>
+                    <span class="t-primary font-bold italic">Jam Kerja</span> --}}
+
+                    <img src="{{ asset('assets/local/schedule.png') }}" style="width: 64px; height: 64px;" />
                 </div>
 
                 <div>
@@ -199,11 +204,13 @@
         <div class="aspirasi-left" data-aos="fade-up">
             <img class="background" src="{{ asset('assets/local/bg-aspirasi.png') }}" alt="Aspirasi Image" />
             <div class="card">
+                <img src="{{ asset('assets/local/ulas.png') }}" class="w-logo" />
                 <h3>Kirim Aspirasi Anda</h3>
                 <p>Yuk, Masukan aspirasimu untuk BPKAD yang lebih baik</p>
                 <a href="https://ulas.surakarta.go.id/" target="_blank">Kirim Aspirasi</a>
             </div>
             <div class="card second">
+                <img src="{{ asset('assets/local/span.png') }}" class="w-logo" />
                 <h3>Kirim Laporan<br>Pengaduan Online</h3>
                 <p>Sampaikan Laporan langsung kepada instansi pemerintah berwenang</p>
                 <a href="https://www.lapor.go.id/" target="_blank">SP4N LAPOR</a>

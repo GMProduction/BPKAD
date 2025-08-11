@@ -5,5 +5,5 @@
             {!! $slot !!}
         </div>
     </div>
-    <img class="background-image" src="{{ asset('assets/local/gedung.jpg') }}" alt="Background" />
+    <img class="background-image" src="{{ asset('assets/local/informasi.png') }}" alt="Background" />
 </div>

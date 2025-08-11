@@ -4,7 +4,7 @@
     <x-page-header>
         <a class="font-bold text-primary  text-4xl mb-3 inline-block mr-3">Informasi </a> <a
             class="font-bold text-4xl text-white inline-block ">Berkala</a> <br>
-        <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-sm font-light">Informasi yang wajib
+        <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-md font-light">Informasi yang wajib
             diperbaharui kemudian disediakan dan diumumkan kepada publik secara berkala sekurang-kurangnya setiap 6
             bulan sekali.</a>
     </x-page-header>
@@ -13,7 +13,7 @@
     <div class=" mt-16 mb-16">
 
         <p class="text-primary font-bold text-3xl italic mb-3 text-center">Informasi Berkala</p>
-        <p class="text-sm text-center md:w-[50%] sm:w-[80%] w-[95%] mx-auto">Informasi yang wajib di perbaharui
+        <p class="text-md text-center md:w-[50%] sm:w-[80%] w-[95%] mx-auto">Informasi yang wajib di perbaharui
             kemudian disediakan dan
             diumumkan kepada
             publik secara berkala sekurang-kurangnya setiap 6 bulan sekali</p>

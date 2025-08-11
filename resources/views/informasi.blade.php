@@ -17,7 +17,7 @@
 
                 {{ Request::url() }}
             </a> <br>
-            <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-sm font-light">Bidang </a>
+            <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-md font-light">Bidang </a>
         </div>
     </div>
     <img class="absolute z-[-2] w-[100%]  h-[350px] object-cover top-0 left-0" src="{{ asset('assets/local/gedung.jpg') }}" />
@@ -36,11 +36,11 @@
                 <tbody>
                     @foreach ($data as $v)
                         <tr>
-                            <td class="text-sm text-center ai-save">{{ $loop->index + 1 }}</td>
-                            <td class="text-sm">{{ $v->information }}</td>
+                            <td class="text-md text-center ai-save">{{ $loop->index + 1 }}</td>
+                            <td class="text-md">{{ $v->information }}</td>
                             <td class="text-center">
                                 <a href="{{ $v->target }}" target="_blank"
-                                    class="text-white text-sm bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg  px-2 py-1 mr-2 mb-2   focus:outline-none ">
+                                    class="text-white text-md bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg  px-2 py-1 mr-2 mb-2   focus:outline-none ">
                                     {!! $v->type === 0 ? 'Link' : 'Download' !!}
                                 </a>
                             </td>

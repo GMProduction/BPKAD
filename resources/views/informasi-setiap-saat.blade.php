@@ -10,7 +10,7 @@
 @section('content')
     <x-page-header>
         <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">INFORMASI SETIAP SAAT</a> <br>
-        <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-sm font-light">Informasi Setiap Saat
+        <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-md font-light">Informasi Setiap Saat
             adalah informasi yang harus disediakan oleh Badan Publik dan siap tersedia untuk dapat langsung diberikan
             kepada Pemohon Informasi Publik ketika terdapat permohonan terhadap Informasi Publik tersebut.</a>
     </x-page-header>
@@ -31,10 +31,10 @@
                 <tbody>
                     @foreach ($results as $v)
                         <tr>
-                            <td class="text-sm text-center ai-save">{{ $loop->index + 1 }}</td>
-                            <td class="text-sm">{{ $v['name'] }}</td>
+                            <td class="text-md text-center ai-save">{{ $loop->index + 1 }}</td>
+                            <td class="text-md">{{ $v['name'] }}</td>
                             @foreach ($v['year'] as $year)
-                                <td class="text-sm text-center">
+                                <td class="text-md text-center">
                                     @if ($year['type'] === 0)
                                         <a class="block text-center text-blue-600" href="{{ $year['document'] }}">Link</a>
                                     @elseif($year['type'] === 1)

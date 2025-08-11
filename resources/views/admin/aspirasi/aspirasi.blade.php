@@ -14,7 +14,7 @@
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
                     <a href="/admin"
-                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900  ">
+                        class="inline-flex items-center text-md font-medium text-gray-700 hover:text-gray-900  ">
                         <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -33,7 +33,7 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                         <a href="/admin/aspirasi"
-                            class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Aspirasi</a>
+                            class="ml-1 text-md font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Aspirasi</a>
                     </div>
                 </li>
 
@@ -62,10 +62,10 @@
                                     <input id="default-checkbox" type="checkbox" value=""
                                         class="w-5 h-5 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500   focus:ring-2  0 m-auto">
                                 </td>
-                                <td class="text-sm" class="ai-save">Tiger Nixon</td>
-                                <td class="text-sm">System@gmail.com</td>
+                                <td class="text-md" class="ai-save">Tiger Nixon</td>
+                                <td class="text-md">System@gmail.com</td>
                                 <td>
-                                    <p class="w-[100px] md:w-[300px] 2xl:w-[500px]   truncate text-sm">Lorem Ipsum is simply
+                                    <p class="w-[100px] md:w-[300px] 2xl:w-[500px]   truncate text-md">Lorem Ipsum is simply
                                         dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                                         industry's
                                         standard dummy text ever since the 1500s, when an unknown printer took a galley of
@@ -82,7 +82,7 @@
                                         class="w-[75px] h-[50px] object-cover mx-auto" /></td>
                                 <td class="text-center">
                                     <button type="button" onclick="location.href='/admin/aspirasi/detail'"
-                                        class="mx-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2   focus:outline-none ">
+                                        class="mx-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2.5 mr-2 mb-2   focus:outline-none ">
                                         Detail
                                     </button>
                                 </td>

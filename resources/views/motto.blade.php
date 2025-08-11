@@ -8,7 +8,8 @@
                 <a class="font-bold text-white">Profil bpkad surakarta</a>
             </div>
         </div>
-        <img class="background-image" src="{{ asset('assets/local/gedung.jpg') }}" alt="Background" />
+        <img class="background-image" src="{{ asset('assets/local/visimisi.png') }}" alt="Background"
+            style="object-position: center top;" />
     </div>
 
 
@@ -27,7 +28,7 @@
                     <div class="card-visimisi first">
                         <div class="card-header">Motto</div>
                         <div class="card-body">
-                            <p class="text-sm   mx-auto">{!! $data ? $data->motto : '' !!}</p>
+                            <p class="text-md   mx-auto">{!! $data ? $data->motto : '' !!}</p>
                         </div>
                     </div>
                 </div>

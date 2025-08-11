@@ -10,7 +10,7 @@
 @section('content')
     <x-page-header>
         <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">INFORMASI SERTA MERTA </a><br>
-        <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-sm font-light">Informasi yang berkaitan
+        <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-md font-light">Informasi yang berkaitan
             dengan hajat hidup orang banyak dan ketertiban umum serta wajib diumumkan secara serta merta tanpa
             penundaan.</a>
     </x-page-header>
@@ -31,10 +31,10 @@
                 <tbody>
                     @foreach ($results as $v)
                         <tr>
-                            <td class="text-sm text-center ai-save">{{ $loop->index + 1 }}</td>
-                            <td class="text-sm">{{ $v['name'] }}</td>
+                            <td class="text-md text-center ai-save">{{ $loop->index + 1 }}</td>
+                            <td class="text-md">{{ $v['name'] }}</td>
                             @foreach ($v['year'] as $year)
-                                <td class="text-sm text-center">
+                                <td class="text-md text-center">
                                     @if ($year['type'] === 0)
                                         <a class="block text-center text-blue-600" href="{{ $year['document'] }}">Link</a>
                                     @elseif($year['type'] === 1)

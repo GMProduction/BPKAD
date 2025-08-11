@@ -54,6 +54,7 @@
         <a href="/" class=" z-10   logo-container">
             <img src="{{ asset('/assets/local/logosurakarta.png') }}" class="logo  " alt="Surakarta Logo">
             <img src="{{ asset('/assets/local/logobpkad.png') }}" class="logo  " alt="BPKAD Logo">
+            <img src="{{ asset('/assets/local/berakhlak.png') }}" class="logo  " alt="Berakhlak Logo">
         </a>
         <a class="z-10 text">BPKAD KOTA SURAKARTA</a>
         <img src="{{ asset('assets/local/navtop.png') }}" class="img" />
@@ -76,7 +77,7 @@
 
         <div class="mobile-menu" id="mobile-menu">
             <ul
-                class="md:bg-transparent flex flex-col text-sm p-4 bg-gray-50   border border-gray-100 md:flex-row md:space-x-8 md:mt-0 sm-text md:font-medium md:border-0    ">
+                class="md:bg-transparent flex flex-col text-md p-4 bg-gray-50   border border-gray-100 md:flex-row md:space-x-8 md:mt-0 sm-text md:font-medium md:border-0    ">
                 <li>
                     <a href="/"
                         class="menu flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium  transition duration-300 d:text-zinc-200  rounded hover:bg-gray-400   md:border-0 md:hover:text-white md:pr-3 md:pl-3 md:w-auto {{ request()->is('/') ? 'active' : '' }}">
@@ -92,7 +93,7 @@
 
                     </button>
 
-                    <ul class="menu hidden py-1 text-sm text-gray-700 absolute rounded-md bg-white duration-300 z-10">
+                    <ul class="menu hidden py-1 text-md text-gray-700 absolute rounded-md bg-white duration-300 z-10">
                         <li><a href="/profil/visimisi" class="block py-2 px-4 hover:bg-gray-100">Visi & Misi</a></li>
                         <li><a href="/profil/struktur" class="block py-2 px-4 hover:bg-gray-100">Struktur Organisasi</a>
                         </li>
@@ -110,7 +111,7 @@
                     </button>
 
 
-                    <ul class="menu hidden py-1 text-sm text-gray-700 absolute rounded-md bg-white duration-300 z-10">
+                    <ul class="menu hidden py-1 text-md text-gray-700 absolute rounded-md bg-white duration-300 z-10">
 
 
                         <li>
@@ -149,7 +150,7 @@
                     </button>
 
 
-                    <ul class="menu hidden py-1 text-sm text-gray-700 absolute rounded-md bg-white duration-300 z-10">
+                    <ul class="menu hidden py-1 text-md text-gray-700 absolute rounded-md bg-white duration-300 z-10">
 
 
                         <li>
@@ -184,7 +185,7 @@
 
                     <!-- Dropdown bidang -->
 
-                    <ul class="menu hidden py-1 text-sm text-gray-700 absolute rounded-md bg-white duration-300 z-10">
+                    <ul class="menu hidden py-1 text-md text-gray-700 absolute rounded-md bg-white duration-300 z-10">
                         <li>
                             <a href="{{ route('sekretariat') }}"
                                 class="block py-2 px-4 hover:bg-gray-100  ">Sekretariat</a>
@@ -214,7 +215,7 @@
                     <!-- Dropdown menu -->
 
                     <ul
-                        class="py-1 text-sm text-gray-700 absolute hidden  rounded-md group-hover:block bg-white  duration-300 z-10">
+                        class="py-1 text-md text-gray-700 absolute hidden  rounded-md group-hover:block bg-white  duration-300 z-10">
                         <li>
                             <a href="/ppid/informasi-berkala" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                 Berkala</a>
@@ -263,7 +264,7 @@
                         <!-- Dropdown menu -->
 
                         <ul
-                            class="py-1 text-sm text-gray-700 absolute hidden  rounded-md group-hover:block bg-white  duration-300 z-10">
+                            class="py-1 text-md text-gray-700 absolute hidden  rounded-md group-hover:block bg-white  duration-300 z-10">
                             <li>
                                 <a href="{{ route('produkhukumperda') }}"
                                     class="block py-2 px-4 hover:bg-gray-100  ">Produk Hukum
@@ -289,7 +290,7 @@
 
         <div class="nav-view nav-desktop">
             <ul
-                class="menu md:bg-transparent flex flex-col text-sm p-4 mt-4 bg-gray-50  rounded-lg   md:flex-row md:space-x-8 md:mt-0 sm-text md:font-medium     ">
+                class="menu md:bg-transparent flex flex-col text-md p-4 mt-4 bg-gray-50  rounded-lg   md:flex-row md:space-x-8 md:mt-0 sm-text md:font-medium     ">
                 <li>
                     <a href="/"
                         class="nav-button font-semibold pr-10 md:pr-3 md:pl-3 transition duration-300 {{ request()->is('/') ? 'active' : '' }}">
@@ -313,7 +314,7 @@
 
 
                     <ul
-                        class="menu py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
+                        class="menu py-1 text-md text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
 
                         <li>
                             <a href="/profil/visimisi" class="block py-2 px-4 hover:bg-gray-100  ">Visi & Misi</a>
@@ -346,7 +347,7 @@
 
 
                     <ul
-                        class="menu py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
+                        class="menu py-1 text-md text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
 
 
                         <li>
@@ -391,7 +392,7 @@
 
 
                     <ul
-                        class="menu py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
+                        class="menu py-1 text-md text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
 
 
                         <li>
@@ -431,7 +432,7 @@
                     <!-- Dropdown bidang -->
 
                     <ul
-                        class="menu py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
+                        class="menu py-1 text-md text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
                         <li>
                             <a href="{{ route('sekretariat') }}"
                                 class="block py-2 px-4 hover:bg-gray-100  ">Sekretariat</a>
@@ -466,7 +467,7 @@
                     <!-- Dropdown menu -->
 
                     <ul
-                        class="menu py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
+                        class="menu py-1 text-md text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
                         <li>
                             <a href="/ppid/informasi-berkala" class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                 Berkala</a>
@@ -520,7 +521,7 @@
                     <!-- Dropdown menu -->
 
                     <ul
-                        class="menu py-1 text-sm text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
+                        class="menu py-1 text-md text-gray-700 absolute hidden rounded-md group-hover:block bg-white  duration-300">
                         <li>
                             <a href="{{ route('produkhukumperda') }}"
                                 class="block py-2 px-4 hover:bg-gray-100  ">Produk Hukum
@@ -551,12 +552,12 @@
 
 
     <footer class="">
-        <div class=" min-h-[500px] bg-primary sm:px-16 px-10 sm:pb-16 pb-10 sm:pt-10 pt-5">
+        <div class=" min-h-[500px] bgcolor-primary sm:px-16 px-10 sm:pb-16 pb-10 sm:pt-10 pt-5">
             <div class="grid md:grid-cols-4 sd:grid-cols-3 grid-cols-2 gap-10">
                 <div class="col-span-2">
                     <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">
                         Sejarah Singkat</p>
-                    <p class="text-white/80 text-sm font-light mb-6 text-justify" data-aos="fade-up" id="short_his">
+                    <p class="text-white/80 text-md font-light mb-6 text-justify" data-aos="fade-up" id="short_his">
                     </p>
 
                     <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">
@@ -568,21 +569,21 @@
                 <div>
                     <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">
                         Contact</p>
-                    <p class="text-white text-sm font-bold italic" data-aos="fade-up">
+                    <p class="text-white text-md font-bold italic" data-aos="fade-up">
                         Email</p>
-                    <p class="text-white/80 text-sm font-light mb-3 textEmail" data-aos="fade-up"></p>
+                    <p class="text-white/80 text-md font-light mb-3 textEmail" data-aos="fade-up"></p>
 
-                    <p class="text-white text-sm font-bold italic" data-aos="fade-up">
+                    <p class="text-white text-md font-bold italic" data-aos="fade-up">
                         Alamat</p>
-                    <p class="text-white/80 text-sm font-light mb-3 textAddress" data-aos="fade-up"></p>
+                    <p class="text-white/80 text-md font-light mb-3 textAddress" data-aos="fade-up"></p>
 
-                    <p class="text-white text-sm font-bold italic" data-aos="fade-up">
+                    <p class="text-white text-md font-bold italic" data-aos="fade-up">
                         Phone</p>
-                    <p class="text-white/80 text-sm font-light mb-3 textPhone" data-aos="fade-up"></p>
+                    <p class="text-white/80 text-md font-light mb-3 textPhone" data-aos="fade-up"></p>
 
-                    <p class="text-white text-sm font-bold italic" data-aos="fade-up">
+                    <p class="text-white text-md font-bold italic" data-aos="fade-up">
                         Jam Kerja</p>
-                    <p class="text-white/80 text-sm font-light textOfficeHours" style="white-space: pre-wrap;"
+                    <p class="text-white/80 text-md font-light textOfficeHours" style="white-space: pre-wrap;"
                         data-aos="fade-up"></p>
                 </div>
                 <div>
@@ -628,11 +629,19 @@
                         </a>
 
                     </div>
+                    <footer class="visitors mt-5">
+                        <h2 style="color: white">Kunjungan website</h2>
+                        <p>Kunjungan Hari Ini: {{ $todayVisitors }}</p>
+                        <p>Kunjungan Kemaren: {{ $yesterdayVisitors }}</p>
+                        <p>Kunjungan Bulan Ini: {{ $thisMonthVisitors }}</p>
+                        <p style="font-weight: bold">Total Kunjungan: {{ $totalVisitors }}</p>
+
+                    </footer>
 
                 </div>
             </div>
         </div>
-        <div class="min-h-[75px] bg-primary flex items-center justify-center">
+        <div class="min-h-[75px] bgcolor2-primary flex items-center justify-center">
             <p class="h-full text-center text-white">@BPKAD Surakarta 2022</p>
         </div>
     </footer>
@@ -646,6 +655,7 @@
                 buttonPosition: 'right', // default is 'left'
             });
         }
+        php
     </script>
 
 

@@ -22,10 +22,10 @@
             <div class="overlay-text">
                 <a class="font-bold text-white  text-4xl">Artikel </a> <a class="font-bold text-4xl text-white">BPKAD</a>
                 <br>
-                <a class="sm:font-bold text-white sm:text-md text-sm font-light">Artikel terbaru dari kami</a>
+                <a class="sm:font-bold text-white sm:text-md text-md font-light">Artikel terbaru dari kami</a>
             </div>
         </div>
-        <img class="background-image" src="{{ asset('assets/local/gedung.jpg') }}" alt="Background" />
+        <img class="background-image" src="{{ asset('assets/local/artikel.png') }}" alt="Background" />
     </div>
 
     <section class="py-12 px-4 sm:px-10 bg-white mt-16 mb-16">

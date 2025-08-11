@@ -22,24 +22,24 @@
             <div class="overlay-text">
                 <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">SEKRETARIAT </a> <a
                     class="font-bold text-4xl text-white inline-block ">BPKAD</a> <br>
-                <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-sm font-light">Sekretariat Badan
+                <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-md font-light">Sekretariat Badan
                     Pengelolaan Keuangan dan Aset Daerah
                     dipimpin oleh seorang Sekretaris yang berkedudukan di bawah dan bertanggung jawab kepada Kepala
                     Badan</a>
             </div>
         </div>
-        <img class="background-image" src="{{ asset('assets/local/gedung.jpg') }}" alt="Background" />
+        <img class="background-image" src="{{ asset('assets/local/skretariat.png') }}" alt="Background" />
     </div>
 
 
     <x-panel-content title="Tugas Sekretariat" cardStyle="margin-bottom: 10px; margin-top: 50px;">
-        <p class="text-sm   mx-auto">{!! $data ? $data->job : '' !!}</p>
+        <p class="text-md   mx-auto">{!! $data ? $data->job : '' !!}</p>
     </x-panel-content>
     <x-panel-content title="Sub Bidang" cardStyle="margin-bottom: 10px; margin-top: 50px;">
-        <p class="text-sm  md:w-[50%] sm:w-[80%] w-[95%]  mb-3">{!! $data ? $data->sub_sector : '' !!}</p>
+        <p class="text-md  md:w-[50%] sm:w-[80%] w-[95%]  mb-3">{!! $data ? $data->sub_sector : '' !!}</p>
     </x-panel-content>
     <x-panel-content title="Tugas Sub Bidang    " cardStyle="margin-bottom: 10px; margin-top: 50px;">
-        <p class="text-sm   mx-auto mb-3">{!! $data ? $data->sub_sector_job : '' !!}</p>
+        <p class="text-md   mx-auto mb-3">{!! $data ? $data->sub_sector_job : '' !!}</p>
     </x-panel-content>
 
 

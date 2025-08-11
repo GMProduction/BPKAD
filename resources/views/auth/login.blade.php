@@ -20,7 +20,7 @@
     <div class="login-card">
         {{-- Bagian Kiri: Gambar --}}
         <div class="login-image">
-            <img src="{{ asset('assets/local/gedung.jpg') }}" alt="BPKAD Kantor" />
+            <img src="{{ asset('assets/local/gedung.png') }}" alt="BPKAD Kantor" />
         </div>
 
         {{-- Bagian Kanan: Form Login --}}

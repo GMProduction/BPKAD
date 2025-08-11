@@ -11,7 +11,7 @@
     <x-page-header>
         <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">INFORMASI </a> <a
             class="font-bold text-4xl text-white inline-block ">BPKAD</a> <br>
-        <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-sm font-light">Bidang Aset dipimpin
+        <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-md font-light">Bidang Aset dipimpin
             oleh
             seorang Kepala Bidang yang berkedudukan dibawah dan bertanggung jawab kepada Kepala Badan melalui
             Sekretaris</a>
@@ -35,10 +35,10 @@
                 <tbody>
                     @foreach ($results as $v)
                         <tr>
-                            <td class="text-sm text-center ai-save">{{ $loop->index + 1 }}</td>
-                            <td class="text-sm">{{ $v['name'] }}</td>
+                            <td class="text-md text-center ai-save">{{ $loop->index + 1 }}</td>
+                            <td class="text-md">{{ $v['name'] }}</td>
                             @foreach ($v['year'] as $year)
-                                <td class="text-sm">
+                                <td class="text-md">
                                     @if ($year['type'] === 0)
                                         <a class="block text-center text-blue-600" href="{{ $year['document'] }}">Link</a>
                                     @elseif($year['type'] === 1)

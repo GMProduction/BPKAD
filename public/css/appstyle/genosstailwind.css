@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
@@ -93,6 +94,12 @@ body::-webkit-scrollbar {
   .nav-top .text {
     font-size: 1.2rem;
   }
+}
+
+.visitors p {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
 }
 
 .mobile-menu ul li .menu {
@@ -216,6 +223,21 @@ body::-webkit-scrollbar {
 
 .mobile-menu {
   display: none;
+}
+
+.bgcolor-primary {
+  background-color: #090541;
+}
+
+.bgcolor2-primary {
+  background-color: #040225;
+}
+
+.w-logo {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-bottom: 30px;
 }
 
 .berita-utama {
@@ -653,7 +675,7 @@ body::-webkit-scrollbar {
   display: inline-block;
 }
 .aspirasi-section .aspirasi-left .card a:hover {
-  background-color: #d23d0e;
+  background-color: rgb(209.7021276596, 61.0042553191, 14.2978723404);
 }
 @media (min-width: 1024px) {
   .aspirasi-section .aspirasi-left .card.second {
@@ -975,11 +997,16 @@ body::-webkit-scrollbar {
 
 .page-content {
   position: relative;
-  height: 350px;
+  height: 650px;
   width: 100%;
 }
+@media (max-width: 700px) {
+  .page-content {
+    height: 350px;
+  }
+}
 .page-content .background-overlay {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.1);
   z-index: 1;
   position: relative;
   height: 100%;
@@ -1011,6 +1038,7 @@ body::-webkit-scrollbar {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  /* ⬅️ Ini geser gambar ke bawah */
 }
 
 .visi-misi-section {

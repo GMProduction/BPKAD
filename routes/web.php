@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LandingPage\HomeController;
+use App\Http\Controllers\LandingPage\VisitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+Route::get('/track-visit', [VisitController::class, 'store']);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', function () {

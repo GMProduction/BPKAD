@@ -8,7 +8,7 @@
                 <a class="font-bold text-white">Standar Pelayanan bpkad surakarta</a>
             </div>
         </div>
-        <img class="background-image" src="{{ asset('assets/local/gedung.jpg') }}" alt="Background" />
+        <img class="background-image" src="{{ asset('assets/local/layanan.png') }}" alt="Background" />
     </div>
 
     <section class="visi-misi-section">
@@ -24,8 +24,57 @@
                     <div class="card-visimisi first">
                         <div class="card-header">Standar Pelayanan</div>
                         <div class="card-body">
-                            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+
+                            <div class="grid grid-cols-2 sm:grid-cols-2 gap-6 mb-5 mt-5">
+                                @php
+                                    // Data bisa dari controller, ini contoh hardcode dari tabel
+                                    $dataBidang = [
+                                        [
+                                            'url' => 'assets/local/skretariat.png',
+                                            'nama' => 'Sekertariat',
+                                            'link' =>
+                                                'https://drive.google.com/drive/folders/1t0vAt7vrjttSsrlH-dvbllLfpDeQvKfm',
+                                        ],
+                                        [
+                                            'url' => 'assets/local/anggaran.png',
+                                            'nama' => 'Anggaran',
+                                            'link' =>
+                                                'https://drive.google.com/open?id=13QCBGgdkkSL4kkeD0X5G1U_nmqqpyObS&authuser=0',
+                                        ],
+                                        [
+                                            'url' => 'assets/local/akunting.png',
+                                            'nama' => 'Perbendaharaan dan Akuntansi',
+                                            'link' =>
+                                                'https://drive.google.com/drive/folders/1r2XIkzkxe-VKrTT2EpdYvQB7W8AiQEcY?usp=share_link',
+                                        ],
+                                        [
+                                            'url' => 'assets/local/aset.png',
+                                            'nama' => 'Aset',
+                                            'link' =>
+                                                'https://drive.google.com/drive/folders/1F-KpyifFcjYZgNPkgYlQq2hxQBlLzVku?usp=share_link',
+                                        ],
+                                    ];
+                                @endphp
+
+                                @foreach ($dataBidang as $bidang)
+                                    <a class="bg-white shadow rounded-lg overflow-hidden block no-underline text-center"
+                                        style="text-decoration: none" href="{{ $bidang['link'] }}" target="_blank">
+                                        {{-- Gambar (contoh pakai gambar default) --}}
+                                        <img src="{{ asset($bidang['url']) }}" alt="Gambar {{ $bidang['nama'] }}"
+                                            class="w-full h-40 object-cover">
+
+                                        <div class="p-2">
+                                            <p class="text-gray-600 flex justify-center items-center font-bold mb-0">
+                                                {{ $bidang['nama'] }}
+                                            </p>
+                                        </div>
+                                    </a>
+                                @endforeach
+                            </div>
+
+
+                            {{-- <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                                <table class="w-full text-md text-left text-gray-500 dark:text-gray-400">
                                     <thead
                                         class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                         <tr>
@@ -105,7 +154,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

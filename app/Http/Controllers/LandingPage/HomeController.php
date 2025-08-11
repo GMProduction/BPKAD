@@ -7,6 +7,8 @@ use App\Models\Article;
 use App\Models\HomeSetting;
 use App\Models\OnlineApplication;
 use App\Models\Slider;
+use App\Models\Visit;
+use Illuminate\Support\Facades\Request;
 
 /**
  * Class HomeController
@@ -19,12 +21,24 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (!session()->has('visited_home')) {
+            Visit::create([
+                'page' => 'home',
+                'ip_address' => Request::ip(),
+            ]);
+
+            session(['visited_home' => true]);
+        }
+
+        // Statistik kunjungan
+
+
         $shortHistory = $this->ShortHistory();
         $online_application = $this->online_applications();
         $slider = $this->image_slider();
         $articles = $this->articles();
         $firstarticle = $this->firstarticle();
-        return view('beranda', ['history' => $shortHistory, 'application' => $online_application, 'slider' => $slider, 'articles' => $articles, 'firstarticle' => $firstarticle,]);
+        return view('beranda', ['history' => $shortHistory, 'application' => $online_application, 'slider' => $slider, 'articles' => $articles, 'firstarticle' => $firstarticle]);
     }
 
     /**

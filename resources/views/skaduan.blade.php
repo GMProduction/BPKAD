@@ -8,7 +8,7 @@
                 <a class="font-bold text-white">SK Pengelola Aduan bpkad surakarta</a>
             </div>
         </div>
-        <img class="background-image" src="{{ asset('assets/local/gedung.jpg') }}" alt="Background" />
+        <img class="background-image" src="{{ asset('assets/local/aduan.png') }}" alt="Background" />
     </div>
 
     <section class="visi-misi-section">
@@ -24,7 +24,7 @@
                     <div class="card-visimisi ">
                         <div class="card-header">SK Pengelola Aduan</div>
                         <div class="card-body">
-                            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            <table class="w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                 <thead
                                     class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>

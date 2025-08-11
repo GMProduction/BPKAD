@@ -10,7 +10,7 @@
 @section('content')
     <x-page-header>
         <a class="font-bold text-white  text-4xl">Artikel </a> <a class="font-bold text-4xl text-white">BPKAD</a> <br>
-        <a class="sm:font-bold text-white sm:text-md text-sm font-light">Artikel terbaru dari kami</a>
+        <a class="sm:font-bold text-white sm:text-md text-md font-light">Artikel terbaru dari kami</a>
     </x-page-header>
 
     <div class="article-detail-page">

@@ -8,7 +8,8 @@
                 <a>Profil BPKAD Surakarta</a>
             </div>
         </div>
-        <img class="background-image" src="{{ asset('assets/local/gedung.jpg') }}" alt="Background" />
+        <img class="background-image" src="{{ asset('assets/local/visimisi.png') }}" alt="Background"
+            style="object-position: center top;" />
     </div>
 
 
@@ -25,7 +26,7 @@
                     <div class="card-visimisi first">
                         <div class="card-header">Visi</div>
                         <div class="card-body">
-                            <p class="text-sm   mx-auto">{!! $data ? $data->vision : '' !!}</p>
+                            <p class="text-md   mx-auto">{!! $data ? $data->vision : '' !!}</p>
                         </div>
                     </div>
 
@@ -33,7 +34,7 @@
                     <div class="card-visimisi second">
                         <div class="card-header">Misi</div>
                         <div class="card-body">
-                            <p class="text-sm   mx-auto mb-3">{!! $data ? $data->mission : '' !!}</p>
+                            <p class="text-md   mx-auto mb-3">{!! $data ? $data->mission : '' !!}</p>
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,7 @@
                 <a class="font-bold text-white">SK Pengelola Website BPKAD Surakarta</a>
             </div>
         </div>
-        <img class="background-image" src="{{ asset('assets/local/gedung.jpg') }}" alt="Background" />
+        <img class="background-image" src="{{ asset('assets/local/skweb.png') }}" alt="Background" />
     </div>
 
 

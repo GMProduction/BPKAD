@@ -9,7 +9,7 @@
                 <a class="font-bold text-white">Profil bpkad surakarta</a>
             </div>
         </div>
-        <img class="background-image" src="{{ asset('assets/local/gedung.jpg') }}" alt="Background" />
+        <img class="background-image" src="{{ asset('assets/local/struktur.png') }}" alt="Background" />
     </div>
 
 
