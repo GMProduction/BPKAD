@@ -35,15 +35,13 @@
 
 
         @if (\Illuminate\Support\Facades\Session::has('failed'))
-            <div class="p-4 mb-4 text-md text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
-                role="alert">
+            <div class="p-4 mb-4 text-md text-red-700 bg-red-100 rounded-lg  " role="alert">
                 <span class="font-medium">Gagal!</span>
                 {{ \Illuminate\Support\Facades\Session::get('failed') }}
             </div>
         @endif
         @if (\Illuminate\Support\Facades\Session::has('success'))
-            <div class="p-4 mb-4 text-md text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
-                role="alert">
+            <div class="p-4 mb-4 text-md text-green-700 bg-green-100 rounded-lg " role="alert">
                 <span class="font-medium">Berhasil!</span> {{ \Illuminate\Support\Facades\Session::get('success') }}
             </div>
         @endif

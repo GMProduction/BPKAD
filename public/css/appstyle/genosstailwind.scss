@@ -3,9 +3,10 @@ $primary-color: #ff4400;
 body {
     -ms-overflow-style: none; /* Internet Explorer 10+ */
     scrollbar-width: none; /* Firefox */
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Poppins", sans-serif !important;
     background-repeat: repeat;
 }
+
 body::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
 }
@@ -14,8 +15,16 @@ body::-webkit-scrollbar {
     color: $primary-color;
 }
 
+.motto-text font,
+.motto-text span,
+.motto-text p,
+.motto-text div {
+    font-family: "Poppins", sans-serif !important;
+}
+
 .nav-top {
     height: 150px;
+    min-height: 75px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -23,6 +32,25 @@ body::-webkit-scrollbar {
     position: relative;
     padding: 0 100px;
     z-index: 10;
+    flex-wrap: wrap;
+
+    @media (max-width: 1600px) {
+        height: 120px;
+    }
+
+    @media (max-width: 1366px) {
+        height: 100px;
+    }
+
+    @media (max-width: 900px) {
+        height: 85px;
+        padding: 0 50px;
+    }
+
+    @media (max-width: 560px) {
+        height: 50px;
+        padding: 0 20px;
+    }
 
     .logo-container {
         display: flex;
@@ -32,17 +60,60 @@ body::-webkit-scrollbar {
         .logo {
             height: 100px;
             max-height: 100px;
+            min-height: 30px;
+
+            @media (max-width: 1600px) {
+                height: 85px;
+                max-height: 85px;
+            }
+
+            @media (max-width: 1366px) {
+                height: 70px;
+                max-height: 70px;
+            }
+
+            @media (max-width: 900px) {
+                height: 40px;
+                max-height: 40px;
+            }
+
+            @media (max-width: 560px) {
+                height: 40px;
+                max-height: 40px;
+            }
         }
     }
 
     .text {
-        font-size: xx-large;
+        font-size: 5rem;
         font-weight: bold;
         color: white;
         text-align: center;
         flex: 1;
         z-index: 10;
         text-decoration: none;
+
+        @media (max-width: 1900px) {
+            font-size: 3em;
+        }
+
+        @media (max-width: 1600px) {
+            font-size: 2rem;
+        }
+
+        @media (max-width: 1366px) {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 560px) {
+            font-size: 1rem;
+            width: 100%;
+            text-align: center;
+        }
     }
 
     .img {
@@ -53,55 +124,22 @@ body::-webkit-scrollbar {
         left: 0;
         object-fit: cover;
         z-index: 0;
-    }
 
-    // Responsive styles
-    @media (max-width: 1024px) {
-        padding: 0 50px;
-
-        .text {
-            font-size: x-large;
+        @media (max-width: 1600px) {
+            height: 130px;
         }
 
-        .logo-container .logo {
-            height: 80px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-        justify-content: center;
-        height: auto;
-        padding: 1rem;
-
-        .logo-container {
-            justify-content: center;
-
-            .logo {
-                height: 70px;
-            }
+        @media (max-width: 1366px) {
+            height: 110px;
         }
 
-        .text {
-            font-size: 1.5rem;
-            margin-top: 0.5rem;
+        @media (max-width: 900px) {
+            height: 90px;
         }
 
-        .img {
-            height: 100%;
+        @media (max-width: 560px) {
+            // height: 75px;
         }
-    }
-
-    @media (max-width: 480px) {
-        .logo-container .logo {
-            height: 60px;
-        }
-
-        .text {
-            font-size: 1.2rem;
-        }
-
-        padding: 1rem;
     }
 }
 
@@ -257,6 +295,36 @@ body::-webkit-scrollbar {
     width: 80%;
     margin-bottom: 30px;
 }
+
+.article-share {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 20px;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.share-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.share-btn .icon {
+    width: 18px;
+    height: 18px;
+}
+
 .berita-utama {
     display: flex;
     flex-direction: column;
@@ -795,6 +863,7 @@ body::-webkit-scrollbar {
         background: #fff;
         padding: 2rem;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
 
         .article-title {
             font-size: 2rem;
@@ -831,6 +900,16 @@ body::-webkit-scrollbar {
         .article-description {
             text-align: justify;
 
+            h1 {
+                font-size: 1.2rem !important;
+            }
+
+            p {
+                font-size: 1.2rem !important;
+            }
+            span {
+                font-size: 1.2rem !important;
+            }
             img {
                 width: 100%;
                 height: auto;
@@ -1122,7 +1201,7 @@ body::-webkit-scrollbar {
     }
 
     .background-overlay {
-        background-color: rgba(0, 0, 0, 0.1);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
         z-index: 1;
         position: relative;
         height: 100%;
@@ -1171,11 +1250,11 @@ body::-webkit-scrollbar {
             position: absolute;
             top: 0;
             left: 0;
+            z-index: -1;
             object-fit: cover;
-
-            @media (max-width: 1024px) {
-                width: 100%;
-            }
+            opacity: 0.04;
+            width: 100%;
+            height: 100%;
         }
     }
 
@@ -1241,7 +1320,7 @@ body::-webkit-scrollbar {
 
         .card-body {
             padding: 2.5rem;
-            font-size: 1rem;
+            font-size: 1.2rem;
             line-height: 1.6;
             border: 1px solid #eee;
 

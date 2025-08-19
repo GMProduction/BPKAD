@@ -162,10 +162,11 @@
 
                 <div class="video-embeds" data-aos="fade-left">
                     <div class="video-frame">
-                        <iframe src="https://www.youtube.com/embed/DwFg8kWMTVE?si=q0ErLcCqDvR5cwE8" ...></iframe>
+                        <iframe src="https://www.youtube.com/embed/TxcQoGkREi8?si=ebCEHn7a74a-ID1N"></iframe>
                     </div>
                     <div class="video-frame second">
-                        <iframe src="https://www.youtube.com/embed/doGpA_fipuM?si=4ubw8YoDz4EH9ZrF" ...></iframe>
+                        <iframe width="560" height="315"
+                            src="https://www.youtube-nocookie.com/embed/ZeKplTL-1Xw?si=nvOtho3Z7jfCz9Jn"> </iframe>
                     </div>
                 </div>
 
@@ -316,21 +317,5 @@
                     document.querySelector('.textPhoneH').innerHTML = data?.phone
                 })
         }
-
-        document.querySelectorAll('.berita-utama__content p').forEach(p => {
-            const children = Array.from(p.childNodes);
-
-            const onlyAllowed = children.every(child => {
-                return (
-                    (child.nodeType === 1 && (child.tagName === 'IMG' || child.tagName === 'BR')) ||
-                    // <img> atau <br>
-                    (child.nodeType === 3 && child.textContent.trim() === '') // text node kosong
-                );
-            });
-
-            if (onlyAllowed) {
-                p.style.display = 'none';
-            }
-        });
     </script>
 @endsection

@@ -24,9 +24,8 @@
                     <div class="card-visimisi ">
                         <div class="card-header">SK Pengelola Aduan</div>
                         <div class="card-body">
-                            <table class="w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <table class="w-full text-md text-left rtl:text-right text-gray-500 ">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Tahun
@@ -39,9 +38,9 @@
                                 </thead>
                                 <tbody>
                                     @forelse($data as $d)
-                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <tr class="bg-white border-b ">
                                             <th scope="row"
-                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                                 {{ $d->year }}
                                             </th>
                                             <td class="px-6 py-4">
@@ -54,9 +53,9 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <tr class="bg-white border-b ">
                                             <th scope="row" colspan="5"
-                                                class="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                class="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap ">
                                                 Data tidak tersedia
                                             </th>
                                         </tr>

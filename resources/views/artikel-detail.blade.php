@@ -15,9 +15,18 @@
 
     <div class="article-detail-page">
         <div class="article-container">
+
+
+
             <!-- Konten Kiri: Artikel -->
             <div class="article-main">
                 @if ($article)
+                    <div class="article-share">
+                        <button class="share-btn" onclick="shareArticle()">
+                            <span class="material-symbols-outlined">share</span>
+                            Bagikan
+                        </button>
+                    </div>
                     <h1 class="article-title">{{ $article->title }}</h1>
                     <p class="article-date">{{ date_format($article->created_at, 'd F Y') }}</p>
 
@@ -68,5 +77,21 @@
                 .columns.adjust()
                 .responsive.recalc();
         });
+    </script>
+
+    <script>
+        function shareArticle() {
+            const url = window.location.href;
+            if (navigator.share) {
+                navigator.share({
+                    title: document.title,
+                    url: url
+                });
+            } else {
+                // fallback copy link
+                navigator.clipboard.writeText(url);
+                alert("Link artikel sudah disalin!");
+            }
+        }
     </script>
 @endsection

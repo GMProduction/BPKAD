@@ -31,10 +31,8 @@
                                 <div class="bg-white p-10   mx-auto shadow-md mb-6 transform transition duration-500">
                                     <p class="text-primary font-bold text-3xl italic  text-center mb-10">Data Aduan</p>
                                     <div class="relative overflow-x-auto">
-                                        <table
-                                            class="w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                            <thead
-                                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <table class="w-full text-md text-left rtl:text-right text-gray-500 ">
+                                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                                                 <tr>
                                                     <th scope="col" class="px-6 py-3">
                                                         Tahun
@@ -53,9 +51,9 @@
                                             </thead>
                                             <tbody>
                                                 @forelse($data as $d)
-                                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                    <tr class="bg-white border-b ">
                                                         <th scope="row"
-                                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                                             {{ $d->year }}
                                                         </th>
                                                         <td class="px-6 py-4">
@@ -70,9 +68,9 @@
 
                                                     </tr>
                                                 @empty
-                                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                    <tr class="bg-white border-b ">
                                                         <th scope="row" colspan="5"
-                                                            class="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                            class="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap ">
                                                             Data tidak tersedia
                                                         </th>
                                                     </tr>
@@ -89,11 +87,10 @@
                                     <p class="text-primary font-bold text-3xl italic  text-center mb-10">Grafik
                                         Pengelola Aduan</p>
                                     <form class="max-w-sm mx-auto mb-12">
-                                        <label for="year"
-                                            class="block mb-2 text-md font-medium text-gray-900 dark:text-white">Pilih
+                                        <label for="year" class="block mb-2 text-md font-medium text-gray-900 ">Pilih
                                             Tahun</label>
                                         <select id="year"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5     ">
                                             @foreach ($years as $year)
                                                 <option {{ $loop->first ? 'selected' : '' }} value="{{ $year }}">
                                                     {{ $year }}

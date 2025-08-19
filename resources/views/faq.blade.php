@@ -12,7 +12,7 @@
                 @foreach ($data as $key => $d)
                     <h2 id="accordion-collapse-heading-{{ $key }}">
                         <button type="button"
-                            class="flex items-center justify-between w-full p-5  rtl:text-right text-gray-500 border border-b-0 border-gray-200 {{ $key == 0 ? 'rounded-t-xl' : '' }} focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+                            class="flex items-center justify-between w-full p-5  rtl:text-right text-gray-500 border border-b-0 border-gray-200 {{ $key == 0 ? 'rounded-t-xl' : '' }} focus:ring-4 focus:ring-gray-200   hover:bg-gray-100  gap-3"
                             data-accordion-target="#accordion-collapse-body-{{ $key }}" aria-expanded="true"
                             aria-controls="accordion-collapse-body-{{ $key }}">
                             <span style="font-size: 1rem">{{ $d->question }}</span>
@@ -25,8 +25,8 @@
                     </h2>
                     <div id="accordion-collapse-body-{{ $key }}" class="hidden"
                         aria-labelledby="accordion-collapse-heading-{{ $key }}">
-                        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                            <p class="mb-2 text-gray-400 dark:text-gray-400">{{ $d->answer }}</p>
+                        <div class="p-5 border border-b-0 border-gray-200 ">
+                            <p class="mb-2 text-gray-900">{{ $d->answer }}</p>
                         </div>
                     </div>
                 @endforeach

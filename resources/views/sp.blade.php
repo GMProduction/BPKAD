@@ -74,9 +74,9 @@
 
 
                             {{-- <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                <table class="w-full text-md text-left text-gray-500 dark:text-gray-400">
+                                <table class="w-full text-md text-left text-gray-500 ">
                                     <thead
-                                        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        class="text-xs text-gray-700 uppercase bg-gray-50  ">
                                         <tr>
                                             <th scope="col" class="px-6 py-3">
                                                 #
@@ -91,9 +91,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                        <tr class="bg-white border-b  dark:border-gray-700">
                                             <th scope="row"
-                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                                 1
                                             </th>
                                             <td class="px-6 py-4">
@@ -107,9 +107,9 @@
                                             </td>
                                         </tr>
 
-                                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                        <tr class="bg-white border-b  dark:border-gray-700">
                                             <th scope="row"
-                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                                 2
                                             </th>
                                             <td class="px-6 py-4">
@@ -122,9 +122,9 @@
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
                                             </td>
                                         </tr>
-                                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                        <tr class="bg-white border-b  dark:border-gray-700">
                                             <th scope="row"
-                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                                 3
                                             </th>
                                             <td class="px-6 py-4">
@@ -137,9 +137,9 @@
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Link</a>
                                             </td>
                                         </tr>
-                                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                        <tr class="bg-white border-b  dark:border-gray-700">
                                             <th scope="row"
-                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                                 4
                                             </th>
                                             <td class="px-6 py-4">

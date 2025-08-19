@@ -10,9 +10,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="{{ asset('css/appstyle/genosstailwind.css') }}" type="text/css">
@@ -37,7 +36,7 @@
     @yield('css')
 </head>
 
-<body style="position: relative">
+<body class="font-poppins" style="position: relative">
     <style>
         iframe {
             width: 100%;
@@ -51,10 +50,11 @@
         }
     </style>
     <div class="nav-top">
-        <a href="/" class=" z-10   logo-container">
+        <a href="/" class=" z-10 logo-container">
             <img src="{{ asset('/assets/local/logosurakarta.png') }}" class="logo  " alt="Surakarta Logo">
             <img src="{{ asset('/assets/local/logobpkad.png') }}" class="logo  " alt="BPKAD Logo">
             <img src="{{ asset('/assets/local/berakhlak.png') }}" class="logo  " alt="Berakhlak Logo">
+            <img src="{{ asset('/assets/local/bangga.png') }}" class="logo  " alt="Berakhlak Logo">
         </a>
         <a class="z-10 text">BPKAD KOTA SURAKARTA</a>
         <img src="{{ asset('assets/local/navtop.png') }}" class="img" />
@@ -655,7 +655,6 @@
                 buttonPosition: 'right', // default is 'left'
             });
         }
-        php
     </script>
 
 
@@ -742,6 +741,22 @@
                         'hidden'));
                 }
             });
+        });
+
+        document.querySelectorAll('.berita-utama__content p').forEach(p => {
+            const children = Array.from(p.childNodes);
+
+            const onlyAllowed = children.every(child => {
+                return (
+                    (child.nodeType === 1 && (child.tagName === 'IMG' || child.tagName === 'BR')) ||
+                    // <img> atau <br>
+                    (child.nodeType === 3 && child.textContent.trim() === '') // text node kosong
+                );
+            });
+
+            if (onlyAllowed) {
+                p.style.display = 'none';
+            }
         });
     </script>
 

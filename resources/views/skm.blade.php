@@ -13,6 +13,12 @@
 
 
     <section class="visi-misi-section">
+
+        <x-panel-content title="Kepuasan Masyarakat tahun {{ $latestYear }}"
+            cardStyle="margin-bottom: 50px; margin-top: 50px;">
+            <img src="{{ asset($highlight) }}" alt="Gambar {{ $highlight }}" class="w-full  object-cover">
+        </x-panel-content>
+
         <x-panel-content title="Survey Kepuasan Masyarakat" cardStyle="margin-bottom: 10px; margin-top: 50px;">
             <p class="text-md   mx-auto">
                 @foreach ($data as $item)

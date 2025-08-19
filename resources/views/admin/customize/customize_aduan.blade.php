@@ -218,8 +218,7 @@
 
     <!-- ============ TAB PANES ============ -->
 
-    <div id="dropdownperaturan"
-        class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+    <div id="dropdownperaturan" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow ">
         <ul id="dropdownperaturan" class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="infoperaturan">
             <!-- tombol pemicu masih memakai id yang sama -->
 

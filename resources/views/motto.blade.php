@@ -28,7 +28,7 @@
                     <div class="card-visimisi first">
                         <div class="card-header">Motto</div>
                         <div class="card-body">
-                            <p class="text-md   mx-auto">{!! $data ? $data->motto : '' !!}</p>
+                            <div class="mx-auto motto-text">{!! $data ? $data->motto : '' !!}</div>
                         </div>
                     </div>
                 </div>

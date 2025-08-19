@@ -11,7 +11,9 @@ module.exports = {
       primary: "#ff4400",
       primarylight: "#23569Fcc",
     },
-    extend: {},
+    extend: {fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },},
   },
   plugins: [
       require("flowbite/plugin"),
