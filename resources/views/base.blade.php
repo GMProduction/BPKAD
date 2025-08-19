@@ -63,7 +63,7 @@
     <nav class="bg-transparent  sticky top-0 z-1 transition duration-300 z-10 shadow-sm " style="background: white">
 
         <div class="nav-view  nav-mobile">
-            <p>BPKAD SURAKARTA</p>
+            <p>BPKAD KOTA SURAKARTA</p>
             <button type="button" class="toggle-menu">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
