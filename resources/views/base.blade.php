@@ -237,18 +237,18 @@
                                 class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                 Dikecualikan</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{ route('information.public') }}"
                                 class="block py-2 px-4 hover:bg-gray-100  ">Daftar Informasi Publik</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="https://simonik.surakarta.go.id/"
                                 class="block py-2 px-4 hover:bg-gray-100  ">Permohonan Informasi</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{ route('information.dasarhukumppid') }}"
                                 class="block py-2 px-4 hover:bg-gray-100  ">Dasar Hukum PPID</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="https://moniks.surakarta.go.id/" target="_blank"
                                 class="block py-2 px-4 hover:bg-gray-100  ">SIMONIKS</a>
@@ -489,18 +489,18 @@
                                 class="block py-2 px-4 hover:bg-gray-100  ">Informasi
                                 Dikecualikan</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{ route('information.public') }}"
                                 class="block py-2 px-4 hover:bg-gray-100  ">Daftar Informasi Publik</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="https://simonik.surakarta.go.id/"
                                 class="block py-2 px-4 hover:bg-gray-100  ">Permohonan Informasi</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{ route('information.dasarhukumppid') }}"
                                 class="block py-2 px-4 hover:bg-gray-100  ">Dasar Hukum PPID</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="https://moniks.surakarta.go.id/" target="_blank"
                                 class="block py-2 px-4 hover:bg-gray-100  ">SIMONIKS</a>
@@ -562,7 +562,10 @@
 
                     <p class="text-xl text-white font-bold mb-6" data-aos="fade-up">
                         Lokasi BPKAD</p>
-                    <div id="frameLocation"></div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.0550613015275!2d110.8284683!3d-7.5689763999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a174d432153d7%3A0x83fb2dafaa28edb1!2sBPPKAD%20Aset%20Daerah%20Surakarta!5e0!3m2!1sen!2sid!4v1755619772389!5m2!1sen!2sid"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
                 </div>

@@ -81,7 +81,7 @@
         $(document).ready(function() {
             $('.panel-category').on('click', function(e) {
                 let slug = this.dataset.slug;
-                window.location.href = '/informasi-berkala/' + slug;
+                window.location.href = '/ppid/informasi-berkala/' + slug;
             })
         });
     </script>

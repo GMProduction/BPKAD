@@ -42,7 +42,7 @@
     </x-panel-content>
 
     <div>
-        <x-panel-content title="Gallery" cardStyle="margin-bottom: 10px; margin-top: 50px; width: 100%">
+        <x-panel-content title="Gallery" cardStyle="margin-bottom: 50px; margin-top: 50px; width: 100%">
 
             @if ($data && $data->images)
                 <div class="bg-white">

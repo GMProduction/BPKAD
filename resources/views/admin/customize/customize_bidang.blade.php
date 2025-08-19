@@ -412,7 +412,7 @@
                         action: 2,
                         '_token': '{{ csrf_token() }}',
                     },
-                    sucess: function(data) {
+                    success: function(data) {
                         console.log('success: ' + data);
                     }
                 });
@@ -495,7 +495,7 @@
                         action: 2,
                         '_token': '{{ csrf_token() }}',
                     },
-                    sucess: function(data) {
+                    success: function(data) {
                         console.log('success: ' + data);
                     }
                 });
@@ -567,14 +567,14 @@
                 $.ajax({
                     type: 'POST',
                     url: '{{ route('customize.bidang.image') }}',
-                    type: 'asset',
                     data: {
                         name: name,
                         id: idImg,
+                        type: 'asset',
                         action: 2,
                         '_token': '{{ csrf_token() }}',
                     },
-                    sucess: function(data) {
+                    success: function(data) {
                         console.log('success: ' + data);
                     }
                 });
