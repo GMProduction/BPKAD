@@ -20,8 +20,8 @@
     <div class="page-content">
         <div class="background-overlay">
             <div class="overlay-text">
-                <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">Aset </a> <a
-                    class="font-bold text-4xl text-white inline-block ">BPKAD</a> <br>
+                <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">BIDANG </a> <a
+                    class="font-bold text-4xl text-white inline-block "> ASET</a> <br>
                 <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-md font-light">Bidang Aset dipimpin
                     oleh
                     seorang Kepala Bidang yang berkedudukan dibawah dan bertanggung jawab kepada Kepala Badan melalui

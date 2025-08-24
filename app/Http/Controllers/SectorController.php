@@ -9,6 +9,7 @@ use App\Models\AssetSector;
 use App\Models\BudgetSector;
 use App\Models\FinancialSector;
 use App\Models\SecretarialSector;
+use App\Models\UPTDSector;
 
 class SectorController extends CustomController
 {
@@ -39,5 +40,11 @@ class SectorController extends CustomController
     {
         $data = AssetSector::first();
         return view('aset')->with(['data' => $data]);
+    }
+
+    public function uptd()
+    {
+        $data = UPTDSector::first();
+        return view('uptd')->with(['data' => $data]);
     }
 }

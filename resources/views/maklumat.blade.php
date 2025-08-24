@@ -4,7 +4,7 @@
     <div class="page-content">
         <div class="background-overlay">
             <div class="overlay-text">
-                <a class="font-bold text-white  text-4xl">MAKMLUMAT PELAYANAN </a> <br>
+                <a class="font-bold text-white  text-4xl">MAKLUMAT PELAYANAN </a> <br>
                 <a class="font-bold text-white">Maklumat Pelayanan bpkad surakarta</a>
             </div>
         </div>

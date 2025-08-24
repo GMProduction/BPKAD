@@ -81,7 +81,7 @@
                         </div>
 
                         {{-- ===== Sosial Media (empat kolom, 2–per‑baris) ===== --}}
-                        <div class="row g-3 mt-1">
+                        <div class="row g-3 mt-1" style="display: none">
                             @php
                                 $socials = [
                                     'instagram' => 'Instagram',

@@ -20,8 +20,8 @@
     <div class="page-content">
         <div class="background-overlay">
             <div class="overlay-text">
-                <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">SEKRETARIAT </a> <a
-                    class="font-bold text-4xl text-white inline-block ">BPKAD</a> <br>
+                <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">BIDANG </a> <a
+                    class="font-bold text-4xl text-white inline-block ">SEKRETARIAT</a> <br>
                 <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-md font-light">Sekretariat Badan
                     Pengelolaan Keuangan dan Aset Daerah
                     dipimpin oleh seorang Sekretaris yang berkedudukan di bawah dan bertanggung jawab kepada Kepala

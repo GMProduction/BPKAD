@@ -20,18 +20,17 @@
     <div class="page-content">
         <div class="background-overlay">
             <div class="overlay-text">
-                <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">BIDANG </a> <a
-                    class="font-bold text-4xl text-white inline-block ">ANGGGARAN</a> <br>
-                <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-md font-light">Bidang Anggaran
-                    dipimpin
-                    oleh seorang Kepala Bidang yang berkedudukan dibawah dan bertanggung jawab kepada Kepala Badan melalui
-                    sekretaris</a>
+                <a class="font-bold text-white  text-4xl mb-3 inline-block mr-3">UPTD </a> <a
+                    class="font-bold text-4xl text-white inline-block "> </a> <br>
+                <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-md font-light">UPTD hadir sebagai
+                    unit pelaksana teknis yang bertugas memberikan pelayanan dan pengelolaan sesuai bidangnya, agar
+                    pelayanan masyarakat menjadi lebih cepat, mudah, dan tepat sasaran</a>
             </div>
         </div>
-        <img class="background-image" src="{{ asset('assets/local/anggaran.png') }}" alt="Background" />
+        <img class="background-image" src="{{ asset('assets/local/uptd.png') }}" alt="Background" />
     </div>
 
-    <x-panel-content title="Tugas Anggaran" cardStyle="margin-bottom: 10px; margin-top: 50px;">
+    <x-panel-content title="Tugas UPTD" cardStyle="margin-bottom: 10px; margin-top: 50px;">
         <p class="text-md   mx-auto">{!! $data ? $data->job : '' !!}</p>
     </x-panel-content>
     <x-panel-content title="Sub Bidang" cardStyle="margin-bottom: 10px; margin-top: 50px;">
@@ -76,7 +75,6 @@
         <!-- A big image will be displayed here -->
         <img id="modal-img" class="max-w-[90%] max-h-[90%]  object-cover" />
     </div>
-
 @endsection
 
 @section('morejs')

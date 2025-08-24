@@ -150,6 +150,7 @@ Route::middleware(\App\Http\Middleware\SecurityHeader::class)->group(function ()
         Route::get('/anggaran', [\App\Http\Controllers\LandingPage\SectorController::class, 'anggaran'])->name('anggaran');
         Route::get('/perbendaharaan-dan-akuntansi', [\App\Http\Controllers\LandingPage\SectorController::class, 'perbendaharaan'])->name('perbendaharaan');
         Route::get('/aset', [\App\Http\Controllers\LandingPage\SectorController::class, 'aset'])->name('aset');
+        Route::get('/uptd', [\App\Http\Controllers\LandingPage\SectorController::class, 'uptd'])->name('uptd');
     });
 
     Route::group(['prefix' => 'ppid'], function () {

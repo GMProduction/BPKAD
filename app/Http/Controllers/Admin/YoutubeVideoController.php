@@ -60,18 +60,30 @@ class YoutubeVideoController extends CustomController
                 'iframe.regex'    => 'iframe harus mengandung iframe & youtube.com',
             ]
         );
-
         $field['url'] = $field['iframe'];
-        if ($data) {
-            $data->update($field);
-            $message = 'merubah';
-        } else {
-            $data = new YoutubeVideo();
-            $data->create($field);
-            $message = 'menambah';
-        }
+        $url = $field['url'];
+        if (preg_match('/(?:youtube\.com\/watch\?v=)([a-zA-Z0-9_-]+)/', $url, $matches)) {
+            $videoId = $matches[1];
+            $embedUrl = "https://www.youtube.com/embed/" . $videoId;
 
-        return redirect()->back()->with('success', "berhasil $message data...");
+
+
+            if ($data) {
+                // update record lama
+                $data->update([
+                    'url' => $embedUrl
+                ]);
+                $message = 'merubah';
+            } else {
+                // create record baru
+                $data = YoutubeVideo::create([
+                    'url' => $embedUrl
+                ]);
+                $message = 'menambah';
+            }
+
+            return redirect()->back()->with('success', "berhasil $message data...");
+        }
     }
 
     public function destroy(YoutubeVideo $youtube)

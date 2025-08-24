@@ -61,6 +61,10 @@
                         <button class="nav-link" id="aset-tab" data-bs-toggle="tab" data-bs-target="#aset" type="button"
                             role="tab" aria-controls="aset" aria-selected="false">Aset</button>
                     </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="uptd-tab" data-bs-toggle="tab" data-bs-target="#uptd" type="button"
+                            role="tab" aria-controls="uptd" aria-selected="false">UPTD</button>
+                    </li>
                 </ul>
 
                 <div class="tab-content panel-body" id="bpkadTabsContent">
@@ -103,8 +107,9 @@
                     <!-- Anggaran Tab -->
                     <div class="tab-pane fade" id="anggaran" role="tabpanel" aria-labelledby="anggaran-tab">
                         @if ($data_budget_sector)
-                            <form id="formImgbudget" class="dropzone mt-4" action="{{ route('customize.bidang.image') }}"
-                                method="POST" enctype="multipart/form-data">
+                            <form id="formImgbudget" class="dropzone mt-4"
+                                action="{{ route('customize.bidang.image') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="type" value="budget">
                                 <div class="fallback">
@@ -205,6 +210,41 @@
                             </div>
                         </form>
                     </div>
+
+                    <!-- UPTD Tab -->
+                    <div class="tab-pane fade" id="uptd" role="tabpanel" aria-labelledby="uptd-tab">
+                        @if ($data_uptd_sector)
+                            <form id="formImguptd" class="dropzone mt-4" action="{{ route('customize.bidang.image') }}"
+                                method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="type" value="uptd">
+                                <div class="fallback">
+                                    <input name="image" type="file" multiple />
+                                </div>
+                            </form>
+                        @endif
+                        <form method="post" class="form-horizontal mt-4">
+                            @csrf
+                            <input type="hidden" name="type" value="uptd">
+                            <div class="form-group mb-3">
+                                <label class="form-label">Tugas UPTD</label>
+                                <textarea class="form-control summernote" name="job">{{ $data_uptd_sector !== null ? $data_uptd_sector->job : '' }}</textarea>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Sub Bidang</label>
+                                <textarea class="form-control summernote" name="sub_sector">{{ $data_uptd_sector !== null ? $data_uptd_sector->sub_sector : '' }}</textarea>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="form-label">Tugas Sub Bidang</label>
+                                <textarea class="form-control summernote" name="sub_sector_job">{{ $data_uptd_sector !== null ? $data_uptd_sector->sub_sector_job : '' }}</textarea>
+                            </div>
+                            <div class="text-end">
+                                <button type="submit" class=" bt-primary">
+                                    <span class="material-symbols-outlined">save</span> Simpan
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -238,7 +278,7 @@
             Swal.fire({
                 title: 'Konfirmasi',
                 icon: 'info',
-                text: 'Yakin ingin merubah data bidang sekertariat?',
+                text: 'Yakin ingin merubah data bidang Sekertariat?',
                 showCloseButton: true,
                 showCancelButton: true,
                 focusConfirm: false,
@@ -281,7 +321,7 @@
             });
         });
 
-        $('#btn-save-asset').on('click', function(e) {
+        $('#btn-save-uptd').on('click', function(e) {
             e.preventDefault();
             Swal.fire({
                 title: 'Konfirmasi',
@@ -293,6 +333,22 @@
             }).then(function(result) {
                 if (result) {
                     $('#form-asset').submit();
+                }
+            });
+        });
+
+        $('#btn-save-uptd').on('click', function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Konfirmasi',
+                icon: 'info',
+                text: 'Yakin ingin merubah data bidang uptd?',
+                showCloseButton: true,
+                showCancelButton: true,
+                focusConfirm: false,
+            }).then(function(result) {
+                if (result) {
+                    $('#form-uptd').submit();
                 }
             });
         });
@@ -608,6 +664,85 @@
                 var existing_files = $('[name="image[]"]').val();
                 $.get('{{ route('customize.bidang.image') }}', {
                     'type': 'asset'
+                }, function(data) {
+                    if (data['status'] === 200) {
+                        var img = data['payload'];
+                        $.each(img, function(key, value) {
+
+                            var mockFile = {
+                                name: value['image'],
+                                size: value['size'],
+                                idImg: value['id']
+                            };
+                            myDropzone.displayExistingFile(mockFile, value['image']);
+                        })
+
+                    }
+                })
+                // $('.dz-image img').attr('height', '120');
+            }
+
+        };
+
+        Dropzone.options.formImguptd = {
+            paramName: 'image',
+            acceptedFiles: ".png,.jpg,.gif,.bmp,.jpeg",
+            addRemoveLinks: true,
+            maxFilesize: 2,
+            removedfile: function(file) {
+                var idImg, name;
+                if (file.xhr) {
+                    idImg = JSON.parse(file.xhr.response)['payload']['id'];
+                    name = JSON.parse(file.xhr.response)['payload']['image'];
+                } else {
+                    idImg = file['idImg'];
+                    name = file['name'];
+                }
+                alert("gambar dihapus")
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('customize.bidang.image') }}',
+                    data: {
+                        name: name,
+                        id: idImg,
+                        type: 'uptd',
+                        action: 2,
+                        '_token': '{{ csrf_token() }}',
+                    },
+                    success: function(data) {
+                        console.log('success: ' + data);
+                    }
+                });
+                var _ref;
+                $('.dz-message').remove()
+                return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) :
+                    void 0;
+            },
+            sending: function(file, xhr, formData) {
+                file.myCustomName = "my-new-name" + file.name;
+                // formData.append("filesize", file.size);
+                formData.append("fileName", file.myCustomName);
+                formData.append("id_achievement", $('#visi #id').val());
+            },
+            success: function(file, response) {
+
+                file.previewElement.querySelector("img").src = response['payload']['image'];
+                file.previewElement.children[1].children[1].children[0].innerHTML = response['payload']['image'];
+                file.previewElement.children[1].children[0].children[0].innerHTML = response['payload']['size'];
+                $('.dz-image img').attr('height', '120')
+
+            },
+            accept: function(file, done) {
+
+                done();
+                return;
+            },
+            init: async function() {
+                let myDropzone = this;
+
+                var existing_files = $('[name="image[]"]').val();
+                $.get('{{ route('customize.bidang.image') }}', {
+                    'type': 'uptd'
                 }, function(data) {
                     if (data['status'] === 200) {
                         var img = data['payload'];

@@ -31,7 +31,7 @@
                                     $dataBidang = [
                                         [
                                             'url' => 'assets/local/skretariat.png',
-                                            'nama' => 'Sekertariat',
+                                            'nama' => 'Sekretariat',
                                             'link' =>
                                                 'https://drive.google.com/drive/folders/1t0vAt7vrjttSsrlH-dvbllLfpDeQvKfm',
                                         ],
@@ -50,6 +50,12 @@
                                         [
                                             'url' => 'assets/local/aset.png',
                                             'nama' => 'Aset',
+                                            'link' =>
+                                                'https://drive.google.com/drive/folders/1F-KpyifFcjYZgNPkgYlQq2hxQBlLzVku?usp=share_link',
+                                        ],
+                                        [
+                                            'url' => 'assets/local/uptd.png',
+                                            'nama' => 'UPTD',
                                             'link' =>
                                                 'https://drive.google.com/drive/folders/1F-KpyifFcjYZgNPkgYlQq2hxQBlLzVku?usp=share_link',
                                         ],
@@ -97,7 +103,7 @@
                                                 1
                                             </th>
                                             <td class="px-6 py-4">
-                                                Sekertariat
+                                                Sekretariat
                                             </td>
 
                                             <td class="px-6 py-4">

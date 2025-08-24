@@ -8,6 +8,7 @@ use App\Models\HomeSetting;
 use App\Models\OnlineApplication;
 use App\Models\Slider;
 use App\Models\Visit;
+use App\Models\YoutubeVideo;
 use Illuminate\Support\Facades\Request;
 
 /**
@@ -38,7 +39,8 @@ class HomeController extends Controller
         $slider = $this->image_slider();
         $articles = $this->articles();
         $firstarticle = $this->firstarticle();
-        return view('beranda', ['history' => $shortHistory, 'application' => $online_application, 'slider' => $slider, 'articles' => $articles, 'firstarticle' => $firstarticle]);
+        $youtube = YoutubeVideo::get();
+        return view('beranda', ['history' => $shortHistory, 'application' => $online_application, 'slider' => $slider, 'articles' => $articles, 'firstarticle' => $firstarticle, 'youtube' => $youtube,]);
     }
 
     /**

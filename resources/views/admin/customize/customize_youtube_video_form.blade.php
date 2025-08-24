@@ -8,68 +8,32 @@
 @endsection
 
 @section('content-customize')
-    <div class="panel h-full">
+    <div class="panel-container">
 
-        <nav class="flex mb-6" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                <li class="inline-flex items-center">
-                    <a href="{{ route('dashboard') }}"
-                        class="inline-flex items-center text-md font-medium text-gray-700 hover:text-gray-900  ">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
-                            </path>
-                        </svg>
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <a href="{{ route('customize.youtube') }}"
-                            class="ml-1 text-md font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Customize
-                            Video Youtube</a>
-                    </div>
-                </li>
-                <li>
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="ml-1 text-md font-medium text-gray-700 hover:text-gray-900 md:ml-2  ">Form</span>
-                    </div>
-                </li>
-            </ol>
-        </nav>
-        @if (\Illuminate\Support\Facades\Session::has('failed'))
-            <div class="p-4 mb-4 text-md text-red-700 bg-red-100 rounded-lg  " role="alert">
-                <span class="font-medium">Gagal!</span>
-                {{ \Illuminate\Support\Facades\Session::get('failed') }}
+
+        @if (Session::has('failed'))
+            <div class="alert alert-danger">
+                <strong>Gagal!</strong> {{ Session::get('failed') }}
             </div>
         @endif
-        @if (\Illuminate\Support\Facades\Session::has('success'))
-            <div class="p-4 mb-4 text-md text-green-700 bg-green-100 rounded-lg " role="alert">
-                <span class="font-medium">Berhasil!</span> {{ \Illuminate\Support\Facades\Session::get('success') }}
+
+        @if (Session::has('success'))
+            <div class="alert alert-success">
+                <strong>Berhasil!</strong> {{ Session::get('success') }}
             </div>
         @endif
-        <p class="title">Form Video Youtube</p>
 
-        <div class="p-5 border bg-white shadow-md">
+
+        <div class="panel">
+            <div class="panel-heading">
+                <h4 class="panel-title">Form Video Youtube</h4>
+            </div>
             <form method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-6">
-                    <label for="iframe" class="block mb-2 text-md font-medium text-gray-600 ">Iframe Youtube</label>
-                    <textarea type="text" id="iframe" rows="4" required
-                        class="bg-gray-50 border {{ $errors->has('instagram') ? 'border-red-500' : 'border-gray-300' }} text-gray-900 text-md  block w-full p-2.5 "
-                        placeholder="Ifram youtube" name="iframe">{{ old('iframe', $data ? $data->url : '') }}</textarea>
+                    <label for="iframe" class="form-label">Link Video Youtube</label>
+                    <textarea type="text" id="iframe" rows="4" required class="form-control" placeholder="Ifram youtube"
+                        name="iframe">{{ old('iframe', $data ? $data->url : '') }}</textarea>
                     @if ($errors->has('iframe'))
                         <span class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1">
                             {{ $errors->first('iframe') }}
@@ -77,15 +41,15 @@
                     @endif
                 </div>
 
-                {!! $data ? $data->url : '' !!}
+                <div class="d-flex justify-content-end mt-5">
+                    <button type="submit" class="bt-primary  ml-auto">
+                        <span class="material-symbols-outlined">save</span> Simpan
+                    </button>
+                </div>
 
-                <button type="submit"
-                    class="flex ml-auto items-center text-white bg-primary hover:bg-primarylight focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 mr-2 mb-2   focus:outline-none ">
-                    <span class="material-symbols-outlined text-white mr-3">
-                        save
+                {{-- {!! $data ? $data->url : '' !!} --}}
 
-                    </span>Simpan
-                </button>
+
             </form>
         </div>
     </div>

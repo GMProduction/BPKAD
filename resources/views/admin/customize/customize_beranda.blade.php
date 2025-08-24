@@ -11,15 +11,15 @@
     <div class="panel-container">
 
 
-        @if (Session::has('failed'))
-            <div class="alert alert-danger">
-                <strong>Gagal!</strong> {{ Session::get('failed') }}
+        @if (\Illuminate\Support\Facades\Session::has('failed'))
+            <div class="p-4 mb-4 text-md text-red-700 bg-red-100 rounded-lg  " role="alert">
+                <span class="font-medium">Gagal!</span>
+                {{ \Illuminate\Support\Facades\Session::get('failed') }}
             </div>
         @endif
-
-        @if (Session::has('success'))
-            <div class="alert alert-success">
-                <strong>Berhasil!</strong> {{ Session::get('success') }}
+        @if (\Illuminate\Support\Facades\Session::has('success'))
+            <div class="p-4 mb-4 text-md text-green-700 bg-green-100 rounded-lg " role="alert">
+                <span class="font-medium">Berhasil!</span> {{ \Illuminate\Support\Facades\Session::get('success') }}
             </div>
         @endif
 
@@ -60,5 +60,4 @@
 @endsection
 
 @section('morejs')
-    <script></script>
 @endsection

@@ -118,6 +118,7 @@ class CustomizeController extends CustomController
         $data_budget_sector      = null;
         $data_financial_sector   = null;
         $data_asset_sector       = null;
+        $data_uptd_sector       = null;
         foreach ($sector as $d) {
             if ($d->type == 'secretarial') {
                 $data_secretarial_sector = $d;
@@ -125,8 +126,10 @@ class CustomizeController extends CustomController
                 $data_budget_sector = $d;
             } elseif ($d->type == 'financial') {
                 $data_financial_sector = $d;
-            } else {
+            } elseif ($d->type == 'asset') {
                 $data_asset_sector = $d;
+            } else {
+                $data_uptd_sector = $d;
             }
         }
 
@@ -136,6 +139,7 @@ class CustomizeController extends CustomController
                 'data_budget_sector'      => $data_budget_sector,
                 'data_financial_sector'   => $data_financial_sector,
                 'data_asset_sector'       => $data_asset_sector,
+                'data_uptd_sector'       => $data_uptd_sector,
             ]
         );
     }

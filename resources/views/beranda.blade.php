@@ -148,31 +148,29 @@
 
     </section>
 
-    <div class="video-section" style="background-image: url('{{ asset('assets/local/kota.png') }}');">
+
+    <section class="video-section2" style="background-image: url('{{ asset('assets/local/kota.png') }}');">
         <div class="video-overlay">
-            <div class="video-container">
-                <div class="video-text" data-aos="fade-right">
-                    <h2>Video Terbaru</h2>
-                    <p>
-                        BPKAD Kota Surakarta menghadirkan video terbaru yang membahas berbagai hal menarik seputar
-                        pengelolaan keuangan daerah, inovasi pelayanan, serta perkembangan terbaru dalam tata kelola
-                        pemerintahan yang transparan dan akuntabel
-                    </p>
-                </div>
 
-                <div class="video-embeds" data-aos="fade-left">
-                    <div class="video-frame">
-                        <iframe src="https://www.youtube.com/embed/TxcQoGkREi8?si=ebCEHn7a74a-ID1N"></iframe>
-                    </div>
-                    <div class="video-frame second">
-                        <iframe width="560" height="315"
-                            src="https://www.youtube-nocookie.com/embed/ZeKplTL-1Xw?si=nvOtho3Z7jfCz9Jn"> </iframe>
-                    </div>
-                </div>
-
+            <div class="video-header">
+                <h2>Video Terbaru</h2>
+                <p>BPKAD Kota Surakarta menghadirkan video terbaru yang membahas berbagai hal menarik seputar
+                    pengelolaan keuangan daerah, inovasi pelayanan, serta perkembangan terbaru dalam tata kelola
+                    pemerintahan yang transparan dan akuntabel</p>
             </div>
+
+            @if ($youtube && count($youtube) > 0)
+                <div class="video-embeds">
+                    @foreach ($youtube as $yt)
+                        <div class="video-frame">
+                            <iframe src="{{ $yt->url }}" allowfullscreen></iframe>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+
         </div>
-    </div>
+    </section>
 
 
 
@@ -202,6 +200,8 @@
 
 
     <div class="aspirasi-section">
+        <img src="{{ asset('assets/local/aduan.jpg') }}" alt="Aspirasi Image" class="bg-aspirasi">
+
         <div class="aspirasi-left" data-aos="fade-up">
             <img class="background" src="{{ asset('assets/local/bg-aspirasi.png') }}" alt="Aspirasi Image" />
             <div class="card">
@@ -216,9 +216,14 @@
                 <p>Sampaikan Laporan langsung kepada instansi pemerintah berwenang</p>
                 <a href="https://www.lapor.go.id/" target="_blank">SP4N LAPOR</a>
             </div>
+            <div class="card">
+                <img src="{{ asset('assets/local/laporwali.png') }}" class="w-logo" />
+                <h3>Lapor Mas Wali</h3>
+                <p>Aduan kini lebih mudah! Lapor langsung ke Mas Wali lewat WhatsAp</p>
+                <a href="https://wa.me/6281225067171" target="_blank">Lapor Mas Wali</a>
+            </div>
         </div>
         <div class="aspirasi-right" data-aos="fade-left">
-            <img src="{{ asset('assets/local/aspirasi_pic.png') }}" alt="Aspirasi Image">
         </div>
     </div>
 @endsection

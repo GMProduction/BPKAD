@@ -20,8 +20,8 @@
     <div class="page-content">
         <div class="background-overlay">
             <div class="overlay-text">
-                <a class="font-bold text-white  text-2xl sm:text-4xl mb-3 inline-block mr-3">PERBENDAHARAAN DAN AKUNTANSI
-                </a> <a class="font-bold text-4xl text-white inline-block ">BPKAD</a> <br>
+                <a class="font-bold text-white  text-2xl sm:text-4xl mb-3 inline-block mr-3">BIDANG
+                </a> <a class="font-bold text-4xl text-white inline-block ">PERBENDAHARAAN DAN AKUNTANSI</a> <br>
                 <a class="sm:font-bold text-white w-[70%] block mx-auto sm:text-md text-md font-light">Bidang Perbendaharaan
                     dan
                     Akuntansi dipimpin oleh seorang Kepala Bidang yang berkedudukan dibawah dan bertanggung jawab kepada
