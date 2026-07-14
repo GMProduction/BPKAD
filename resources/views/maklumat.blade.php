@@ -48,8 +48,7 @@
             fetch('{{ route('maklumat.json') }}')
                 .then((response) => response.json())
                 .then((data) => {
-                    // let href = "https://bpkad.surakarta.go.id" + data.url;
-                    let href = "http://127.0.0.1:8000" + data.url;
+                    let href = window.location.origin + data.url;
                     href = href.replace('/dataimage', data?.structure)
                     document.getElementById('aImage').setAttribute('href', href)
                     document.getElementById('srcImg').setAttribute('src', href)
