@@ -47,6 +47,22 @@ class AduanController extends CustomController
     public function changeAttachment()
     {
         try {
+            $validator = Validator::make($this->request->all(), [
+                'file' => 'required|max:2000',
+            ], [
+                'file.required' => 'File harus di isi',
+                'file.max'      => 'Ukuran maksimal file 2Mb',
+            ]);
+
+            if ($validator->fails()) {
+                if ($this->request->ajax() || $this->request->wantsJson()) {
+                    return response()->json([
+                        'errors' => $validator->errors(),
+                    ], 422);
+                }
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+
             $id = $this->postField('id');
             $quarterName = $this->postField('name');
 
@@ -68,10 +84,26 @@ class AduanController extends CustomController
                     $complaint->update($data_request);
                 }
             } else {
+                if ($this->request->ajax() || $this->request->wantsJson()) {
+                    return response()->json([
+                        'message' => 'Data tidak ditemukan...',
+                    ], 404);
+                }
                 return redirect()->back()->with('failed', 'Data tidak ditemukan...');
+            }
+
+            if ($this->request->ajax() || $this->request->wantsJson()) {
+                return response()->json([
+                    'message' => 'Berhasil menyimpan data...',
+                ], 200);
             }
             return redirect()->back()->with('success', 'Berhasil menyimpan data...');
         } catch (\Exception $e) {
+            if ($this->request->ajax() || $this->request->wantsJson()) {
+                return response()->json([
+                    'message' => 'internal server error: ' . $e->getMessage(),
+                ], 500);
+            }
             return redirect()->back()->with('failed', 'internal server error...');
         }
     }

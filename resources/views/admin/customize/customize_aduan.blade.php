@@ -363,8 +363,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form id="formFile" method="POST" enctype="multipart/form-data"
-                    action="{{ route('customize.aduan.change.attachment') }}">
+                <form id="formFile" method="POST" enctype="multipart/form-data" onsubmit="return saveDataFile()">
                     @csrf
                     <input type="hidden" id="quarter-id" name="id">
                     <input type="hidden" id="quarter-name" name="name">
@@ -692,6 +691,94 @@
                 let error_message = JSON.parse(e.responseText);
                 Swal.fire('Error', error_message.message, 'error');
             }
+        }
+
+        function saveDataFile() {
+            saveDataForm('File Aduan', 'formFile', '{{ route('customize.aduan.change.attachment') }}', () => {
+                modalFileBS.hide();
+                window.location.reload();
+            });
+            return false;
+        }
+
+        async function saveDataForm(title, form, url, responseSuccess, imageInputId = null) {
+            const formData = new FormData(document.getElementById(form));
+
+            const result = await Swal.fire({
+                title: title,
+                text: 'Apa kamu yakin?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, simpan',
+                cancelButtonText: 'Batal'
+            });
+
+            if (!result.isConfirmed) return;
+
+            $.ajax({
+                type: 'POST',
+                url: url || window.location.pathname,
+                data: formData,
+                processData: false,
+                contentType: false,
+                headers: {
+                    Accept: 'application/json'
+                },
+
+                xhr() {
+                    $('#progressbar').remove();
+                    $('#' + form).append(
+                        `<div id="progressbar" class="w-full bg-gray-200 rounded-full mt-2">
+                           <div class="bg-blue-600 text-xs text-center p-0.5 leading-none rounded-full text-white"></div>
+                         </div>`
+                    );
+                    const xhr = new window.XMLHttpRequest();
+                    xhr.upload.addEventListener('progress', (evt) => {
+                        if (evt.lengthComputable) {
+                            const pc = (evt.loaded / evt.total) * 100;
+                            $('#progressbar div').css('width', pc + '%').html(Math.floor(pc) + '%');
+                        }
+                    });
+                    return xhr;
+                },
+
+                success(data, _status, xhr) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil',
+                        showConfirmButton: false,
+                        timer: 1000
+                    }).then(() => {
+                        if (typeof responseSuccess === 'function') {
+                            responseSuccess(data);
+                        } else {
+                            window.location.reload();
+                        }
+                    });
+                },
+
+                error(xhr) {
+                    let msg = 'Terjadi kesalahan';
+                    if (xhr.responseJSON) {
+                        const r = xhr.responseJSON;
+                        if (r.errors) {
+                            const first = Object.keys(r.errors)[0];
+                            msg = r.errors[first][0];
+                        } else if (r.message) {
+                            msg = r.message;
+                        } else if (r.msg) {
+                            msg = r.msg;
+                        }
+                    }
+                    Swal.fire('Gagal', msg, 'error');
+                },
+
+                complete() {
+                    $('#progressbar').remove();
+                }
+            });
+
+            return false;
         }
     </script>
 @endsection
