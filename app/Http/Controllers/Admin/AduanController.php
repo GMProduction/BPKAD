@@ -44,7 +44,7 @@ class AduanController extends CustomController
         }
     }
 
-    public function changeFile()
+    public function changeAttachment()
     {
         try {
             $id = $this->postField('id');
@@ -76,7 +76,7 @@ class AduanController extends CustomController
         }
     }
 
-    public function dropFile($id, $quarter)
+    public function dropAttachment($id, $quarter)
     {
         try {
             $complaint = Complaint::with([])

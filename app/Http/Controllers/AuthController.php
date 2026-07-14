@@ -7,6 +7,8 @@ namespace App\Http\Controllers;
 use App\Helper\CustomController;
 use Illuminate\Support\Facades\Auth;
 
+use function Laravel\Prompts\alert;
+
 class AuthController extends CustomController
 {
 
@@ -25,9 +27,10 @@ class AuthController extends CustomController
             ];
 
             if ($this->isAuth($credentials)) {
+                alert("login berhasil");
                 return redirect('/admin');
             }
-            return redirect()->back()->with('failed', 'Periksa Kembali Username dan Password Anda');
+            return redirect('/auth')->with('failed', 'Periksa Kembali Username dan Password Anda');
         }
         return view('auth.login');
     }

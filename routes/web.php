@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\LandingPage\HomeController;
 use App\Http\Controllers\LandingPage\VisitController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 Route::get('/track-visit', [VisitController::class, 'store']);
+Route::get('/clear-cache', function () {
+    Artisan::call('optimize:clear');
+    return "✅ Cache Laravel berhasil dibersihkan";
+});
 
+// Simpan nilai ke session
+Route::get('/set-session', function () {
+    Session::put('coba', '✅ Session berhasil disimpan');
+    return "Session diset!";
+});
+
+Route::get('/cek-session', function () {
+    return "Isi session: " . Session::get('coba', '❌ Session kosong');
+});
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', function () {
         return redirect('/admin/kustomisasi-slider');
@@ -90,8 +105,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 
     Route::group(['prefix' => 'kustomisasi-aduan'], function () {
         Route::match(['POST', 'GET'], '/', [\App\Http\Controllers\Admin\AduanController::class, 'index'])->name('customize.aduan');
-        Route::post('/change-file', [\App\Http\Controllers\Admin\AduanController::class, 'changeFile'])->name('customize.aduan.change.file');
-        Route::post('/{id}/drop-file/{quarter}', [\App\Http\Controllers\Admin\AduanController::class, 'dropFile'])->name('customize.aduan.drop.file');
+        Route::post('/change-attachment', [\App\Http\Controllers\Admin\AduanController::class, 'changeAttachment'])->name('customize.aduan.change.attachment');
+        Route::post('/{id}/drop-attachment/{quarter}', [\App\Http\Controllers\Admin\AduanController::class, 'dropAttachment'])->name('customize.aduan.drop.attachment');
         Route::post('/{id}/drop-year', [\App\Http\Controllers\Admin\AduanController::class, 'dropYear'])->name('customize.aduan.drop.year');
         Route::post('/chart', [\App\Http\Controllers\Admin\AduanController::class, 'chart'])->name('customize.aduan.chart');
         Route::post('/chart/{id}/change/{field}', [\App\Http\Controllers\Admin\AduanController::class, 'changeChart'])->name('customize.aduan.chart.change');

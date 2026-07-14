@@ -364,7 +364,7 @@
                 </div>
 
                 <form id="formFile" method="POST" enctype="multipart/form-data"
-                    action="{{ route('customize.aduan.change.file') }}">
+                    action="{{ route('customize.aduan.change.attachment') }}">
                     @csrf
                     <input type="hidden" id="quarter-id" name="id">
                     <input type="hidden" id="quarter-name" name="name">
@@ -622,7 +622,7 @@
         }
         async function deleteFileHandler(id, quarter) {
             try {
-                let url = path + '/' + id + '/drop-file/' + quarter;
+                let url = path + '/' + id + '/drop-attachment/' + quarter;
                 await $.post(url);
                 Swal.fire({
                     title: 'Success',
