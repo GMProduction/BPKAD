@@ -38,9 +38,9 @@ class AduanController extends CustomController
                 'year' => $this->postField('year')
             ];
             Complaint::create($data_request);
-            return redirect()->back()->with('success', 'Berhasil menyimpan data...');
+            return redirect()->route('customize.aduan')->with('success', 'Berhasil menyimpan data...');
         } catch (\Exception $e) {
-            return redirect()->back()->with('failed', 'internal server error...');
+            return redirect()->route('customize.aduan')->with('failed', 'internal server error...');
         }
     }
 
@@ -60,7 +60,7 @@ class AduanController extends CustomController
                         'errors' => $validator->errors(),
                     ], 422);
                 }
-                return redirect()->back()->withErrors($validator)->withInput();
+                return redirect()->route('customize.aduan')->withErrors($validator)->withInput();
             }
 
             $id = $this->postField('id');
@@ -89,7 +89,7 @@ class AduanController extends CustomController
                         'message' => 'Data tidak ditemukan...',
                     ], 404);
                 }
-                return redirect()->back()->with('failed', 'Data tidak ditemukan...');
+                return redirect()->route('customize.aduan')->with('failed', 'Data tidak ditemukan...');
             }
 
             if ($this->request->ajax() || $this->request->wantsJson()) {
@@ -97,14 +97,14 @@ class AduanController extends CustomController
                     'message' => 'Berhasil menyimpan data...',
                 ], 200);
             }
-            return redirect()->back()->with('success', 'Berhasil menyimpan data...');
+            return redirect()->route('customize.aduan')->with('success', 'Berhasil menyimpan data...');
         } catch (\Exception $e) {
             if ($this->request->ajax() || $this->request->wantsJson()) {
                 return response()->json([
                     'message' => 'internal server error: ' . $e->getMessage(),
                 ], 500);
             }
-            return redirect()->back()->with('failed', 'internal server error...');
+            return redirect()->route('customize.aduan')->with('failed', 'internal server error...');
         }
     }
 
@@ -163,9 +163,9 @@ class AduanController extends CustomController
                 'year' => $this->postField('year'),
             ];
             ComplaintCalculation::create($data_request);
-            return redirect()->back()->with('success', 'Berhasil menyimpan data...');
+            return redirect()->route('customize.aduan')->with('success', 'Berhasil menyimpan data...');
         } catch (\Exception $e) {
-            return redirect()->back()->with('failed', 'internal server error...');
+            return redirect()->route('customize.aduan')->with('failed', 'internal server error...');
         }
     }
 

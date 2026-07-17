@@ -82,7 +82,7 @@ class YoutubeVideoController extends CustomController
                 $message = 'menambah';
             }
 
-            return redirect()->back()->with('success', "berhasil $message data...");
+            return redirect()->route('customize.youtube')->with('success', "berhasil $message data...");
         }
     }
 

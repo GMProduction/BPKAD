@@ -152,18 +152,40 @@
             $('#isiartikel').summernote({
                 placeholder: '',
                 tabsize: 2,
-                height: 120,
-                maximumImageFileSize: 1048576,
-                // toolbar: [
-                //     ['style', ['style']],
-                //     ['font', ['bold', 'underline', 'clear']],
-                //     ['color', ['color']],
-                //     ['para', ['ul', 'ol', 'paragraph']],
-                //     ['table', ['table']],
-                //     ['insert', ['link', 'picture', 'video']],
-                //     ['view', ['fullscreen', 'codeview', 'help']]
-                // ],
+                height: 300,
+                callbacks: {
+                    onImageUpload: function(files) {
+                        // Upload gambar ke server, bukan base64 embed
+                        for (let i = 0; i < files.length; i++) {
+                            uploadImageToServer(files[i], this);
+                        }
+                    }
+                }
             });
+
+            function uploadImageToServer(file, editor) {
+                let formData = new FormData();
+                formData.append('file', file);
+                formData.append('_token', '{{ csrf_token() }}');
+
+                $.ajax({
+                    url: '{{ route("admin.article.upload.image") }}',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        if (response.url) {
+                            $(editor).summernote('insertImage', response.url);
+                        } else {
+                            alert('Gagal upload gambar: ' + (response.error || 'Unknown error'));
+                        }
+                    },
+                    error: function(xhr) {
+                        alert('Gagal upload gambar. Pastikan ukuran file tidak melebihi 5MB.');
+                    }
+                });
+            }
 
 
 

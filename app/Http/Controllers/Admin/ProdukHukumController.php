@@ -95,10 +95,10 @@ class ProdukHukumController extends CustomController
                 ];
                 MayorLawProduct::create($data);
             }
-            return redirect()->back()->with('success', 'Berhasil menambahkan data...');
+            return redirect()->route('customize.produkhukum')->with('success', 'Berhasil menambahkan data...');
         }catch (\Exception $e) {
             dd($e->getMessage());
-            return redirect()->back()->with('failed', 'terjadi kesalahan server...');
+            return redirect()->route('customize.produkhukum')->with('failed', 'terjadi kesalahan server...');
         }
     }
 }

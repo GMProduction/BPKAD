@@ -100,9 +100,9 @@ class CustomizeServiceController extends CustomController
                 $service->create($field);
             }
 
-            return redirect()->back()->with('success', 'berhasil merubah data...')->with('type', $type);
+            return redirect()->route('customize.layanan')->with('success', 'berhasil merubah data...')->with('type', $type);
         } catch (\Exception $e) {
-            return redirect()->back()->with('failed', 'gagal merubah data...' . $e->getMessage())->with('type', $type);
+            return redirect()->route('customize.layanan')->with('failed', 'gagal merubah data...' . $e->getMessage())->with('type', $type);
         }
     }
 

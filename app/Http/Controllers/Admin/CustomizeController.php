@@ -41,11 +41,11 @@ class CustomizeController extends CustomController
                 }
                 DB::commit();
 
-                return redirect()->back()->with('success', 'berhasil merubah data...');
+                return redirect()->route('customize.home')->with('success', 'berhasil merubah data...');
             } catch (\Exception $e) {
                 DB::rollBack();
 
-                return redirect()->back()->with('failed', "gagal merubah data...");
+                return redirect()->route('customize.home')->with('failed', "gagal merubah data...");
             }
         }
 
@@ -77,9 +77,9 @@ class CustomizeController extends CustomController
                 }
                 DB::commit();
 
-                return redirect()->back()->with('success', 'berhasil merubah data...');
+                return redirect()->route('customize.profile')->with('success', 'berhasil merubah data...');
             } catch (\Exception $e) {
-                return redirect()->back()->with('failed', $e->getMessage());
+                return redirect()->route('customize.profile')->with('failed', $e->getMessage());
             }
         }
 
@@ -106,11 +106,11 @@ class CustomizeController extends CustomController
 
                 DB::commit();
 
-                return redirect()->back()->with('success', 'berhasil merubah data...');
+                return redirect()->route('customize.bidang')->with('success', 'berhasil merubah data...');
             } catch (\Exception $e) {
                 DB::rollBack();
 
-                return redirect()->back()->with('failed', 'gagal merubah data...');
+                return redirect()->route('customize.bidang')->with('failed', 'gagal merubah data...');
             }
         }
         $sector                  = Sector::all();

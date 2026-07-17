@@ -72,7 +72,7 @@ class OnlineApplicationController extends CustomController
             $message = 'menambah';
         }
 
-        return redirect()->back()->with('success', "berhasil $message data...");
+        return redirect()->route('customize.aplikasi.online')->with('success', "berhasil $message data...");
     }
 
     public function destroy(OnlineApplication $apps)

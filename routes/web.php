@@ -100,6 +100,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::get('datatable', [\App\Http\Controllers\Admin\ArticleController::class, 'datatable'])->name('admin.article.datatable');
         Route::get('', [\App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('admin.article');
         Route::match(['POST', 'GET'], 'artikel-form', [\App\Http\Controllers\Admin\ArticleController::class, 'detail'])->name('admin.article.form');
+        Route::post('upload-image', [\App\Http\Controllers\Admin\ArticleController::class, 'uploadEditorImage'])->name('admin.article.upload.image');
         Route::post('destroy/{article}', [\App\Http\Controllers\Admin\ArticleController::class, 'destroy'])->name('admin.article.destroy');
     });
 

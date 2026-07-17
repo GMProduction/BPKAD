@@ -140,7 +140,7 @@ class InformationController extends CustomController
                     'link.url' => 'kolom link harus berupa url website sertakan http:// atau https://'
                 ]);
                 if ($validator->fails()) {
-                    return redirect()->back()->withErrors($validator->errors());
+                    return redirect()->route('admin.information.index')->withErrors($validator->errors());
                 }
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('link');
@@ -162,9 +162,9 @@ class InformationController extends CustomController
                 }
             }
             PublicAgencyInformation::create($data_request);
-            return redirect()->back()->with('success', 'Berhasil Menambahkan Data...');
+            return redirect()->route('admin.information.index')->with('success', 'Berhasil Menambahkan Data...');
         } catch (\Exception $e) {
-            return redirect()->back()->with('failed', 'Terjadi kesalahan server... ' . $e->getMessage());
+            return redirect()->route('admin.information.index')->with('failed', 'Terjadi kesalahan server... ' . $e->getMessage());
         }
     }
 
@@ -182,7 +182,7 @@ class InformationController extends CustomController
                     'link.url' => 'kolom link harus berupa url website sertakan http:// atau https://'
                 ]);
                 if ($validator->fails()) {
-                    return redirect()->back()->withErrors($validator->errors());
+                    return redirect()->route('admin.information.index')->withErrors($validator->errors());
                 }
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('link');
@@ -204,9 +204,9 @@ class InformationController extends CustomController
                 }
             }
             InformationDetail::create($data_request);
-            return redirect()->back()->with('success', 'Berhasil Menambahkan Data...');
+            return redirect()->route('admin.information.index')->with('success', 'Berhasil Menambahkan Data...');
         } catch (\Exception $e) {
-            return redirect()->back()->with('failed', 'Terjadi kesalahan server...3');
+            return redirect()->route('admin.information.index')->with('failed', 'Terjadi kesalahan server...3');
         }
     }
 
@@ -224,7 +224,7 @@ class InformationController extends CustomController
                     'e-link-edit.url' => 'kolom link harus berupa url website sertakan http:// atau https://'
                 ]);
                 if ($validator->fails()) {
-                    return redirect()->back()->withErrors($validator->errors());
+                    return redirect()->route('admin.information.index')->withErrors($validator->errors());
                 }
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('e-link-edit');
@@ -247,9 +247,9 @@ class InformationController extends CustomController
                 }
             }
             $data->update($data_request);
-            return redirect()->back()->with('success', 'Berhasil merubah data...');
+            return redirect()->route('admin.information.index')->with('success', 'Berhasil merubah data...');
         } catch (\Exception $e) {
-            return redirect()->back()->with('failed', 'Terjadi kesalahan server...');
+            return redirect()->route('admin.information.index')->with('failed', 'Terjadi kesalahan server...');
         }
     }
 
@@ -268,7 +268,7 @@ class InformationController extends CustomController
                     'e-link-edit.url' => 'kolom link harus berupa url website sertakan http:// atau https://'
                 ]);
                 if ($validator->fails()) {
-                    return redirect()->back()->withErrors($validator->errors());
+                    return redirect()->route('admin.information.index')->withErrors($validator->errors());
                 }
                 $data_request['type'] = 0;
                 $data_request['target'] = $this->postField('e-link-edit');
@@ -290,9 +290,9 @@ class InformationController extends CustomController
                 }
             }
             $data->update($data_request);
-            return redirect()->back()->with('success', 'Berhasil merubah data...');
+            return redirect()->route('admin.information.index')->with('success', 'Berhasil merubah data...');
         } catch (\Exception $e) {
-            return redirect()->back()->with('failed', 'Terjadi kesalahan server...');
+            return redirect()->route('admin.information.index')->with('failed', 'Terjadi kesalahan server...');
         }
     }
 

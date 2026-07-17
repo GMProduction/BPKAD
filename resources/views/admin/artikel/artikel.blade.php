@@ -112,7 +112,7 @@
                         name: 'date',
                         orderable: true,
                         render: function(data) {
-                            return moment(data).format('d MMMM YYYY')
+                            return moment(data).format('D MMMM YYYY')
                         }
                     },
                     {

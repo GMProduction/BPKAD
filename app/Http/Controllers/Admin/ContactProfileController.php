@@ -60,12 +60,11 @@ class ContactProfileController extends Controller
                 \App\Models\ContactProfile::create($validatedData);
             }
             Log::error('Gagal update contact profile: ');
-            return redirect()->back()->with('success', 'Berhasil merubah data...');
+            return redirect()->route('customize.contact.profile')->with('success', 'Berhasil merubah data...');
         } catch (Exception $e) {
-            // Log error untuk debugging di storage/logs/laravel.log
             Log::error('Gagal update contact profile: ' . $e->getMessage());
 
-            return redirect()->back()
+            return redirect()->route('customize.contact.profile')
                 ->withErrors(['message' => 'Terjadi kesalahan saat menyimpan data.'])
                 ->withInput();
         }

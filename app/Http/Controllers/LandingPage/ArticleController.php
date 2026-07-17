@@ -86,7 +86,7 @@ class ArticleController extends Controller
 
     public function articles()
     {
-        return Article::orderBy('created_at', 'desc')
+        return Article::orderBy('date', 'desc')
             ->skip(1)
             ->take(6)
             ->get();
@@ -95,7 +95,7 @@ class ArticleController extends Controller
     public function loadMoreArticles(Request $request)
     {
         $offset = $request->input('offset', 1); // default 1 karena 1 artikel pertama sudah ditampilkan
-        return Article::orderBy('created_at', 'desc')
+        return Article::orderBy('date', 'desc')
             ->skip($offset)
             ->take(6)
             ->get();
@@ -110,7 +110,7 @@ class ArticleController extends Controller
 
     public function firstarticle()
     {
-        return Article::orderBy('created_at', 'desc')
+        return Article::orderBy('date', 'desc')
             ->first();
     }
 

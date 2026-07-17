@@ -107,7 +107,27 @@ class ArticleController extends CustomController
             $message = 'menambah';
         }
 
-        return redirect()->back()->with('success', "berhasil $message data...");
+        return redirect()->route('admin.article')->with('success', "berhasil $message data...");
+    }
+
+    public function uploadEditorImage()
+    {
+        try {
+            if (!request()->hasFile('file')) {
+                return response()->json(['error' => 'No file uploaded'], 400);
+            }
+
+            request()->validate(['file' => 'required|image|max:5120']);
+
+            $uuid_name = $this->generateImageName('file');
+            $this->uploadImage('file', $uuid_name, 'articleImage');
+
+            $url = asset('/assets/article/' . $uuid_name);
+
+            return response()->json(['url' => $url]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
     public function destroy(Article $article)
