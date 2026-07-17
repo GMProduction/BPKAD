@@ -28,7 +28,7 @@
                         </button>
                     </div>
                     <h1 class="article-title">{{ $article->title }}</h1>
-                    <p class="article-date">{{ date_format($article->created_at, 'd F Y') }}</p>
+                    <p class="article-date">{{ date_format(date_create($article->date), 'd F Y') }}</p>
 
                     <div class="article-cover">
                         <img src="{{ asset($article->cover ?? '/assets/local/logosurakarta.png') }}"
